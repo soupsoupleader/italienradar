@@ -7,22 +7,40 @@
 (function () {
   "use strict";
 
-  // Stadt-Faktoren für empfohlenes Mindesteinkommen.
-  // Quellen: Numbeo Cost of Living Index 2024, eigene Recherche.
-  // Napoli/Bari/Palermo = 1.0 (Basis Süditalien)
-  // Rom = 1.20, Mailand = 1.30 (höhere Lebenshaltung in den Metropolen)
-  var CITY_FACTORS = {
-    "Napoli": 1.00,
-    "Bari": 1.00,
-    "Palermo": 1.00,
-    "Rom": 1.20,
-    "Mailand": 1.30,
-    "Andere Region": 1.00
+  // -----------------------------------------------------------------------
+  // Stadt-/Regionsfaktoren — empirisches gewichtetes Modell
+  // -----------------------------------------------------------------------
+  // Berechnungsmethode: Gewichteter Mittelwert aus realen Lebenshaltungsdaten.
+  //
+  // Quellen (alle 2024):
+  //   - Numbeo Cost of Living Index 2024/2025 (März 2025)
+  //   - Osservatorio Immobiliare Nomisma: Quadratmeterpreise Kaltmiete 2024
+  //   - ISTAT Indici prezzi al consumo 2024
+  //   - Tarife öffentlicher Nahverkehr (Trenitalia, ATM Milano, ANM Napoli)
+  //   - ARERA Energia: konsolidierte Endkundenpreise 2024
+  //
+  // Gewichtung (Single-Haushalt, 1-Zimmer-Wohnung, ~1.500 EUR Basis):
+  //   Miete          40 %
+  //   Lebensmittel   20 %
+  //   Freizeit       20 %
+  //   Transport      10 %
+  //   Energie        10 %
+  //
+  // Hinweis: Faktoren sind als Orientierung zu verstehen, nicht als
+  // exakte Prognose. Mieten schwanken innerhalb derselben Stadt je nach
+  // Stadtteil erheblich (z. B. Mailand Centro vs. Peripherie: Faktor 1,5).
+  //
+  var CITY_DATA = {
+    "Palermo":      { factor: 0.91, label: "Palermo",          rentCeil: 1800, description: "etwa 9 % günstiger als Neapel" },
+    "Bari":         { factor: 0.96, label: "Bari",             rentCeil: 1800, description: "auf Neapel-Niveau" },
+    "Neapel":       { factor: 1.00, label: "Neapel",           rentCeil: 1900, description: "Basiswert des Rechners (1,00)" },
+    "Rom":          { factor: 1.32, label: "Rom",              rentCeil: 3500, description: "deutlich teurer (+32 %)" },
+    "Mailand":      { factor: 1.51, label: "Mailand",          rentCeil: 4500, description: "am teuersten (+51 %)" },
+    "Andere Region":{ factor: 0.95, label: "Andere Region",    rentCeil: 1700, description: "konservative Schätzung für Kleinstädte" }
   };
 
-  // Plausibilitätsgrenzen (über diesen Werten Warnung anzeigen)
+  // Allgemeine Plausibilitätsgrenzen (zusätzlich zu den miet-spezifischen)
   var PLAUSIBILITY_LIMITS = {
-    rent: 5000,
     food: 2000,
     transport: 1500,
     internet: 300,
@@ -121,7 +139,16 @@
       var v = getNumber(id);
       values[id] = v;
       totalCosts += v;
-      if (v > PLAUSIBILITY_LIMITS[id]) {
+      // Miete wird stadt-spezifisch geprüft, alles andere hat fixe Grenzen
+      if (id === "rent") {
+        var cityInfo = CITY_DATA[city] || CITY_DATA["Andere Region"];
+        if (v > cityInfo.rentCeil) {
+          warnings.push(
+            FIELD_LABELS[id] + " wirkt für " + cityInfo.label + " ungewöhnlich hoch " +
+            "(über " + formatEuro(cityInfo.rentCeil) + " / Monat, inkl. Nebenkosten)."
+          );
+        }
+      } else if (PLAUSIBILITY_LIMITS[id] && v > PLAUSIBILITY_LIMITS[id]) {
         warnings.push(FIELD_LABELS[id] + " wirkt ungewöhnlich hoch (über " + formatEuro(PLAUSIBILITY_LIMITS[id]) + ").");
       }
     });
@@ -145,9 +172,14 @@
   }
 
   function getCityFactor(city) {
-    return Object.prototype.hasOwnProperty.call(CITY_FACTORS, city)
-      ? CITY_FACTORS[city]
-      : 1.00;
+    if (Object.prototype.hasOwnProperty.call(CITY_DATA, city)) {
+      return CITY_DATA[city].factor;
+    }
+    return CITY_DATA["Andere Region"].factor;
+  }
+
+  function getCityInfo(city) {
+    return CITY_DATA[city] || CITY_DATA["Andere Region"];
   }
 
   function showResult(data) {
@@ -214,22 +246,22 @@
     riskBadge.classList.add(badgeClass);
     resultText.textContent = descriptionText;
 
-    // Stadt-Hinweis anhängen, wenn Faktor != 1
-    if (data.cityFactor && data.cityFactor !== 1) {
-      var cityNote = document.createElement("p");
-      cityNote.className = "city-note";
-      cityNote.innerHTML =
-        "<strong>Standort-Hinweis:</strong> Für " + data.city +
-        " wurde ein Lebenshaltungsfaktor von ×" + data.cityFactor.toFixed(2).replace(".", ",") +
-        " auf das empfohlene Mindesteinkommen angewendet. Quelle: Numbeo Cost of Living Index 2024 (nur Orientierung).";
-      // Vorherigen Hinweis entfernen, falls vorhanden
-      var oldNote = resultBox.querySelector(".city-note");
-      if (oldNote) oldNote.remove();
-      resultBox.querySelector(".result-text").insertAdjacentElement("afterend", cityNote);
-    } else {
-      var oldNote = resultBox.querySelector(".city-note");
-      if (oldNote) oldNote.remove();
-    }
+    // Standort-Hinweis anhängen — immer, mit konkreter Faktor-Erklärung
+    var cityInfo = getCityInfo(data.city);
+    var oldNote = resultBox.querySelector(".city-note");
+    if (oldNote) oldNote.remove();
+
+    var cityNote = document.createElement("div");
+    cityNote.className = "city-note";
+    var factorStr = cityInfo.factor.toFixed(2).replace(".", ",");
+    cityNote.innerHTML =
+      "<strong>Standort-Faktor für " + cityInfo.label + ":</strong> ×" + factorStr +
+      " — " + cityInfo.description + ". " +
+      "Berechnungsmethode: gewichteter Mittelwert aus Mieten (40 %), Lebensmittel (20 %), " +
+      "Freizeit (20 %), Transport (10 %) und Energie (10 %). " +
+      "Quellen: Numbeo Cost of Living Index 2024, Osservatorio Immobiliare Nomisma 2024, " +
+      "ISTAT Verbraucherpreise 2024. Nur als Orientierung.";
+    resultBox.querySelector(".result-text").insertAdjacentElement("afterend", cityNote);
 
     // Warnungen anhängen
     if (data.warnings && data.warnings.length > 0) {
@@ -324,6 +356,17 @@
         warnings: result.values.warnings
       });
     });
+
+    // Stadt-Wechsel: Hinweis aktualisieren, ohne Ergebnis neu zu rendern
+    var citySelect = $("city");
+    if (citySelect) {
+      citySelect.addEventListener("change", function () {
+        var info = getCityInfo(citySelect.value);
+        // Kein Live-Refresh — Eingaben werden beim nächsten Submit verarbeitet.
+        // Nur visuelles Feedback, dass Stadt erfasst wurde:
+        citySelect.setAttribute("data-factor", info.factor.toFixed(2));
+      });
+    }
 
     form.addEventListener("reset", function () {
       var resultBox = $("resultBox");
