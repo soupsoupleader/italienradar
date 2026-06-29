@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Validate that all required form fields exist
   const requiredFields = ["city", "income", "rent", "food", "transport", "internet", "health", "leisure", "other", "buffer"];
   const allFieldsExist = requiredFields.every(id => document.getElementById(id));
   
@@ -30,29 +29,36 @@ document.addEventListener("DOMContentLoaded", function () {
     const other = getNumber("other");
     const buffer = getNumber("buffer");
 
-    // Validation: check if income is provided
-      // Validation: check if income is provided
-      const incomeInput = document.getElementById("income");
-      const incomeError = document.getElementById("incomeError");
-      const formError = document.getElementById("formError");
+    const incomeInput = document.getElementById("income");
+    const incomeError = document.getElementById("incomeError");
+    const formError = document.getElementById("formError");
 
-      if (income === 0) {
-        if (incomeError) {
-          incomeError.textContent = "Bitte geben Sie Ihr monatliches Einkommen ein.";
-          incomeError.style.display = "block";
-          incomeInput.focus();
-        } else {
-          alert("Bitte geben Sie Ihr monatliches Einkommen ein.");
-          incomeInput.focus();
-        }
-        return;
+    const cityFactors = {
+      Napoli: 1,
+      Bari: 1,
+      Palermo: 1,
+      Rom: 1.25,
+      Mailand: 1.35,
+      "Andere Region": 1
+    };
+    const cityFactor = cityFactors[city] || 1;
+
+    if (income === 0) {
+      if (incomeError) {
+        incomeError.textContent = "Bitte geben Sie Ihr monatliches Einkommen ein.";
+        incomeError.style.display = "block";
+        incomeInput.focus();
+      } else {
+        alert("Bitte geben Sie Ihr monatliches Einkommen ein.");
+        incomeInput.focus();
       }
+      return;
+    }
 
     const totalCosts = rent + food + transport + internet + health + leisure + other + buffer;
     const balance = income - totalCosts;
-    const minimumIncome = Math.ceil(totalCosts * 1.2);
+    const minimumIncome = Math.ceil(totalCosts * 1.2 * cityFactor);
 
-    // Plausibility check: require at least some costs to be entered
     if (totalCosts === 0) {
       if (formError) {
         formError.textContent = "Bitte tragen Sie mindestens Ihre Miete oder andere laufende Kosten ein.";
@@ -63,8 +69,27 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
+    const extremeWarnings = [];
+    if (rent > 5000) extremeWarnings.push("Miete ist ungewöhnlich hoch.");
+    if (food > 2000) extremeWarnings.push("Essen & Lebensmittel sind ungewöhnlich hoch.");
+    if (transport > 1500) extremeWarnings.push("Transportkosten sind ungewöhnlich hoch.");
+    if (internet > 300) extremeWarnings.push("Handy & Internet sind ungewöhnlich hoch.");
+    if (health > 2000) extremeWarnings.push("Gesundheitskosten sind ungewöhnlich hoch.");
+    if (leisure > 1500) extremeWarnings.push("Freizeitkosten sind ungewöhnlich hoch.");
+    if (other > 2000) extremeWarnings.push("Sonstige Kosten sind ungewöhnlich hoch.");
+
+    if (extremeWarnings.length) {
+      if (formError) {
+        formError.textContent = "Achtung: " + extremeWarnings[0] + " Bitte prüfen Sie Ihre Angaben.";
+        formError.style.display = "block";
+      } else {
+        alert("Achtung: " + extremeWarnings[0] + " Bitte prüfen Sie Ihre Angaben.");
+      }
+    }
+
     showResult({
       city,
+      cityFactor,
       income,
       totalCosts,
       balance,
@@ -149,7 +174,8 @@ function showResult(data) {
     block: "start"
   });
 
-  // Clear inline errors on successful result
+  const incomeError = document.getElementById("incomeError");
+  const formError = document.getElementById("formError");
   if (incomeError) { incomeError.style.display = "none"; incomeError.textContent = ""; }
   if (formError) { formError.style.display = "none"; formError.textContent = ""; }
 }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://soupsoupleader.github.io/italienradar/sitemap.xml
