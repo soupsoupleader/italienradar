@@ -1,0 +1,123 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("costForm");
+
+  if (!form) {
+    console.warn("Cost form not found on this page");
+    return;
+  }
+
+  // Validate that all required form fields exist
+  const requiredFields = ["city", "income", "rent", "food", "transport", "internet", "health", "leisure", "other", "buffer"];
+  const allFieldsExist = requiredFields.every(id => document.getElementById(id));
+  
+  if (!allFieldsExist) {
+    console.error("Some required form fields are missing");
+    return;
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const city = document.getElementById("city").value;
+
+    const income = getNumber("income");
+    const rent = getNumber("rent");
+    const food = getNumber("food");
+    const transport = getNumber("transport");
+    const internet = getNumber("internet");
+    const health = getNumber("health");
+    const leisure = getNumber("leisure");
+    const other = getNumber("other");
+    const buffer = getNumber("buffer");
+
+    // Validation: check if income is provided
+    if (income === 0) {
+      alert("Bitte geben Sie Ihr monatliches Einkommen ein.");
+      return;
+    }
+
+    const totalCosts = rent + food + transport + internet + health + leisure + other + buffer;
+    const balance = income - totalCosts;
+    const minimumIncome = Math.ceil(totalCosts * 1.2);
+
+    showResult({
+      city,
+      income,
+      totalCosts,
+      balance,
+      minimumIncome
+    });
+  });
+
+  form.addEventListener("reset", function () {
+    const resultBox = document.getElementById("resultBox");
+    if (resultBox) {
+      resultBox.classList.add("hidden");
+    }
+  });
+});
+
+function getNumber(id) {
+  const value = document.getElementById(id).value;
+  return Number(value) || 0;
+}
+
+function formatEuro(value) {
+  return new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "EUR",
+    maximumFractionDigits: 0
+  }).format(value);
+}
+
+function showResult(data) {
+  const resultBox = document.getElementById("resultBox");
+  const resultTitle = document.getElementById("resultTitle");
+  const totalCosts = document.getElementById("totalCosts");
+  const incomeResult = document.getElementById("incomeResult");
+  const balanceResult = document.getElementById("balanceResult");
+  const minimumIncome = document.getElementById("minimumIncome");
+  const riskBadge = document.getElementById("riskBadge");
+  const resultText = document.getElementById("resultText");
+
+  // Validate all result elements exist
+  if (!resultBox || !resultTitle || !totalCosts || !incomeResult || !balanceResult || !minimumIncome || !riskBadge || !resultText) {
+    console.error("Some result elements are missing from the DOM");
+    return;
+  }
+
+  resultBox.classList.remove("hidden");
+
+  resultTitle.textContent = `Dein Ergebnis für ${data.city}`;
+  totalCosts.textContent = formatEuro(data.totalCosts);
+  incomeResult.textContent = formatEuro(data.income);
+  balanceResult.textContent = formatEuro(data.balance);
+  minimumIncome.textContent = formatEuro(data.minimumIncome);
+
+  riskBadge.className = "risk-badge";
+
+  if (data.balance >= 300) {
+    riskBadge.textContent = "GRÜN — grundsätzlich machbar";
+    riskBadge.classList.add("risk-green");
+
+    resultText.textContent =
+      "Dein Plan wirkt grundsätzlich machbar. Du hast nach deinen Angaben genug Spielraum. Trotzdem solltest du vor einem echten Umzug mindestens 2–3 Monatskosten als Puffer aufbauen und deine Einnahmen stabilisieren.";
+  } else if (data.balance >= 0) {
+    riskBadge.textContent = "GELB — knapp kalkuliert";
+    riskBadge.classList.add("risk-yellow");
+
+    resultText.textContent =
+      "Dein Plan ist nicht unmöglich, aber knapp. Kleine Preissteigerungen, Kaution, Krankheit, Technikprobleme oder Einnahmeausfälle könnten dich schnell unter Druck setzen. Baue mehr Puffer auf oder senke Fixkosten.";
+  } else {
+    riskBadge.textContent = "ROT — aktuell zu riskant";
+    riskBadge.classList.add("risk-red");
+
+    resultText.textContent =
+      "Dein Plan ist mit diesen Zahlen aktuell zu riskant. Deine monatlichen Kosten liegen über deinem Einkommen. Du brauchst entweder mehr Einkommen, niedrigere Fixkosten, einen sicheren Übergangsplan oder mehr Rücklagen.";
+  }
+
+  resultBox.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}

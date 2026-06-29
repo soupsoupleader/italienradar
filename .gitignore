@@ -1,0 +1,24 @@
+# System-Dateien
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Temporäre Dateien
+*.tmp
+*.log
+
+# Node / spätere Builds
+node_modules/
+dist/
+build/
+
+# Umgebungsvariablen / geheime Daten
+.env
+.env.local
+
+# Backups
+*.bak
+*.old

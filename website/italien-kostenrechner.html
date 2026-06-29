@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Italien-Kostenrechner | Italia Money Radar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="logo" href="index.html">Italia Money Radar</a>
+      <div class="nav-links">
+        <a href="index.html">Start</a>
+        <a href="italien-kostenrechner.html">Kostenrechner</a>
+        <a href="impressum.html">Impressum</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <p class="eyebrow">Schritt 1.1</p>
+      <h1>Italien-Kostenrechner</h1>
+      <p>
+        Berechne, ob dein geplanter Neustart in Italien finanziell realistisch ist.
+        Trage deine geschätzten Monatskosten und dein Einkommen ein.
+      </p>
+    </div>
+  </header>
+
+  <main class="page-container">
+
+    <section class="intro-card">
+      <h2>Was dieser Rechner macht</h2>
+      <p>
+        Der Rechner zeigt dir, wie viel Geld du monatlich brauchst, ob dein Einkommen reicht
+        und wie riskant dein Plan aktuell wirkt. Er ersetzt keine Beratung, gibt dir aber
+        einen klaren ersten Realitätscheck.
+      </p>
+    </section>
+
+    <section class="calculator-card">
+      <h2>Deine Monatsrechnung</h2>
+
+      <form id="costForm" class="cost-form">
+
+        <div class="form-grid">
+
+          <label>
+            Stadt / Region
+            <select id="city">
+              <option value="Napoli">Napoli</option>
+              <option value="Bari">Bari</option>
+              <option value="Palermo">Palermo</option>
+              <option value="Rom">Rom</option>
+              <option value="Mailand">Mailand</option>
+              <option value="Andere Region">Andere Region</option>
+            </select>
+          </label>
+
+          <label>
+            Monatliches Einkommen
+            <input type="number" id="income" min="0" step="10" placeholder="z. B. 1500">
+          </label>
+
+          <label>
+            Miete warm
+            <input type="number" id="rent" min="0" step="10" placeholder="z. B. 600">
+          </label>
+
+          <label>
+            Essen & Lebensmittel
+            <input type="number" id="food" min="0" step="10" placeholder="z. B. 300">
+          </label>
+
+          <label>
+            Transport
+            <input type="number" id="transport" min="0" step="10" placeholder="z. B. 60">
+          </label>
+
+          <label>
+            Handy & Internet
+            <input type="number" id="internet" min="0" step="5" placeholder="z. B. 40">
+          </label>
+
+          <label>
+            Gesundheit / Versicherung
+            <input type="number" id="health" min="0" step="10" placeholder="z. B. 100">
+          </label>
+
+          <label>
+            Freizeit
+            <input type="number" id="leisure" min="0" step="10" placeholder="z. B. 150">
+          </label>
+
+          <label>
+            Sonstige Kosten
+            <input type="number" id="other" min="0" step="10" placeholder="z. B. 100">
+          </label>
+
+          <label>
+            Sicherheitspuffer
+            <input type="number" id="buffer" min="0" step="10" placeholder="z. B. 200">
+          </label>
+
+        </div>
+
+        <button type="submit" class="primary-button">Berechnung starten</button>
+        <button type="reset" class="secondary-button">Zurücksetzen</button>
+
+      </form>
+    </section>
+
+    <section id="resultBox" class="result-box hidden">
+      <p class="eyebrow">Ergebnis</p>
+      <h2 id="resultTitle">Deine Auswertung</h2>
+
+      <div class="result-grid">
+        <div>
+          <span>Gesamtkosten</span>
+          <strong id="totalCosts">0 €</strong>
+        </div>
+        <div>
+          <span>Einkommen</span>
+          <strong id="incomeResult">0 €</strong>
+        </div>
+        <div>
+          <span>Überschuss / Fehlbetrag</span>
+          <strong id="balanceResult">0 €</strong>
+        </div>
+        <div>
+          <span>Empfohlenes Mindesteinkommen</span>
+          <strong id="minimumIncome">0 €</strong>
+        </div>
+      </div>
+
+      <div id="riskBadge" class="risk-badge">RISIKO</div>
+
+      <p id="resultText" class="result-text"></p>
+    </section>
+
+    <section class="warning-card">
+      <h2>Wichtiger Hinweis</h2>
+      <p>
+        Dieser Rechner ist ein Orientierungstool. Er liefert keine Steuerberatung,
+        Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.
+        Prüfe konkrete Entscheidungen immer mit Fachstellen, Behörden oder einem
+        qualifizierten Berater.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Italia Money Radar — Orientierung, Rechner und Checks für deinen Italien-Neustart.</p>
+    <p>Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.</p>
+    <p>
+      <a href="index.html">Start</a> ·
+      <a href="impressum.html">Impressum</a> ·
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
