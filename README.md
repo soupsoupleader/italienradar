@@ -32,6 +32,18 @@ Tools, Rechner und Orientierung zu:
 ## Wichtiger Hinweis
 Dieses Projekt bietet allgemeine Informationen und Orientierung. Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.
 
+## Seitenstruktur (Schritt 1.7)
+
+- `index.html` — Startseite mit Überblick und Verlinkung auf alle Tools
+- `italien-kostenrechner.html` — interaktiver Kostenrechner mit echten Standort-Faktoren
+- `napoli-neustart.html` — strategische Orientierung für einen Neustart in Napoli/Süditalien
+- `online-geld-in-italien.html` — Online-Einkommen als Hebel, Modelle und Reihenfolge
+- `partita-iva.html` — Grundcheck Partita IVA, regime forfettario, Reihenfolge
+- `resto-al-sud-check.html` — Fördercheck Resto al Sud, Invitalia, Förderlogik
+- `impressum.html`, `datenschutz.html`, `404.html` — Rechtliches & Fehlerseite
+- `sitemap.xml` — alle URLs für Suchmaschinen
+
+
 ## Datenquellen (Standort-Faktoren)
 Die Stadt-Faktoren im Kostenrechner (`js/app.js` → `CITY_DATA`) stützen sich auf:
 

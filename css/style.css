@@ -906,3 +906,49 @@ select.input-error {
     font-size: 1.2em;
   }
 }
+
+/* ============================================
+   SUBPAGES (Napoli, Online-Geld, Partita IVA, Fördercheck)
+   Schritt 1.7 – Inhaltliche Vertiefung
+   ============================================ */
+.cta-section {
+  background: #f5f8f6;
+  border-left: 6px solid #1f6f4a;
+  border-radius: 18px;
+  padding: 32px;
+}
+.cta-section p {
+  margin-bottom: 16px;
+  color: #2c3a31;
+  font-size: 18px;
+  line-height: 1.6;
+}
+.cta-section .primary-link,
+.cta-section .secondary-link {
+  margin-right: 10px;
+  margin-top: 8px;
+}
+.feature-card p,
+.warning-card li,
+.check-list li {
+  line-height: 1.6;
+}
+@media (max-width: 760px) {
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+  }
+  .nav-links a {
+    font-size: 14px;
+  }
+  .cta-section {
+    padding: 24px;
+  }
+  .cta-section .primary-link,
+  .cta-section .secondary-link {
+    display: block;
+    margin-right: 0;
+    text-align: center;
+  }
+}
