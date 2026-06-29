@@ -31,14 +31,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const buffer = getNumber("buffer");
 
     // Validation: check if income is provided
-    if (income === 0) {
-      alert("Bitte geben Sie Ihr monatliches Einkommen ein.");
-      return;
-    }
+      // Validation: check if income is provided
+      const incomeInput = document.getElementById("income");
+      const incomeError = document.getElementById("incomeError");
+      const formError = document.getElementById("formError");
+
+      if (income === 0) {
+        if (incomeError) {
+          incomeError.textContent = "Bitte geben Sie Ihr monatliches Einkommen ein.";
+          incomeError.style.display = "block";
+          incomeInput.focus();
+        } else {
+          alert("Bitte geben Sie Ihr monatliches Einkommen ein.");
+          incomeInput.focus();
+        }
+        return;
+      }
 
     const totalCosts = rent + food + transport + internet + health + leisure + other + buffer;
     const balance = income - totalCosts;
     const minimumIncome = Math.ceil(totalCosts * 1.2);
+
+    // Plausibility check: require at least some costs to be entered
+    if (totalCosts === 0) {
+      if (formError) {
+        formError.textContent = "Bitte tragen Sie mindestens Ihre Miete oder andere laufende Kosten ein.";
+        formError.style.display = "block";
+      } else {
+        alert("Bitte tragen Sie mindestens Ihre Miete oder andere laufende Kosten ein.");
+      }
+      return;
+    }
 
     showResult({
       city,
@@ -54,6 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (resultBox) {
       resultBox.classList.add("hidden");
     }
+    // Clear inline errors
+    const incomeError = document.getElementById("incomeError");
+    const formError = document.getElementById("formError");
+    if (incomeError) { incomeError.style.display = "none"; incomeError.textContent = ""; }
+    if (formError) { formError.style.display = "none"; formError.textContent = ""; }
   });
 });
 
@@ -120,4 +148,8 @@ function showResult(data) {
     behavior: "smooth",
     block: "start"
   });
+
+  // Clear inline errors on successful result
+  if (incomeError) { incomeError.style.display = "none"; incomeError.textContent = ""; }
+  if (formError) { formError.style.display = "none"; formError.textContent = ""; }
 }

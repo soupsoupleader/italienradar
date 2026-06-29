@@ -60,6 +60,7 @@
           <label>
             Monatliches Einkommen
             <input type="number" id="income" min="0" step="10" placeholder="z. B. 1500">
+            <span id="incomeError" role="status" aria-live="polite" style="color:#9b1c1c;display:none;margin-top:6px;font-weight:700;"></span>
           </label>
 
           <label>
@@ -104,6 +105,7 @@
 
         </div>
 
+        <div id="formError" role="status" aria-live="polite" style="color:#9b1c1c;display:none;margin-top:8px;font-weight:700;"></div>
         <button type="submit" class="primary-button">Berechnung starten</button>
         <button type="reset" class="secondary-button">Zurücksetzen</button>
 
