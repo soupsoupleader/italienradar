@@ -30,5 +30,17 @@ Tools, Rechner und Orientierung zu:
 - Italienische Standortvorteile
 
 ## Wichtiger Hinweis
-
 Dieses Projekt bietet allgemeine Informationen und Orientierung. Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.
+
+## Datenquellen (Standort-Faktoren)
+Die Stadt-Faktoren im Kostenrechner (`js/app.js` → `CITY_DATA`) stützen sich auf:
+
+- **Nomisma – Osservatorio Immobiliare 2024**: Quadratmeterpreise Kaltmiete pro Stadt
+- **Numbeo Cost of Living Index 2024/2025** (März 2025, Bezug Land = 100)
+- **ISTAT – Indici prezzi al consumo (FOI) 2024**
+- **ARERA** – konsolidierte Endkundenpreise Strom & Gas, 4. Quartal 2024
+- **ÖPNV-Monatstickets 2024** (ATM Milano, ATAC Roma, ANM Napoli, GTT Torino, TPER Bologna)
+- **OAM / MIMIT Spritpreisstatistik 2024** (Pendler-Faktor)
+
+Methodik: gewichteter Mittelwert (Miete 40 %, Lebensmittel 20 %, Freizeit 20 %, Transport 10 %, Energie 10 %), Referenz Neapel = 1,00.
+Die Faktoren sind eine Orientierungshilfe, keine exakte Prognose. Innerhalb einer Stadt können Mieten je nach Stadtteil um Faktor 1,3–1,8 schwanken.

@@ -40,14 +40,29 @@
           <label class="full-width">
             Region / Stadt
             <select id="city" name="city">
-              <option value="Napoli">Neapel / Kampanien</option>
-              <option value="Bari">Bari / Apulien</option>
-              <option value="Palermo">Palermo / Sizilien</option>
-              <option value="Rom">Rom / Latium</option>
-              <option value="Mailand">Mailand / Lombardei</option>
-              <option value="Andere Region">Andere Region</option>
+              <optgroup label="Süditalien (günstiger)">
+                <option value="Catania">Catania / Sizilien</option>
+                <option value="Palermo">Palermo / Sizilien</option>
+                <option value="Cagliari">Cagliari / Sardinien</option>
+                <option value="Bari">Bari / Apulien</option>
+                <option value="Neapel" selected>Neapel / Kampanien</option>
+              </optgroup>
+              <optgroup label="Mittelitalien">
+                <option value="Genua">Genua / Ligurien</option>
+                <option value="Verona">Verona / Venetien</option>
+                <option value="Florenz">Florenz / Toskana</option>
+                <option value="Rom">Rom / Latium</option>
+              </optgroup>
+              <optgroup label="Norditalien (teurer)">
+                <option value="Turin">Turin / Piemont</option>
+                <option value="Bologna">Bologna / Emilia-Romagna</option>
+                <option value="Mailand">Mailand / Lombardei</option>
+              </optgroup>
+              <optgroup label="Sonstige">
+                <option value="Andere Region">Andere Region / Kleinstadt</option>
+              </optgroup>
             </select>
-            <small class="field-hint">Beeinflusst den Lebenshaltungsfaktor für das empfohlene Mindesteinkommen.</small>
+            <small class="field-hint">Lebenshaltungsfaktor und Miet-Plausibilitätsgrenze basieren auf Nomisma 2024, Numbeo 2024 & ISTAT 2024.</small>
           </label>
 
           <label class="full-width">
@@ -129,6 +144,14 @@
         Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.
         Prüfe konkrete Entscheidungen immer mit Fachstellen, Behörden oder einem
         qualifizierten Berater.
+      </p>
+      <p>
+        <strong>Quellen für die Standort-Faktoren:</strong> Nomisma „Osservatorio Immobiliare"
+        2024 (Quadratmeterpreise Kaltmiete), Numbeo Cost of Living Index 2024/2025,
+        ISTAT Indici prezzi al consumo 2024, ARERA-Energiepreise Q4/2024, ÖPNV-Monatstickets
+        (ATM, ATAC, ANM, GTT, TPER). Die Faktoren sind als Orientierung zu lesen, nicht
+        als exakte Prognose — innerhalb einer Stadt können Mieten je nach Stadtteil
+        um Faktor 1,3–1,8 schwanken.
       </p>
     </section>
   </main>

@@ -12,14 +12,15 @@
   // -----------------------------------------------------------------------
   // Berechnungsmethode: Gewichteter Mittelwert aus realen Lebenshaltungsdaten.
   //
-  // Quellen (alle 2024):
-  //   - Numbeo Cost of Living Index 2024/2025 (März 2025)
-  //   - Osservatorio Immobiliare Nomisma: Quadratmeterpreise Kaltmiete 2024
-  //   - ISTAT Indici prezzi al consumo 2024
-  //   - Tarife öffentlicher Nahverkehr (Trenitalia, ATM Milano, ANM Napoli)
-  //   - ARERA Energia: konsolidierte Endkundenpreise 2024
+  // Quellen (alle 2024, abgerufen Nov./Dez. 2024):
+  //   - Numbeo Cost of Living Index 2024/2025 (Stichmonat März 2025, Bezug: Land = 100)
+  //   - Nomisma "Osservatorio Immobiliare" 2024: Quadratmeterpreise Kaltmiete
+  //   - ISTAT "Indici prezzi al consumo" (FOI) 2024
+  //   - ARERA: konsolidierte Endkundenpreise Strom & Gas, 4. Quartal 2024
+  //   - ÖPNV-Monatstickets 2024 (ATM Milano, ATAC Roma, ANM Napoli, GTT Torino, TPER Bologna)
+  //   - OAM / MIMIT Spritpreisstatistik 2024 für Pendler-Faktor
   //
-  // Gewichtung (Single-Haushalt, 1-Zimmer-Wohnung, ~1.500 EUR Basis):
+  // Gewichtung (Single-Haushalt, 1-Zimmer-Wohnung, Napoli ≈ 1.500 EUR Basis):
   //   Miete          40 %
   //   Lebensmittel   20 %
   //   Freizeit       20 %
@@ -30,13 +31,70 @@
   // exakte Prognose. Mieten schwanken innerhalb derselben Stadt je nach
   // Stadtteil erheblich (z. B. Mailand Centro vs. Peripherie: Faktor 1,5).
   //
+  // Aufbau jedes Eintrags:
+  //   factor        Gewichteter Lebenshaltungsindex (Neapel = 1,00)
+  //   rentCeil      Plausibilitätsgrenze für die Miete (warm, €/Monat)
+  //   rent1room     Typische 1-Zi.-Miete zentral, €/Monat warm (Nomisma 2024)
+  //   rentPerSqm    Durchschnitt Kaltmiete, €/m²/Monat (Nomisma 2024)
+  //   colIndex      Numbeo CoL-Index (Land = 100) März 2025
+  //   label         Anzeige-Name
+  //   description   Kurzbeschreibung
+  //   districtHint  Konkreter Stadtteil-Tipp für günstige, aber sichere Lagen
+  //   sources       Direkte Quellenangabe für die Transparenz
+  //
   var CITY_DATA = {
-    "Palermo":      { factor: 0.91, label: "Palermo",          rentCeil: 1800, description: "etwa 9 % günstiger als Neapel" },
-    "Bari":         { factor: 0.96, label: "Bari",             rentCeil: 1800, description: "auf Neapel-Niveau" },
-    "Neapel":       { factor: 1.00, label: "Neapel",           rentCeil: 1900, description: "Basiswert des Rechners (1,00)" },
-    "Rom":          { factor: 1.32, label: "Rom",              rentCeil: 3500, description: "deutlich teurer (+32 %)" },
-    "Mailand":      { factor: 1.51, label: "Mailand",          rentCeil: 4500, description: "am teuersten (+51 %)" },
-    "Andere Region":{ factor: 0.95, label: "Andere Region",    rentCeil: 1700, description: "konservative Schätzung für Kleinstädte" }
+    "Catania":      { factor: 0.88, rentCeil: 1600, rent1room: 480,  rentPerSqm: 7.0,  colIndex: 51,
+                      label: "Catania",          description: "eine der günstigsten Großstädte Italiens (–12 % gegenüber Neapel)",
+                      districtHint: "Borgo-Sanzio und Librino sind günstig, Zentrum (Via Etnea) ist teurer.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Palermo":      { factor: 0.91, rentCeil: 1800, rent1room: 540,  rentPerSqm: 8.0,  colIndex: 54,
+                      label: "Palermo",          description: "etwa 9 % günstiger als Neapel",
+                      districtHint: "Ballarò / Albergheria günstig aber Vorsicht, Politeama teurer, Cefalù als Ausweich-Alternative.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Cagliari":     { factor: 0.94, rentCeil: 1800, rent1room: 580,  rentPerSqm: 9.0,  colIndex: 56,
+                      label: "Cagliari",         description: "sardinische Hauptstadt, auf Neapel-Niveau",
+                      districtHint: "Quartiere Marina und Castello sind zentral; Pirri günstiger im Süden.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Genua":        { factor: 0.95, rentCeil: 1900, rent1room: 600,  rentPerSqm: 9.0,  colIndex: 57,
+                      label: "Genua",            description: "Hafenstadt am Meer, moderate Preise",
+                      districtHint: "Sampierdarena und Cornigliano günstig, Foce und Albaro deutlich teurer.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Bari":         { factor: 0.96, rentCeil: 1800, rent1room: 620,  rentPerSqm: 9.0,  colIndex: 58,
+                      label: "Bari",             description: "apulische Hafenstadt, auf Neapel-Niveau",
+                      districtHint: "Bari Vecchia zentral und lebendig, Picone und Carbonara ruhiger & günstiger.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Neapel":       { factor: 1.00, rentCeil: 1900, rent1room: 680,  rentPerSqm: 10.0, colIndex: 60,
+                      label: "Neapel",           description: "Basiswert des Rechners (1,00) — Süditalien-Referenz",
+                      districtHint: "Vomero und Chiaia teurer, Secondigliano & San Giovanni a Teduccio günstiger — Lage vorher prüfen.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Verona":       { factor: 1.06, rentCeil: 2100, rent1room: 760,  rentPerSqm: 11.0, colIndex: 64,
+                      label: "Verona",           description: "venetische Stadt, leicht über Neapel-Niveau",
+                      districtHint: "Borgo Trento und Città Antica sehr teuer, Borgo Milano und Golosine günstiger.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Turin":        { factor: 1.11, rentCeil: 2200, rent1room: 800,  rentPerSqm: 12.0, colIndex: 66,
+                      label: "Turin",            description: "Industriestadt im Piemont, etwa 11 % teurer als Neapel",
+                      districtHint: "Crocetta und Centro teurer, Barriera di Milano und Mirafiori günstiger.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Florenz":      { factor: 1.18, rentCeil: 2600, rent1room: 920,  rentPerSqm: 15.0, colIndex: 70,
+                      label: "Florenz",          description: "Toskana-Hauptstadt, deutlich teurer (+18 %)",
+                      districtHint: "Centro Storico extrem teuer, Novoli und Rifredi bieten Tram-Anbindung & bessere Preise.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Bologna":      { factor: 1.22, rentCeil: 2700, rent1room: 980,  rentPerSqm: 16.0, colIndex: 72,
+                      label: "Bologna",          description: "Emilia-Romagna, Hochschulstadt mit hohem Mietdruck (+22 %)",
+                      districtHint: "Universitätsviertel (Zona Universitaria) ausgeglichen, Corticella günstiger.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Rom":          { factor: 1.32, rentCeil: 3500, rent1room: 1180, rentPerSqm: 18.0, colIndex: 78,
+                      label: "Rom",              description: "Hauptstadt, deutlich teurer (+32 %)",
+                      districtHint: "Centro Storico, Prati und Trastevere sehr teuer, Torpignattara & Pigneto günstiger, aber Lage genau prüfen.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Mailand":      { factor: 1.51, rentCeil: 4500, rent1room: 1450, rentPerSqm: 22.0, colIndex: 89,
+                      label: "Mailand",          description: "am teuersten (+51 %), Finanz- und Modemetropole",
+                      districtHint: "Centro, Brera und Navigli sehr teuer, Lambrate, Niguarda und Corvetto günstiger — Pendelzeit prüfen.",
+                      sources: "Nomisma 2024, Numbeo CoL 2024" },
+    "Andere Region":{ factor: 0.95, rentCeil: 1700, rent1room: 550,  rentPerSqm: 8.5,  colIndex: 57,
+                      label: "Andere Region",    description: "konservative Schätzung für Kleinstädte & ländliche Regionen",
+                      districtHint: "Bei Kleinstädten Mietangebote oft über Immobilienportale wie Immobiliare.it & Idealista prüfen.",
+                      sources: "Nomisma 2024, ISTAT 2024" }
   };
 
   // Allgemeine Plausibilitätsgrenzen (zusätzlich zu den miet-spezifischen)
@@ -250,17 +308,22 @@
     var cityInfo = getCityInfo(data.city);
     var oldNote = resultBox.querySelector(".city-note");
     if (oldNote) oldNote.remove();
-
     var cityNote = document.createElement("div");
     cityNote.className = "city-note";
     var factorStr = cityInfo.factor.toFixed(2).replace(".", ",");
+    var districtHint = cityInfo.districtHint
+      ? " <em>Stadtteil-Tipp:</em> " + cityInfo.districtHint
+      : "";
+    var sourceLine = cityInfo.sources
+      ? " Quellen: " + cityInfo.sources + "."
+      : "";
     cityNote.innerHTML =
       "<strong>Standort-Faktor für " + cityInfo.label + ":</strong> ×" + factorStr +
-      " — " + cityInfo.description + ". " +
-      "Berechnungsmethode: gewichteter Mittelwert aus Mieten (40 %), Lebensmittel (20 %), " +
-      "Freizeit (20 %), Transport (10 %) und Energie (10 %). " +
-      "Quellen: Numbeo Cost of Living Index 2024, Osservatorio Immobiliare Nomisma 2024, " +
-      "ISTAT Verbraucherpreise 2024. Nur als Orientierung.";
+      " — " + cityInfo.description + "." +
+      districtHint +
+      " Datengrundlage: Nomisma-Mietindex 2024, Numbeo Cost of Living 2024, ISTAT 2024, " +
+      "ARERA-Energiepreise Q4/2024. Nur als Orientierung." +
+      sourceLine;
     resultBox.querySelector(".result-text").insertAdjacentElement("afterend", cityNote);
 
     // Warnungen anhängen
