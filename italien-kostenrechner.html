@@ -1,21 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Italien-Kostenrechner | Italia Money Radar</title>
+  <meta name="description" content="Kostenrechner für deinen Italien-Plan: Einkommen, Fixkosten, Lebenshaltung und Risiko-Ampel in einer Auswertung.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231f6f4a'/%3E%3Ctext x='50' y='58' font-size='50' text-anchor='middle' font-family='Arial, sans-serif' fill='white'%3ER%3C/text%3E%3C/svg%3E">
   <link rel="canonical" href="https://soupsoupleader.github.io/italienradar/italien-kostenrechner.html">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Italien-Kostenrechner | Italia Money Radar">
-  <meta property="og:description" content="Berechne deine Italien-Kosten, dein Einkommen und dein Risiko für den Neustart in Italien.">
+  <meta property="og:description" content="Berechne dein verfügbares Budget in Italien und erkenne, ob dein Plan machbar ist.">
   <meta property="og:url" content="https://soupsoupleader.github.io/italienradar/italien-kostenrechner.html">
   <meta property="og:locale" content="de_DE">
   <meta name="twitter:card" content="summary">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header small-header">
     <nav class="nav" aria-label="Hauptnavigation">
       <a class="logo" href="index.html">Italia Money Radar</a>
       <div class="nav-links">
@@ -24,107 +25,81 @@
         <a href="impressum.html">Impressum</a>
       </div>
     </nav>
-
-    <div class="hero">
-      <p class="eyebrow">Schritt 1.1</p>
-      <h1>Italien-Kostenrechner</h1>
-      <p>
-        Berechne, ob dein geplanter Neustart in Italien finanziell realistisch ist.
-        Trage deine geschätzten Monatskosten und dein Einkommen ein.
-      </p>
-    </div>
-  </header>
-
-  <main class="page-container">
-
-    <section class="intro-card">
-      <h2>Was dieser Rechner macht</h2>
-      <p>
-        Der Rechner zeigt dir, wie viel Geld du monatlich brauchst, ob dein Einkommen reicht
-        und wie riskant dein Plan aktuell wirkt. Er ersetzt keine Beratung, gibt dir aber
-        einen klaren ersten Realitätscheck.
-      </p>
+    <section class="subpage-hero">
+      <p class="eyebrow">Italien-Kostenrechner</p>
+      <h1>Wie sicher ist dein Italien-Plan?</h1>
+      <p>Einkommen, Fixkosten, Lebenshaltung — auf einer Seite. Verarbeitung nur lokal in deinem Browser.</p>
     </section>
-
-    <section class="calculator-card">
-      <h2>Deine Monatsrechnung</h2>
-
-      <form id="costForm" class="cost-form">
-
+  </header>
+  <main>
+    <section class="section-block">
+      <h2>Deine Eckdaten</h2>
+      <p>Trage dein monatliches Netto-Einkommen und deine geplanten Kosten in Italien ein. Der Rechner zeigt dir, ob dein Plan grundsätzlich machbar, knapp kalkuliert oder aktuell zu riskant ist.</p>
+      <form id="costForm" class="cost-form" novalidate>
         <div class="form-grid">
-
-          <label>
-            Stadt / Region
-            <select id="city">
-              <option value="Napoli">Napoli</option>
-              <option value="Bari">Bari</option>
-              <option value="Palermo">Palermo</option>
-              <option value="Rom">Rom</option>
-              <option value="Mailand">Mailand</option>
+          <label class="full-width">
+            Region / Stadt
+            <select id="city" name="city">
+              <option value="Napoli">Neapel / Kampanien</option>
+              <option value="Bari">Bari / Apulien</option>
+              <option value="Palermo">Palermo / Sizilien</option>
+              <option value="Rom">Rom / Latium</option>
+              <option value="Mailand">Mailand / Lombardei</option>
               <option value="Andere Region">Andere Region</option>
             </select>
-            <span class="field-note">Die Stadt beeinflusst das empfohlene Mindesteinkommen.</span>
+            <small class="field-hint">Beeinflusst den Lebenshaltungsfaktor für das empfohlene Mindesteinkommen.</small>
           </label>
 
-          <label>
-            Monatliches Einkommen
-            <input type="number" id="income" min="1" step="10" placeholder="z. B. 1500" required>
-            <span id="incomeError" role="status" aria-live="polite" style="color:#9b1c1c;display:none;margin-top:6px;font-weight:700;"></span>
+          <label class="full-width">
+            Monatliches Netto-Einkommen (€)
+            <input type="number" id="income" name="income" min="1" step="50" placeholder="z. B. 2000" required>
+            <small id="incomeError" class="field-error" role="status" aria-live="polite"></small>
           </label>
 
           <label>
             Miete warm
-            <input type="number" id="rent" min="0" step="10" placeholder="z. B. 600">
+            <input type="number" id="rent" name="rent" min="0" step="10" placeholder="z. B. 600">
           </label>
-
           <label>
-            Essen & Lebensmittel
-            <input type="number" id="food" min="0" step="10" placeholder="z. B. 300">
+            Essen &amp; Lebensmittel
+            <input type="number" id="food" name="food" min="0" step="10" placeholder="z. B. 300">
           </label>
-
           <label>
             Transport
-            <input type="number" id="transport" min="0" step="10" placeholder="z. B. 60">
+            <input type="number" id="transport" name="transport" min="0" step="10" placeholder="z. B. 60">
           </label>
-
           <label>
-            Handy & Internet
-            <input type="number" id="internet" min="0" step="5" placeholder="z. B. 40">
+            Handy &amp; Internet
+            <input type="number" id="internet" name="internet" min="0" step="5" placeholder="z. B. 40">
           </label>
-
           <label>
             Gesundheit / Versicherung
-            <input type="number" id="health" min="0" step="10" placeholder="z. B. 100">
+            <input type="number" id="health" name="health" min="0" step="10" placeholder="z. B. 100">
           </label>
-
           <label>
             Freizeit
-            <input type="number" id="leisure" min="0" step="10" placeholder="z. B. 150">
+            <input type="number" id="leisure" name="leisure" min="0" step="10" placeholder="z. B. 150">
           </label>
-
           <label>
             Sonstige Kosten
-            <input type="number" id="other" min="0" step="10" placeholder="z. B. 100">
+            <input type="number" id="other" name="other" min="0" step="10" placeholder="z. B. 100">
           </label>
-
           <label>
             Sicherheitspuffer
-            <input type="number" id="buffer" min="0" step="10" placeholder="z. B. 200">
+            <input type="number" id="buffer" name="buffer" min="0" step="10" placeholder="z. B. 200">
           </label>
-
         </div>
-
-        <div id="formError" role="status" aria-live="polite" style="color:#9b1c1c;display:none;margin-top:8px;font-weight:700;"></div>
-        <button type="submit" class="primary-button">Berechnung starten</button>
-        <button type="reset" class="secondary-button">Zurücksetzen</button>
-
+        <div id="formError" class="form-error" role="status" aria-live="polite"></div>
+        <div class="form-actions">
+          <button type="submit" class="primary-button">Berechnung starten</button>
+          <button type="reset" class="secondary-button">Zurücksetzen</button>
+        </div>
       </form>
     </section>
 
-    <section id="resultBox" class="result-box hidden">
+    <section id="resultBox" class="result-box hidden" aria-live="polite">
       <p class="eyebrow">Ergebnis</p>
       <h2 id="resultTitle">Deine Auswertung</h2>
-
       <div class="result-grid">
         <div>
           <span>Gesamtkosten</span>
@@ -143,9 +118,7 @@
           <strong id="minimumIncome">0 €</strong>
         </div>
       </div>
-
       <div id="riskBadge" class="risk-badge">RISIKO</div>
-
       <p id="resultText" class="result-text"></p>
     </section>
 
@@ -158,9 +131,7 @@
         qualifizierten Berater.
       </p>
     </section>
-
   </main>
-
   <footer>
     <p>Italia Money Radar — Orientierung, Rechner und Checks für deinen Italien-Neustart.</p>
     <p>Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.</p>
@@ -170,7 +141,6 @@
       <a href="datenschutz.html">Datenschutz</a>
     </p>
   </footer>
-
   <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,181 +1,342 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("costForm");
+﻿/* ==========================================================================
+   Italia Money Radar — Kostenrechner
+   Verarbeitet Formulareingaben lokal im Browser, keine externen Calls.
+   Saubere UTF-8-Kodierung.
+   ========================================================================== */
 
-  if (!form) {
-    console.warn("Cost form not found on this page");
-    return;
+(function () {
+  "use strict";
+
+  // Stadt-Faktoren für empfohlenes Mindesteinkommen.
+  // Quellen: Numbeo Cost of Living Index 2024, eigene Recherche.
+  // Napoli/Bari/Palermo = 1.0 (Basis Süditalien)
+  // Rom = 1.20, Mailand = 1.30 (höhere Lebenshaltung in den Metropolen)
+  var CITY_FACTORS = {
+    "Napoli": 1.00,
+    "Bari": 1.00,
+    "Palermo": 1.00,
+    "Rom": 1.20,
+    "Mailand": 1.30,
+    "Andere Region": 1.00
+  };
+
+  // Plausibilitätsgrenzen (über diesen Werten Warnung anzeigen)
+  var PLAUSIBILITY_LIMITS = {
+    rent: 5000,
+    food: 2000,
+    transport: 1500,
+    internet: 300,
+    health: 2000,
+    leisure: 1500,
+    other: 2000,
+    buffer: 5000
+  };
+
+  var FIELD_LABELS = {
+    rent: "Miete",
+    food: "Essen & Lebensmittel",
+    transport: "Transport",
+    internet: "Handy & Internet",
+    health: "Gesundheit / Versicherung",
+    leisure: "Freizeit",
+    other: "Sonstige Kosten",
+    buffer: "Sicherheitspuffer"
+  };
+
+  function $(id) { return document.getElementById(id); }
+
+  function getNumber(id) {
+    var el = $(id);
+    if (!el) return 0;
+    var v = parseFloat(String(el.value).replace(",", "."));
+    return isNaN(v) || v < 0 ? 0 : v;
   }
 
-  const requiredFields = ["city", "income", "rent", "food", "transport", "internet", "health", "leisure", "other", "buffer"];
-  const allFieldsExist = requiredFields.every(id => document.getElementById(id));
-  
-  if (!allFieldsExist) {
-    console.error("Some required form fields are missing");
-    return;
+  function formatEuro(value) {
+    try {
+      return new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0
+      }).format(value);
+    } catch (e) {
+      return Math.round(value).toString() + " €";
+    }
   }
 
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const city = document.getElementById("city").value;
-
-    const income = getNumber("income");
-    const rent = getNumber("rent");
-    const food = getNumber("food");
-    const transport = getNumber("transport");
-    const internet = getNumber("internet");
-    const health = getNumber("health");
-    const leisure = getNumber("leisure");
-    const other = getNumber("other");
-    const buffer = getNumber("buffer");
-
-    const incomeInput = document.getElementById("income");
-    const incomeError = document.getElementById("incomeError");
-    const formError = document.getElementById("formError");
-
-    const cityFactors = {
-      Napoli: 1,
-      Bari: 1,
-      Palermo: 1,
-      Rom: 1.25,
-      Mailand: 1.35,
-      "Andere Region": 1
-    };
-    const cityFactor = cityFactors[city] || 1;
-
-    if (income === 0) {
-      if (incomeError) {
-        incomeError.textContent = "Bitte geben Sie Ihr monatliches Einkommen ein.";
-        incomeError.style.display = "block";
-        incomeInput.focus();
-      } else {
-        alert("Bitte geben Sie Ihr monatliches Einkommen ein.");
-        incomeInput.focus();
-      }
+  function showError(targetEl, message) {
+    if (!targetEl) {
+      // Fallback, falls Element fehlt
+      console.warn("Fehler:", message);
       return;
     }
+    targetEl.textContent = message;
+    targetEl.style.display = "block";
+    targetEl.setAttribute("aria-live", "polite");
+  }
 
-    const totalCosts = rent + food + transport + internet + health + leisure + other + buffer;
-    const balance = income - totalCosts;
-    const minimumIncome = Math.ceil(totalCosts * 1.2 * cityFactor);
+  function clearError(targetEl) {
+    if (!targetEl) return;
+    targetEl.textContent = "";
+    targetEl.style.display = "none";
+  }
 
-    if (totalCosts === 0) {
-      if (formError) {
-        formError.textContent = "Bitte tragen Sie mindestens Ihre Miete oder andere laufende Kosten ein.";
-        formError.style.display = "block";
-      } else {
-        alert("Bitte tragen Sie mindestens Ihre Miete oder andere laufende Kosten ein.");
-      }
-      return;
-    }
-
-    const extremeWarnings = [];
-    if (rent > 5000) extremeWarnings.push("Miete ist ungewöhnlich hoch.");
-    if (food > 2000) extremeWarnings.push("Essen & Lebensmittel sind ungewöhnlich hoch.");
-    if (transport > 1500) extremeWarnings.push("Transportkosten sind ungewöhnlich hoch.");
-    if (internet > 300) extremeWarnings.push("Handy & Internet sind ungewöhnlich hoch.");
-    if (health > 2000) extremeWarnings.push("Gesundheitskosten sind ungewöhnlich hoch.");
-    if (leisure > 1500) extremeWarnings.push("Freizeitkosten sind ungewöhnlich hoch.");
-    if (other > 2000) extremeWarnings.push("Sonstige Kosten sind ungewöhnlich hoch.");
-
-    if (extremeWarnings.length) {
-      if (formError) {
-        formError.textContent = "Achtung: " + extremeWarnings[0] + " Bitte prüfen Sie Ihre Angaben.";
-        formError.style.display = "block";
-      } else {
-        alert("Achtung: " + extremeWarnings[0] + " Bitte prüfen Sie Ihre Angaben.");
-      }
-    }
-
-    showResult({
-      city,
-      cityFactor,
-      income,
-      totalCosts,
-      balance,
-      minimumIncome
+  function clearAllErrors() {
+    clearError($("incomeError"));
+    clearError($("formError"));
+    var inputs = document.querySelectorAll(".cost-form input, .cost-form select");
+    inputs.forEach(function (i) {
+      i.removeAttribute("aria-invalid");
+      i.classList.remove("input-error");
     });
-  });
+  }
 
-  form.addEventListener("reset", function () {
-    const resultBox = document.getElementById("resultBox");
-    if (resultBox) {
-      resultBox.classList.add("hidden");
+  function setInvalid(inputEl) {
+    if (!inputEl) return;
+    inputEl.setAttribute("aria-invalid", "true");
+    inputEl.classList.add("input-error");
+  }
+
+  function validateAndCollect() {
+    var errors = [];
+    var values = {};
+
+    var incomeEl = $("income");
+    var income = getNumber("income");
+    if (!incomeEl.value || income <= 0) {
+      errors.push({
+        field: "income",
+        message: "Bitte gib ein monatliches Einkommen größer als 0 ein."
+      });
+      setInvalid(incomeEl);
     }
-    // Clear inline errors
-    const incomeError = document.getElementById("incomeError");
-    const formError = document.getElementById("formError");
-    if (incomeError) { incomeError.style.display = "none"; incomeError.textContent = ""; }
-    if (formError) { formError.style.display = "none"; formError.textContent = ""; }
-  });
-});
+    values.income = income;
 
-function getNumber(id) {
-  const value = document.getElementById(id).value;
-  return Number(value) || 0;
-}
+    // Kostenfelder einsammeln
+    var costFields = ["rent", "food", "transport", "internet", "health", "leisure", "other", "buffer"];
+    var totalCosts = 0;
+    var warnings = [];
 
-function formatEuro(value) {
-  return new Intl.NumberFormat("de-DE", {
-    style: "currency",
-    currency: "EUR",
-    maximumFractionDigits: 0
-  }).format(value);
-}
+    costFields.forEach(function (id) {
+      var v = getNumber(id);
+      values[id] = v;
+      totalCosts += v;
+      if (v > PLAUSIBILITY_LIMITS[id]) {
+        warnings.push(FIELD_LABELS[id] + " wirkt ungewöhnlich hoch (über " + formatEuro(PLAUSIBILITY_LIMITS[id]) + ").");
+      }
+    });
 
-function showResult(data) {
-  const resultBox = document.getElementById("resultBox");
-  const resultTitle = document.getElementById("resultTitle");
-  const totalCosts = document.getElementById("totalCosts");
-  const incomeResult = document.getElementById("incomeResult");
-  const balanceResult = document.getElementById("balanceResult");
-  const minimumIncome = document.getElementById("minimumIncome");
-  const riskBadge = document.getElementById("riskBadge");
-  const resultText = document.getElementById("resultText");
+    values.totalCosts = totalCosts;
+    values.warnings = warnings;
 
-  // Validate all result elements exist
-  if (!resultBox || !resultTitle || !totalCosts || !incomeResult || !balanceResult || !minimumIncome || !riskBadge || !resultText) {
-    console.error("Some result elements are missing from the DOM");
-    return;
+    if (totalCosts === 0 && income > 0) {
+      errors.push({
+        field: "form",
+        message: "Bitte trage mindestens deine Miete oder laufende Kosten ein."
+      });
+    }
+
+    return { ok: errors.length === 0, errors: errors, values: values };
   }
 
-  resultBox.classList.remove("hidden");
+  function getCity() {
+    var cityEl = $("city");
+    return cityEl ? cityEl.value : "Andere Region";
+  }
 
-  resultTitle.textContent = `Dein Ergebnis für ${data.city}`;
-  totalCosts.textContent = formatEuro(data.totalCosts);
-  incomeResult.textContent = formatEuro(data.income);
-  balanceResult.textContent = formatEuro(data.balance);
-  minimumIncome.textContent = formatEuro(data.minimumIncome);
+  function getCityFactor(city) {
+    return Object.prototype.hasOwnProperty.call(CITY_FACTORS, city)
+      ? CITY_FACTORS[city]
+      : 1.00;
+  }
 
-  riskBadge.className = "risk-badge";
+  function showResult(data) {
+    var resultBox = $("resultBox");
+    var resultTitle = $("resultTitle");
+    var totalCostsEl = $("totalCosts");
+    var incomeResult = $("incomeResult");
+    var balanceResult = $("balanceResult");
+    var minimumIncome = $("minimumIncome");
+    var riskBadge = $("riskBadge");
+    var resultText = $("resultText");
 
-  if (data.balance >= 300) {
-    riskBadge.textContent = "GRÜN — grundsätzlich machbar";
-    riskBadge.classList.add("risk-green");
+    if (!resultBox || !resultTitle || !totalCostsEl || !incomeResult ||
+        !balanceResult || !minimumIncome || !riskBadge || !resultText) {
+      console.error("Ergebnis-Elemente fehlen im DOM.");
+      return;
+    }
 
-    resultText.textContent =
-      "Dein Plan wirkt grundsätzlich machbar. Du hast nach deinen Angaben genug Spielraum. Trotzdem solltest du vor einem echten Umzug mindestens 2–3 Monatskosten als Puffer aufbauen und deine Einnahmen stabilisieren.";
-  } else if (data.balance >= 0) {
-    riskBadge.textContent = "GELB — knapp kalkuliert";
-    riskBadge.classList.add("risk-yellow");
+    resultBox.classList.remove("hidden");
+    resultBox.setAttribute("aria-live", "polite");
 
-    resultText.textContent =
-      "Dein Plan ist nicht unmöglich, aber knapp. Kleine Preissteigerungen, Kaution, Krankheit, Technikprobleme oder Einnahmeausfälle könnten dich schnell unter Druck setzen. Baue mehr Puffer auf oder senke Fixkosten.";
+    // Stadtfaktor-Hinweis im Titel
+    var cityLabel = data.city;
+    if (data.cityFactor && data.cityFactor !== 1) {
+      cityLabel += " (Faktor ×" + data.cityFactor.toFixed(2).replace(".", ",") + ")";
+    }
+    resultTitle.textContent = "Dein Ergebnis für " + cityLabel;
+
+    totalCostsEl.textContent = formatEuro(data.totalCosts);
+    incomeResult.textContent = formatEuro(data.income);
+    balanceResult.textContent = formatEuro(data.balance);
+    minimumIncome.textContent = formatEuro(data.minimumIncome);
+
+    // Risiko-Badge zurücksetzen
+    riskBadge.className = "risk-badge";
+
+    var balance = data.balance;
+    var badgeText, badgeClass, descriptionText;
+
+    if (balance >= 300) {
+      badgeText = "GRÜN — grundsätzlich machbar";
+      badgeClass = "risk-green";
+      descriptionText =
+        "Dein Plan wirkt grundsätzlich machbar. Du hast nach deinen Angaben genug Spielraum. " +
+        "Trotzdem solltest du vor einem echten Umzug mindestens 2–3 Monatskosten als Puffer " +
+        "aufbauen und deine Einnahmen stabilisieren.";
+    } else if (balance >= 0) {
+      badgeText = "GELB — knapp kalkuliert";
+      badgeClass = "risk-yellow";
+      descriptionText =
+        "Dein Plan ist nicht unmöglich, aber knapp. Kleine Preissteigerungen, Kaution, " +
+        "Krankheit, Technikprobleme oder Einnahmeausfälle könnten dich schnell unter Druck " +
+        "setzen. Baue mehr Puffer auf oder senke Fixkosten.";
+    } else {
+      badgeText = "ROT — aktuell zu riskant";
+      badgeClass = "risk-red";
+      descriptionText =
+        "Dein Plan ist mit diesen Zahlen aktuell zu riskant. Deine monatlichen Kosten liegen " +
+        "über deinem Einkommen. Du brauchst entweder mehr Einkommen, niedrigere Fixkosten, " +
+        "einen sicheren Übergangsplan oder mehr Rücklagen.";
+    }
+
+    riskBadge.textContent = badgeText;
+    riskBadge.classList.add(badgeClass);
+    resultText.textContent = descriptionText;
+
+    // Stadt-Hinweis anhängen, wenn Faktor != 1
+    if (data.cityFactor && data.cityFactor !== 1) {
+      var cityNote = document.createElement("p");
+      cityNote.className = "city-note";
+      cityNote.innerHTML =
+        "<strong>Standort-Hinweis:</strong> Für " + data.city +
+        " wurde ein Lebenshaltungsfaktor von ×" + data.cityFactor.toFixed(2).replace(".", ",") +
+        " auf das empfohlene Mindesteinkommen angewendet. Quelle: Numbeo Cost of Living Index 2024 (nur Orientierung).";
+      // Vorherigen Hinweis entfernen, falls vorhanden
+      var oldNote = resultBox.querySelector(".city-note");
+      if (oldNote) oldNote.remove();
+      resultBox.querySelector(".result-text").insertAdjacentElement("afterend", cityNote);
+    } else {
+      var oldNote = resultBox.querySelector(".city-note");
+      if (oldNote) oldNote.remove();
+    }
+
+    // Warnungen anhängen
+    if (data.warnings && data.warnings.length > 0) {
+      var warnBox = document.createElement("div");
+      warnBox.className = "warning-box";
+      warnBox.setAttribute("role", "status");
+      var warnList = document.createElement("ul");
+      data.warnings.forEach(function (w) {
+        var li = document.createElement("li");
+        li.textContent = w;
+        warnList.appendChild(li);
+      });
+      warnBox.innerHTML = "<strong>Bitte prüfen:</strong>";
+      warnBox.appendChild(warnList);
+      var oldWarn = resultBox.querySelector(".warning-box");
+      if (oldWarn) oldWarn.remove();
+      resultBox.appendChild(warnBox);
+    } else {
+      var oldWarn = resultBox.querySelector(".warning-box");
+      if (oldWarn) oldWarn.remove();
+    }
+
+    // Sanftes Scrollen
+    try {
+      resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (e) {
+      resultBox.scrollIntoView();
+    }
+  }
+
+  function init() {
+    var form = $("costForm");
+    if (!form) {
+      // Kein Rechner auf dieser Seite — Skript sauber beenden
+      return;
+    }
+
+    // Live-Validierung: Fehler verschwinden, sobald der Nutzer tippt
+    var incomeEl = $("income");
+    if (incomeEl) {
+      incomeEl.addEventListener("input", function () {
+        if (incomeEl.value && parseFloat(incomeEl.value) > 0) {
+          clearError($("incomeError"));
+          incomeEl.removeAttribute("aria-invalid");
+          incomeEl.classList.remove("input-error");
+        }
+      });
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      clearAllErrors();
+
+      var result = validateAndCollect();
+      var incomeError = $("incomeError");
+      var formError = $("formError");
+
+      if (!result.ok) {
+        // Ersten Fehler anzeigen, der Rest bleibt im errors-Array für später
+        var first = result.errors[0];
+        if (first.field === "income") {
+          showError(incomeError, first.message);
+          if (incomeEl) incomeEl.focus();
+        } else if (first.field === "form") {
+          showError(formError, first.message);
+        }
+        // Ergebnis-Box verstecken, wenn Validierung fehlschlägt
+        var resultBox = $("resultBox");
+        if (resultBox) resultBox.classList.add("hidden");
+        return;
+      }
+
+      // Warnungen im formError-Bereich anzeigen, aber Berechnung trotzdem ausführen
+      if (result.values.warnings && result.values.warnings.length > 0) {
+        showError(formError, "Hinweis: " + result.values.warnings[0] +
+          " (Berechnung wird trotzdem durchgeführt.)");
+      }
+
+      var city = getCity();
+      var cityFactor = getCityFactor(city);
+      var totalCosts = result.values.totalCosts;
+      var balance = result.values.income - totalCosts;
+      var minimumIncome = Math.ceil(totalCosts * 1.2 * cityFactor);
+
+      showResult({
+        city: city,
+        cityFactor: cityFactor,
+        income: result.values.income,
+        totalCosts: totalCosts,
+        balance: balance,
+        minimumIncome: minimumIncome,
+        warnings: result.values.warnings
+      });
+    });
+
+    form.addEventListener("reset", function () {
+      var resultBox = $("resultBox");
+      if (resultBox) {
+        resultBox.classList.add("hidden");
+      }
+      clearAllErrors();
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
   } else {
-    riskBadge.textContent = "ROT — aktuell zu riskant";
-    riskBadge.classList.add("risk-red");
-
-    resultText.textContent =
-      "Dein Plan ist mit diesen Zahlen aktuell zu riskant. Deine monatlichen Kosten liegen über deinem Einkommen. Du brauchst entweder mehr Einkommen, niedrigere Fixkosten, einen sicheren Übergangsplan oder mehr Rücklagen.";
+    init();
   }
-
-  resultBox.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
-  const incomeError = document.getElementById("incomeError");
-  const formError = document.getElementById("formError");
-  if (incomeError) { incomeError.style.display = "none"; incomeError.textContent = ""; }
-  if (formError) { formError.style.display = "none"; formError.textContent = ""; }
-}
+})();

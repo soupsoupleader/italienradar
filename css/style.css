@@ -685,3 +685,208 @@ footer a:hover {
     padding: 36px 20px 48px;
   }
 }
+
+/* ====== Italia Money Radar — Zusatz-Styles ======
+   Verbesserungen für Form-Validierung, Risiko-Ampel, Warnhinweise
+   und Standort-Hinweis. Saubere UTF-8-Kodierung.
+   ===================================================== */
+
+.hidden {
+  display: none !important;
+}
+
+input.input-error,
+select.input-error {
+  border-color: #c0392b !important;
+  background-color: #fdecea !important;
+  box-shadow: 0 0 0 1px #c0392b inset;
+}
+
+.field-error {
+  display: none;
+  margin-top: 6px;
+  color: #c0392b;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.field-error:not(:empty) {
+  display: block;
+}
+
+.field-hint {
+  display: block;
+  margin-top: 4px;
+  color: #5b6b63;
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+.form-error {
+  display: none;
+  margin-top: 18px;
+  padding: 12px 14px;
+  background-color: #fdecea;
+  border-left: 4px solid #c0392b;
+  border-radius: 6px;
+  color: #7d2018;
+  font-size: 0.95em;
+}
+
+.form-error:not(:empty) {
+  display: block;
+}
+
+.form-actions {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.result-box {
+  margin-top: 30px;
+  padding: 24px;
+  background: #f5f8f6;
+  border: 1px solid #d6e1d8;
+  border-radius: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.result-box .eyebrow {
+  margin: 0 0 8px 0;
+  color: #4d6655;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.result-box h2 {
+  margin-top: 4px;
+  color: #1f3a2c;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.result-grid > div {
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 10px;
+  border: 1px solid #e1e8e2;
+}
+
+.result-grid span {
+  display: block;
+  font-size: 0.8em;
+  color: #4d6655;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.result-grid strong {
+  font-size: 1.4em;
+  color: #1f3a2c;
+  font-weight: 700;
+}
+
+.risk-badge {
+  display: inline-block;
+  margin: 12px 0 16px 0;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #6c7a72;
+  letter-spacing: 0.04em;
+  transition: background-color 0.3s ease;
+}
+
+.risk-badge.risk-green {
+  background-color: #1f7a4a;
+}
+
+.risk-badge.risk-yellow {
+  background-color: #d4a017;
+  color: #1f3a2c;
+}
+
+.risk-badge.risk-red {
+  background-color: #c0392b;
+}
+
+.result-text {
+  margin-top: 12px;
+  color: #2c3a31;
+  line-height: 1.6;
+  font-size: 1em;
+}
+
+.city-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: #fff8e6;
+  border-left: 4px solid #d4a017;
+  border-radius: 6px;
+  color: #5a4818;
+  font-size: 0.92em;
+  line-height: 1.5;
+}
+
+.warning-box {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: #fff5f0;
+  border-left: 4px solid #c0392b;
+  border-radius: 6px;
+  color: #7d2018;
+  font-size: 0.92em;
+}
+
+.warning-box ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.warning-box li {
+  margin: 4px 0;
+}
+
+.warning-card {
+  margin-top: 30px;
+  padding: 20px 24px;
+  background: #f5f8f6;
+  border-radius: 12px;
+  border: 1px solid #d6e1d8;
+}
+
+.warning-card h2 {
+  margin-top: 0;
+  color: #1f3a2c;
+}
+
+.warning-card p {
+  color: #2c3a31;
+  line-height: 1.6;
+}
+
+@media (max-width: 620px) {
+  .form-actions {
+    flex-direction: column;
+  }
+  .form-actions button {
+    width: 100%;
+  }
+  .result-box {
+    padding: 18px;
+  }
+  .result-grid strong {
+    font-size: 1.2em;
+  }
+}
