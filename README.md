@@ -56,3 +56,22 @@ Die Stadt-Faktoren im Kostenrechner (`js/app.js` → `CITY_DATA`) stützen sich 
 
 Methodik: gewichteter Mittelwert (Miete 40 %, Lebensmittel 20 %, Freizeit 20 %, Transport 10 %, Energie 10 %), Referenz Neapel = 1,00.
 Die Faktoren sind eine Orientierungshilfe, keine exakte Prognose. Innerhalb einer Stadt können Mieten je nach Stadtteil um Faktor 1,3–1,8 schwanken.
+
+## Run lokal
+
+- Mit Python 3 (einfach und plattformübergreifend):
+
+```
+cd "c:\Users\Jaenu\OneDrive\Dokumente\ItalienRadar"
+python -m http.server 8000
+
+# Dann im Browser öffnen: http://localhost:8000
+```
+
+- Alternativ: VS Code Erweiterung `Live Server` zum schnellen Testen.
+
+## Hinweise / offene Punkte
+
+- Doppelter JS-Code: Es gibt `js/app.js` (aktives Skript für den Kostenrechner) und eine zusätzliche Kopie unter `website/js/app.js`. Prüfen, ob `website/js/app.js` absichtlich für einen separaten Build benötigt wird, ansonsten zusammenführen oder löschen.
+- `italien-kostenrechner.html` enthält ein Byte-Order-Mark (BOM) am Dateianfang; das ist meist unproblematisch, kann aber beim Parsen mancher Tools auffallen.
+
