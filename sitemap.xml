@@ -1,18 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://soupsoupleader.github.io/italienradar/index.html</loc>
+    <loc>https://italienradar.soupsoupleader.workers.dev/</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://soupsoupleader.github.io/italienradar/italien-kostenrechner.html</loc>
+    <loc>https://italienradar.soupsoupleader.workers.dev/italien-kostenrechner.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://soupsoupleader.github.io/italienradar/impressum.html</loc>
+    <loc>https://italienradar.soupsoupleader.workers.dev/napoli-neustart.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://soupsoupleader.github.io/italienradar/datenschutz.html</loc>
+    <loc>https://italienradar.soupsoupleader.workers.dev/online-geld-in-italien.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://soupsoupleader.github.io/italienradar/404.html</loc>
+    <loc>https://italienradar.soupsoupleader.workers.dev/partita-iva.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://italienradar.soupsoupleader.workers.dev/resto-al-sud-check.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://italienradar.soupsoupleader.workers.dev/impressum.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://italienradar.soupsoupleader.workers.dev/datenschutz.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>
