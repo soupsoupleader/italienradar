@@ -1,0 +1,1419 @@
+Italia Money Radar - Phase 2.4 MasterTemplate
+Exakte KI-Umsetzungsanweisung nach Masterplan 2.2 + 2.3
+Bereinigte TXT-Version
+
+Hinweis zur Bereinigung:
+- Inhalt aus der Phase-2.4-Word/PDF-Fassung vollständig übernommen.
+- Dateinamen und URLs bleiben bewusst ASCII- und URL-tauglich.
+- Konvertierungsfehler bei getrennten Dateinamen, Footer-Zeilen, Tabellen und Codeblöcken wurden bereinigt.
+- Diese Datei ist als KI-Arbeitsanweisung nach dem Masterplan 2.2 + 2.3 gedacht.
+
+---
+
+# 1. Zweck dieser Datei
+
+Diese Datei beantwortet die Frage:
+
+> Was muss die KI als Nächstes konkret tun, nachdem sie den Masterplan Phase 2.2 + 2.3 verstanden hat?
+
+Die Antwort lautet:
+
+```text
+Sie soll nicht sofort Artikel schreiben.
+Sie soll zuerst das Phase-2.4-MasterTemplate als Produktionsstandard verstehen und anwenden.
+```
+
+Das MasterTemplate ist die Grundlage für alle folgenden Artikel:
+
+```text
+1. was-kostet-ein-neustart-in-italien.html
+2. mit-1000-euro-in-italien-leben.html
+3. leben-in-neapel-kosten.html
+4. italien-neustart-ohne-job.html
+5. sueditalien-guenstig-leben.html
+6. online-einkommen-in-italien-aufbauen.html
+7. dach-einnahmen-italien-kostenstruktur.html
+8. partita-iva-fuer-deutsche.html
+9. regime-forfettario-grundidee.html
+10. resto-al-sud-vorher-pruefen.html
+```
+
+---
+
+# 2. Letzte wichtige Entscheidung für Phase 2.4
+
+Die zentrale Entscheidung lautet:
+
+```text
+Das MasterTemplate darf keine normale Blogvorlage sein.
+Es muss ein Entscheidungs-, Prüf- und Vertrauens-Template sein.
+```
+
+Jeder Artikel soll später nicht nur informieren, sondern den Nutzer durch eine realistische Prüfung führen:
+
+```text
+Problem erkennen
+-> Realitaet einordnen
+-> Risiken verstehen
+-> Kosten, Einkommen oder Struktur prüfen
+-> passenden nächsten Schritt waehlen
+```
+
+Das ist exakt passend für Italia Money Radar, weil das Projekt keine reine Content-Seite ist, sondern ein Orientierungs- und Prüfsystem für einen möglichen Italien-Neustart.
+
+---
+
+# 3. Finale Zielqualität des MasterTemplates
+
+Das MasterTemplate muss auf Premium-Niveau folgende Anforderungen erfüllen:
+
+```text
+1. SEO-sauber
+2. menschlich hilfreich
+3. rechtlich vorsichtig
+4. mobilfreundlich
+5. intern stark verlinkt
+6. optisch ruhig
+7. für alle 10 Artikel wiederverwendbar
+8. für spätere Monetarisierung geeignet
+9. ohne Hype
+10. mit klarer Entscheidungslogik
+```
+
+Das Template ist gleichzeitig:
+
+```text
+Content-System
+SEO-System
+Vertrauens-System
+Risiko-System
+Conversion-System
+interne-Link-Struktur
+```
+
+---
+
+# 4. Was gegenüber einer einfachen Artikelvorlage verbessert wird
+
+## 4.1 Entscheidungslogik statt nur Artikelstruktur
+
+Nicht nur:
+
+```text
+Kurzfazit
+Hauptinhalt
+Checkliste
+```
+
+Sondern zusaetzlich:
+
+```text
+Realistische Einordnung
+Entscheidungsmatrix
+Risikoampel / Risikoabschnitt
+Was du nicht daraus ableiten solltest
+Nächster sinnvoller Schritt je nach Situation
+```
+
+## 4.2 Artikel werden als Prüfseiten gedacht
+
+Jeder Artikel soll beim Nutzer dieses Ergebnis erzeugen:
+
+```text
+Ich habe nicht nur etwas gelesen.
+Ich weiss jetzt besser, was ich prüfen muss.
+```
+
+## 4.3 Sensibler Themenfilter
+
+Da Italia Money Radar sensible Themen beruehrt, muss jeder Artikel vor falschen Aussagen geschuetzt werden:
+
+```text
+Geld
+Auswanderung
+Partita IVA
+Regime forfettario
+Resto al Sud
+Online-Einkommen
+Napoli / Süditalien
+```
+
+Jeder Artikel muss intern klaeren:
+
+```text
+Was kann der Artikel sicher sagen?
+Was darf er nicht versprechen?
+Wo braucht der Nutzer professionelle Prüfung?
+Welche Formulierungen sind verboten?
+```
+
+## 4.4 Bessere Nutzerfuehrung
+
+Jeder Artikel führt nicht nur zu irgendwelchen Links, sondern zu einer nächsten sinnvollen Entscheidung:
+
+```text
+Wenn Budget unklar ist -> Kostenrechner.
+Wenn Standort unklar ist -> Napoli / Süditalien lesen.
+Wenn Einkommen unklar ist -> Online-Geld lesen.
+Wenn Selbststaendigkeit relevant wird -> Partita IVA lesen.
+Wenn Förderung geplant ist -> Fördercheck lesen und professionell prüfen lassen.
+```
+
+## 4.5 Lesbarkeit und Barrierearmut
+
+Das Template muss leicht lesbar bleiben:
+
+```text
+klare Überschriften
+kurze Absätze
+sprechende Linktexte
+mobile Tabellen mit horizontalem Scrollen
+keine unklaren Buttons
+keine Überschriftenspruenge
+keine überladenen Boxen
+```
+
+---
+
+# 5. Finale Pflichtstruktur für jeden Artikel
+
+Jeder Artikel muss kuenftig diese Struktur erhalten:
+
+```text
+1. SEO-Head
+2. Header / Navigation
+3. Hero
+4. Kurzfazit
+5. Realistische Einordnung
+6. Für wen ist dieser Artikel?
+7. Die Kernaussage
+8. Entscheidende Faktoren
+9. Hauptinhalt
+10. Realistischer wird es, wenn ...
+11. Riskant wird es, wenn ...
+12. Häufige Denkfehler
+13. Risiken und Grenzen
+14. Checkliste
+15. Entscheidungsmatrix
+16. Nächster sinnvoller Schritt
+17. Passende nächste Seiten
+18. Hinweis / Disclaimer
+19. Footer
+20. Article JSON-LD
+```
+
+Diese Struktur ist verbindlich. Sie macht aus jedem Artikel einen professionellen Entscheidungshelfer.
+
+---
+
+# 6. Finale Template-Bausteine
+
+## 6.1 SEO-Head
+
+Pflichtbestandteile:
+
+```text
+title
+meta description
+canonical
+robots index, follow
+viewport
+charset
+stylesheet
+Article JSON-LD
+```
+
+Anforderungen:
+
+```text
+Der Title muss eindeutig sein.
+Die Meta Description muss seitenindividuell sein.
+Die Canonical-URL muss absolut sein.
+Die Seite darf nur eine H1 haben.
+Interne Links müssen crawlbar und relativ sein.
+```
+
+## 6.2 Header / Navigation
+
+Die Navigation muss zur bestehenden Website passen:
+
+```text
+Start
+Kostenrechner
+Napoli
+Online-Geld
+Partita IVA
+Fördercheck
+```
+
+Im Footer zusaetzlich:
+
+```text
+Impressum
+Datenschutz
+```
+
+## 6.3 Hero
+
+Der Hero muss sofort klaeren:
+
+```text
+Thema
+Nutzen
+Risiko
+nächster Schritt
+```
+
+Der Hero enthält:
+
+```text
+Cluster / Kategorie
+H1
+2-4 Sätze Einleitung
+Stand
+primärer CTA
+sekundärer CTA
+```
+
+Verboten:
+
+```text
+Hype
+Garantien
+schnell-reich-Sprache
+romantisierte Italien-Sprache
+Förderversprechen
+Steuerersparnis-Versprechen
+```
+
+## 6.4 Kurzfazit
+
+Direkt nach dem Hero. Maximal 4 Punkte:
+
+```text
+wichtigste Antwort
+entscheidender Faktor
+größtes Risiko
+nächster sinnvoller Schritt
+```
+
+## 6.5 Realistische Einordnung
+
+Pflichtabschnitt. Er erklaert, warum das Thema nicht pauschal beantwortet werden kann.
+
+Beispiel:
+
+```text
+Viele suchen nach einer einfachen Antwort. Für einen Italien-Neustart reicht aber keine einfache Ja-/Nein-Antwort, weil Ort, Miete, Einkommen, Versicherung und Rücklagen zusammen geprüft werden müssen.
+```
+
+## 6.6 Für wen ist dieser Artikel?
+
+Konkret, nicht allgemein. Beginn:
+
+```text
+Dieser Artikel ist relevant, wenn du ...
+```
+
+Dann 4-6 konkrete Situationen.
+
+## 6.7 Die Kernaussage
+
+Die Hauptaussage wird als eigener Abschnitt sichtbar gemacht. Sie muss sachlich, klar und nicht werblich sein.
+
+## 6.8 Entscheidende Faktoren
+
+Jeder Artikel braucht eine Faktorenliste. Sie wird je nach Artikeltyp angepasst.
+
+## 6.9 Hauptinhalt
+
+Der Hauptinhalt besteht aus logischen H2-Abschnitten. Jede H2 beantwortet eine echte Nutzerfrage.
+
+Beispielhafte H2-Fragen:
+
+```text
+Warum ist dieses Thema wichtig?
+Welche Faktoren entscheiden?
+Was wird oft unterschaetzt?
+Wann kann es realistisch werden?
+Wann wird es riskant?
+Was sollte vor dem nächsten Schritt geprüft werden?
+```
+
+## 6.10 Realistischer wird es, wenn ...
+
+Dieser Abschnitt zwingt zu konstruktiver, aber vorsichtiger Orientierung.
+
+## 6.11 Riskant wird es, wenn ...
+
+Dieser Abschnitt ist Pflicht, weil Italia Money Radar keine Illusionen verkaufen darf.
+
+## 6.12 Häufige Denkfehler
+
+Jeder Artikel sollte falsche Annahmen entschärfen.
+
+Beispiele:
+
+```text
+Süditalien ist guenstig, also reicht wenig Geld.
+Online-Einkommen entsteht schnell.
+Partita IVA spart automatisch Steuern.
+Förderung kann ich sicher einplanen.
+Napoli ist automatisch die beste Loesung.
+```
+
+## 6.13 Risiken und Grenzen
+
+Pflichtbox. Sie erklaert:
+
+```text
+was der Artikel nicht leisten kann
+welche Unsicherheiten bestehen
+warum individuelle Prüfung nötig sein kann
+welche Entscheidungen nicht allein aus dem Artikel abgeleitet werden sollten
+```
+
+## 6.14 Checkliste
+
+Mindestens 6 konkrete Prüffragen. Keine Allgemeinplaetze.
+
+## 6.15 Entscheidungsmatrix
+
+Pflicht. Spalten:
+
+```text
+Situation
+Einschätzung
+Nächster Schritt
+```
+
+Beispiel:
+
+| Situation | Einschätzung | Nächster Schritt |
+|---|---|---|
+| Budget unklar | zu frueh | Kostenrechner nutzen |
+| Einkommen unsicher | riskant | Online-Einkommen prüfen |
+| Steuerstatus unklar | sensibel | professionelle Prüfung |
+
+## 6.16 Nächster sinnvoller Schritt
+
+Kein generisches Ende. Jeder Artikel endet mit einer klaren internen Handlung.
+
+## 6.17 Passende nächste Seiten
+
+Mindestens 3 interne Links:
+
+```text
+1 Link zum Kostenrechner oder Fördercheck
+1 Link zur passenden Hauptseite
+1 Link zum nächsten logischen Thema
+```
+
+Keine Linktexte wie:
+
+```text
+hier klicken
+mehr erfahren
+weiterlesen
+```
+
+Stattdessen:
+
+```text
+Italien-Kostenrechner oeffnen
+Online-Einkommen in Italien realistisch prüfen
+Napoli-Neustart ansehen
+Partita IVA Orientierung lesen
+Fördercheck oeffnen
+```
+
+## 6.18 Hinweis / Disclaimer
+
+Pflicht. Sichtbar. Nicht versteckt.
+
+Basis-Hinweis:
+
+```text
+Hinweis: Diese Seite bietet allgemeine Orientierung und ersetzt keine Rechtsberatung, Steuerberatung, Finanzberatung, Förderberatung oder Immobilienberatung. Programme, Kosten, Voraussetzungen und persoenliche Situationen können sich aendern.
+```
+
+Anpassung je Artikeltyp:
+
+```text
+Kostenartikel: keine Finanzberatung
+Standortartikel: keine Immobilienberatung / keine Standortgarantie
+Online-Einkommen: keine Einkommensgarantie
+Partita IVA / regime forfettario: keine Steuer- oder Rechtsberatung
+Resto al Sud: keine Förderberatung / keine Fördergarantie
+```
+
+---
+
+# 7. Finale Artikeltypen
+
+## 7.1 Typ A - Kostenartikel
+
+Gilt für:
+
+```text
+was-kostet-ein-neustart-in-italien.html
+mit-1000-euro-in-italien-leben.html
+```
+
+Fokus:
+
+```text
+Budget
+Fixkosten
+Rücklagen
+Risiko
+Kostenrechner
+```
+
+## 7.2 Typ B - Standortartikel
+
+Gilt für:
+
+```text
+leben-in-neapel-kosten.html
+sueditalien-guenstig-leben.html
+```
+
+Fokus:
+
+```text
+Ort
+Alltag
+Miete
+Infrastruktur
+Sprache
+Lebensqualität
+```
+
+## 7.3 Typ C - Risikoartikel
+
+Gilt für:
+
+```text
+italien-neustart-ohne-job.html
+```
+
+Fokus:
+
+```text
+Einkommen
+Puffer
+Wohnung
+Notfallplan
+Risiko ohne Struktur
+```
+
+## 7.4 Typ D - Online-Einkommensartikel
+
+Gilt für:
+
+```text
+online-einkommen-in-italien-aufbauen.html
+dach-einnahmen-italien-kostenstruktur.html
+```
+
+Fokus:
+
+```text
+Asset
+Traffic
+Vertrauen
+DACH-Einnahmen
+Monetarisierung
+keine Einkommensgarantie
+```
+
+## 7.5 Typ E - Struktur- und Förderartikel
+
+Gilt für:
+
+```text
+partita-iva-fuer-deutsche.html
+regime-forfettario-grundidee.html
+resto-al-sud-vorher-pruefen.html
+```
+
+Fokus:
+
+```text
+Voraussetzungen
+Grenzen
+Timing
+professionelle Prüfung
+keine Beratung
+keine Garantie
+```
+
+---
+
+# 8. Finale Design- und CSS-Logik
+
+Das Template soll optisch wirken wie ein ruhiges, hochwertiges Informationssystem.
+
+Nicht:
+
+```text
+bunt
+laut
+sales-lastig
+blog-chaotisch
+```
+
+Sondern:
+
+```text
+klare Karten
+viel Weissraum
+ruhige Boxen
+lesbare Absätze
+starke CTA-Buttons
+einfache Navigation
+mobil stabil
+```
+
+Empfohlene Komponenten:
+
+```text
+article-hero
+summary-box
+reality-box
+factor-box
+positive-box
+warning-box
+risk-box
+checklist-box
+decision-box
+next-step-box
+related-links
+disclaimer-box
+```
+
+---
+
+# 9. Verbindlicher Master-Prompt für KI
+
+Der folgende Prompt ist die exakte Arbeitsanweisung für eine KI, wenn sie eine Artikelseite für Italia Money Radar auf Basis des Masterplans 2.2 + 2.3 und dieses 2.4-Templates erstellen soll.
+
+```text
+Du bist ein professioneller SEO-, Content-, UX- und Web-Architekt für das Projekt „Italia Money Radar“.
+
+Deine Aufgabe:
+Erstelle eine hochwertige, statische HTML-Artikelseite für Italia Money Radar. Die Seite muss nicht wie ein gewoehnlicher Blogartikel wirken, sondern wie ein professioneller Entscheidungs- und Prüfartikel. Der Nutzer soll nach dem Lesen besser einschaetzen können, was realistisch, riskant, offen oder als nächster Schritt sinnvoll ist.
+
+Projektpositionierung:
+Italia Money Radar hilft deutschsprachigen Menschen, einen Italien-Neustart realistisch zu prüfen - mit Kostenrechnern, Orientierung, Standortanalyse, Online-Einkommenslogik, Partita-IVA-Grundverständnis und Fördercheck.
+
+Die Website ist:
+- sachlich
+- klar
+- serioes
+- kostenrechnernah
+- risiko-bewusst
+- nicht werblich
+- nicht reisserisch
+- nicht romantisierend
+- nicht steuerberatend
+- nicht rechtsberatend
+- nicht förderversprechend
+- nicht einkommensversprechend
+
+Aktuelle Domain:
+https://italienradar.soupsoupleader.workers.dev/
+
+Aktuelle interne Seiten:
+- index.html
+- italien-kostenrechner.html
+- napoli-neustart.html
+- online-geld-in-italien.html
+- partita-iva.html
+- resto-al-sud-check.html
+- impressum.html
+- datenschutz.html
+
+Technische Regeln:
+1. Erstelle eine vollständige HTML5-Datei.
+2. Nutze UTF-8.
+3. Nutze genau eine H1.
+4. Nutze semantische Elemente: header, nav, main, article, section, footer.
+5. Nutze relative interne Links.
+6. Nutze absolute Canonical-URL.
+7. Nutze css/style.css.
+8. Keine externen Frameworks.
+9. Kein Tracking.
+10. Keine Cookies.
+11. Keine Newsletter-Formulare.
+12. Keine Affiliate-Links.
+13. Keine erfundenen Zahlen.
+14. Keine falschen Garantien.
+15. Keine Aussagen, die Rechts-, Steuer-, Finanz-, Förder- oder Immobilienberatung darstellen.
+16. Keine „schnell reich“-Sprache.
+17. Keine romantisierte Darstellung von Napoli, Süditalien oder Italien.
+18. Mobile Lesbarkeit muss Prioritaet haben.
+19. Linktexte müssen beschreibend sein.
+20. Footer muss einheitlich mit der bestehenden Website sein.
+
+Artikeldaten:
+- Dateiname: [DATEINAME.html]
+- SEO-Titel: [SEO-TITEL]
+- H1: [H1]
+- Meta Description: [META-DESCRIPTION]
+- Cluster: [CLUSTER]
+- Artikeltyp: [KOSTEN / STANDORT / RISIKO / ONLINE-EINKOMMEN / STRUKTUR-FOERDERUNG]
+- Prioritaet: [PRIORITAET]
+- Suchintention: [SUCHINTENTION]
+- Zielgruppe: [ZIELGRUPPE]
+- Hauptaussage: [HAUPTAUSSAGE]
+- Artikelaufgabe: [ARTIKELAUFGABE]
+- Primärer CTA-Link: [LINK]
+- Primärer CTA-Text: [TEXT]
+- Sekundärer CTA-Link: [LINK]
+- Sekundärer CTA-Text: [TEXT]
+- Pflichtlinks: [LISTE]
+- Risiko-Hinweis: [RISIKO-HINWEIS]
+- Stand: [MONAT JAHR]
+- Veröffentlichungsdatum: [YYYY-MM-DD]
+- Änderungsdatum: [YYYY-MM-DD]
+
+Pflichtstruktur der HTML-Seite:
+
+1. Head
+Der Head muss enthalten:
+- charset
+- viewport
+- title
+- meta description
+- meta robots index, follow
+- canonical
+- stylesheet
+- Article JSON-LD
+
+2. Header / Navigation
+Nutze eine ruhige Hauptnavigation mit:
+- Start
+- Kostenrechner
+- Napoli
+- Online-Geld
+- Partita IVA
+- Fördercheck
+
+3. Hero
+Der Hero muss enthalten:
+- Kategorie / Cluster
+- H1
+- kurze Einleitung mit 2-4 Sätzen
+- primärer CTA
+- sekundärer CTA
+- sichtbarer Stand, zum Beispiel „Stand: Juli 2026“
+
+4. Kurzfazit
+Direkt nach dem Hero kommt eine Kurzfazit-Box mit 4 Punkten:
+- wichtigste Antwort
+- entscheidender Faktor
+- größtes Risiko
+- nächster sinnvoller Schritt
+
+5. Realistische Einordnung
+Fuege einen Abschnitt „Realistische Einordnung“ ein.
+Dieser Abschnitt erklaert, warum das Thema nicht pauschal beantwortet werden kann und welche Faktoren die Entscheidung beeinflussen.
+
+6. Für wen ist dieser Artikel?
+Fuege eine klare Zielgruppenliste ein.
+Beginne mit:
+„Dieser Artikel ist relevant, wenn du ...“
+Nutze 4-6 konkrete Punkte.
+
+7. Die Kernaussage
+Fuege die Hauptaussage als eigenen Abschnitt ein.
+Sie muss nuechtern, klar und nicht werblich sein.
+
+8. Entscheidende Faktoren
+Fuege eine Faktoren-Box oder Faktorenliste ein.
+Je nach Artikeltyp müssen passende Faktoren erscheinen.
+
+Für Kostenartikel:
+- Miete
+- Fixkosten
+- Lebensmittel
+- Transport
+- Gesundheit
+- Rücklagen
+- Einkommen
+
+Für Standortartikel:
+- Miete
+- Stadtteil / Ort
+- Alltag
+- Sprache
+- Mobilitaet
+- Infrastruktur
+- Einkommen
+
+Für Risikoartikel:
+- Einkommen
+- Puffer
+- Wohnung
+- Versicherung
+- Notfallplan
+- Aufenthalts-/Behördenfragen
+
+Für Online-Einkommensartikel:
+- Geschäftsmodell
+- Zielgruppe
+- Nutzwert
+- Traffic
+- Vertrauen
+- Monetarisierung
+- Zeit
+
+Für Struktur-/Förderartikel:
+- Wohnsitz
+- Tätigkeit
+- Status
+- Voraussetzungen
+- Timing
+- professionelle Prüfung
+- Programmänderungen
+
+9. Hauptinhalt
+Der Hauptinhalt muss aus logisch aufgebauten H2-Abschnitten bestehen.
+Jede H2 beantwortet eine echte Nutzerfrage.
+Absätze müssen kurz und lesbar bleiben.
+Nutze H3 nur, wenn es wirklich eine Untergliederung braucht.
+
+10. Realistischer wird es, wenn ...
+Fuege eine Sektion ein:
+„Realistischer wird es, wenn ...“
+Nutze 4-6 Punkte.
+
+11. Riskant wird es, wenn ...
+Fuege eine Sektion ein:
+„Riskant wird es, wenn ...“
+Nutze 4-6 Punkte.
+
+12. Häufige Denkfehler
+Fuege eine Sektion mit typischen falschen Annahmen ein.
+Passe die Denkfehler an den Artikel an.
+
+13. Risiken und Grenzen
+Fuege eine sichtbare Risiko-Box ein.
+Sie muss erklaeren:
+- was der Artikel nicht leisten kann
+- welche Unsicherheiten bestehen
+- warum individuelle Prüfung nötig sein kann
+- welche Entscheidungen nicht allein aus dem Artikel abgeleitet werden sollten
+
+14. Checkliste
+Fuege eine praktische Checkliste ein.
+Die Checkliste muss echte Prüffragen enthalten.
+Keine Allgemeinplaetze.
+Mindestens 6 Punkte.
+
+15. Entscheidungsmatrix
+Fuege eine kleine Entscheidungsmatrix ein.
+Spalten:
+- Situation
+- Einschätzung
+- Nächster Schritt
+
+16. Nächster sinnvoller Schritt
+Fuege eine CTA-Box ein.
+Sie muss genau erklaeren, was der Nutzer als Nächstes tun sollte.
+Der CTA muss auf eine interne Seite fuehren.
+
+17. Passende nächste Seiten
+Fuege eine Sektion „Passende nächste Seiten“ ein.
+Mindestens 3 interne Links.
+Alle Links müssen beschreibende Ankertexte haben.
+Kein „hier klicken“.
+
+Pflicht:
+- ein Link zum Kostenrechner oder Fördercheck
+- ein Link zur passenden Hauptseite
+- ein Link zum nächsten logischen Thema
+
+18. Hinweis / Disclaimer
+Fuege einen sichtbaren Hinweis ein.
+
+Basis-Hinweis:
+„Hinweis: Diese Seite bietet allgemeine Orientierung und ersetzt keine Rechtsberatung, Steuerberatung, Finanzberatung, Förderberatung oder Immobilienberatung. Programme, Kosten, Voraussetzungen und persoenliche Situationen können sich aendern.“
+
+Passe den Hinweis an:
+- Kostenartikel: keine Finanzberatung
+- Standortartikel: keine Immobilienberatung / Standortgarantie
+- Online-Einkommen: keine Einkommensgarantie
+- Partita IVA / regime forfettario: keine Steuer- oder Rechtsberatung
+- Resto al Sud: keine Förderberatung / keine Fördergarantie
+
+19. Footer
+Nutze diesen Footer exakt:
+
+<footer>
+  <p>Italia Money Radar &mdash; Rechner, Checks und Orientierung f&uuml;r deinen Italien-Neustart.</p>
+
+  <p>
+    Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder F&ouml;rdergarantie.
+  </p>
+
+  <p>
+    <a href="index.html">Start</a> &middot;
+    <a href="italien-kostenrechner.html">Kostenrechner</a> &middot;
+    <a href="napoli-neustart.html">Napoli</a> &middot;
+    <a href="online-geld-in-italien.html">Online-Geld</a> &middot;
+    <a href="partita-iva.html">Partita IVA</a> &middot;
+    <a href="resto-al-sud-check.html">F&ouml;rdercheck</a> &middot;
+    <a href="impressum.html">Impressum</a> &middot;
+    <a href="datenschutz.html">Datenschutz</a>
+  </p>
+</footer>
+
+20. Article JSON-LD
+Fuege Article JSON-LD ein.
+Nur sichtbare Informationen verwenden.
+Nutze:
+- @context
+- @type Article
+- headline
+- description
+- inLanguage de
+- author: Italia Money Radar
+- publisher: Italia Money Radar
+- datePublished
+- dateModified
+- mainEntityOfPage
+
+21. Qualitätsprüfung vor Ausgabe
+Vor der finalen Ausgabe prüfe:
+- genau eine H1
+- title vorhanden
+- meta description vorhanden
+- canonical korrekt
+- robots index, follow
+- interne Links relativ
+- keine kaputten Sonderzeichen
+- keine Platzhalter übrig
+- CTA vorhanden
+- Checkliste vorhanden
+- Entscheidungsmatrix vorhanden
+- Risiko-Box vorhanden
+- Disclaimer vorhanden
+- Footer vollständig
+- keine Garantien
+- keine Steuerberatung
+- keine Rechtsberatung
+- keine Förderberatung
+- keine Einkommensversprechen
+- keine erfundenen Zahlen
+- keine romantisierte Darstellung
+- mobilfreundliche Struktur
+- alle Linktexte verständlich
+
+Ausgabe:
+Gib eine vollständige HTML-Datei aus.
+Keine Erklaerungen ausserhalb des Codes, wenn ausdruecklich nur Code verlangt wird.
+Wenn CSS-Ergaenzungen nötig sind, gib sie getrennt unter „CSS-Ergaenzung“ aus.
+Wenn sitemap.xml später ergaenzt werden muss, erwaehne die neue URL separat.
+```
+
+---
+
+# 10. Finale HTML-Struktur des MasterTemplates
+
+Diese technische Struktur soll jeder Artikel grundsaetzlich erhalten.
+
+```html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>[SEO-TITEL] | Italia Money Radar</title>
+  <meta name="description" content="[META-DESCRIPTION]">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://italienradar.soupsoupleader.workers.dev/[DATEINAME]">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "[H1]",
+    "description": "[META-DESCRIPTION]",
+    "inLanguage": "de",
+    "author": {
+      "@type": "Organization",
+      "name": "Italia Money Radar"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Italia Money Radar"
+    },
+    "datePublished": "[YYYY-MM-DD]",
+    "dateModified": "[YYYY-MM-DD]",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://italienradar.soupsoupleader.workers.dev/[DATEINAME]"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Hauptnavigation">
+      <a href="index.html">Start</a>
+      <a href="italien-kostenrechner.html">Kostenrechner</a>
+      <a href="napoli-neustart.html">Napoli</a>
+      <a href="online-geld-in-italien.html">Online-Geld</a>
+      <a href="partita-iva.html">Partita IVA</a>
+      <a href="resto-al-sud-check.html">F&ouml;rdercheck</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article-page">
+
+      <section class="hero article-hero">
+        <p class="eyebrow">[CLUSTER]</p>
+        <h1>[H1]</h1>
+        <p class="article-intro">[Kurze Einleitung mit 2-4 Sätzen. Sachlich, direkt, ohne Hype.]</p>
+        <p class="article-meta">Stand: [MONAT JAHR]</p>
+
+        <p class="hero-actions">
+          <a class="button" href="[PRIMAERER-CTA-LINK]">[PRIMAERER CTA]</a>
+          <a class="button secondary" href="[SEKUNDAERER-CTA-LINK]">[SEKUNDAERER CTA]</a>
+        </p>
+      </section>
+
+      <section class="content-box summary-box">
+        <h2>Kurzfazit</h2>
+        <ul>
+          <li>[Wichtigste Antwort]</li>
+          <li>[Entscheidender Faktor]</li>
+          <li>[Größtes Risiko]</li>
+          <li>[Nächster sinnvoller Schritt]</li>
+        </ul>
+      </section>
+
+      <section class="content-box reality-box">
+        <h2>Realistische Einordnung</h2>
+        <p>[Warum das Thema nicht pauschal beantwortet werden kann.]</p>
+      </section>
+
+      <section>
+        <h2>F&uuml;r wen ist dieser Artikel?</h2>
+        <p>Dieser Artikel ist relevant, wenn du ...</p>
+        <ul>
+          <li>[Zielgruppe / Situation 1]</li>
+          <li>[Zielgruppe / Situation 2]</li>
+          <li>[Zielgruppe / Situation 3]</li>
+          <li>[Zielgruppe / Situation 4]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Die Kernaussage</h2>
+        <p>[HAUPTAUSSAGE]</p>
+      </section>
+
+      <section class="content-box factor-box">
+        <h2>Entscheidende Faktoren</h2>
+        <ul>
+          <li>[Faktor 1]</li>
+          <li>[Faktor 2]</li>
+          <li>[Faktor 3]</li>
+          <li>[Faktor 4]</li>
+          <li>[Faktor 5]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>[Hauptabschnitt 1 als echte Nutzerfrage]</h2>
+        <p>[Inhalt]</p>
+      </section>
+
+      <section>
+        <h2>[Hauptabschnitt 2 als echte Nutzerfrage]</h2>
+        <p>[Inhalt]</p>
+      </section>
+
+      <section>
+        <h2>[Hauptabschnitt 3 als echte Nutzerfrage]</h2>
+        <p>[Inhalt]</p>
+      </section>
+
+      <section class="content-box positive-box">
+        <h2>Realistischer wird es, wenn ...</h2>
+        <ul>
+          <li>[Punkt 1]</li>
+          <li>[Punkt 2]</li>
+          <li>[Punkt 3]</li>
+          <li>[Punkt 4]</li>
+        </ul>
+      </section>
+
+      <section class="content-box warning-box">
+        <h2>Riskant wird es, wenn ...</h2>
+        <ul>
+          <li>[Punkt 1]</li>
+          <li>[Punkt 2]</li>
+          <li>[Punkt 3]</li>
+          <li>[Punkt 4]</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>H&auml;ufige Denkfehler</h2>
+        <ul>
+          <li>[Denkfehler 1]</li>
+          <li>[Denkfehler 2]</li>
+          <li>[Denkfehler 3]</li>
+        </ul>
+      </section>
+
+      <section class="content-box risk-box">
+        <h2>Risiken und Grenzen</h2>
+        <p>[Was der Artikel nicht leisten kann und warum individuelle Prüfung nötig sein kann.]</p>
+      </section>
+
+      <section class="content-box checklist-box">
+        <h2>Checkliste</h2>
+        <ul>
+          <li>[Prüffrage 1]</li>
+          <li>[Prüffrage 2]</li>
+          <li>[Prüffrage 3]</li>
+          <li>[Prüffrage 4]</li>
+          <li>[Prüffrage 5]</li>
+          <li>[Prüffrage 6]</li>
+        </ul>
+      </section>
+
+      <section class="content-box decision-box">
+        <h2>Entscheidungsmatrix</h2>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Situation</th>
+                <th>Einsch&auml;tzung</th>
+                <th>N&auml;chster Schritt</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>[Situation 1]</td>
+                <td>[Einschätzung 1]</td>
+                <td>[Nächster Schritt 1]</td>
+              </tr>
+              <tr>
+                <td>[Situation 2]</td>
+                <td>[Einschätzung 2]</td>
+                <td>[Nächster Schritt 2]</td>
+              </tr>
+              <tr>
+                <td>[Situation 3]</td>
+                <td>[Einschätzung 3]</td>
+                <td>[Nächster Schritt 3]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="content-box next-step-box">
+        <h2>N&auml;chster sinnvoller Schritt</h2>
+        <p>[Konkrete Handlungsempfehlung ohne Garantie und ohne Beratung.]</p>
+        <p>
+          <a class="button" href="[CTA-LINK]">[CTA-TEXT]</a>
+        </p>
+      </section>
+
+      <section class="related-links">
+        <h2>Passende n&auml;chste Seiten</h2>
+        <ul>
+          <li><a href="[LINK 1]">[Beschreibender Ankertext 1]</a></li>
+          <li><a href="[LINK 2]">[Beschreibender Ankertext 2]</a></li>
+          <li><a href="[LINK 3]">[Beschreibender Ankertext 3]</a></li>
+        </ul>
+      </section>
+
+      <section class="content-box disclaimer-box">
+        <h2>Hinweis</h2>
+        <p>[DISCLAIMER]</p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer>
+    <p>Italia Money Radar &mdash; Rechner, Checks und Orientierung f&uuml;r deinen Italien-Neustart.</p>
+
+    <p>
+      Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder F&ouml;rdergarantie.
+    </p>
+
+    <p>
+      <a href="index.html">Start</a> &middot;
+      <a href="italien-kostenrechner.html">Kostenrechner</a> &middot;
+      <a href="napoli-neustart.html">Napoli</a> &middot;
+      <a href="online-geld-in-italien.html">Online-Geld</a> &middot;
+      <a href="partita-iva.html">Partita IVA</a> &middot;
+      <a href="resto-al-sud-check.html">F&ouml;rdercheck</a> &middot;
+      <a href="impressum.html">Impressum</a> &middot;
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+</body>
+</html>
+```
+
+---
+
+# 11. Finale CSS-Erweiterung für Artikel
+
+Diese CSS-Erweiterung soll nur eingesetzt werden, wenn die bestehenden Klassen in `css/style.css` noch fehlen oder unzureichend sind.
+
+```css
+.article-page {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.article-hero {
+  max-width: 920px;
+  margin: 0 auto 2rem;
+}
+
+.article-intro {
+  max-width: 760px;
+}
+
+.article-meta {
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.content-box {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.summary-box,
+.reality-box,
+.factor-box,
+.positive-box,
+.warning-box,
+.risk-box,
+.checklist-box,
+.decision-box,
+.next-step-box,
+.disclaimer-box {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.related-links {
+  margin: 2rem 0;
+}
+
+.related-links ul {
+  padding-left: 1.25rem;
+}
+
+.related-links a {
+  font-weight: 600;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.article-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.75rem;
+}
+
+.article-page th,
+.article-page td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.article-page th {
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .article-page {
+    max-width: 100%;
+  }
+
+  .content-box {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    text-align: center;
+  }
+}
+```
+
+---
+
+# 12. Finale Artikel-Datenstruktur
+
+Vor jeder Artikelerstellung muss dieser Datenblock ausgefuellt werden:
+
+```text
+Artikel-Datenblock
+
+Dateiname:
+SEO-Titel:
+H1:
+Meta Description:
+Cluster:
+Artikeltyp:
+Prioritaet:
+Suchintention:
+Zielgruppe:
+Hauptaussage:
+Artikelaufgabe:
+Primärer CTA:
+Sekundärer CTA:
+Pflichtlinks:
+Realistischer-wenn-Punkte:
+Riskant-wenn-Punkte:
+Häufige Denkfehler:
+Checklistenpunkte:
+Entscheidungsmatrix:
+Risiko-Hinweis:
+Stand:
+Veröffentlichungsdatum:
+Änderungsdatum:
+```
+
+Ohne diesen Datenblock wird kein Artikel produziert.
+
+---
+
+# 13. Umsetzungsreihenfolge nach dieser Datei
+
+Nachdem der Masterplan 2.2 + 2.3 gelesen wurde und diese 2.4-Anweisung verstanden ist, lautet die nächste operative Reihenfolge:
+
+```text
+1. MasterTemplate als Produktionsstandard akzeptieren.
+2. Bestehende css/style.css prüfen.
+3. CSS-Erweiterung nur falls nötig ergaenzen.
+4. Artikel-1-Datenblock final ausfuellen.
+5. Artikel 1 inhaltlich komplett ausarbeiten.
+6. Artikel 1 als HTML-Datei bauen.
+7. Artikel 1 lokal/live prüfen.
+8. Sitemap ergaenzen.
+9. Interne Links auf bestehenden Seiten ergaenzen.
+10. Git commit + push.
+```
+
+Artikel 1 ist:
+
+```text
+was-kostet-ein-neustart-in-italien.html
+```
+
+Danach folgen:
+
+```text
+2. mit-1000-euro-in-italien-leben.html
+3. leben-in-neapel-kosten.html
+```
+
+---
+
+# 14. Finale Abnahmekriterien für Phase 2.4
+
+Phase 2.4 ist abgeschlossen, wenn Folgendes akzeptiert ist:
+
+```text
+[ ] MasterTemplate-Struktur final
+[ ] KI-Master-Prompt final
+[ ] HTML-Grundgeruest final
+[ ] CSS-Ergaenzung vorbereitet
+[ ] Artikel-Datenblock definiert
+[ ] Qualitätscheck definiert
+[ ] Disclaimer-Logik definiert
+[ ] interne Linklogik definiert
+[ ] CTA-System definiert
+[ ] Entscheidungsmatrix als Pflichtbaustein definiert
+[ ] bereit für Artikel 1
+```
+
+---
+
+# 15. Finale Bewertung
+
+Dieses MasterTemplate ist kein normales Blogtemplate.
+
+Es ist ein:
+
+```text
+Prüf-Template
+Entscheidungs-Template
+Vertrauens-Template
+SEO-Template
+Risiko-Template
+Conversion-Template
+```
+
+Es passt zu Italia Money Radar, weil die Website Menschen nicht zu schnellen Entscheidungen treiben soll, sondern zu realistischer Prüfung:
+
+```text
+Kosten prüfen
+Standort prüfen
+Einkommen prüfen
+Struktur prüfen
+Förderung vorsichtig prüfen
+```
+
+Finale Entscheidung:
+
+```text
+Phase 2.4 MasterTemplate = finaler Produktionsstandard für alle Artikel.
+```
+
+Nächster Schritt:
+
+```text
+Artikel 1-Datenblock ausfuellen und Artikel 1 auf Basis dieses MasterTemplates ausarbeiten.
+```

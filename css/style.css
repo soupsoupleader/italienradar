@@ -1114,3 +1114,256 @@ a.roadmap-item:hover {
     text-align: center;
   }
 }
+
+
+/* ============================================
+   PHASE 2.4 — Artikel-Template Boxen
+   ============================================ */
+
+/* Artikel-Container */
+.article-page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+.article-page section {
+  margin-bottom: 32px;
+}
+
+.article-page h2 {
+  font-size: clamp(24px, 3.5vw, 32px);
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  color: #123c2c;
+}
+
+.article-page h3 {
+  font-size: clamp(20px, 2.8vw, 26px);
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #1f6f4a;
+}
+
+.article-page p {
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-size: 17px;
+}
+
+.article-page ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+.article-page li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Content-Boxen */
+.content-box {
+  padding: 28px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border-left: 5px solid;
+}
+
+.positive-box {
+  background: #e6f7ed;
+  border-left-color: #0d6b35;
+}
+
+.positive-box h2 {
+  color: #0d6b35;
+}
+
+.warning-box {
+  background: #fff8e6;
+  border-left-color: #b8860b;
+}
+
+.warning-box h2 {
+  color: #8a6200;
+}
+
+.risk-box {
+  background: #fef2f2;
+  border-left-color: #b91c1c;
+}
+
+.risk-box h2 {
+  color: #9b1c1c;
+}
+
+.checklist-box {
+  background: #f0f4ff;
+  border-left-color: #3b82f6;
+}
+
+.checklist-box h2 {
+  color: #1e40af;
+}
+
+.decision-box {
+  background: #f9fafb;
+  border-left-color: #6b7280;
+  overflow-x: auto;
+}
+
+.decision-box h2 {
+  color: #374151;
+}
+
+.next-step-box {
+  background: #f5f8f6;
+  border-left-color: #1f6f4a;
+}
+
+.next-step-box h2 {
+  color: #123c2c;
+}
+
+.disclaimer-box {
+  background: #fef3cd;
+  border-left-color: #d97706;
+  font-size: 15px;
+}
+
+.disclaimer-box h2 {
+  color: #92400e;
+  font-size: 20px;
+}
+
+/* Tabellen in Boxen */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  min-width: 600px;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-wrapper th {
+  background: #f9fafb;
+  font-weight: 700;
+  color: #123c2c;
+}
+
+.table-wrapper tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Related Links */
+.related-links {
+  background: #f5f8f6;
+  padding: 28px;
+  border-radius: 16px;
+}
+
+.related-links h2 {
+  margin-top: 0;
+  color: #123c2c;
+}
+
+.related-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.related-links li {
+  margin-bottom: 12px;
+}
+
+.related-links a {
+  color: #1f6f4a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.related-links a:hover {
+  color: #d5a84c;
+  text-decoration: underline;
+}
+
+/* Button in Artikel */
+.content-box .button,
+.next-step-box .button {
+  display: inline-block;
+  background: #1f6f4a;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.content-box .button:hover,
+.next-step-box .button:hover {
+  background: #155a37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(31, 111, 74, 0.3);
+}
+
+/* Subpage Hero für Artikel */
+.subpage-hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 56px;
+  text-align: center;
+}
+
+.subpage-hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.subpage-hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.6;
+}
+
+.small-header .subpage-hero {
+  padding: 32px 24px 48px;
+}
+
+/* Mobile Optimierung */
+@media (max-width: 760px) {
+  .article-page {
+    padding: 0 18px 32px;
+  }
+  
+  .content-box {
+    padding: 20px;
+  }
+  
+  .table-wrapper table {
+    font-size: 14px;
+    min-width: 500px;
+  }
+  
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 10px 12px;
+  }
+}
