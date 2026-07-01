@@ -1,17 +1,17 @@
-?????<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Italien-Kostenrechner | Italia Money Radar</title>
-  <meta name="description" content="Kostenrechner für deinen Italien-Plan: Einkommen, Fixkosten, Lebenshaltung und Risiko-Ampel in einer Auswertung.">
+  <meta name="description" content="Kostenrechner fÃ¼r deinen Italien-Plan: Einkommen, Fixkosten, Lebenshaltung und Risiko-Ampel in einer Auswertung.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231f6f4a'/%3E%3Ctext x='50' y='58' font-size='50' text-anchor='middle' font-family='Arial, sans-serif' fill='white'%3ER%3C/text%3E%3C/svg%3E">
   <link rel="canonical" href="https://italienradar.soupsoupleader.workers.dev/italien-kostenrechner.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Italia Money Radar">
   <meta property="og:title" content="Italien-Kostenrechner | Italia Money Radar">
-  <meta property="og:description" content="Berechne dein verfügbares Budget in Italien und erkenne, ob dein Plan machbar ist.">
+  <meta property="og:description" content="Berechne dein verfÃ¼gbares Budget in Italien und erkenne, ob dein Plan machbar ist.">
   <meta property="og:url" content="https://italienradar.soupsoupleader.workers.dev/italien-kostenrechner.html">
   <meta property="og:locale" content="de_DE">
   <meta name="twitter:card" content="summary">
@@ -26,25 +26,25 @@
         <a href="napoli-neustart.html">Napoli</a>
         <a href="online-geld-in-italien.html">Online-Geld</a>
         <a href="partita-iva.html">Partita IVA</a>
-        <a href="resto-al-sud-check.html">Fördercheck</a>
+        <a href="resto-al-sud-check.html">FÃ¶rdercheck</a>
       </div>
     </nav>
     <section class="subpage-hero">
       <p class="eyebrow">Italien-Kostenrechner</p>
       <h1>Wie sicher ist dein Italien-Plan?</h1>
-      <p>Einkommen, Fixkosten, Lebenshaltung — auf einer Seite. Verarbeitung nur lokal in deinem Browser.</p>
+      <p>Einkommen, Fixkosten, Lebenshaltung â€” auf einer Seite. Verarbeitung nur lokal in deinem Browser.</p>
     </section>
   </header>
   <main>
     <section class="section-block">
       <h2>Deine Eckdaten</h2>
-      <p>Trage dein monatliches Netto-Einkommen und deine geplanten Kosten in Italien ein. Der Rechner zeigt dir, ob dein Plan grundsätzlich machbar, knapp kalkuliert oder aktuell zu riskant ist.</p>
+      <p>Trage dein monatliches Netto-Einkommen und deine geplanten Kosten in Italien ein. Der Rechner zeigt dir, ob dein Plan grundsÃ¤tzlich machbar, knapp kalkuliert oder aktuell zu riskant ist.</p>
       <form id="costForm" class="cost-form" novalidate>
         <div class="form-grid">
           <label class="full-width">
             Region / Stadt
             <select id="city" name="city">
-              <optgroup label="Süditalien (günstiger)">
+              <optgroup label="SÃ¼ditalien (gÃ¼nstiger)">
                 <option value="Catania">Catania / Sizilien</option>
                 <option value="Palermo">Palermo / Sizilien</option>
                 <option value="Cagliari">Cagliari / Sardinien</option>
@@ -66,11 +66,11 @@
                 <option value="Andere Region">Andere Region / Kleinstadt</option>
               </optgroup>
             </select>
-            <small class="field-hint">Lebenshaltungsfaktor und Miet-Plausibilitätsgrenze basieren auf Nomisma 2024, Numbeo 2024 & ISTAT 2024.</small>
+            <small class="field-hint">Lebenshaltungsfaktor und Miet-PlausibilitÃ¤tsgrenze basieren auf Nomisma 2024, Numbeo 2024 & ISTAT 2024.</small>
           </label>
 
           <label class="full-width">
-            Monatliches Netto-Einkommen (€)
+            Monatliches Netto-Einkommen (â‚¬)
             <input type="number" id="income" name="income" min="1" step="50" placeholder="z. B. 2000" required>
             <small id="incomeError" class="field-error" role="status" aria-live="polite"></small>
           </label>
@@ -111,7 +111,7 @@
         <div id="formError" class="form-error" role="status" aria-live="polite"></div>
         <div class="form-actions">
           <button type="submit" class="primary-button">Berechnung starten</button>
-          <button type="reset" class="secondary-button">Zurücksetzen</button>
+          <button type="reset" class="secondary-button">ZurÃ¼cksetzen</button>
         </div>
       </form>
     </section>
@@ -122,19 +122,19 @@
       <div class="result-grid">
         <div>
           <span>Gesamtkosten</span>
-          <strong id="totalCosts">0 €</strong>
+          <strong id="totalCosts">0 â‚¬</strong>
         </div>
         <div>
           <span>Einkommen</span>
-          <strong id="incomeResult">0 €</strong>
+          <strong id="incomeResult">0 â‚¬</strong>
         </div>
         <div>
-          <span>Überschuss / Fehlbetrag</span>
-          <strong id="balanceResult">0 €</strong>
+          <span>Ãœberschuss / Fehlbetrag</span>
+          <strong id="balanceResult">0 â‚¬</strong>
         </div>
         <div>
           <span>Empfohlenes Mindesteinkommen</span>
-          <strong id="minimumIncome">0 €</strong>
+          <strong id="minimumIncome">0 â‚¬</strong>
         </div>
       </div>
       <div id="riskBadge" class="risk-badge">RISIKO</div>
@@ -145,38 +145,38 @@
       <h2>Wichtiger Hinweis</h2>
       <p>
         Dieser Rechner ist ein Orientierungstool. Er liefert keine Steuerberatung,
-        Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.
-        Prüfe konkrete Entscheidungen immer mit Fachstellen, Behörden oder einem
+        Rechtsberatung, Finanzberatung, Immobilienvermittlung oder FÃ¶rdergarantie.
+        PrÃ¼fe konkrete Entscheidungen immer mit Fachstellen, BehÃ¶rden oder einem
         qualifizierten Berater.
       </p>
       <p>
-        <strong>Quellen für die Standort-Faktoren:</strong> Nomisma „Osservatorio Immobiliare"
+        <strong>Quellen fÃ¼r die Standort-Faktoren:</strong> Nomisma â€žOsservatorio Immobiliare"
         2024 (Quadratmeterpreise Kaltmiete), Numbeo Cost of Living Index 2024/2025,
-        ISTAT Indici prezzi al consumo 2024, ARERA-Energiepreise Q4/2024, ÖPNV-Monatstickets
+        ISTAT Indici prezzi al consumo 2024, ARERA-Energiepreise Q4/2024, Ã–PNV-Monatstickets
         (ATM, ATAC, ANM, GTT, TPER). Die Faktoren sind als Orientierung zu lesen, nicht
-        als exakte Prognose — innerhalb einer Stadt können Mieten je nach Stadtteil
-        um Faktor 1,3–1,8 schwanken.
+        als exakte Prognose â€” innerhalb einer Stadt kÃ¶nnen Mieten je nach Stadtteil
+        um Faktor 1,3â€“1,8 schwanken.
       </p>
     </section>
 
     <section class="next-steps-card">
       <h2>Nach der Kostenrechnung</h2>
-      <p>Wenn deine Zahlen grundsätzlich tragfähig sind, prüfe als Nächstes Standort, Einkommen und spätere Struktur.</p>
+      <p>Wenn deine Zahlen grundsÃ¤tzlich tragfÃ¤hig sind, prÃ¼fe als NÃ¤chstes Standort, Einkommen und spÃ¤tere Struktur.</p>
       <div class="next-steps-links">
-        <a href="napoli-neustart.html">Napoli prüfen</a>
+        <a href="napoli-neustart.html">Napoli prÃ¼fen</a>
         <a href="online-geld-in-italien.html">Online-Einkommen verstehen</a>
         <a href="partita-iva.html">Partita IVA Grundcheck</a>
   </main>
 
   <footer>
-    <p>Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder Fördergarantie.</p>
+    <p>Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder FÃ¶rdergarantie.</p>
     <p>
-      <a href="index.html">Start</a> ·
-      <a href="napoli-neustart.html">Napoli</a> ·
-      <a href="online-geld-in-italien.html">Online-Geld</a> ·
-      <a href="partita-iva.html">Partita IVA</a> ·
-      <a href="resto-al-sud-check.html">Fördercheck</a> ·
-      <a href="impressum.html">Impressum</a> ·
+      <a href="index.html">Start</a> Â·
+      <a href="napoli-neustart.html">Napoli</a> Â·
+      <a href="online-geld-in-italien.html">Online-Geld</a> Â·
+      <a href="partita-iva.html">Partita IVA</a> Â·
+      <a href="resto-al-sud-check.html">FÃ¶rdercheck</a> Â·
+      <a href="impressum.html">Impressum</a> Â·
       <a href="datenschutz.html">Datenschutz</a>
     </p>
   </footer>
