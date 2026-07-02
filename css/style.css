@@ -1171,8 +1171,11 @@ a.roadmap-item:hover {
 }
 
 .positive-box {
+  padding: 28px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border-left: 5px solid #0d6b35;
   background: #e6f7ed;
-  border-left-color: #0d6b35;
 }
 
 .positive-box h2 {
@@ -1180,8 +1183,11 @@ a.roadmap-item:hover {
 }
 
 .warning-box {
+  padding: 28px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border-left: 5px solid #b8860b;
   background: #fff8e6;
-  border-left-color: #b8860b;
 }
 
 .warning-box h2 {
@@ -1189,8 +1195,11 @@ a.roadmap-item:hover {
 }
 
 .risk-box {
+  padding: 28px;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  border-left: 5px solid #b91c1c;
   background: #fef2f2;
-  border-left-color: #b91c1c;
 }
 
 .risk-box h2 {
