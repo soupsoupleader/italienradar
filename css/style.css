@@ -1,10 +1,22 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 0;
+}
+
 .site-header {
   background: #123c2c;
   color: white;
+  margin-top: 0;
   padding: 24px 0;
 }
 
 .site-header.small-header {
+  margin-top: 0;
   padding: 24px 0;
 }
 
@@ -917,9 +929,8 @@ select.input-error {
 }
 
 /* ============================================
-   SUBPAGES (Napoli, Online-Geld, Partita IVA, Fördercheck)
-   Schritt 1.7 – Inhaltliche Vertiefung
-   ============================================ */
+  SUBPAGES (Napoli, Online-Geld, Partita IVA, Fördercheck)
+  ============================================ */
 .cta-section {
   background: #f5f8f6;
   border-left: 6px solid #1f6f4a;
