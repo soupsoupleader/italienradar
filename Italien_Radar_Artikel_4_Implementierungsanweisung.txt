@@ -1,0 +1,621 @@
+AUFGABE:
+Bitte implementiere Artikel 4 vollständig und exakt im bestehenden System von Italien Radar.
+
+Artikel 4:
+Nach Italien ziehen ohne Job: wann es gefährlich wird
+
+Datei:
+italien-neustart-ohne-job.html
+
+Quelle / Artikeltext:
+Italien_Radar_Artikel_4_Nach_Italien_ziehen_ohne_Job_FINAL.txt
+
+WICHTIG:
+Dieser Artikel muss in jeder Hinsicht exakt so aufgebaut werden wie Artikel 1, Artikel 2 und Artikel 3.
+
+Nicht neu designen.
+Nicht eigenes Layout bauen.
+Nicht neue Boxen erfinden.
+Nicht neue Farben einführen.
+Nicht Header/Footer verändern.
+Nicht bestehende Seiten verschlechtern.
+Nicht die globale Website-Struktur beschädigen.
+Nicht alte Branding-Namen zurückbringen.
+Nicht .html-URLs in Canonical, Sitemap oder internen Hauptlinks verwenden.
+
+Ziel:
+Artikel 4 soll sich optisch, technisch, strukturell und funktional exakt wie ein weiterer Artikel derselben Serie anfühlen.
+
+Artikel 1:
+was-kostet-ein-neustart-in-italien.html
+
+Artikel 2:
+mit-1000-euro-in-italien-leben.html
+
+Artikel 3:
+leben-in-neapel-kosten.html
+
+Diese drei Artikel sind die verbindliche Vorlage.
+Artikel 4 darf nicht anders aussehen.
+
+
+================================================================================
+1. VORLAGE VERWENDEN
+================================================================================
+
+Bitte nimm NICHT ein neues HTML-Grundgerüst.
+
+Sicherster Weg:
+Kopiere die vollständige HTML-Struktur von Artikel 3:
+
+leben-in-neapel-kosten.html
+
+Erstelle daraus:
+
+italien-neustart-ohne-job.html
+
+Dann ersetze nur:
+
+- Title
+- Meta Description
+- Canonical
+- Open Graph / Twitter Tags
+- JSON-LD
+- Eyebrow
+- H1
+- Hero-Lead
+- Artikelinhalt
+- CTA-Texte
+- interne Artikel-Links
+- active Navigation
+
+Alles andere bleibt strukturell gleich:
+
+- Header
+- Footer
+- CSS-Verknüpfung
+- Container-Struktur
+- Box-Klassen
+- Button-Klassen
+- Tabellenstruktur
+- Abstände
+- Footer-Markup
+- Header-Markup
+
+
+================================================================================
+2. FINALER SEO-BLOCK FÜR ARTIKEL 4
+================================================================================
+
+Datei:
+italien-neustart-ohne-job.html
+
+Canonical:
+https://italienradar.soupsoupleader.workers.dev/italien-neustart-ohne-job
+
+Title:
+Nach Italien ziehen ohne Job: wann es gefährlich wird | Italien Radar
+
+Meta Description:
+Nach Italien ziehen ohne Job realistisch prüfen: Budget, Rücklagen, Gesundheit, Wohnung, Einkommen, Risiken und nächster Schritt mit dem Italien-Kostenrechner.
+
+H1:
+Nach Italien ziehen ohne Job: wann es gefährlich wird
+
+Eyebrow:
+Risiko-Check
+
+Branding:
+Immer „Italien Radar“
+Niemals „Italia Money Radar“
+
+
+================================================================================
+3. HEADER EXAKT WIE BESTEHENDE WEBSITE
+================================================================================
+
+Der Header muss exakt so sein wie bei Artikel 1, 2 und 3.
+
+Navigation:
+
+Start · Kostenrechner · Napoli · Online-Geld · Partita IVA · Fördercheck · Ratgeber
+
+Da Artikel 4 ein Ratgeber-/Artikelinhalt ist, muss in der Navigation „Ratgeber“ aktiv sein.
+
+Ratgeber-Link:
+<a href="ratgeber" class="active" aria-current="page">Ratgeber</a>
+
+Wichtig:
+- Kein anderer Header.
+- Keine andere Reihenfolge.
+- Kein Impressum/Datenschutz im Header.
+- Kein fehlender Ratgeber-Link.
+- Keine reduzierte Navigation.
+- Keine abweichenden Abstände.
+- Keine .html-Links im Header.
+
+
+================================================================================
+4. FOOTER EXAKT AUS DER STARTSEITE ÜBERNEHMEN
+================================================================================
+
+Der Footer muss exakt so aussehen wie auf index.html.
+
+Nicht nachbauen.
+Nicht kürzen.
+Nicht interpretieren.
+
+Footer-Linkfolge:
+
+Start · Kostenrechner · Napoli · Online-Geld · Partita IVA · Fördercheck · Ratgeber · Impressum · Datenschutz
+
+Wichtig:
+- Nur ein Footer in der Datei.
+- Kein doppelter Footer.
+- Kein alter Footer-Rest.
+- Kein offenes „·“ am Ende.
+- Kein „Italia Money Radar“.
+- Kein „© 2024“-Alttext, falls dieser nicht im aktuellen Startseiten-Footer steht.
+- Footer exakt wie bestehende Website.
+
+
+================================================================================
+5. BESTEHENDE BOX- UND LAYOUT-KLASSEN VERWENDEN
+================================================================================
+
+Artikel 4 muss dieselben CSS-Klassen nutzen wie Artikel 1, 2 und 3.
+
+Erlaubte / gewünschte Klassen:
+
+- subpage-hero
+- container
+- article-page
+- section-block
+- section-header
+- eyebrow
+- summary-box
+- reality-box
+- factor-box
+- warning-box
+- risk-box
+- positive-box
+- checklist-box
+- decision-box
+- next-step-box
+- related-links
+- disclaimer-box
+- table-wrapper
+- check-list
+- button
+- button secondary
+
+Nicht verwenden:
+- neue Box-Klassen
+- neue Farben
+- neue Fonts
+- Inline-CSS
+- city-box
+- custom-warning
+- custom-risk
+- neue Grid-Systeme
+- neue Button-Klassen
+- neue Footer-Klassen
+
+
+================================================================================
+6. TABELLEN EXAKT WIE BEI ARTIKEL 1–3
+================================================================================
+
+Alle Tabellen müssen in:
+
+<div class="table-wrapper">
+  <table>
+    ...
+  </table>
+</div>
+
+Keine Markdown-Tabellen.
+Keine ungestylten Tabellen.
+Keine eigenen Tabellenfarben.
+Keine Inline-Styles.
+Keine abweichende Tabellenstruktur.
+
+
+================================================================================
+7. ARTIKELINHALT VOLLSTÄNDIG ÜBERNEHMEN
+================================================================================
+
+Bitte den vollständigen Inhalt aus:
+
+Italien_Radar_Artikel_4_Nach_Italien_ziehen_ohne_Job_FINAL.txt
+
+in HTML umsetzen.
+
+Nichts weglassen.
+
+Diese Module müssen vollständig vorhanden sein:
+
+- Kurzfazit
+- Realistische Einordnung
+- Für wen ist dieser Artikel?
+- Die Kernaussage
+- Die Ohne-Job-Formel
+- Drei Ausgangslagen
+- Aufenthalts- und Formalitätsrealität
+- Warum „vor Ort finde ich schon etwas“ gefährlich sein kann
+- Die Kostenfalle ohne Job
+- Gesundheit, Versicherung und Absicherung
+- Wohnung ohne Job
+- Einkommen: lokal, remote oder selbstständig?
+- Der Ohne-Job-Stresstest
+- Risikoampel
+- Realistischer wird es, wenn ...
+- Riskant wird es, wenn ...
+- Häufige Denkfehler
+- Checkliste
+- Entscheidungsmatrix
+- Nächster sinnvoller Schritt
+- Passende nächste Seiten
+- Hinweis / Disclaimer
+
+Wichtig:
+Keine Inhalte aus Artikel 1, 2 oder 3 versehentlich stehen lassen.
+Keine alten Neapel-Formel-Reste.
+Keine falschen CTA-Texte.
+Keine falschen Related Links.
+
+
+================================================================================
+8. CTAS IN ARTIKEL 4
+================================================================================
+
+Hero-CTA:
+
+Primär:
+Italien-Budget prüfen
+Link:
+italien-kostenrechner
+
+Sekundär:
+Online-Einkommen prüfen
+Link:
+online-geld-in-italien
+
+Nächster sinnvoller Schritt:
+Ebenfalls dieselbe CTA-Logik verwenden.
+
+Keine neuen CTA-Designs.
+Nur bestehende button- und button secondary-Klassen.
+
+
+================================================================================
+9. PASSENDE NÄCHSTE SEITEN
+================================================================================
+
+Am Ende muss ein Abschnitt stehen:
+
+Passende nächste Seiten
+
+Links:
+
+- Italien-Kostenrechner
+  href="italien-kostenrechner"
+
+- Was kostet ein Neustart in Italien wirklich?
+  href="was-kostet-ein-neustart-in-italien"
+
+- Mit 1.000 Euro in Italien leben
+  href="mit-1000-euro-in-italien-leben"
+
+- Leben in Neapel: Kosten, Alltag und Risiken
+  href="leben-in-neapel-kosten"
+
+- Online-Geld in Italien
+  href="online-geld-in-italien"
+
+- Ratgeber
+  href="ratgeber"
+
+Wichtig:
+Keine .html-Links.
+Keine kaputten Links.
+Keine fehlenden Links.
+
+
+================================================================================
+10. JSON-LD FÜR ARTIKEL 4 EINBAUEN
+================================================================================
+
+Artikel 4 braucht Article-JSON-LD wie Artikel 1–3.
+
+Schema-Typ:
+Article
+
+Muss im echten HTML-Quelltext sichtbar sein:
+
+<script type="application/ld+json">
+
+Werte:
+
+headline:
+Nach Italien ziehen ohne Job: wann es gefährlich wird
+
+description:
+Nach Italien ziehen ohne Job realistisch prüfen: Budget, Rücklagen, Gesundheit, Wohnung, Einkommen, Risiken und nächster Schritt mit dem Italien-Kostenrechner.
+
+url:
+https://italienradar.soupsoupleader.workers.dev/italien-neustart-ohne-job
+
+mainEntityOfPage:
+https://italienradar.soupsoupleader.workers.dev/italien-neustart-ohne-job
+
+author:
+Italien Radar
+
+publisher:
+Italien Radar
+
+inLanguage:
+de-DE
+
+articleSection:
+Italien-Kosten / Risiko / Einkommen
+
+datePublished:
+2026-07-07
+
+dateModified:
+2026-07-07
+
+Wichtig:
+- Kein „Italia Money Radar“
+- Keine .html-URL
+- JSON-LD muss zur Canonical passen
+
+
+================================================================================
+11. OPEN GRAPH UND TWITTER CARDS
+================================================================================
+
+Bitte wie bei Artikel 1–3 einbauen oder übernehmen und korrekt anpassen.
+
+og:title:
+Nach Italien ziehen ohne Job: wann es gefährlich wird | Italien Radar
+
+og:description:
+Nach Italien ziehen ohne Job realistisch prüfen: Budget, Rücklagen, Gesundheit, Wohnung, Einkommen, Risiken und nächster Schritt mit dem Italien-Kostenrechner.
+
+og:url:
+https://italienradar.soupsoupleader.workers.dev/italien-neustart-ohne-job
+
+twitter:title:
+Nach Italien ziehen ohne Job: wann es gefährlich wird | Italien Radar
+
+twitter:description:
+Nach Italien ziehen ohne Job realistisch prüfen: Budget, Rücklagen, Gesundheit, Wohnung, Einkommen, Risiken und nächster Schritt mit dem Italien-Kostenrechner.
+
+Wichtig:
+Keine falsche URL.
+Kein alter Artikel-3-Titel.
+Kein altes Branding.
+
+
+================================================================================
+12. SITEMAP AKTUALISIEREN
+================================================================================
+
+sitemap.xml ergänzen um:
+
+https://italienradar.soupsoupleader.workers.dev/italien-neustart-ohne-job
+
+Wichtig:
+- Extensionless URL.
+- Kein .html.
+- XML gültig lassen.
+- Bestehende URLs nicht löschen.
+- Artikel 1, 2, 3 und Ratgeber müssen weiterhin enthalten bleiben.
+
+
+================================================================================
+13. RATGEBER-SEITE AKTUALISIEREN
+================================================================================
+
+ratgeber.html muss Artikel 4 aufnehmen.
+
+Kategorie:
+Italien-Kosten & Risiko
+
+Titel:
+Nach Italien ziehen ohne Job: wann es gefährlich wird
+
+Teaser:
+Du willst nach Italien, hast aber noch keinen Job? Dieser Artikel zeigt, wann ein Neustart ohne Einkommen prüfbar ist — und wann er gefährlich wird.
+
+Link:
+italien-neustart-ohne-job
+
+Wichtig:
+- Artikel 4 darf nicht nur in der Roadmap stehen.
+- Artikel 4 muss als fertiger Artikel gelistet sein.
+- Falls Artikel 4 vorher unter „kommende Artikel“ steht, dort entfernen.
+- Ratgeber-Seite optisch nicht verändern.
+- Nur neuen Artikel korrekt einfügen.
+
+
+================================================================================
+14. STARTSEITE AKTUALISIEREN
+================================================================================
+
+index.html im Bereich „Aktuelle Artikel“ prüfen.
+
+Wenn dort aktuell nur drei Artikel stehen, Artikel 4 passend ergänzen oder den Bereich so erweitern, dass vier Artikel sauber dargestellt werden.
+
+Artikel 4:
+
+Titel:
+Nach Italien ziehen ohne Job
+
+Teaser:
+Prüfe Rücklagen, Einkommen, Wohnung, Versicherung und Plan B, bevor ein Italien-Neustart ohne Job riskant wird.
+
+Link:
+italien-neustart-ohne-job
+
+Wichtig:
+- Startseite nicht optisch zerstören.
+- Kartenlayout beibehalten.
+- Keine alten Footer-/Header-Fehler erzeugen.
+
+
+================================================================================
+15. PASSENDE HUB-SEITEN AKTUALISIEREN
+================================================================================
+
+Artikel 4 muss thematisch eingebunden werden.
+
+Bitte auf diesen Seiten ergänzen:
+
+1. italien-kostenrechner.html
+Bereich:
+Artikel zum Italien-Budget
+
+Artikel 4 ergänzen:
+Nach Italien ziehen ohne Job: wann es gefährlich wird
+
+2. online-geld-in-italien.html
+Bereich:
+Weiterführende Artikel zu Einkommen und Kosten
+
+Artikel 4 ergänzen, weil er direkt mit fehlendem Einkommen und Einkommensaufbau verbunden ist.
+
+3. Optional napoli-neustart.html
+Wenn dort passende Artikel zu Napoli/Süditalien stehen, Artikel 4 nur dann ergänzen, wenn es optisch sinnvoll bleibt.
+Nicht überladen.
+
+Wichtig:
+- Keine doppelten Footer-/Nav-Leisten erzeugen.
+- Bestehende Hub-Seiten nicht neu schreiben.
+- Nur saubere Artikelkarte/Link ergänzen.
+
+
+================================================================================
+16. KEINE BESTEHENDEN KORREKTUREN RÜCKGÄNGIG MACHEN
+================================================================================
+
+Bitte besonders darauf achten, dass diese bereits gelösten Punkte erhalten bleiben:
+
+- Header-Abstand bleibt konsistent.
+- Ratgeber bleibt in der Hauptnavigation.
+- Footer bleibt exakt konsistent.
+- Branding bleibt „Italien Radar“.
+- Fonts bleiben global konsistent.
+- Eyebrows bleiben einheitlich.
+- Aktive Navigation bleibt sichtbar.
+- Keine alten Projektmarker wie „Schritt 1.7“.
+- Keine doppelten Footer.
+- Keine kaputten Trennpunkte.
+- Keine Emojis in Denkfehler-Überschriften.
+
+
+================================================================================
+17. HARTE LOKALE PRÜFUNGEN VOR COMMIT
+================================================================================
+
+Bitte vor dem Commit im Projekt suchen nach:
+
+Italia Money Radar
+Schritt 1.7
+Ratgeber ·</p>
+© 2024
+Alle Angaben ohne Gewähr
+italien-neustart-ohne-job.html" rel="canonical"
+og:url" content="...html
+application/ld+json
+<footer>
+<header
+
+Prüfung:
+- „Italia Money Radar“ darf öffentlich nicht mehr vorkommen.
+- „Schritt 1.7“ darf nicht vorkommen.
+- Kein Footer darf kaputt sein.
+- Artikel 4 muss genau einen Header und genau einen Footer haben.
+- Artikel 4 muss application/ld+json enthalten.
+- Artikel 4 muss canonical enthalten.
+- Artikel 4 darf keine .html Canonical-URL haben.
+- Artikel 4 muss im Ratgeber gelistet sein.
+- Artikel 4 muss in sitemap.xml stehen.
+
+
+================================================================================
+18. LIVE-PRÜFUNG NACH DEPLOYMENT
+================================================================================
+
+Nach Git Push und Cloudflare Deployment bitte live prüfen:
+
+https://italienradar.soupsoupleader.workers.dev/italien-neustart-ohne-job
+
+Dort prüfen:
+
+- Seite lädt
+- Header sieht aus wie Artikel 1–3
+- Ratgeber ist in Navbar aktiv
+- Branding: Italien Radar
+- Eyebrow: Risiko-Check
+- H1 korrekt
+- Keine Layout-Abweichung
+- Tabellen korrekt
+- Boxen korrekt
+- CTA-Buttons korrekt
+- Footer exakt konsistent
+- Keine doppelten Footer
+- Keine kaputten Links
+- Keine alten Artikel-3-Reste
+
+Zusätzlich prüfen:
+
+https://italienradar.soupsoupleader.workers.dev/ratgeber
+→ Artikel 4 sichtbar
+
+https://italienradar.soupsoupleader.workers.dev/sitemap.xml
+→ Artikel 4 enthalten
+
+https://italienradar.soupsoupleader.workers.dev/
+→ Artikel 4 sinnvoll eingebunden, falls Startseite aktualisiert wurde
+
+
+================================================================================
+19. GIT UND DEPLOYMENT
+================================================================================
+
+Nach Umsetzung:
+
+git status
+git add .
+git commit -m "Add article 4 Italy restart without job"
+git push
+
+Cloudflare Deployment abwarten.
+
+Danach Ergebnis melden:
+
+- Artikel 4 erstellt: ja/nein
+- Header identisch mit Artikel 1–3: ja/nein
+- Footer identisch mit Startseite: ja/nein
+- Ratgeber aktiv in Navigation: ja/nein
+- Branding Italien Radar: ja/nein
+- JSON-LD eingebaut: ja/nein
+- Canonical korrekt: ja/nein
+- Sitemap ergänzt: ja/nein
+- Ratgeber-Seite aktualisiert: ja/nein
+- Startseite aktualisiert: ja/nein
+- Kostenrechner verlinkt Artikel 4: ja/nein
+- Online-Geld verlinkt Artikel 4: ja/nein
+- Git Push erfolgreich: ja/nein
+- Cloudflare Deployment erfolgreich: ja/nein
+
+
+================================================================================
+WICHTIGSTER SATZ
+================================================================================
+
+Artikel 4 ist kein neues Seitendesign. Artikel 4 ist Artikel 1–3 plus neuer Inhalt. Kopiere die bestehende Artikelstruktur, setze den neuen Inhalt ein, aktualisiere SEO/Sitemap/Ratgeber/Links und zerstöre keine bestehenden globalen Korrekturen.
