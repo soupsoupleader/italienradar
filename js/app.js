@@ -1,5 +1,5 @@
 ﻿/* ==========================================================================
-   Italia Money Radar — Kostenrechner
+  Italien Radar — Kostenrechner
    Verarbeitet Formulareingaben lokal im Browser, keine externen Calls.
    Saubere UTF-8-Kodierung.
    ========================================================================== */
