@@ -1,7 +1,26 @@
+:root {
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+.logo,
+button,
+.button,
+nav a {
+  font-family: var(--font-main);
 }
 
 main {
@@ -69,6 +88,22 @@ main {
   border-bottom-color: #d5a84c;
 }
 
+.site-header nav a.active,
+.site-header nav a[aria-current="page"] {
+  color: #f4c542;
+  font-weight: 700;
+}
+
+.site-header nav a.active::after,
+.site-header nav a[aria-current="page"]::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 4px;
+  background: currentColor;
+  border-radius: 999px;
+}
+
 .hero {
   max-width: 900px;
   margin: 0 auto;
@@ -90,11 +125,11 @@ main {
 }
 
 .eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 13px;
+  color: #f4c542;
   font-weight: 700;
-  color: #d5a84c;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
   margin-bottom: 12px;
 }
 
@@ -718,7 +753,7 @@ footer a:hover {
   }
 }
 
-/* ====== Italia Money Radar — Zusatz-Styles ======
+/* ====== Italien Radar — Zusatz-Styles ======
    Verbesserungen für Form-Validierung, Risiko-Ampel, Warnhinweise
    und Standort-Hinweis. Saubere UTF-8-Kodierung.
    ===================================================== */
