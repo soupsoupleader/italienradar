@@ -1,18 +1,37 @@
 .site-header {
   background: #123c2c;
   color: white;
+  padding: 24px 0;
 }
 
-.nav {
+.site-header.small-header {
+  padding: 24px 0;
+}
+
+.container,
+.header-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 20px 24px;
+  padding: 0 24px;
+}
+
+.header-inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.site-header nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
   background: transparent;
   color: white;
   padding: 0;
@@ -21,12 +40,7 @@
   text-decoration: none;
 }
 
-.nav-links {
-  display: flex;
-  gap: 16px;
-}
-
-.nav-links a {
+.site-header nav a {
   background: transparent;
   color: white;
   padding: 0;
@@ -38,7 +52,7 @@
   padding-bottom: 2px;
 }
 
-.nav-links a:hover {
+.site-header nav a:hover {
   color: #d5a84c;
   border-bottom-color: #d5a84c;
 }
@@ -614,15 +628,10 @@ footer a:hover {
    SUBPAGES (Impressum, Datenschutz)
    ============================================ */
 
-.small-header {
-  background: #123c2c;
-  padding: 0 0 0;
-}
-
 .subpage-hero {
   max-width: 900px;
   margin: 0 auto;
-  padding: 44px 24px 58px;
+  padding: 64px 24px 64px;
   text-align: center;
 }
 
@@ -1124,7 +1133,7 @@ a.roadmap-item:hover {
 .article-page {
   max-width: 920px;
   margin: 0 auto;
-  padding: 0 24px 40px;
+  padding: 48px 24px 40px;
 }
 
 .article-page section {
@@ -1334,7 +1343,7 @@ a.roadmap-item:hover {
 .subpage-hero {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 24px 56px;
+  padding: 64px 24px 64px;
   text-align: center;
 }
 
@@ -1350,10 +1359,6 @@ a.roadmap-item:hover {
   font-size: 18px;
   color: rgba(255,255,255,0.88);
   line-height: 1.6;
-}
-
-.small-header .subpage-hero {
-  padding: 32px 24px 48px;
 }
 
 /* Mobile Optimierung */
