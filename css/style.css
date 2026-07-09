@@ -1579,6 +1579,34 @@ a.roadmap-item:hover {
   color: inherit;
 }
 
+.tool-page .tool-field select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(0, 0, 0, 0.03);
+  color: inherit;
+}
+
+.choice-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.choice-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.choice-row input {
+  width: auto;
+}
+
 .tool-page .result-box {
   margin-top: 1.5rem;
   padding: 1.25rem;
