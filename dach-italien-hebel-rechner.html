@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DACH-Italien-Hebel-Rechner: Einkommen gegen Italien-Kosten prüfen</title>
+  <meta name="description"
+    content="Berechne, ob dein Einkommen aus Deutschland, Österreich oder der Schweiz gegen italienische Kosten, Rücklagen, Reserven und Kundenrisiko trägt.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231f6f4a'/%3E%3Ctext x='50' y='58' font-size='50' text-anchor='middle' font-family='Arial, sans-serif' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+  <link rel="canonical" href="https://italienradar.soupsoupleader.workers.dev/dach-italien-hebel-rechner">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Italien Radar">
+  <meta property="og:title" content="DACH-Italien-Hebel-Rechner: Einkommen gegen Italien-Kosten prüfen">
+  <meta property="og:description"
+    content="Berechne, ob dein Einkommen aus Deutschland, Österreich oder der Schweiz gegen italienische Kosten, Rücklagen, Reserven und Kundenrisiko trägt.">
+  <meta property="og:url" content="https://italienradar.soupsoupleader.workers.dev/dach-italien-hebel-rechner">
+  <meta property="og:locale" content="de_DE">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DACH-Italien-Hebel-Rechner: Einkommen gegen Italien-Kosten prüfen">
+  <meta name="twitter:description"
+    content="Berechne, ob dein Einkommen aus Deutschland, Österreich oder der Schweiz gegen italienische Kosten, Rücklagen, Reserven und Kundenrisiko trägt.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DACH-Italien-Hebel-Rechner",
+    "url": "https://italienradar.soupsoupleader.workers.dev/dach-italien-hebel-rechner",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "All",
+    "description": "Ein Rechner zur groben Prüfung, ob DACH-Einnahmen gegen italienische Kosten, Rücklagen, Reserven und Kundenrisiko tragfähig sind.",
+    "provider": {
+      "@type": "Organization",
+      "name": "ItalienRadar"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <header class="site-header small-header">
+    <div class="container header-inner">
+      <a class="logo" href="index">Italien Radar</a>
+      <nav aria-label="Hauptnavigation">
+        <a href="index">Start</a>
+        <a href="italien-kostenrechner">Kostenrechner</a>
+        <a href="italien-tools" class="active" aria-current="page">Tools</a>
+        <a href="napoli-neustart">Napoli</a>
+        <a href="online-geld-in-italien">Online-Geld</a>
+        <a href="partita-iva">Partita IVA</a>
+        <a href="resto-al-sud-check">Fördercheck</a>
+        <a href="ratgeber">Ratgeber</a>
+      </nav>
+    </div>
+    <section class="subpage-hero">
+      <p class="eyebrow">Tragfähigkeitsrechner</p>
+      <h1>DACH-Italien-Hebel-Rechner</h1>
+      <p>Rechne dein DACH-Einkommen gegen echte Italien-Kosten, Geschäftsausgaben, Reserve, Rücklagen und Kundenrisiko.</p>
+    </section>
+  </header>
+
+  <main class="container tool-page">
+    <section class="section-block summary-box">
+      <h2>Was der Rechner prüft</h2>
+      <p>
+        Der DACH-Italien-Hebel entsteht nicht durch hohe Einnahmen allein. Er entsteht nur,
+        wenn nach echten Italien-Kosten, Rücklagen, Geschäftskosten, Reserven und Kundenrisiko
+        noch genug Spielraum bleibt.
+      </p>
+      <ul class="check-list">
+        <li>Einnahmen aus Deutschland, Österreich oder der Schweiz</li>
+        <li>Italien-Kosten realistisch erfassen</li>
+        <li>Geschäftskosten und Reserven einplanen</li>
+        <li>Kundenrisiko und Rücklagen prüfen</li>
+      </ul>
+    </section>
+
+    <section id="dach-hebel-rechner" class="section-block tool-card">
+      <div class="section-header">
+        <p class="eyebrow">Interaktives Tool</p>
+        <h2>DACH-Italien-Hebel-Rechner</h2>
+      </div>
+      <form id="dachHebelForm" novalidate>
+        <h3>Eingabebereich: Einnahmen</h3>
+        <p>Trage ein, welche Einnahmen monatlich realistisch aus Deutschland, Österreich oder der Schweiz eingehen. Nicht Wunschumsatz, sondern vorsichtig geschätzte regelmäßige Einnahmen.</p>
+        <div class="tool-grid">
+          <div class="tool-field">
+            <label for="monthlyRevenue">Monatliche DACH-Einnahmen (€)</label>
+            <input type="number" id="monthlyRevenue" name="monthlyRevenue" min="0" step="10" placeholder="z. B. 3200">
+          </div>
+          <div class="tool-field">
+            <label for="largestClientShare">Größter Kundenanteil in Prozent</label>
+            <input type="number" id="largestClientShare" name="largestClientShare" min="0" max="100" step="1" placeholder="z. B. 40">
+          </div>
+          <div class="tool-field">
+            <label for="clientCount">Anzahl aktiver Kunden</label>
+            <input type="number" id="clientCount" name="clientCount" min="0" step="1" placeholder="z. B. 4">
+          </div>
+          <div class="tool-field">
+            <label for="monthsWithRevenue">Einnahmen seit wie vielen Monaten</label>
+            <input type="number" id="monthsWithRevenue" name="monthsWithRevenue" min="0" step="1" placeholder="z. B. 6">
+          </div>
+        </div>
+
+        <h3>Eingabebereich: Italien-Kosten</h3>
+        <p>Trage deine realistischen monatlichen Italien-Kosten ein. Nicht Minimaltraum, sondern ein Budget, das auch normale Monate abbildet.</p>
+        <div class="tool-grid">
+          <div class="tool-field">
+            <label for="rent">Warmmiete (€)</label>
+            <input type="number" id="rent" name="rent" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="utilities">Nebenkosten / Strom / Gas / Wasser (€)</label>
+            <input type="number" id="utilities" name="utilities" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="food">Lebensmittel (€)</label>
+            <input type="number" id="food" name="food" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="mobility">Mobilität (€)</label>
+            <input type="number" id="mobility" name="mobility" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="internetPhone">Internet / Telefon (€)</label>
+            <input type="number" id="internetPhone" name="internetPhone" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="healthReserve">Krankenversicherung / Beitragsreserve (€)</label>
+            <input type="number" id="healthReserve" name="healthReserve" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="otherLiving">Sonstige Lebenshaltung (€)</label>
+            <input type="number" id="otherLiving" name="otherLiving" min="0" step="10">
+          </div>
+        </div>
+
+        <h3>Eingabebereich: Geschäftskosten</h3>
+        <p>Auch Online-Einkommen ist nicht kostenlos. Tools, Buchhaltung, Plattformen, Geräte und Beratung müssen realistisch eingerechnet werden.</p>
+        <div class="tool-grid">
+          <div class="tool-field">
+            <label for="softwareCosts">Software / Tools (€)</label>
+            <input type="number" id="softwareCosts" name="softwareCosts" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="accountingCosts">Buchhaltung / Commercialista / Steuerberatung (€)</label>
+            <input type="number" id="accountingCosts" name="accountingCosts" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="equipmentCosts">Arbeitsmittel (€)</label>
+            <input type="number" id="equipmentCosts" name="equipmentCosts" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="platformFees">Plattformgebühren (€)</label>
+            <input type="number" id="platformFees" name="platformFees" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="otherBusiness">Sonstige Geschäftskosten (€)</label>
+            <input type="number" id="otherBusiness" name="otherBusiness" min="0" step="10">
+          </div>
+        </div>
+
+        <h3>Eingabebereich: Reserve und Rücklagen</h3>
+        <p>Der Rechner berechnet keine echte Steuer oder Sozialversicherung. Die Reserve ist ein Sicherheitswert, damit du Beiträge, Steuern, Nachzahlungen oder professionelle Prüfung nicht komplett vergisst.</p>
+        <div class="tool-grid">
+          <div class="tool-field">
+            <label for="taxContributionReserve">Monatliche Steuer-/Beitragsreserve (€)</label>
+            <input type="number" id="taxContributionReserve" name="taxContributionReserve" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="monthlyRiskBuffer">Gewünschter Risikopuffer pro Monat (€)</label>
+            <input type="number" id="monthlyRiskBuffer" name="monthlyRiskBuffer" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="existingSavings">Vorhandene Rücklagen (€)</label>
+            <input type="number" id="existingSavings" name="existingSavings" min="0" step="10">
+          </div>
+          <div class="tool-field">
+            <label for="targetSavingsMonths">Gewünschte Rücklagenmonate</label>
+            <input type="number" id="targetSavingsMonths" name="targetSavingsMonths" min="0" step="1" placeholder="z. B. 3">
+          </div>
+        </div>
+
+        <h3>Eingabebereich: Kundenrisiko</h3>
+        <p>Der größte Kundenanteil, die Anzahl aktiver Kunden und die bisherige Laufzeit deiner Einnahmen werden im Ergebnis gesondert ausgewertet.</p>
+
+        <div id="dachHebelError" class="form-error" role="status" aria-live="polite"></div>
+        <div class="form-actions">
+          <button type="submit" class="primary-button">DACH-Italien-Hebel berechnen</button>
+          <button type="button" id="dachHebelReset" class="secondary-button">Eingaben zurücksetzen</button>
+        </div>
+      </form>
+
+      <div id="dachHebelResult" class="result-box" hidden>
+        <p class="eyebrow">Ergebnis</p>
+        <p id="resultZone" class="result-zone"></p>
+        <p id="resultLead"></p>
+        <div class="result-metrics">
+          <div><strong>Monatliche Einnahmen:</strong> <span id="metricRevenue">-</span></div>
+          <div><strong>Italien-Lebenskosten:</strong> <span id="metricLiving">-</span></div>
+          <div><strong>Geschäftskosten:</strong> <span id="metricBusiness">-</span></div>
+          <div><strong>Reserve/Puffer:</strong> <span id="metricReserve">-</span></div>
+          <div><strong>Gesamtbelastung:</strong> <span id="metricBurden">-</span></div>
+          <div><strong>Dein monatlicher Spielraum:</strong> <span id="metricMargin">-</span></div>
+          <div><strong>Rücklagenreichweite:</strong> <span id="metricSavingsReach">-</span></div>
+          <div><strong>Stressmonat-Spielraum:</strong> <span id="metricStress">-</span></div>
+          <div><strong>Kundenrisiko:</strong> <span id="metricClientRisk">-</span></div>
+          <div><strong>Ergebniszone:</strong> <span id="metricZone">-</span></div>
+        </div>
+        <div id="zoneWarning" class="warning-box"></div>
+        <div id="nextStepBox" class="note-box"></div>
+      </div>
+    </section>
+
+    <section id="ergebniszonen" class="section-block">
+      <h2>Ergebniszone: stabil, angespannt oder kritisch</h2>
+      <div class="article-grid">
+        <div class="article-card">
+          <strong>Stabil</strong>
+          <span>Spielraum positiv, Rücklagenreichweite solide, Stressmonat tragbar und kein hohes Klumpenrisiko.</span>
+        </div>
+        <div class="article-card">
+          <strong>Angespannt</strong>
+          <span>Laufende Kosten sind evtl. gedeckt, aber Rücklagen, Stressmonat oder Kundenstruktur sind anfällig.</span>
+        </div>
+        <div class="article-card">
+          <strong>Kritisch</strong>
+          <span>Nach Kosten, Reserve und Risiko bleibt zu wenig Spielraum oder das Kundenrisiko ist zu hoch.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="stressmonat-pruefung" class="section-block warning-box">
+      <h2>Stressmonat-Prüfung</h2>
+      <p>
+        Der Rechner simuliert einen Monat mit 30 % weniger Einnahmen. Wenn dein Plan dann sofort kippt,
+        ist der Hebel noch nicht belastbar genug.
+      </p>
+    </section>
+
+    <section class="section-block next-step-box">
+      <h2>Nächster Schritt je Ergebnis</h2>
+      <ul class="check-list">
+        <li>Stabil: <a href="/partita-iva-deutsche-italien">Partita IVA für Deutsche in Italien prüfen</a></li>
+        <li>Angespannt: <a href="/online-einkommen-in-italien-aufbauen">Online-Einkommen weiter stabilisieren</a></li>
+        <li>Kritisch: <a href="/online-einkommen-in-italien-aufbauen">Zurück zum Online-Einkommen-Realitätscheck</a></li>
+      </ul>
+      <p>
+        Ergänzend: <a href="/italien-kostenrechner">Italien-Kostenrechner</a>,
+        <a href="/dach-einnahmen-italien-kostenstruktur">DACH-Einnahmen und Italien-Kostenstruktur</a>,
+        <a href="/regime-forfettario-italien-deutsche">Forfettario prüfen</a>,
+        <a href="/resto-al-sud-2-deutsche-italien">Förderung separat prüfen</a>,
+        <a href="/italien-tools">zurück zum Tool-Hub</a>.
+      </p>
+    </section>
+
+    <section id="orientierung-keine-beratung" class="section-block disclaimer-box">
+      <h2>Orientierung, keine Beratung</h2>
+      <p>
+        Der Rechner zeigt eine grobe Tragfähigkeitsprüfung. Er ersetzt keine Steuer-, Rechts-, Sozialversicherungs- oder Finanzberatung.
+      </p>
+      <p>
+        Keine Steuerberechnung, keine Beitragsberechnung, keine Rechtsberatung,
+        keine Umzugsempfehlung und keine Garantie, dass Italien funktioniert.
+      </p>
+    </section>
+
+    <section id="weiterfuehrende-artikel" class="section-block related-links">
+      <div class="section-header">
+        <p class="eyebrow">Passende nächste Seiten</p>
+        <h2>Weiterführende Artikel und Tools</h2>
+      </div>
+      <ul class="check-list">
+        <li><a href="/online-einkommen-in-italien-aufbauen">Online-Einkommen in Italien aufbauen</a></li>
+        <li><a href="/dach-einnahmen-italien-kostenstruktur">DACH-Einnahmen und Italien-Kostenstruktur</a></li>
+        <li><a href="/partita-iva-deutsche-italien">Partita IVA für Deutsche in Italien</a></li>
+        <li><a href="/regime-forfettario-italien-deutsche">Regime forfettario für Deutsche in Italien</a></li>
+        <li><a href="/resto-al-sud-2-deutsche-italien">Resto al Sud 2.0 für Deutsche in Italien</a></li>
+        <li><a href="/italien-kostenrechner">Italien-Kostenrechner</a></li>
+        <li><a href="/italien-tools">ItalienRadar Tools</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Italien Radar &mdash; Rechner, Checks und Orientierung f&uuml;r deinen Italien-Neustart.</p>
+
+    <p>
+      Keine Steuerberatung, Rechtsberatung, Finanzberatung, Immobilienvermittlung oder F&ouml;rdergarantie.
+    </p>
+
+    <p>
+      <a href="index.html">Start</a> &middot;
+      <a href="italien-kostenrechner.html">Kostenrechner</a> &middot;
+      <a href="italien-tools.html">Tools</a> &middot;
+      <a href="napoli-neustart.html">Napoli</a> &middot;
+      <a href="online-geld-in-italien.html">Online-Geld</a> &middot;
+      <a href="partita-iva.html">Partita IVA</a> &middot;
+      <a href="resto-al-sud-check.html">F&ouml;rdercheck</a> &middot;
+      <a href="ratgeber.html">Ratgeber</a> &middot;
+      <a href="impressum.html">Impressum</a> &middot;
+      <a href="datenschutz.html">Datenschutz</a>
+    </p>
+  </footer>
+
+  <script>
+    function parseNumber(value) {
+      var num = Number(value);
+      return Number.isFinite(num) && num >= 0 ? num : 0;
+    }
+
+    function formatEuro(value) {
+      return new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+    function calculateLivingCosts(data) {
+      return data.rent + data.utilities + data.food + data.mobility + data.internetPhone + data.healthReserve + data.otherLiving;
+    }
+
+    function calculateBusinessCosts(data) {
+      return data.softwareCosts + data.accountingCosts + data.equipmentCosts + data.platformFees + data.otherBusiness;
+    }
+
+    function determineClientRisk(clientCount, largestClientShare) {
+      if (clientCount <= 1 || largestClientShare > 70) {
+        return "high";
+      }
+
+      if (largestClientShare >= 50) {
+        return "medium";
+      }
+
+      return "low";
+    }
+
+    function determineZone(data) {
+      if (
+        data.monthlyRevenue <= 0 ||
+        data.monthlyMargin < 0 ||
+        data.savingsReachMonths < 1 ||
+        (data.clientCount <= 1 && data.largestClientShare > 80)
+      ) {
+        return "red";
+      }
+
+      if (
+        data.monthlyMargin > 0 &&
+        data.savingsReachMonths >= 3 &&
+        data.stressMargin >= 0 &&
+        data.clientRisk !== "high" &&
+        data.monthsWithRevenue >= 3
+      ) {
+        return "green";
+      }
+
+      return "yellow";
+    }
+
+    function calculateResult(data) {
+      var livingCosts = calculateLivingCosts(data);
+      var businessCosts = calculateBusinessCosts(data);
+      var totalReserve = data.taxContributionReserve + data.monthlyRiskBuffer;
+      var totalMonthlyBurden = livingCosts + businessCosts + totalReserve;
+      var monthlyMargin = data.monthlyRevenue - totalMonthlyBurden;
+      var savingsReachMonths = totalMonthlyBurden > 0 ? (data.existingSavings / totalMonthlyBurden) : 0;
+      var stressRevenue = data.monthlyRevenue * 0.7;
+      var stressMargin = stressRevenue - totalMonthlyBurden;
+      var clientRisk = determineClientRisk(data.clientCount, data.largestClientShare);
+
+      return {
+        monthlyRevenue: data.monthlyRevenue,
+        livingCosts: livingCosts,
+        businessCosts: businessCosts,
+        totalReserve: totalReserve,
+        totalMonthlyBurden: totalMonthlyBurden,
+        monthlyMargin: monthlyMargin,
+        savingsReachMonths: savingsReachMonths,
+        stressMargin: stressMargin,
+        clientRisk: clientRisk,
+        clientCount: data.clientCount,
+        largestClientShare: data.largestClientShare,
+        monthsWithRevenue: data.monthsWithRevenue
+      };
+    }
+
+    function renderResult(data) {
+      var resultZone = document.getElementById("resultZone");
+      var resultLead = document.getElementById("resultLead");
+      var zoneWarning = document.getElementById("zoneWarning");
+      var nextStepBox = document.getElementById("nextStepBox");
+
+      var zone = determineZone(data);
+      var clientRiskMap = {
+        low: "stabil",
+        medium: "erhöht",
+        high: "hoch"
+      };
+
+      var zoneLabel = "";
+      var leadText = "";
+      var warningText = "";
+      var nextHtml = "";
+
+      if (zone === "green") {
+        zoneLabel = "Ergebniszone: stabil";
+        leadText = "Dein DACH-Italien-Hebel wirkt grundsätzlich tragfähig. Nach Kosten, Reserven und Stressmonat bleibt Spielraum. Der nächste sinnvolle Schritt ist die strukturelle Prüfung: Partita IVA, Steuerregime und Beiträge.";
+        warningText = "Auch ein grünes Ergebnis ist keine Garantie. Prüfe danach Partita IVA, Steuerregime, Sozialversicherung und konkrete Wohnkosten.";
+        nextHtml = '<h3>Nächster sinnvoller Schritt</h3><p><a class="cta-button" href="/partita-iva-deutsche-italien">Partita IVA für Deutsche in Italien prüfen</a></p>';
+      } else if (zone === "yellow") {
+        zoneLabel = "Ergebniszone: angespannt";
+        leadText = "Dein Plan ist nicht automatisch unrealistisch, aber anfällig. Die laufenden Kosten sind möglicherweise gedeckt, doch Rücklagen, Stressmonat oder Kundenrisiko sind noch zu schwach. Vor einem Umzug solltest du Einkommen, Rücklagen oder Kundenstruktur stärken.";
+        warningText = "Gelb bedeutet nicht unmöglich. Es bedeutet: Der Plan braucht vor dem Umzug mehr Stabilität, Rücklagen oder geringeres Kundenrisiko.";
+        nextHtml = '<h3>Nächster sinnvoller Schritt</h3><p><a class="cta-button" href="/online-einkommen-in-italien-aufbauen">Online-Einkommen weiter stabilisieren</a> <a class="cta-button" href="/italien-kostenrechner">Kostenbasis nachschärfen</a></p>';
+      } else {
+        zoneLabel = "Ergebniszone: kritisch";
+        leadText = "Der Plan trägt aktuell nicht belastbar. Nach realistischen Kosten, Reserven und Risiko bleibt zu wenig Spielraum. Ein Italien-Umzug sollte auf dieser Grundlage nicht beschleunigt werden. Zuerst müssen Einnahmen, Rücklagen oder Kostenstruktur verbessert werden.";
+        warningText = "Rot bedeutet nicht, dass Italien ausgeschlossen ist. Es bedeutet: Nicht auf dieser finanziellen Grundlage beschleunigen.";
+        nextHtml = '<h3>Nächster sinnvoller Schritt</h3><p><a class="cta-button" href="/online-einkommen-in-italien-aufbauen">Zurück zum Online-Einkommen-Realitätscheck</a></p>';
+      }
+
+      resultZone.textContent = zoneLabel;
+      resultLead.textContent = leadText;
+      zoneWarning.textContent = warningText;
+      nextStepBox.innerHTML = nextHtml;
+
+      document.getElementById("metricRevenue").textContent = formatEuro(data.monthlyRevenue);
+      document.getElementById("metricLiving").textContent = formatEuro(data.livingCosts);
+      document.getElementById("metricBusiness").textContent = formatEuro(data.businessCosts);
+      document.getElementById("metricReserve").textContent = formatEuro(data.totalReserve);
+      document.getElementById("metricBurden").textContent = formatEuro(data.totalMonthlyBurden);
+      document.getElementById("metricMargin").textContent = formatEuro(data.monthlyMargin);
+      document.getElementById("metricSavingsReach").textContent = data.totalMonthlyBurden > 0
+        ? data.savingsReachMonths.toFixed(1).replace(".", ",") + " Monate"
+        : "Bitte Eingaben prüfen";
+      document.getElementById("metricStress").textContent = formatEuro(data.stressMargin);
+      document.getElementById("metricClientRisk").textContent = clientRiskMap[data.clientRisk] || "unbekannt";
+      document.getElementById("metricZone").textContent = zoneLabel.replace("Ergebniszone: ", "");
+
+      var resultBox = document.getElementById("dachHebelResult");
+      resultBox.hidden = false;
+      resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function resetForm() {
+      var form = document.getElementById("dachHebelForm");
+      form.reset();
+      document.getElementById("dachHebelError").textContent = "";
+      document.getElementById("dachHebelResult").hidden = true;
+    }
+
+    (function initCalculator() {
+      var form = document.getElementById("dachHebelForm");
+      var errorBox = document.getElementById("dachHebelError");
+      var resetButton = document.getElementById("dachHebelReset");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var data = {
+          monthlyRevenue: parseNumber(form.monthlyRevenue.value),
+          largestClientShare: parseNumber(form.largestClientShare.value),
+          clientCount: parseNumber(form.clientCount.value),
+          monthsWithRevenue: parseNumber(form.monthsWithRevenue.value),
+          rent: parseNumber(form.rent.value),
+          utilities: parseNumber(form.utilities.value),
+          food: parseNumber(form.food.value),
+          mobility: parseNumber(form.mobility.value),
+          internetPhone: parseNumber(form.internetPhone.value),
+          healthReserve: parseNumber(form.healthReserve.value),
+          otherLiving: parseNumber(form.otherLiving.value),
+          softwareCosts: parseNumber(form.softwareCosts.value),
+          accountingCosts: parseNumber(form.accountingCosts.value),
+          equipmentCosts: parseNumber(form.equipmentCosts.value),
+          platformFees: parseNumber(form.platformFees.value),
+          otherBusiness: parseNumber(form.otherBusiness.value),
+          taxContributionReserve: parseNumber(form.taxContributionReserve.value),
+          monthlyRiskBuffer: parseNumber(form.monthlyRiskBuffer.value),
+          existingSavings: parseNumber(form.existingSavings.value),
+          targetSavingsMonths: parseNumber(form.targetSavingsMonths.value)
+        };
+
+        var hasBaseInputs = (
+          data.monthlyRevenue > 0 &&
+          (data.rent + data.utilities + data.food + data.mobility + data.internetPhone + data.healthReserve + data.otherLiving) > 0 &&
+          data.existingSavings >= 0 &&
+          data.clientCount > 0
+        );
+
+        if (!hasBaseInputs) {
+          errorBox.textContent = "Bitte trage mindestens deine Einnahmen, Wohnkosten, Lebenshaltung, Rücklagen und Kundenstruktur ein.";
+          document.getElementById("dachHebelResult").hidden = true;
+          return;
+        }
+
+        var result = calculateResult(data);
+
+        if (result.totalMonthlyBurden <= 0) {
+          errorBox.textContent = "Bitte trage realistische monatliche Kosten, Geschäftskosten und Reserven ein, damit die Rücklagenreichweite berechnet werden kann.";
+          document.getElementById("dachHebelResult").hidden = true;
+          return;
+        }
+
+        errorBox.textContent = "";
+        renderResult(result);
+      });
+
+      resetButton.addEventListener("click", resetForm);
+    })();
+  </script>
+</body>
+
+</html>
