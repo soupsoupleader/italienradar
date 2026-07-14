@@ -24,5 +24,6 @@ build/
 *.old
 
 # Lokale Audit-Rohartefakte
+phase314-*
 audit-phase315-*
 phase315-*
