@@ -22,3 +22,7 @@ build/
 # Backups
 *.bak
 *.old
+
+# Lokale Audit-Rohartefakte
+audit-phase315-*
+phase315-*
