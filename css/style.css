@@ -1564,6 +1564,7 @@ a.roadmap-item:hover {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
+  min-width: 0;
 }
 
 .tool-page .tool-field label {
@@ -1572,6 +1573,7 @@ a.roadmap-item:hover {
 
 .tool-page .tool-field input {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.8rem 0.9rem;
   border-radius: 12px;
   border: 1px solid rgba(212, 175, 55, 0.35);
@@ -1581,6 +1583,7 @@ a.roadmap-item:hover {
 
 .tool-page .tool-field select {
   width: 100%;
+  box-sizing: border-box;
   padding: 0.8rem 0.9rem;
   border-radius: 12px;
   border: 1px solid rgba(212, 175, 55, 0.35);
