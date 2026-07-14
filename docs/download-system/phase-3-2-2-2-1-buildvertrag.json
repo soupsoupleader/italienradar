@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "3.2.2.2.1",
+  "baseline_commit": "c3797739c6f5178e7abf8d9b00ed1694e70a2780",
+  "selected_pipeline": "P2_HTML_PRINT",
+  "supported_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"],
+  "excluded_products": [
+    { "product_id": "C08", "reason": "dynamic_result_family_requires_separate_data_privacy_and_generation_architecture", "static_release_eligible": false }
+  ],
+  "directories": [
+    { "path": "download-system/content/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.4+", "allowed_types": ["json"] },
+    { "path": "download-system/profiles/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.4+", "allowed_types": ["json"] },
+    { "path": "download-system/templates/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.4+", "allowed_types": ["html", "css"] },
+    { "path": "download-system/tokens/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.2+", "allowed_types": ["json", "css"] },
+    { "path": "download-system/components/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.3+", "allowed_types": ["html", "css"] },
+    { "path": "download-system/assets/fonts/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.2+", "allowed_types": ["woff2", "woff", "ttf", "license"] },
+    { "path": "download-system/assets/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.2+", "allowed_types": ["svg", "png", "jpg", "json", "license"] },
+    { "path": "download-system/scripts/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.4+", "allowed_types": ["ps1", "js", "py"] },
+    { "path": "download-system/manifests/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.4+", "allowed_types": ["json"] },
+    { "path": "download-system/qa/", "role": "source", "versioned": true, "artifact": false, "visibility": "internal", "lifecycle": "permanent", "owner_phase": "3.2.2.2.5+", "allowed_types": ["json", "md"] },
+    { "path": ".tmp/phase-3-2-2-2-1/", "role": "generated_artifact", "versioned": false, "artifact": true, "visibility": "internal", "lifecycle": "temporary", "owner_phase": "3.2.2.2.4+", "allowed_types": ["html", "css", "pdf", "png", "json", "log"] },
+    { "path": "public-downloads/", "role": "generated_artifact", "versioned": false, "artifact": true, "visibility": "public_after_release_gate", "lifecycle": "release_bounded", "owner_phase": "3.2.2.2.6+", "allowed_types": ["pdf"] }
+  ],
+  "artifact_classes": [
+    { "id": "SOURCE", "versioned": true, "generated": false, "public": false, "examples": ["content", "profiles", "templates", "tokens", "components", "assets"] },
+    { "id": "BUILD_INTERMEDIATE", "versioned": false, "generated": true, "public": false, "examples": ["html", "css", "logs"] },
+    { "id": "QA_EVIDENCE", "versioned": false, "generated": true, "public": false, "examples": ["reports", "render_png"] },
+    { "id": "RELEASE_PDF", "versioned": false, "generated": true, "public": true, "examples": ["product-slug-vmajor-minor.pdf"] }
+  ],
+  "build_inputs": {
+    "required": ["product_data", "product_profile", "template_version", "token_version", "component_contract_version", "source_version", "local_assets", "renderer_contract", "locale", "timezone", "sorting_rule"],
+    "source_documents": ["phase-3-2-1-3-inhaltsstandard.md", "phase-3-2-1-3-design-accessibility-standard.md", "phase-3-2-1-3-pdf-technik-standard.md", "phase-3-2-1-3-qa-abnahmestandard.md", "phase-3-2-1-3-standard.json"],
+    "network": "offline_only",
+    "locale": "de-DE",
+    "timezone": "UTC",
+    "sorting_rule": "explicit stable source order, then ordinal where defined",
+    "external_resources": false,
+    "website_css_implicit_dependency": false,
+    "website_js_implicit_dependency": false,
+    "source_validation": { "unknown_product_id": "P1_CRITICAL", "unknown_class_value": "P1_CRITICAL", "missing_required_input": "P1_CRITICAL", "invalid_source_reference": "P1_CRITICAL" }
+  },
+  "metadata_contract": {
+    "required_fields": ["Title", "Language", "Product ID", "Version", "Creation date", "Modification date", "product_id", "document_version", "update_class", "risk_class", "source_version", "build_version"],
+    "fields": [
+      { "name": "product_id", "type": "string", "required": true, "allowed": "known C01-C07 product id", "validation": "must match selected product profile", "visibility": "visible_and_internal", "privacy_boundary": "no personal data", "error_class": "P1_CRITICAL" },
+      { "name": "canonical_title", "type": "string", "required": true, "allowed": "profile title", "validation": "non-empty and not promotional promise", "visibility": "visible_and_metadata", "privacy_boundary": "no personal data", "error_class": "P1_CRITICAL" },
+      { "name": "document_class", "type": "enum", "required": true, "allowed": ["A", "B", "C", "D", "E"], "validation": "must equal normative product profile; D is not statically releasable here", "visibility": "internal", "privacy_boundary": "no personal data", "error_class": "P1_CRITICAL" },
+      { "name": "document_version", "type": "string", "required": true, "allowed": "MAJOR.MINOR", "validation": "semantic version pattern", "visibility": "visible_and_internal", "privacy_boundary": "no local path", "error_class": "P1_CRITICAL" },
+      { "name": "update_class", "type": "enum", "required": true, "allowed": ["U1_STABLE", "U2_MOVING", "U3_SENSITIVE", "U4_EVENT_DRIVEN"], "validation": "must equal normative product profile", "visibility": "visible_and_internal", "privacy_boundary": "no personal data", "error_class": "P1_CRITICAL" },
+      { "name": "risk_class", "type": "enum", "required": true, "allowed": ["R1_LOW", "R2_MODERATE", "R3_HIGH", "R4_CRITICAL"], "validation": "must equal normative product profile", "visibility": "visible_and_internal", "privacy_boundary": "no personal data", "error_class": "P1_CRITICAL" },
+      { "name": "source_version", "type": "string", "required": true, "allowed": "commit or controlled source version", "validation": "must be traceable in manifest", "visibility": "internal", "privacy_boundary": "no absolute path or username", "error_class": "P1_CRITICAL" },
+      { "name": "build_version", "type": "string", "required": true, "allowed": "build tool version", "validation": "must include renderer and contract version", "visibility": "internal", "privacy_boundary": "no private build information", "error_class": "P1_CRITICAL" },
+      { "name": "language", "type": "string", "required": true, "allowed": ["de-DE"], "validation": "HTML lang and PDF language must match", "visibility": "visible_and_metadata", "privacy_boundary": "none", "error_class": "P1_CRITICAL" },
+      { "name": "publication_status", "type": "enum", "required": true, "allowed": ["ARCHITECTURE_APPROVED", "DESIGN_READY", "QA_REQUIRED", "READY_TO_PUBLISH", "PUBLISHED", "UPDATE_REQUIRED", "ARCHIVED"], "validation": "must follow gate transition", "visibility": "internal", "privacy_boundary": "no private notes", "error_class": "P1_CRITICAL" },
+      { "name": "sections", "type": "array", "required": true, "allowed": "content block types from standard", "validation": "ten-part anatomy and product task coverage", "visibility": "visible", "privacy_boundary": "no personal data by default", "error_class": "P1_CRITICAL" },
+      { "name": "sources", "type": "array", "required": true, "allowed": "controlled source statement types", "validation": "source status and date present where required", "visibility": "visible", "privacy_boundary": "no private source credentials", "error_class": "P1_CRITICAL" },
+      { "name": "warnings", "type": "array", "required": true, "allowed": "product-specific warning definitions", "validation": "risk, meaning and next step present", "visibility": "visible", "privacy_boundary": "no personal data", "error_class": "P1_CRITICAL" },
+      { "name": "metadata", "type": "object", "required": true, "allowed": "approved metadata fields only", "validation": "reject forbidden metadata keys", "visibility": "internal_or_visible_by_field", "privacy_boundary": "reject personal_editor_name, email, local_path, windows_username, temporary_directory, server, api_key and private comments", "error_class": "P0_BLOCKER" }
+    ]
+  },
+  "component_contracts": [
+    { "id": "M01_INTRODUCTION", "purpose": "introductory orientation", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["section", "h1", "p"], "inputs": ["goal", "scope", "product_id"], "accessibility": ["unique_h1", "reading_order"], "page_break": "after_section_allowed", "forbidden": ["success_guarantee"], "qa": ["QA-CONTENT", "QA-A11Y", "QA-DESIGN"] },
+    { "id": "M02_INSTRUCTION", "purpose": "ordered instructions", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["section", "h2", "ol"], "inputs": ["steps", "preparation"], "accessibility": ["real_ordered_list"], "page_break": "avoid_inside_step", "forbidden": ["undefined_appeal"], "qa": ["QA-CONTENT", "QA-A11Y"] },
+    { "id": "M03_INPUT_AREA", "purpose": "structured user input area", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["fieldset", "legend", "label"], "inputs": ["field_definition", "unit", "hint"], "accessibility": ["label_control_association", "visible_units"], "page_break": "keep_field_group", "forbidden": ["prefilled_personal_data", "forms_in_this_phase"], "qa": ["QA-FORM", "QA-PRIVACY", "QA-A11Y"] },
+    { "id": "M04_TABLE", "purpose": "comparable structured data", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["table", "caption", "thead", "tbody", "th", "td"], "inputs": ["columns", "rows", "totals"], "accessibility": ["header_association", "stable_order"], "page_break": "do_not_split_row_uncontrolled", "forbidden": ["decorative_table", "unlabeled_columns"], "qa": ["QA-TABLE", "QA-A11Y", "QA-PRINT"] },
+    { "id": "M05_CHECKLIST", "purpose": "action checklist", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["fieldset", "legend", "ul", "li"], "inputs": ["tasks", "statuses"], "accessibility": ["real_list", "visible_status"], "page_break": "keep_item_together", "forbidden": ["unstructured_long_list"], "qa": ["QA-CONTENT", "QA-A11Y", "QA-RENDER"] },
+    { "id": "M06_INFO", "purpose": "neutral explanatory note", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["aside", "h2_or_h3", "p"], "inputs": ["explanation"], "accessibility": ["text_label", "contrast"], "page_break": "after_block_allowed", "forbidden": ["individual_advice"], "qa": ["QA-CONTENT", "QA-COLOR", "QA-A11Y"] },
+    { "id": "M07_WARNING", "purpose": "risk warning", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["aside", "h2_or_h3", "p"], "inputs": ["risk", "meaning", "next_step"], "accessibility": ["text_label", "contrast", "not_color_only"], "page_break": "keep_block_together", "forbidden": ["fear_marketing", "success_guarantee"], "qa": ["QA-BOUNDARY", "QA-COLOR", "QA-A11Y"] },
+    { "id": "M08_BLOCKER", "purpose": "blocking condition", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["aside", "h2_or_h3", "p"], "inputs": ["condition", "required_action"], "accessibility": ["explicit_blocker_label", "not_color_only"], "page_break": "keep_block_together", "forbidden": ["unclear_status_signal"], "qa": ["QA-BOUNDARY", "QA-COLOR", "QA-A11Y"] },
+    { "id": "M09_RESULT", "purpose": "status and result area", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["section", "h2", "dl_or_ul"], "inputs": ["inputs", "status", "open_points"], "accessibility": ["controlled_status", "reading_order"], "page_break": "keep_zone_together", "forbidden": ["self_report_only_decision"], "qa": ["QA-CONTENT", "QA-BOUNDARY", "QA-A11Y"] },
+    { "id": "M10_NEXT_STEP", "purpose": "one prioritized next action", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["section", "h2", "ol", "a"], "inputs": ["priority", "action", "link"], "accessibility": ["descriptive_link_text", "ordered_priority"], "page_break": "keep_step_group", "forbidden": ["email_capture", "cta_pressure"], "qa": ["QA-CONTENT", "QA-LINK", "QA-PRIVACY"] },
+    { "id": "M11_SOURCE", "purpose": "source and version evidence", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["section", "h2", "ul"], "inputs": ["source", "retrieval_date", "affected_section"], "accessibility": ["visible_source_status", "descriptive_links"], "page_break": "keep_source_with_statement", "forbidden": ["tracking_redirect", "shortener"], "qa": ["QA-SOURCE", "QA-LINK", "QA-VERSION"] },
+    { "id": "M12_METADATA", "purpose": "document and build metadata", "allowed_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"], "semantic_html": ["footer", "dl"], "inputs": ["product_id", "version", "classes", "build_version"], "accessibility": ["machine_readable", "human_readable"], "page_break": "end_block", "forbidden": ["private_build_data"], "qa": ["QA-METADATA", "QA-VERSION", "QA-PRIVACY"] }
+  ],
+  "renderer_contract": {
+    "renderer": "Chrome/Chromium",
+    "path_resolution": ["explicit approved local path", "documented environment variable", "PATH lookup", "fail closed"],
+    "version_command": "<resolved-browser> --version",
+    "version_required_in_manifest": true,
+    "locale": "de-DE",
+    "timezone": "UTC",
+    "sorting_rule": "explicit stable source order, then ordinal where defined",
+    "offline_required": true,
+    "remote_resources_allowed": false,
+    "local_assets_required": true,
+    "page_format": "DIN_A4",
+    "orientation": "PORTRAIT",
+    "page_points": { "width": 595, "height": 842 },
+    "required_pdf_boxes": ["MediaBox", "CropBox"],
+    "print_dpi_target": 200,
+    "font_embedding_required": true,
+    "text_as_image_allowed": false,
+    "failures": { "browser_not_found": "P1_CRITICAL", "version_missing": "P1_CRITICAL", "network_detected": "P0_BLOCKER", "geometry_mismatch": "P1_CRITICAL" }
+  },
+  "security_rules": [
+    "no_pdf_javascript",
+    "no_launch_action",
+    "no_executable_open_action",
+    "no_additional_actions",
+    "no_embedded_files",
+    "no_attachments",
+    "no_file_links",
+    "no_javascript_links",
+    "no_automatic_network_calls",
+    "no_private_build_information",
+    "no_absolute_local_paths_in_pdf",
+    "no_windows_usernames_or_onedrive_paths",
+    "no_encryption_without_explicit_release_decision"
+  ],
+  "accessibility_rules": [
+    "html_lang_de-DE",
+    "meaningful_document_title",
+    "semantic_h1_to_hn",
+    "real_lists",
+    "real_tables_with_th_and_td",
+    "descriptive_link_text",
+    "alt_text_for_functional_images",
+    "decorative_elements_out_of_reading_order",
+    "practical_reading_order",
+    "technical_pdf_tag_check_required",
+    "no_pdf_ua_claim_without_full_validator"
+  ],
+  "reproducibility_rules": [
+    "same_source_and_tool_version_functionally_equal",
+    "build_id_source_commit_and_generator_version_traceable",
+    "no_random_ids",
+    "no_user_dependent_paths",
+    "fixed_locale_and_timezone",
+    "defined_data_and_source_sorting",
+    "timestamp_differences_normalized_or_reported",
+    "network_unavailable_cannot_change_build"
+  ],
+  "qa_handoffs": [
+    { "from": "3.2.2.2.1", "to": "3.2.2.2.2", "evidence": "architecture_and_contract_validated", "gate": "G1_ARCHITECTURE_APPROVED" },
+    { "from": "3.2.2.2.2", "to": "3.2.2.2.3", "evidence": "tokens_and_a4_basissystem_validated", "gate": "G2_DESIGN_READY" },
+    { "from": "3.2.2.2.4", "to": "3.2.2.2.5", "evidence": "build_manifest_and_artifact_trace_validated", "gate": "G3_READY_TO_PUBLISH" },
+    { "from": "3.2.2.2.5", "to": "3.2.2.2.6", "evidence": "technical_visual_accessibility_and_release_qa_passed", "gate": "G4_PUBLISHED" }
+  ],
+  "production_started": false,
+  "public_pdf_created": false,
+  "deployment": false
+}
