@@ -35,7 +35,7 @@ Die Begriffe „primäre Nutzeraufgabe“ und „zulässiger Inhalt“ präzisie
 ### C01 - IMR-DL-C01
 
 - Nutzeraufgabe und Zielgruppe: Neustartplanende dokumentieren Monatskosten, Startkosten, Mindestreserve und Stressmonate.
-- Einstiege: `/italien-kostenrechner`, `/was-kostet-ein-neustart-in-italien`, `/mit-1000-euro-in-italien-leben`.
+- Einstiege: `/italien-kostenrechner`, `/was-kostet-ein-neustart-in-italien`, `/mit-1000-euro-in-italien-leben`, `/italien-neustart-ohne-job`.
 - Module: `RISK`, `DECISION`, `NEXT_STEP`.
 - Zulässiger Inhalt: Monatsbudget, Startkosten, Rücklagen, Mindest-Einkommensgrenze, Stressmonat, Abgleich mit Kostenrechner.
 - Inhaltsgrenze: keine Stadtteilvergleiche, Partita-IVA-Fragen, Förderlogik oder individuelle Steuerberechnung.
@@ -43,14 +43,14 @@ Die Begriffe „primäre Nutzeraufgabe“ und „zulässiger Inhalt“ präzisie
 ### C02 - IMR-DL-C02
 
 - Nutzeraufgabe und Zielgruppe: Standortinteressierte vergleichen Orte nach Miete, Mobilität, Arbeit, Internet, Alltag, Behördenzugang und eigenen Ausschlusskriterien.
-- Einstiege: `/napoli-neustart`, `/leben-in-neapel-kosten`, `/sueditalien-guenstig-leben`.
+- Einstiege: `/napoli-neustart`, `/leben-in-neapel-kosten`, `/sueditalien-guenstig-leben`, `/italien-kostenrechner`.
 - Module: `WORKSHEET`, `DECISION`, `RISK`.
 - Inhaltsgrenze: keine objektiven Sicherheitsurteile, Stadtteilempfehlungen oder individuelle Sicherheitsberatung.
 
 ### C03 - IMR-DL-C03
 
 - Nutzeraufgabe und Zielgruppe: Personen mit Online-Einkommen dokumentieren Angebot, Kunden, Einnahmenhistorie, Rücklagen, Stressmonate und Umzugsmindestbedingungen.
-- Einstiege: `/online-geld-in-italien`, `/online-einkommen-in-italien-aufbauen`, `/online-einkommen-realitaetscheck`.
+- Einstiege: `/online-geld-in-italien`, `/online-einkommen-in-italien-aufbauen`, `/online-einkommen-realitaetscheck`, `/italien-neustart-ohne-job`.
 - Module: `WORKSHEET`, `RISK`, `DECISION`, `NEXT_STEP`.
 - Inhaltsgrenze: kein Businessplan, Umsatzversprechen, Verkaufsleitfaden, Erfolgssystem oder Steuerdokument.
 - Lead-Regel: Bis Phase 3.2.6 keine E-Mail-Abgabe, Nutzererfassung oder automatische Zustellung.
@@ -58,7 +58,7 @@ Die Begriffe „primäre Nutzeraufgabe“ und „zulässiger Inhalt“ präzisie
 ### C04 - IMR-DL-C04
 
 - Nutzeraufgabe und Zielgruppe: Nutzer mit DACH-Einnahmen prüfen reale verfügbare Mittel, Geschäfts- und Reisekosten, Kundenkonzentration und Stressmonate.
-- Einstiege: `/dach-einnahmen-italien-kostenstruktur`, `/dach-italien-hebel-rechner`.
+- Einstiege: `/dach-einnahmen-italien-kostenstruktur`, `/dach-italien-hebel-rechner`, `/italien-kostenrechner`, `/online-einkommen-in-italien-aufbauen`.
 - Module: `WORKSHEET`, `RISK`, `RESULT`.
 - Abgrenzung: C03 prüft Nachweis und Stabilität; C04 prüft Tragfähigkeit nach Kosten und Stressszenarien. C01 bleibt das allgemeine persönliche Budget.
 
@@ -73,14 +73,14 @@ Die Begriffe „primäre Nutzeraufgabe“ und „zulässiger Inhalt“ präzisie
 ### C06 - IMR-DL-C06
 
 - Nutzeraufgabe und Zielgruppe: Forfettario-Interessierte bereiten Ausschluss-, INPS-, Liquiditäts- und Fachfragen vor.
-- Einstiege: `/regime-forfettario-italien-deutsche`, `/forfettario-realitaetscheck`.
+- Einstiege: `/regime-forfettario-italien-deutsche`, `/forfettario-realitaetscheck`, `/partita-iva-deutsche-italien`.
 - Module: `CHECK`, `SOURCE`, `DECISION`.
 - Inhaltsgrenze: keine individuelle Steuerbetragberechnung und keine endgültige Zuordnung zu einem Steuerregime.
 
 ### C07 - IMR-DL-C07
 
 - Nutzeraufgabe und Zielgruppe: Förderinteressierte strukturieren Projektidee, Zielgruppe, Ausgaben, Liquidität, Unterlagen und offene offizielle Prüfpunkte.
-- Einstiege: `/resto-al-sud-check`, `/resto-al-sud-2-deutsche-italien`, `/resto-al-sud-2-vorpruefung`.
+- Einstiege: `/resto-al-sud-check`, `/resto-al-sud-2-deutsche-italien`, `/resto-al-sud-2-vorpruefung`, `/partita-iva-vorpruefung`.
 - Module: `SOURCE`, `WORKSHEET`, `RISK`, `NEXT_STEP`.
 - Pflicht: jede Veröffentlichung gegen aktuelle Invitalia-Primärquellen, Fristen und Programmbedingungen prüfen.
 - Inhaltsgrenze: keine Förderzusage; Basisinformationen, Quellen und Warnungen bleiben frei zugänglich.
@@ -88,7 +88,7 @@ Die Begriffe „primäre Nutzeraufgabe“ und „zulässiger Inhalt“ präzisie
 ### C08 - IMR-DYN-C08
 
 - Nutzeraufgabe und Zielgruppe: Toolnutzer speichern ein konkretes Ergebnis mit Eingaben, Ergebniszone, Warnungen, Zeitstempel und nächsten Schritten.
-- Einstiege: die sechs Tools `/italien-kostenrechner`, `/online-einkommen-realitaetscheck`, `/dach-italien-hebel-rechner`, `/partita-iva-vorpruefung`, `/forfettario-realitaetscheck`, `/resto-al-sud-2-vorpruefung`.
+- Einstiege: die sechs Tools `/italien-kostenrechner`, `/online-einkommen-realitaetscheck`, `/dach-italien-hebel-rechner`, `/partita-iva-vorpruefung`, `/forfettario-realitaetscheck`, `/resto-al-sud-2-vorpruefung` sowie der Tool-Hub `/italien-tools`.
 - Module: `RESULT`, `NEXT_STEP`, `RISK`.
 - Unterprodukte: `C08-01` bis `C08-06`, je eines pro Tool.
 - Architekturgrenze: erst nach Datenmodell, Datenschutz, Ergebnislogik, Fehlerfallbehandlung, Versionierung und PDF-Generierung. Keine personenbezogene Speicherung ohne gesondertes Konzept.
