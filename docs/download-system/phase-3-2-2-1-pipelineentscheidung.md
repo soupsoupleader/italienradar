@@ -27,6 +27,6 @@ Die Farb-, Graustufen- und Schwarz-Weiß-Prüfung bestanden: Warnung und Blocker
 
 ## Schutz der Nutzeränderung und Abschluss
 
-`datenschutz.html` wurde nicht gelesen oder geändert. Start-Hash: `22FA400E95D4762C799679992A9E865181797AA5C29654A781D30EDD402BDFDA`; der End-Hash ist identisch. Es wurde nichts gestaged, zurückgesetzt, gestasht, committed, gepusht oder deployed.
+`datenschutz.html` wurde nicht gelesen oder geändert. Start-Hash und End-Hash sind identisch. Außer den beiden kanonischen Ergebnisdateien wurden keine weiteren Dateien gestaged, committed oder gepusht. Es erfolgte kein Deployment.
 
 Die Prototypen, Quellen, Reports und Renderbilder bleiben unversioniert. Die kanonischen Ergebnisdateien sind diese Markdown-Datei und `phase-3-2-2-1-pipelinevergleich.json`.
