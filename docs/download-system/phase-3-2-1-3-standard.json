@@ -1,0 +1,2359 @@
+﻿{
+    "schema_version":  "1.0.0",
+    "project":  "ItalienRadar / IMR",
+    "phase":  "3.2.1.3",
+    "status":  "quality_standard_draft",
+    "baseline_commit":  "4a3056e36ca2b3346224fad6004a55f8662ffff4",
+    "generated_at":  "2026-07-14T22:56:34Z",
+    "source_documents":  [
+                             {
+                                 "phase":  "3.2.1.2",
+                                 "path":  "docs/download-system/phase-3-2-1-2-portfolio.json",
+                                 "role":  "portfolio_contracts",
+                                 "resolved_at_baseline_commit":  "4a3056e36ca2b3346224fad6004a55f8662ffff4"
+                             },
+                             {
+                                 "phase":  "3.2.1.3.1",
+                                 "path":  "docs/download-system/phase-3-2-1-3-inhaltsstandard.md",
+                                 "role":  "editorial_content_standard",
+                                 "resolved_at_baseline_commit":  "4a3056e36ca2b3346224fad6004a55f8662ffff4"
+                             },
+                             {
+                                 "phase":  "3.2.1.3.2",
+                                 "path":  "docs/download-system/phase-3-2-1-3-design-accessibility-standard.md",
+                                 "role":  "design_accessibility_standard",
+                                 "resolved_at_baseline_commit":  "4a3056e36ca2b3346224fad6004a55f8662ffff4"
+                             },
+                             {
+                                 "phase":  "3.2.1.3.3",
+                                 "path":  "docs/download-system/phase-3-2-1-3-pdf-technik-standard.md",
+                                 "role":  "pdf_technical_standard",
+                                 "resolved_at_baseline_commit":  "4a3056e36ca2b3346224fad6004a55f8662ffff4"
+                             },
+                             {
+                                 "phase":  "3.2.1.3.4",
+                                 "path":  "docs/download-system/phase-3-2-1-3-qa-abnahmestandard.md",
+                                 "role":  "qa_release_standard",
+                                 "resolved_at_baseline_commit":  "4a3056e36ca2b3346224fad6004a55f8662ffff4"
+                             }
+                         ],
+    "source_role_rule":  {
+                             "markdown":  "normative human-readable explanation",
+                             "json":  "controlled values, contracts, IDs, references and machine-readable test architecture",
+                             "known_conflict_effect":  "FAIL"
+                         },
+    "scope":  {
+                  "static_products":  [
+                                          "C01",
+                                          "C02",
+                                          "C03",
+                                          "C04",
+                                          "C05",
+                                          "C06",
+                                          "C07"
+                                      ],
+                  "dynamic_product_family":  [
+                                                 "C08"
+                                             ],
+                  "pdf_production":  false,
+                  "template_production":  false,
+                  "lead_capture":  false,
+                  "active_data_collection":  false,
+                  "dynamic_generation":  false,
+                  "production_file_changes":  false,
+                  "deployment":  false,
+                  "c08":  {
+                              "static_release_eligible":  false,
+                              "dynamic_qa_profile_status":  "FUTURE_ARCHITECTURE_REQUIRED"
+                          }
+              },
+    "normative_language":  {
+                               "MUST":  {
+                                            "source_term":  "MUSS",
+                                            "failure_effect":  "FAIL"
+                                        },
+                               "MUST_NOT":  {
+                                                "source_term":  "DARF NICHT",
+                                                "failure_effect":  "FAIL"
+                                            },
+                               "SHOULD":  {
+                                              "source_term":  "SOLL",
+                                              "deviation_requires_reason":  true
+                                          },
+                               "MAY":  {
+                                           "source_term":  "KANN",
+                                           "optional":  true
+                                       }
+                           },
+    "controlled_values":  {
+                              "document_classes":  [
+                                                       "A",
+                                                       "B",
+                                                       "C",
+                                                       "D",
+                                                       "E"
+                                                   ],
+                              "portfolio_levels":  [
+                                                       "H1",
+                                                       "H2",
+                                                       "H3",
+                                                       "H4"
+                                                   ],
+                              "delivery_models":  [
+                                                      "FREE_DIRECT",
+                                                      "LEAD_LATER",
+                                                      "DYNAMIC_LATER"
+                                                  ],
+                              "update_classes":  [
+                                                     "U1_STABLE",
+                                                     "U2_MOVING",
+                                                     "U3_SENSITIVE",
+                                                     "U4_EVENT_DRIVEN"
+                                                 ],
+                              "risk_classes":  [
+                                                   "R1_LOW",
+                                                   "R2_MODERATE",
+                                                   "R3_HIGH",
+                                                   "R4_CRITICAL"
+                                               ],
+                              "production_statuses":  [
+                                                          "DISCOVERED",
+                                                          "ARCHITECTURE_APPROVED",
+                                                          "APPROVED_WAVE_1",
+                                                          "APPROVED_LATER",
+                                                          "DESIGN_READY",
+                                                          "CONTENT_IN_PROGRESS",
+                                                          "QA_REQUIRED",
+                                                          "READY_TO_PUBLISH",
+                                                          "PUBLISHED",
+                                                          "UPDATE_REQUIRED",
+                                                          "ARCHIVED",
+                                                          "DYNAMIC_DEPENDENCY"
+                                                      ],
+                              "supporting_modules":  [
+                                                         "CHECK",
+                                                         "WORKSHEET",
+                                                         "PLAN",
+                                                         "RESULT",
+                                                         "SOURCE",
+                                                         "RISK",
+                                                         "DECISION",
+                                                         "NEXT_STEP"
+                                                     ],
+                              "content_block_types":  [
+                                                          "COVER",
+                                                          "DOCUMENT_STATUS",
+                                                          "TARGET_BENEFIT",
+                                                          "PREPARATION",
+                                                          "QUICK_GUIDE",
+                                                          "MAIN_WORK_AREA",
+                                                          "RESULT_STATUS",
+                                                          "WARNINGS_LIMITS",
+                                                          "NEXT_STEPS",
+                                                          "SOURCES_DISCLAIMER_VERSION"
+                                                      ],
+                              "source_statement_types":  [
+                                                             "OFFIZIELLE_GRUNDLAGE",
+                                                             "ORIENTIERUNGSWERT",
+                                                             "NUTZEREINGABE",
+                                                             "BERECHNETES_ERGEBNIS",
+                                                             "REDAKTIONELLE_EINORDNUNG",
+                                                             "OFFEN_ZU_PRÜFEN"
+                                                         ],
+                              "content_status_values":  [
+                                                            "GEKLÄRT",
+                                                            "TEILWEISE_GEKLÄRT",
+                                                            "OFFEN",
+                                                            "OFFIZIELL_ZU_PRÜFEN",
+                                                            "FACHLICH_ZU_PRÜFEN",
+                                                            "AKTUELL_NICHT_TRAGFÄHIG"
+                                                        ],
+                              "instruction_strength":  [
+                                                           "MUST",
+                                                           "MUST_NOT",
+                                                           "SHOULD",
+                                                           "MAY"
+                                                       ],
+                              "forbidden_content_patterns":  [
+                                                                 "article_copy",
+                                                                 "artificial_scarcity",
+                                                                 "fear_marketing",
+                                                                 "success_guarantee",
+                                                                 "funding_promise",
+                                                                 "tax_savings_promise",
+                                                                 "geheimtipp_language",
+                                                                 "unsubstantiated_numbers",
+                                                                 "false_precision",
+                                                                 "official_looking_form",
+                                                                 "unclear_status_signal",
+                                                                 "self_report_only_decision",
+                                                                 "footnote_only_critical_information"
+                                                             ],
+                              "page_formats":  [
+                                                   "DIN_A4"
+                                               ],
+                              "orientations":  [
+                                                   "PORTRAIT",
+                                                   "LANDSCAPE_SINGLE_PAGE_EXCEPTION"
+                                               ],
+                              "margin_tokens":  {
+                                                    "left_mm":  {
+                                                                    "target":  20,
+                                                                    "min":  18,
+                                                                    "max":  22
+                                                                },
+                                                    "right_mm":  {
+                                                                     "target":  20,
+                                                                     "min":  18,
+                                                                     "max":  22
+                                                                 },
+                                                    "top_mm":  {
+                                                                   "target":  19,
+                                                                   "min":  16,
+                                                                   "max":  22
+                                                               },
+                                                    "bottom_mm":  {
+                                                                      "target":  19,
+                                                                      "min":  16,
+                                                                      "max":  22
+                                                                  },
+                                                    "minimum_edge_safety_mm":  12
+                                                },
+                              "spacing_tokens":  {
+                                                     "SPACE_XS":  {
+                                                                      "min_mm":  2,
+                                                                      "max_mm":  3
+                                                                  },
+                                                     "SPACE_S":  {
+                                                                     "min_mm":  4,
+                                                                     "max_mm":  5
+                                                                 },
+                                                     "SPACE_M":  {
+                                                                     "min_mm":  7,
+                                                                     "max_mm":  9
+                                                                 },
+                                                     "SPACE_L":  {
+                                                                     "min_mm":  12,
+                                                                     "max_mm":  15
+                                                                 },
+                                                     "SPACE_XL":  {
+                                                                      "min_mm":  18,
+                                                                      "max_mm":  24
+                                                                  }
+                                                 },
+                              "visual_hierarchy":  [
+                                                       "V0_COVER_TITLE",
+                                                       "V1_CHAPTER",
+                                                       "V2_SECTION",
+                                                       "V3_SUBSECTION",
+                                                       "V4_INSTRUCTION",
+                                                       "V5_BODY",
+                                                       "V6_FIELD_LABEL",
+                                                       "V7_NOTE_SOURCE",
+                                                       "V8_METADATA"
+                                                   ],
+                              "typography_roles":  {
+                                                       "cover_title_pt":  {
+                                                                              "min":  26,
+                                                                              "max":  32
+                                                                          },
+                                                       "cover_subtitle_pt":  {
+                                                                                 "min":  12,
+                                                                                 "max":  16
+                                                                             },
+                                                       "chapter_pt":  {
+                                                                          "min":  19,
+                                                                          "max":  23
+                                                                      },
+                                                       "section_pt":  {
+                                                                          "min":  15,
+                                                                          "max":  18
+                                                                      },
+                                                       "subsection_pt":  {
+                                                                             "min":  12.5,
+                                                                             "max":  15
+                                                                         },
+                                                       "body_pt":  {
+                                                                       "min":  10.5,
+                                                                       "max":  12
+                                                                   },
+                                                       "table_pt_min":  9,
+                                                       "field_label_pt_min":  9.5,
+                                                       "source_pt_min":  8.5,
+                                                       "footer_pt_min":  8
+                                                   },
+                              "color_roles":  [
+                                                  "BRAND_PRIMARY",
+                                                  "BRAND_SECONDARY",
+                                                  "TEXT_PRIMARY",
+                                                  "TEXT_SECONDARY",
+                                                  "BACKGROUND",
+                                                  "SURFACE",
+                                                  "BORDER",
+                                                  "INFO",
+                                                  "WARNING",
+                                                  "CRITICAL",
+                                                  "SUCCESS",
+                                                  "INPUT_AREA"
+                                              ],
+                              "module_types":  [
+                                                   "M01_INTRODUCTION",
+                                                   "M02_INSTRUCTION",
+                                                   "M03_INPUT_AREA",
+                                                   "M04_TABLE",
+                                                   "M05_CHECKLIST",
+                                                   "M06_INFO",
+                                                   "M07_WARNING",
+                                                   "M08_BLOCKER",
+                                                   "M09_RESULT",
+                                                   "M10_NEXT_STEP",
+                                                   "M11_SOURCE",
+                                                   "M12_METADATA"
+                                               ],
+                              "field_types":  [
+                                                  "SHORT_TEXT",
+                                                  "LONG_NOTE",
+                                                  "NUMBER",
+                                                  "EUR_AMOUNT",
+                                                  "PERCENTAGE",
+                                                  "DATE",
+                                                  "STATUS",
+                                                  "YES_NO",
+                                                  "MULTI_SELECT"
+                                              ],
+                              "checklist_statuses":  {
+                                                         "general":  [
+                                                                         "OFFEN",
+                                                                         "IN_BEARBEITUNG",
+                                                                         "ERLEDIGT",
+                                                                         "NICHT_RELEVANT"
+                                                                     ],
+                                                         "sensitive":  [
+                                                                           "OFFEN",
+                                                                           "INTERN_VORBEREITET",
+                                                                           "FACHLICH_ZU_KLÄREN",
+                                                                           "OFFIZIELL_BESTÄTIGT",
+                                                                           "NICHT_RELEVANT"
+                                                                       ]
+                                                     },
+                              "pipeline_classes":  [
+                                                       "P1_DOCUMENT",
+                                                       "P2_HTML_PRINT",
+                                                       "P3_PROGRAMMATIC"
+                                                   ],
+                              "metadata_fields":  [
+                                                      "Title",
+                                                      "Author",
+                                                      "Subject",
+                                                      "Keywords",
+                                                      "Language",
+                                                      "Product ID",
+                                                      "Version",
+                                                      "Creation date",
+                                                      "Modification date",
+                                                      "product_id",
+                                                      "document_version",
+                                                      "update_class",
+                                                      "risk_class",
+                                                      "source_version",
+                                                      "build_version"
+                                                  ],
+                              "forbidden_metadata":  [
+                                                         "personal_editor_name",
+                                                         "private_email",
+                                                         "local_path",
+                                                         "windows_username",
+                                                         "temporary_directory",
+                                                         "internal_server",
+                                                         "api_key",
+                                                         "comment",
+                                                         "editing_note",
+                                                         "sensitive_build_information"
+                                                     ],
+                              "filename_policy":  {
+                                                      "pattern":  "\u003cproduct-slug\u003e-v\u003cmajor\u003e-\u003cminor\u003e.pdf",
+                                                      "lowercase":  true,
+                                                      "hyphens_only":  true,
+                                                      "no_spaces":  true,
+                                                      "no_umlauts":  true,
+                                                      "no_sharp_s":  true
+                                                  },
+                              "versioning_levels":  [
+                                                        "MAJOR",
+                                                        "MINOR",
+                                                        "BUILD"
+                                                    ],
+                              "accessibility_tags":  [
+                                                         "H1-Hn",
+                                                         "P",
+                                                         "L",
+                                                         "LI",
+                                                         "Table",
+                                                         "TR",
+                                                         "TH",
+                                                         "TD",
+                                                         "Link",
+                                                         "Figure"
+                                                     ],
+                              "forbidden_pdf_actions":  [
+                                                            "JAVASCRIPT",
+                                                            "LAUNCH_ACTION",
+                                                            "EXECUTABLE_OPEN_ACTION",
+                                                            "EXECUTABLE_ATTACHMENT",
+                                                            "AUTOMATIC_NETWORK_CALL",
+                                                            "MULTIMEDIA_AUTOSTART",
+                                                            "INVISIBLE_LINK",
+                                                            "HIDDEN_FORM_FIELD"
+                                                        ],
+                              "form_technology":  {
+                                                      "preferred":  "AcroForm",
+                                                      "disallowed_default":  "XFA",
+                                                      "javascript_dependency_allowed":  false
+                                                  },
+                              "technical_error_levels":  [
+                                                             "P0_BLOCKER",
+                                                             "P1_CRITICAL",
+                                                             "P2_MAJOR",
+                                                             "P3_MINOR"
+                                                         ],
+                              "quality_gates":  [
+                                                    "G1_ARCHITECTURE_APPROVED",
+                                                    "G2_DESIGN_READY",
+                                                    "G3_READY_TO_PUBLISH",
+                                                    "G4_PUBLISHED"
+                                                ],
+                              "test_result_values":  [
+                                                         "PASS",
+                                                         "FAIL",
+                                                         "NOT_APPLICABLE",
+                                                         "BLOCKED",
+                                                         "WAIVED",
+                                                         "NOT_TESTED"
+                                                     ],
+                              "test_types":  [
+                                                 "AUTOMATED",
+                                                 "MANUAL",
+                                                 "VISUAL",
+                                                 "ASSISTIVE_TECH_REVIEW",
+                                                 "CROSS_SOURCE"
+                                             ],
+                              "test_families":  [
+                                                    "QA-ARCH",
+                                                    "QA-CONTENT",
+                                                    "QA-BOUNDARY",
+                                                    "QA-SOURCE",
+                                                    "QA-DESIGN",
+                                                    "QA-TYPOGRAPHY",
+                                                    "QA-COLOR",
+                                                    "QA-TABLE",
+                                                    "QA-FORM",
+                                                    "QA-A11Y",
+                                                    "QA-PDF",
+                                                    "QA-METADATA",
+                                                    "QA-LINK",
+                                                    "QA-SECURITY",
+                                                    "QA-PRIVACY",
+                                                    "QA-RENDER",
+                                                    "QA-PRINT",
+                                                    "QA-MOBILE",
+                                                    "QA-VERSION",
+                                                    "QA-RELEASE",
+                                                    "QA-REGRESSION"
+                                                ],
+                              "severity_levels":  [
+                                                      "P0_BLOCKER",
+                                                      "P1_CRITICAL",
+                                                      "P2_MAJOR",
+                                                      "P3_MINOR"
+                                                  ],
+                              "release_decisions":  [
+                                                        "APPROVED",
+                                                        "REJECTED",
+                                                        "REWORK_REQUIRED",
+                                                        "APPROVED_WITH_WAIVER"
+                                                    ],
+                              "reviewer_roles":  [
+                                                     "AUTHOR",
+                                                     "CONTENT_REVIEWER",
+                                                     "DESIGN_REVIEWER",
+                                                     "TECHNICAL_REVIEWER",
+                                                     "ACCESSIBILITY_REVIEWER",
+                                                     "RELEASE_APPROVER"
+                                                 ],
+                              "coverage_statuses":  [
+                                                        "COVERED",
+                                                        "NOT_APPLICABLE",
+                                                        "UNMAPPED"
+                                                    ],
+                              "change_classifications":  [
+                                                             "INTENDED_CHANGE",
+                                                             "UNINTENDED_CHANGE",
+                                                             "UNCHANGED"
+                                                         ]
+                          },
+    "product_profiles":  [
+                             {
+                                 "id":  "C01",
+                                 "product_id":  "IMR-DL-C01",
+                                 "title":  "Italien-Neustart: Budget- und Sicherheitsarbeitsblatt",
+                                 "primary_class":  "B",
+                                 "portfolio_level":  "H1",
+                                 "delivery_model":  "FREE_DIRECT",
+                                 "update_class":  "U2_MOVING",
+                                 "risk_class":  "R2_MODERATE",
+                                 "production_status":  "APPROVED_WAVE_1",
+                                 "scope_pages":  "8-12 Seiten",
+                                 "primary_user_task":  "Persönliches Budget, Startkosten, Rücklage und Stressmonate dokumentieren.",
+                                 "target_group":  "Menschen, die Kosten, Startpuffer und Risikomonate für einen Italien-Neustart belastbar planen müssen.",
+                                 "entry_routes":  [
+                                                      "/was-kostet-ein-neustart-in-italien",
+                                                      "/mit-1000-euro-in-italien-leben",
+                                                      "/italien-neustart-ohne-job",
+                                                      "/italien-kostenrechner"
+                                                  ],
+                                 "related_tool":  "/italien-kostenrechner",
+                                 "supporting_modules":  [
+                                                            "RISK",
+                                                            "DECISION",
+                                                            "NEXT_STEP"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Monatsbudget",
+                                                         "Startkosten",
+                                                         "Rücklagen",
+                                                         "Mindest-Einkommensgrenze",
+                                                         "Stressmonat",
+                                                         "Kostenrechner-Abgleich"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_location_comparisons",
+                                                            "no_partita_iva_questions",
+                                                            "no_funding_logic",
+                                                            "no_individual_tax_calculation"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C01",
+                                 "design_profile_id":  "DESIGN-C01",
+                                 "qa_profile_id":  "QA-PRODUCT-C01"
+                             },
+                             {
+                                 "id":  "C02",
+                                 "product_id":  "IMR-DL-C02",
+                                 "title":  "Napoli und Süditalien: Standort- und Kostenvergleich",
+                                 "primary_class":  "B",
+                                 "portfolio_level":  "H2",
+                                 "delivery_model":  "FREE_DIRECT",
+                                 "update_class":  "U2_MOVING",
+                                 "risk_class":  "R2_MODERATE",
+                                 "production_status":  "APPROVED_LATER",
+                                 "scope_pages":  "8-12 Seiten",
+                                 "primary_user_task":  "Standorte nach eigenen Kriterien vergleichen.",
+                                 "target_group":  "Nutzer, die Napoli oder einen süditalienischen Ort nicht nur nach Miete, sondern nach Alltagstauglichkeit vergleichen wollen.",
+                                 "entry_routes":  [
+                                                      "/leben-in-neapel-kosten",
+                                                      "/napoli-neustart",
+                                                      "/sueditalien-guenstig-leben",
+                                                      "/italien-kostenrechner"
+                                                  ],
+                                 "related_tool":  "/italien-kostenrechner",
+                                 "supporting_modules":  [
+                                                            "WORKSHEET",
+                                                            "DECISION",
+                                                            "RISK"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Miete",
+                                                         "Mobilität",
+                                                         "Arbeit",
+                                                         "Internet",
+                                                         "Alltag",
+                                                         "Behördenzugang",
+                                                         "Ausschlusskriterien"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_objective_safety_judgments",
+                                                            "no_neighborhood_recommendations",
+                                                            "no_individual_safety_advice"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C02",
+                                 "design_profile_id":  "DESIGN-C02",
+                                 "qa_profile_id":  "QA-PRODUCT-C02"
+                             },
+                             {
+                                 "id":  "C03",
+                                 "product_id":  "IMR-DL-C03",
+                                 "title":  "Online-Einkommen: Nachweis- und Stabilitätsplan",
+                                 "primary_class":  "C",
+                                 "portfolio_level":  "H1",
+                                 "delivery_model":  "LEAD_LATER",
+                                 "update_class":  "U2_MOVING",
+                                 "risk_class":  "R2_MODERATE",
+                                 "production_status":  "APPROVED_WAVE_1",
+                                 "scope_pages":  "10-14 Seiten",
+                                 "primary_user_task":  "Einkommensnachweise, Stabilität und Umzugsmindestbedingungen über Zeit planen.",
+                                 "target_group":  "Menschen mit geplanter oder erster Online-Einnahme, die vor einem Umzug belastbare Belege und Stabilität aufbauen müssen.",
+                                 "entry_routes":  [
+                                                      "/online-einkommen-in-italien-aufbauen",
+                                                      "/online-geld-in-italien",
+                                                      "/online-einkommen-realitaetscheck",
+                                                      "/italien-neustart-ohne-job"
+                                                  ],
+                                 "related_tool":  "/online-einkommen-realitaetscheck",
+                                 "supporting_modules":  [
+                                                            "WORKSHEET",
+                                                            "RISK",
+                                                            "DECISION",
+                                                            "NEXT_STEP"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Angebot",
+                                                         "Kunden",
+                                                         "Einnahmenhistorie",
+                                                         "Rücklagen",
+                                                         "Stressmonate",
+                                                         "Nachweise"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_business_plan",
+                                                            "no_revenue_promise",
+                                                            "no_sales_guide",
+                                                            "no_tax_document"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C03",
+                                 "design_profile_id":  "DESIGN-C03",
+                                 "qa_profile_id":  "QA-PRODUCT-C03"
+                             },
+                             {
+                                 "id":  "C04",
+                                 "product_id":  "IMR-DL-C04",
+                                 "title":  "DACH-Italien: Tragfähigkeits- und Stressplan",
+                                 "primary_class":  "B",
+                                 "portfolio_level":  "H2",
+                                 "delivery_model":  "LEAD_LATER",
+                                 "update_class":  "U3_SENSITIVE",
+                                 "risk_class":  "R2_MODERATE",
+                                 "production_status":  "APPROVED_LATER",
+                                 "scope_pages":  "8-12 Seiten",
+                                 "primary_user_task":  "DACH-Einnahmen nach Kosten und Stressszenarien auf Tragfähigkeit prüfen.",
+                                 "target_group":  "Remote-Beschäftigte, Freelancer und Selbstständige mit DACH-Einnahmen und geplantem Lebensmittelpunkt in Italien.",
+                                 "entry_routes":  [
+                                                      "/dach-einnahmen-italien-kostenstruktur",
+                                                      "/dach-italien-hebel-rechner",
+                                                      "/italien-kostenrechner",
+                                                      "/online-einkommen-in-italien-aufbauen"
+                                                  ],
+                                 "related_tool":  "/dach-italien-hebel-rechner",
+                                 "supporting_modules":  [
+                                                            "WORKSHEET",
+                                                            "RISK",
+                                                            "RESULT"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "verfügbare Einnahmen",
+                                                         "Geschäftskosten",
+                                                         "Reisekosten",
+                                                         "Kundenkonzentration",
+                                                         "Stressmonat",
+                                                         "Mindestspielraum"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_income_stability_duplicate_of_c03",
+                                                            "no_general_budget_duplicate_of_c01"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C04",
+                                 "design_profile_id":  "DESIGN-C04",
+                                 "qa_profile_id":  "QA-PRODUCT-C04"
+                             },
+                             {
+                                 "id":  "C05",
+                                 "product_id":  "IMR-DL-C05",
+                                 "title":  "Partita IVA: Vorbereitungs- und Unterlagenliste",
+                                 "primary_class":  "E",
+                                 "portfolio_level":  "H1",
+                                 "delivery_model":  "FREE_DIRECT",
+                                 "update_class":  "U3_SENSITIVE",
+                                 "risk_class":  "R3_HIGH",
+                                 "production_status":  "APPROVED_WAVE_1",
+                                 "scope_pages":  "6-10 Seiten",
+                                 "primary_user_task":  "Tätigkeit, Unterlagen und Fachfragen für eine formale Klärung strukturieren.",
+                                 "target_group":  "Deutsche und andere deutschsprachige Nutzer, die eine selbstständige Tätigkeit in Italien fachlich vorbereitet prüfen lassen wollen.",
+                                 "entry_routes":  [
+                                                      "/partita-iva-deutsche-italien",
+                                                      "/partita-iva",
+                                                      "/partita-iva-vorpruefung"
+                                                  ],
+                                 "related_tool":  "/partita-iva-vorpruefung",
+                                 "supporting_modules":  [
+                                                            "CHECK",
+                                                            "SOURCE",
+                                                            "WORKSHEET"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Tätigkeit",
+                                                         "Einnahmenerwartung",
+                                                         "Kundenstruktur",
+                                                         "Unterlagen",
+                                                         "Codice fiscale",
+                                                         "ATECO- und INPS-Fragen"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_individual_ateco_advice",
+                                                            "no_individual_inps_advice",
+                                                            "no_tax_advice",
+                                                            "no_opening_recommendation"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C05",
+                                 "design_profile_id":  "DESIGN-C05",
+                                 "qa_profile_id":  "QA-PRODUCT-C05"
+                             },
+                             {
+                                 "id":  "C06",
+                                 "product_id":  "IMR-DL-C06",
+                                 "title":  "Regime forfettario: Fragen- und Klärungsbogen",
+                                 "primary_class":  "E",
+                                 "portfolio_level":  "H2",
+                                 "delivery_model":  "FREE_DIRECT",
+                                 "update_class":  "U3_SENSITIVE",
+                                 "risk_class":  "R3_HIGH",
+                                 "production_status":  "APPROVED_LATER",
+                                 "scope_pages":  "6-10 Seiten",
+                                 "primary_user_task":  "Ausschluss-, Beitrags-, Liquiditäts- und Fachfragen vorbereiten.",
+                                 "target_group":  "Nutzer, die das Forfettario nicht nur nach Steuersatz, sondern nach Ausschlüssen, Beiträgen und Liquidität prüfen müssen.",
+                                 "entry_routes":  [
+                                                      "/regime-forfettario-italien-deutsche",
+                                                      "/forfettario-realitaetscheck",
+                                                      "/partita-iva-deutsche-italien"
+                                                  ],
+                                 "related_tool":  "/forfettario-realitaetscheck",
+                                 "supporting_modules":  [
+                                                            "CHECK",
+                                                            "SOURCE",
+                                                            "DECISION"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Tätigkeitsstruktur",
+                                                         "Umsatzrahmen",
+                                                         "Ausschlussgründe",
+                                                         "INPS",
+                                                         "Liquidität",
+                                                         "Fachfragen"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_individual_tax_calculation",
+                                                            "no_final_tax_regime_assignment"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C06",
+                                 "design_profile_id":  "DESIGN-C06",
+                                 "qa_profile_id":  "QA-PRODUCT-C06"
+                             },
+                             {
+                                 "id":  "C07",
+                                 "product_id":  "IMR-DL-C07",
+                                 "title":  "Resto al Sud 2.0: Projekt- und Antragsvorbereitung",
+                                 "primary_class":  "C",
+                                 "portfolio_level":  "H3",
+                                 "delivery_model":  "LEAD_LATER",
+                                 "update_class":  "U4_EVENT_DRIVEN",
+                                 "risk_class":  "R3_HIGH",
+                                 "production_status":  "APPROVED_LATER",
+                                 "scope_pages":  "12-18 Seiten",
+                                 "primary_user_task":  "Projekt, Unterlagen, Liquidität und offizielle Prüfpunkte vorbereiten.",
+                                 "target_group":  "Gründungsinteressierte mit Süditalien-Fokus, die ein Projekt vor einer offiziellen Invitalia-Prüfung strukturieren müssen.",
+                                 "entry_routes":  [
+                                                      "/resto-al-sud-2-deutsche-italien",
+                                                      "/resto-al-sud-check",
+                                                      "/resto-al-sud-2-vorpruefung",
+                                                      "/partita-iva-vorpruefung"
+                                                  ],
+                                 "related_tool":  "/resto-al-sud-2-vorpruefung",
+                                 "supporting_modules":  [
+                                                            "SOURCE",
+                                                            "WORKSHEET",
+                                                            "RISK",
+                                                            "NEXT_STEP"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Projektidee",
+                                                         "Zielgruppe",
+                                                         "Ausgaben",
+                                                         "Liquidität",
+                                                         "Unterlagen",
+                                                         "offizielle Prüfpunkte"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_funding_promise"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C07",
+                                 "design_profile_id":  "DESIGN-C07",
+                                 "qa_profile_id":  "QA-PRODUCT-C07"
+                             },
+                             {
+                                 "id":  "C08",
+                                 "product_id":  "IMR-DYN-C08",
+                                 "title":  "ItalienRadar Tool-Ergebnisprotokolle",
+                                 "primary_class":  "D",
+                                 "portfolio_level":  "H4",
+                                 "delivery_model":  "DYNAMIC_LATER",
+                                 "update_class":  "U3_SENSITIVE",
+                                 "risk_class":  "R3_HIGH",
+                                 "production_status":  "DYNAMIC_DEPENDENCY",
+                                 "scope_pages":  "2-6 Seiten je Ergebnis",
+                                 "primary_user_task":  "Toolergebnis mit Eingaben, Status und nächsten Schritten speichern.",
+                                 "target_group":  "Nutzer der sechs interaktiven Rechner und Vorprüfungen, die Ergebnisse speichern, ausdrucken oder später erneut prüfen wollen.",
+                                 "entry_routes":  [
+                                                      "/italien-kostenrechner",
+                                                      "/online-einkommen-realitaetscheck",
+                                                      "/dach-italien-hebel-rechner",
+                                                      "/partita-iva-vorpruefung",
+                                                      "/forfettario-realitaetscheck",
+                                                      "/resto-al-sud-2-vorpruefung",
+                                                      "/italien-tools"
+                                                  ],
+                                 "related_tool":  "MULTI_TOOL",
+                                 "supporting_modules":  [
+                                                            "RESULT",
+                                                            "NEXT_STEP",
+                                                            "RISK"
+                                                        ],
+                                 "allowed_content":  [
+                                                         "Eingaben",
+                                                         "Ergebniszone",
+                                                         "Warnungen",
+                                                         "Zeitstempel",
+                                                         "Quellenstand",
+                                                         "nächste Schritte"
+                                                     ],
+                                 "content_boundaries":  [
+                                                            "no_personal_data_storage_without_separate_concept"
+                                                        ],
+                                 "content_profile_id":  "CONTENT-C08",
+                                 "design_profile_id":  "DESIGN-C08-FUTURE",
+                                 "qa_profile_id":  "QA-PRODUCT-C08-FUTURE",
+                                 "static_document_anatomy":  false,
+                                 "static_release_gate_eligible":  false,
+                                 "technical_prerequisites":  [
+                                                                 "data_model",
+                                                                 "privacy_architecture",
+                                                                 "result_logic",
+                                                                 "error_handling",
+                                                                 "versioning",
+                                                                 "pdf_generation"
+                                                             ],
+                                 "subproducts":  [
+                                                     "C08-01",
+                                                     "C08-02",
+                                                     "C08-03",
+                                                     "C08-04",
+                                                     "C08-05",
+                                                     "C08-06"
+                                                 ]
+                             }
+                         ],
+    "content_standard":  {
+                             "required_anatomy":  [
+                                                      {
+                                                          "order":  1,
+                                                          "id":  "COVER",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  2,
+                                                          "id":  "DOCUMENT_STATUS_AND_TRANSPARENCY",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  3,
+                                                          "id":  "TARGET_GROUP_AND_BENEFIT",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  4,
+                                                          "id":  "PREPARATION",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  5,
+                                                          "id":  "QUICK_GUIDE",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  6,
+                                                          "id":  "MAIN_WORK_AREA",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  7,
+                                                          "id":  "RESULT_OR_STATUS",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  8,
+                                                          "id":  "WARNINGS_AND_BOUNDARIES",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  9,
+                                                          "id":  "NEXT_STEPS",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      },
+                                                      {
+                                                          "order":  10,
+                                                          "id":  "SOURCES_DISCLAIMER_AND_VERSION",
+                                                          "required_for":  [
+                                                                               "C01",
+                                                                               "C02",
+                                                                               "C03",
+                                                                               "C04",
+                                                                               "C05",
+                                                                               "C06",
+                                                                               "C07"
+                                                                           ]
+                                                      }
+                                                  ],
+                             "class_requirements":  {
+                                                        "B":  [
+                                                                  "input_fields",
+                                                                  "units",
+                                                                  "comparison_values",
+                                                                  "result_area",
+                                                                  "notes",
+                                                                  "assumption_confirmed_separation"
+                                                              ],
+                                                        "C":  [
+                                                                  "start_state",
+                                                                  "target_state",
+                                                                  "phases",
+                                                                  "dependencies",
+                                                                  "intermediate_decisions",
+                                                                  "open_points",
+                                                                  "closing_status"
+                                                              ],
+                                                        "E":  [
+                                                                  "source_status",
+                                                                  "document_status",
+                                                                  "clarification_questions",
+                                                                  "official_contact",
+                                                                  "received_response",
+                                                                  "response_date",
+                                                                  "change_notice"
+                                                              ]
+                                                    },
+                             "update_review_maximum_months":  {
+                                                                  "U1_STABLE":  12,
+                                                                  "U2_MOVING":  6,
+                                                                  "U3_SENSITIVE":  3,
+                                                                  "U4_EVENT_DRIVEN":  0
+                                                              },
+                             "design_ready_rule":  {
+                                                       "p0":  0,
+                                                       "p1":  0,
+                                                       "p2":  0,
+                                                       "all_required_tests":  "PASS",
+                                                       "not_tested_allowed":  false,
+                                                       "blocked_allowed":  false
+                                                   }
+                         },
+    "design_standard":  {
+                            "page_geometry":  {
+                                                  "format":  "DIN_A4",
+                                                  "orientation":  "PORTRAIT",
+                                                  "width_mm":  210,
+                                                  "height_mm":  297,
+                                                  "minimum_edge_safety_mm":  12
+                                              },
+                            "primary_grid":  "SINGLE_COLUMN",
+                            "max_text_columns":  2,
+                            "color_only_information_allowed":  false,
+                            "grayscale_required":  true,
+                            "black_white_required":  true,
+                            "table_rules":  [
+                                                "title",
+                                                "column_names",
+                                                "units",
+                                                "input_result_separation",
+                                                "repeated_headers",
+                                                "visible_totals",
+                                                "minimum_9pt"
+                                            ],
+                            "page_break_rules":  [
+                                                     "heading_with_first_paragraph",
+                                                     "label_with_input",
+                                                     "warning_heading_with_text",
+                                                     "table_header_with_first_row",
+                                                     "checkbox_with_label",
+                                                     "result_heading_with_first_value"
+                                                 ],
+                            "screen_requirements":  [
+                                                        "no_unnecessarily_small_text",
+                                                        "no_very_wide_table",
+                                                        "clear_chapters",
+                                                        "no_outer_edge_only_information"
+                                                    ],
+                            "c08_static_template_allowed":  false
+                        },
+    "pdf_technical_standard":  {
+                                   "pipeline_selection_status":  "PROTOTYPE_REQUIRED",
+                                   "pdf_version_policy":  {
+                                                              "preferred":  "PDF_1_7_OR_EQUIVALENT",
+                                                              "pdfa_claim_requires_validator":  true,
+                                                              "pdfua_claim_requires_full_validation":  true
+                                                          },
+                                   "page_geometry":  {
+                                                         "format":  "DIN_A4",
+                                                         "orientation":  "PORTRAIT",
+                                                         "width_mm":  210,
+                                                         "height_mm":  297,
+                                                         "pdf_points":  {
+                                                                            "width":  595,
+                                                                            "height":  842
+                                                                        },
+                                                         "required_boxes":  [
+                                                                                "MediaBox",
+                                                                                "CropBox"
+                                                                            ]
+                                                     },
+                                   "font_requirements":  {
+                                                             "embedding_required":  true,
+                                                             "legal_distribution_required":  true,
+                                                             "unicode_required":  true,
+                                                             "text_as_image_allowed":  false
+                                                         },
+                                   "image_requirements":  {
+                                                              "photo_dpi":  {
+                                                                                "min":  150,
+                                                                                "max":  220
+                                                                            },
+                                                              "diagram_dpi":  {
+                                                                                  "min":  200,
+                                                                                  "max":  300
+                                                                              },
+                                                              "external_references_allowed":  false,
+                                                              "private_exif_allowed":  false
+                                                          },
+                                   "compression_targets_mb":  {
+                                                                  "A":  1,
+                                                                  "B":  2,
+                                                                  "C":  4,
+                                                                  "E":  3,
+                                                                  "C08":  3
+                                                              },
+                                   "link_rules":  {
+                                                      "https_when_available":  true,
+                                                      "descriptive_text_required":  true,
+                                                      "shorteners_allowed":  false,
+                                                      "tracking_redirects_allowed":  false
+                                                  },
+                                   "privacy_rules":  {
+                                                         "automatic_transfer_allowed":  false,
+                                                         "telemetry_allowed":  false,
+                                                         "tracking_allowed":  false,
+                                                         "prefilled_personal_data_allowed":  false,
+                                                         "server_storage_without_consent_allowed":  false
+                                                     },
+                                   "dynamic_pdf_prerequisites":  [
+                                                                     "data_model",
+                                                                     "input_output_mapping",
+                                                                     "result_logic",
+                                                                     "privacy_decision",
+                                                                     "storage_strategy",
+                                                                     "deletion_concept",
+                                                                     "error_model",
+                                                                     "version_model",
+                                                                     "render_pipeline",
+                                                                     "abuse_protection"
+                                                                 ],
+                                   "release_gate":  {
+                                                        "p0_must_equal":  0,
+                                                        "p1_must_equal":  0,
+                                                        "p2_requires_zero_or_waiver":  true,
+                                                        "p3_documented":  true
+                                                    }
+                               },
+    "qa_standard":  {
+                        "test_inventory":  {
+                                               "productive_test_cases_total":  24,
+                                               "mandatory_test_cases":  24,
+                                               "optional_test_cases":  0,
+                                               "example_test_cases":  0,
+                                               "unique_test_ids":  24,
+                                               "duplicate_test_ids":  0,
+                                               "undefined_test_references":  0,
+                                               "unused_productive_tests":  0,
+                                               "non_productive_architecture_checks_total":  1,
+                                               "all_test_like_objects_total":  25
+                                           },
+                        "gates":  [
+                                      {
+                                          "gate_id":  "G1_ARCHITECTURE_APPROVED",
+                                          "required_test_families":  [
+                                                                         "QA-ARCH"
+                                                                     ],
+                                          "blocking_severities":  [
+                                                                      "P0_BLOCKER",
+                                                                      "P1_CRITICAL"
+                                                                  ],
+                                          "not_tested_allowed":  false,
+                                          "blocked_allowed":  false,
+                                          "waiver_policy":  "P2_P3_ONLY"
+                                      },
+                                      {
+                                          "gate_id":  "G2_DESIGN_READY",
+                                          "required_test_families":  [
+                                                                         "QA-CONTENT",
+                                                                         "QA-BOUNDARY",
+                                                                         "QA-SOURCE"
+                                                                     ],
+                                          "blocking_severities":  [
+                                                                      "P0_BLOCKER",
+                                                                      "P1_CRITICAL",
+                                                                      "P2_MAJOR"
+                                                                  ],
+                                          "not_tested_allowed":  false,
+                                          "blocked_allowed":  false,
+                                          "waiver_policy":  "NONE"
+                                      },
+                                      {
+                                          "gate_id":  "G3_READY_TO_PUBLISH",
+                                          "required_test_families":  [
+                                                                         "QA-DESIGN",
+                                                                         "QA-TYPOGRAPHY",
+                                                                         "QA-COLOR",
+                                                                         "QA-TABLE",
+                                                                         "QA-A11Y",
+                                                                         "QA-PDF",
+                                                                         "QA-SECURITY",
+                                                                         "QA-RENDER",
+                                                                         "QA-PRINT",
+                                                                         "QA-VERSION"
+                                                                     ],
+                                          "blocking_severities":  [
+                                                                      "P0_BLOCKER",
+                                                                      "P1_CRITICAL"
+                                                                  ],
+                                          "not_tested_allowed":  false,
+                                          "blocked_allowed":  false,
+                                          "waiver_policy":  "P2_P3_ONLY"
+                                      },
+                                      {
+                                          "gate_id":  "G4_PUBLISHED",
+                                          "required_test_families":  [
+                                                                         "QA-RELEASE",
+                                                                         "QA-VERSION"
+                                                                     ],
+                                          "blocking_severities":  [
+                                                                      "P0_BLOCKER",
+                                                                      "P1_CRITICAL"
+                                                                  ],
+                                          "not_tested_allowed":  false,
+                                          "blocked_allowed":  false,
+                                          "waiver_policy":  "P2_P3_ONLY"
+                                      }
+                                  ],
+                        "waiver_policy":  {
+                                              "allowed_severities":  [
+                                                                         "P2_MAJOR",
+                                                                         "P3_MINOR"
+                                                                     ],
+                                              "prohibited_severities":  [
+                                                                            "P0_BLOCKER",
+                                                                            "P1_CRITICAL"
+                                                                        ],
+                                              "required_fields":  [
+                                                                      "waiver_id",
+                                                                      "test_id",
+                                                                      "product_id",
+                                                                      "severity",
+                                                                      "deviation",
+                                                                      "reason",
+                                                                      "risk",
+                                                                      "compensating_control",
+                                                                      "approver",
+                                                                      "approval_date",
+                                                                      "expiry_date",
+                                                                      "follow_up_issue"
+                                                                  ]
+                                          },
+                        "review_policy":  {
+                                              "single_person_full_release_allowed":  false,
+                                              "minimum_distinct_review_steps":  2
+                                          },
+                        "withdrawal_triggers":  [
+                                                    "post_publication_p0",
+                                                    "material_p1_false_statement",
+                                                    "official_basis_revoked",
+                                                    "u4_program_change",
+                                                    "personal_data_present",
+                                                    "wrong_file_delivered",
+                                                    "checksum_mismatch"
+                                                ],
+                        "withdrawal_statuses":  [
+                                                    "UPDATE_REQUIRED",
+                                                    "ARCHIVED"
+                                                ],
+                        "non_productive_architecture_checks":  [
+                                                                   {
+                                                                       "check_id":  "ARCH-C08-001",
+                                                                       "productive":  false,
+                                                                       "applicable_product":  "C08",
+                                                                       "gate":  "G1_ARCHITECTURE_APPROVED",
+                                                                       "purpose":  "Bestätigt, dass C08 nicht über statische Gates freigegeben werden kann.",
+                                                                       "requirement_ids":  [
+                                                                                               "REQ-PORTFOLIO-C08-001",
+                                                                                               "REQ-TECH-009"
+                                                                                           ]
+                                                                   }
+                                                               ]
+                    },
+    "requirements":  [
+                         {
+                             "id":  "REQ-CONTENT-001",
+                             "strength":  "MUST",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-001",
+                                                 "QA-CONTENT-003"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-CONTENT-002",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-CONTENT-003",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-003",
+                                                 "QA-TYPOGRAPHY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-CONTENT-004",
+                             "strength":  "MUST",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-002"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-CONTENT-005",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-002",
+                                                 "QA-BOUNDARY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-CONTENT-006",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-002",
+                                                 "QA-CONTENT-003"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C01-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C02-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C03-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001",
+                                                 "QA-CONTENT-003"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C04-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C05-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001",
+                                                 "QA-CONTENT-003"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C06-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001",
+                                                 "QA-CONTENT-003"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C07-001",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-SOURCE-001",
+                                                 "QA-SOURCE-002",
+                                                 "QA-BOUNDARY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-PORTFOLIO-C08-001",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "ARCH-C08-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-SOURCE-001",
+                             "strength":  "MUST",
+                             "qa_test_ids":  [
+                                                 "QA-SOURCE-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-SOURCE-002",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-SOURCE-002",
+                                                 "QA-RELEASE-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-001",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-002",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001",
+                                                 "QA-COLOR-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-003",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-TYPOGRAPHY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-004",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-COLOR-001",
+                                                 "QA-PRINT-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-005",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001",
+                                                 "QA-RENDER-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-006",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-TABLE-001",
+                                                 "QA-FORM-001",
+                                                 "QA-RENDER-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-007",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001",
+                                                 "QA-RENDER-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-DESIGN-008",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-PRINT-001",
+                                                 "QA-MOBILE-001",
+                                                 "QA-COLOR-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-001",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-VERSION-001",
+                                                 "QA-PDF-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-002",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-PDF-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-003",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-METADATA-001",
+                                                 "QA-VERSION-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-004",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-TYPOGRAPHY-001",
+                                                 "QA-A11Y-001",
+                                                 "QA-RENDER-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-005",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-LINK-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-006",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-SECURITY-001",
+                                                 "QA-SECURITY-002"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-007",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-A11Y-001",
+                                                 "QA-TABLE-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-008",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-FORM-001",
+                                                 "QA-PRIVACY-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-009",
+                             "strength":  "MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "ARCH-C08-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-010",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-VERSION-001",
+                                                 "QA-RELEASE-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-011",
+                             "strength":  "MUST_AND_MUST_NOT",
+                             "qa_test_ids":  [
+                                                 "QA-RENDER-001",
+                                                 "QA-REGRESSION-001",
+                                                 "QA-MOBILE-001"
+                                             ]
+                         },
+                         {
+                             "id":  "REQ-TECH-012",
+                             "strength":  "MUST",
+                             "qa_test_ids":  [
+                                                 "QA-RELEASE-001",
+                                                 "QA-SECURITY-001",
+                                                 "QA-VERSION-001"
+                                             ]
+                         }
+                     ],
+    "test_cases":  [
+                       {
+                           "id":  "QA-CONTENT-001",
+                           "title":  "Kanonische Hauptaufgabe",
+                           "gate":  "G2_DESIGN_READY",
+                           "type":  "MANUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-CONTENT-001",
+                                                   "REQ-CONTENT-002"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-CONTENT-002",
+                           "title":  "Zehnteilige Dokumentanatomie",
+                           "gate":  "G2_DESIGN_READY",
+                           "type":  "MANUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-CONTENT-004",
+                                                   "REQ-CONTENT-005",
+                                                   "REQ-CONTENT-006"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-BOUNDARY-001",
+                           "title":  "Produktgrenzen",
+                           "gate":  "G2_DESIGN_READY",
+                           "type":  "CROSS_SOURCE",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-CONTENT-005",
+                                                   "REQ-PORTFOLIO-C01-001",
+                                                   "REQ-PORTFOLIO-C02-001",
+                                                   "REQ-PORTFOLIO-C03-001",
+                                                   "REQ-PORTFOLIO-C04-001",
+                                                   "REQ-PORTFOLIO-C05-001",
+                                                   "REQ-PORTFOLIO-C06-001",
+                                                   "REQ-PORTFOLIO-C07-001"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-CONTENT-003",
+                           "title":  "Beratungs- und Zusagegrenzen",
+                           "gate":  "G2_DESIGN_READY",
+                           "type":  "MANUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-CONTENT-001",
+                                                   "REQ-CONTENT-003",
+                                                   "REQ-CONTENT-006",
+                                                   "REQ-PORTFOLIO-C03-001",
+                                                   "REQ-PORTFOLIO-C05-001",
+                                                   "REQ-PORTFOLIO-C06-001"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-SOURCE-001",
+                           "title":  "Quellenklassifikation und Datum",
+                           "gate":  "G2_DESIGN_READY",
+                           "type":  "MANUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-SOURCE-001",
+                                                   "REQ-PORTFOLIO-C07-001"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-SOURCE-002",
+                           "title":  "Aktualitätsprüfung",
+                           "gate":  "G2_DESIGN_READY",
+                           "type":  "CROSS_SOURCE",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-SOURCE-002",
+                                                   "REQ-PORTFOLIO-C07-001"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-DESIGN-001",
+                           "title":  "Seitengestaltung und Raster",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "VISUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-001",
+                                                   "REQ-DESIGN-002",
+                                                   "REQ-DESIGN-005",
+                                                   "REQ-DESIGN-007"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-TYPOGRAPHY-001",
+                           "title":  "Typografie und deutsche Sonderzeichen",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "VISUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-CONTENT-003",
+                                                   "REQ-DESIGN-003",
+                                                   "REQ-TECH-004"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-COLOR-001",
+                           "title":  "Farbe, Graustufen und Schwarz-Weiß",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "VISUAL",
+                           "severity":  "P2_MAJOR",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-002",
+                                                   "REQ-DESIGN-004",
+                                                   "REQ-DESIGN-008"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-TABLE-001",
+                           "title":  "Tabellenstruktur",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "ASSISTIVE_TECH_REVIEW",
+                           "severity":  "P2_MAJOR",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-006",
+                                                   "REQ-TECH-007"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-FORM-001",
+                           "title":  "AcroForm-Felder",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "ASSISTIVE_TECH_REVIEW",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-006",
+                                                   "REQ-TECH-008"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-A11Y-001",
+                           "title":  "Praktische Accessibility",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "ASSISTIVE_TECH_REVIEW",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-004",
+                                                   "REQ-TECH-007"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-PDF-001",
+                           "title":  "PDF-Format und Geometrie",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "AUTOMATED",
+                           "severity":  "P0_BLOCKER",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-001",
+                                                   "REQ-TECH-002"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-METADATA-001",
+                           "title":  "Öffentliche Metadaten",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "AUTOMATED",
+                           "severity":  "P2_MAJOR",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-003"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-LINK-001",
+                           "title":  "Sichere beschreibende Links",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "AUTOMATED",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-005"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-SECURITY-001",
+                           "title":  "Keine aktiven oder ausführbaren PDF-Aktionen",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "AUTOMATED",
+                           "severity":  "P0_BLOCKER",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-006",
+                                                   "REQ-TECH-012"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-SECURITY-002",
+                           "title":  "Keine privaten oder versteckten Daten",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "AUTOMATED",
+                           "severity":  "P0_BLOCKER",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-006"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-PRIVACY-001",
+                           "title":  "Keine Datenübertragung oder Telemetrie",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "AUTOMATED",
+                           "severity":  "P0_BLOCKER",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-008"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-RENDER-001",
+                           "title":  "Vollständiges Rendering",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "VISUAL",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-005",
+                                                   "REQ-DESIGN-006",
+                                                   "REQ-DESIGN-007",
+                                                   "REQ-TECH-004",
+                                                   "REQ-TECH-011"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-PRINT-001",
+                           "title":  "Drucknutzung",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "VISUAL",
+                           "severity":  "P2_MAJOR",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-004",
+                                                   "REQ-DESIGN-008"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-MOBILE-001",
+                           "title":  "Viewer- und Mobilnutzung",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "VISUAL",
+                           "severity":  "P2_MAJOR",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-DESIGN-008",
+                                                   "REQ-TECH-011"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-VERSION-001",
+                           "title":  "Version und Hash",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "CROSS_SOURCE",
+                           "severity":  "P1_CRITICAL",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-001",
+                                                   "REQ-TECH-003",
+                                                   "REQ-TECH-010",
+                                                   "REQ-TECH-012"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-RELEASE-001",
+                           "title":  "Veröffentlichungsdatei",
+                           "gate":  "G4_PUBLISHED",
+                           "type":  "AUTOMATED",
+                           "severity":  "P0_BLOCKER",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-SOURCE-002",
+                                                   "REQ-TECH-010",
+                                                   "REQ-TECH-012"
+                                               ]
+                       },
+                       {
+                           "id":  "QA-REGRESSION-001",
+                           "title":  "Änderungsregression",
+                           "gate":  "G3_READY_TO_PUBLISH",
+                           "type":  "CROSS_SOURCE",
+                           "severity":  "P2_MAJOR",
+                           "applicable_products":  [
+                                                       "C01",
+                                                       "C02",
+                                                       "C03",
+                                                       "C04",
+                                                       "C05",
+                                                       "C06",
+                                                       "C07"
+                                                   ],
+                           "requirement_ids":  [
+                                                   "REQ-TECH-011"
+                                               ]
+                       }
+                   ],
+    "traceability":  [
+                         {
+                             "requirement_id":  "REQ-CONTENT-001",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-001",
+                                                 "QA-CONTENT-003"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-CONTENT-002",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-CONTENT-003",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-003",
+                                                 "QA-TYPOGRAPHY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-CONTENT-004",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-002"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-CONTENT-005",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-002",
+                                                 "QA-BOUNDARY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-CONTENT-006",
+                             "qa_test_ids":  [
+                                                 "QA-CONTENT-002",
+                                                 "QA-CONTENT-003"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C01-001",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C02-001",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C03-001",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001",
+                                                 "QA-CONTENT-003"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C04-001",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C05-001",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001",
+                                                 "QA-CONTENT-003"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C06-001",
+                             "qa_test_ids":  [
+                                                 "QA-BOUNDARY-001",
+                                                 "QA-CONTENT-003"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C07-001",
+                             "qa_test_ids":  [
+                                                 "QA-SOURCE-001",
+                                                 "QA-SOURCE-002",
+                                                 "QA-BOUNDARY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-PORTFOLIO-C08-001",
+                             "qa_test_ids":  [
+                                                 "ARCH-C08-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-SOURCE-001",
+                             "qa_test_ids":  [
+                                                 "QA-SOURCE-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-SOURCE-002",
+                             "qa_test_ids":  [
+                                                 "QA-SOURCE-002",
+                                                 "QA-RELEASE-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-001",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-002",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001",
+                                                 "QA-COLOR-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-003",
+                             "qa_test_ids":  [
+                                                 "QA-TYPOGRAPHY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-004",
+                             "qa_test_ids":  [
+                                                 "QA-COLOR-001",
+                                                 "QA-PRINT-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-005",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001",
+                                                 "QA-RENDER-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-006",
+                             "qa_test_ids":  [
+                                                 "QA-TABLE-001",
+                                                 "QA-FORM-001",
+                                                 "QA-RENDER-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-007",
+                             "qa_test_ids":  [
+                                                 "QA-DESIGN-001",
+                                                 "QA-RENDER-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-DESIGN-008",
+                             "qa_test_ids":  [
+                                                 "QA-PRINT-001",
+                                                 "QA-MOBILE-001",
+                                                 "QA-COLOR-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-001",
+                             "qa_test_ids":  [
+                                                 "QA-VERSION-001",
+                                                 "QA-PDF-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-002",
+                             "qa_test_ids":  [
+                                                 "QA-PDF-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-003",
+                             "qa_test_ids":  [
+                                                 "QA-METADATA-001",
+                                                 "QA-VERSION-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-004",
+                             "qa_test_ids":  [
+                                                 "QA-TYPOGRAPHY-001",
+                                                 "QA-A11Y-001",
+                                                 "QA-RENDER-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-005",
+                             "qa_test_ids":  [
+                                                 "QA-LINK-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-006",
+                             "qa_test_ids":  [
+                                                 "QA-SECURITY-001",
+                                                 "QA-SECURITY-002"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-007",
+                             "qa_test_ids":  [
+                                                 "QA-A11Y-001",
+                                                 "QA-TABLE-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-008",
+                             "qa_test_ids":  [
+                                                 "QA-FORM-001",
+                                                 "QA-PRIVACY-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-009",
+                             "qa_test_ids":  [
+                                                 "ARCH-C08-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-010",
+                             "qa_test_ids":  [
+                                                 "QA-VERSION-001",
+                                                 "QA-RELEASE-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-011",
+                             "qa_test_ids":  [
+                                                 "QA-RENDER-001",
+                                                 "QA-REGRESSION-001",
+                                                 "QA-MOBILE-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         },
+                         {
+                             "requirement_id":  "REQ-TECH-012",
+                             "qa_test_ids":  [
+                                                 "QA-RELEASE-001",
+                                                 "QA-SECURITY-001",
+                                                 "QA-VERSION-001"
+                                             ],
+                             "coverage_status":  "COVERED"
+                         }
+                     ],
+    "acceptance_summary":  {
+                               "json_parseable":  true,
+                               "products_total":  8,
+                               "static_products_total":  7,
+                               "dynamic_families_total":  1,
+                               "test_cases_total":  24,
+                               "requirements_total":  36,
+                               "traceability_coverage_percent":  100,
+                               "unknown_references":  0,
+                               "duplicate_ids":  0,
+                               "unmapped_requirements":  0,
+                               "unused_tests":  0,
+                               "c08_static_release_eligible":  false,
+                               "production_files_changed":  false
+                           }
+}
