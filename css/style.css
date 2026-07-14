@@ -23,6 +23,14 @@ nav a {
   font-family: var(--font-main);
 }
 
+h1,
+h2,
+h3,
+h4,
+label {
+  overflow-wrap: anywhere;
+}
+
 main {
   margin-top: 0;
 }
@@ -167,9 +175,16 @@ label {
   gap: 8px;
 }
 
-input,
+label > input[type="checkbox"],
+label > input[type="radio"] {
+  width: auto;
+  align-self: flex-start;
+}
+
+input:not([type="checkbox"]):not([type="radio"]),
 select {
   width: 100%;
+  box-sizing: border-box;
   padding: 13px 14px;
   border: 1px solid #cfd8d2;
   border-radius: 10px;
@@ -1506,6 +1521,7 @@ a.roadmap-item:hover {
   font-size: clamp(32px, 5vw, 52px);
   line-height: 1.1;
   margin: 0 0 16px;
+  overflow-wrap: anywhere;
 }
 
 .subpage-hero p {
