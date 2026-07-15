@@ -1,6 +1,6 @@
 # C01 Produktionsbrief
 
-Status: `C01_PREPRODUCTION`
+Status: `C01_CONTENT_CORE`; Content-Contract `1.1.0`; Berechnungsregeln `1.1.0`.
 
 ## Produktvertrag
 

@@ -1,6 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "phase": "C01_PREPRODUCTION",
+  "content_contract_version": "1.1.0",
+  "calculation_ruleset_version": "1.1.0",
+  "data_schema_version": "1.0.0",
+  "category_taxonomy_version": "1.0.0",
+  "phase": "C01_CONTENT_CORE",
   "portfolio_id": "C01",
   "canonical_product_id": "IMR-DL-C01",
   "canonical_title": "Italien-Neustart: Budget- und Sicherheitsarbeitsblatt",
@@ -17,6 +21,15 @@
   "deployment": false,
   "assistive_tech_gate_required": true,
   "system_acceptance_required": true,
+  "document": {
+    "canonical_title": "Italien-Neustart: Budget- und Sicherheitsarbeitsblatt",
+    "document_version": "0.2.0-draft",
+    "source_version": "C01_CONTENT_CORE",
+    "language": "de-DE",
+    "currency": "EUR"
+  },
+  "product_contract": {"portfolio_id":"C01","canonical_product_id":"IMR-DL-C01","document_class":"B","portfolio_level":"H1","delivery_model":"FREE_DIRECT","update_class":"U2_MOVING","risk_class":"R2_MODERATE","scope_pages":{"minimum":8,"maximum":12}},
+  "budget_categories": {"taxonomy_version":"1.0.0","manifest":"C01_BUDGET_CATEGORIES"},
   "language": "de-DE",
   "currency": "EUR",
   "scope_pages": {"minimum": 8, "maximum": 12},
@@ -35,6 +48,15 @@
     "user_defined_reserve_target": null
   },
   "input_status": "NUTZEREINGABE_ERFORDERLICH",
+  "budget_item_template": {"id":"","category_id":"","label":"","amount":null,"currency":"EUR","period":"MONTHLY","data_type":"NUTZEREINGABE","evidence_status":"OFFEN","reliability_status":"UNKNOWN","required_for_result":true,"not_relevant":false,"not_relevant_reason":null,"source_ref":null,"note":null},
+  "income_items": [],
+  "essential_cost_items": [],
+  "optional_cost_items": [],
+  "start_cost_items": [],
+  "reserve": {"amount":null,"currency":"EUR","as_of_date":null,"evidence_status":"OFFEN"},
+  "normal_scenario": {"income_items":[],"cost_items":[],"assumptions":[],"open_conditions":[],"evidence_status":"OFFEN"},
+  "stress_scenario": {"income_items":[],"cost_items":[],"assumptions":[],"open_conditions":[],"evidence_status":"OFFEN"},
+  "minimum_scenario": {"income_items":[],"cost_items":[],"assumptions":[],"open_conditions":[],"evidence_status":"OFFEN"},
   "calculated_results": {
     "MONTHLY_INCOME_TOTAL": null,
     "ESSENTIAL_MONTHLY_COSTS": null,
@@ -54,9 +76,12 @@
     "USER_DEFINED_RESERVE_TARGET": null,
     "START_CAPITAL_NEED": null
   },
-  "calculation_reference": "C01_CALCULATION_RULESET_1.0.0",
-  "warnings": [],
+  "calculation_reference": "C01_CALCULATION_RULESET_1.1.0",
+  "warnings": ["UNCERTAIN_INCOME", "UNKNOWN_COST", "INSUFFICIENT_DATA", "HIGH_IRREGULAR_INCOME_SHARE", "SCENARIO_NOT_COMPLETED"],
   "blockers": ["SYSTEM_ACCEPTANCE_BLOCKED", "CONTENT_IN_PROGRESS"],
+  "source_references": [],
   "sources": [],
-  "metadata": {"document_version":"0.1.0-draft", "source_version":"C01_PREPRODUCTION", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS"}
+  "sections": ["M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11", "M12"],
+  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_CONTENT_CORE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.1.0"},
+  "release_controls": {"release_eligible":false,"pdf_build_allowed":false,"public_pdf_allowed":false,"website_integration_allowed":false,"deployment":false}
 }

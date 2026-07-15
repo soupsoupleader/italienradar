@@ -1,5 +1,9 @@
 {
   "schema_version": "1.0.0",
+  "content_contract_version": "1.1.0",
+  "calculation_ruleset_version": "1.1.0",
+  "data_schema_version": "1.0.0",
+  "category_taxonomy_version": "1.0.0",
   "phase": "C01_PREPRODUCTION",
   "portfolio_id": "C01",
   "canonical_product_id": "IMR-DL-C01",
@@ -63,5 +67,10 @@
   ],
   "source_requirements": ["statement", "value", "unit", "period", "region", "source_type", "source_status", "check_date", "update_class", "evidence_status"],
   "release_dependencies": {"system_acceptance":"BLOCKED", "assistive_tech_gate":"BLOCKED", "pdf_build_allowed":false, "public_pdf_allowed":false, "website_integration_allowed":false, "deployment":false},
-  "status": "CONTENT_IN_PROGRESS"
+  "status": "CONTENT_IN_PROGRESS",
+  "data_model_reference": "C01_DATA_SCHEMA",
+  "category_taxonomy_reference": "C01_BUDGET_CATEGORIES",
+  "source_matrix_reference": "C01_SOURCE_MATRIX",
+  "calculation_engine": "download-system/scripts/calculate_c01.py",
+  "scenario_model": ["NORMAL", "STRESS", "MINIMUM"]
 }
