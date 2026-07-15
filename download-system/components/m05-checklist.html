@@ -1,8 +1,8 @@
-<section class="imr-component imr-component--checklist" data-component-id="M05_CHECKLIST" data-component-version="1.0.0" aria-labelledby="m05-title">
+<section class="imr-component imr-component--checklist" data-component-id="M05_CHECKLIST" data-component-version="1.1.0" aria-labelledby="m05-title">
   <fieldset>
-    <legend id="m05-title">Prüfcheckliste</legend>
-    <ul>
-      <li class="imr-checklist-item"><span class="imr-check" aria-hidden="true"></span><span>Testkennung sichtbar geprüft <span class="imr-status-label">OFFEN</span></span></li>
+    <legend id="m05-title" data-bind-text="title">Prüfcheckliste</legend>
+    <ul data-repeat="tasks" data-repeat-item="task">
+      <li class="imr-checklist-item"><span class="imr-check" aria-hidden="true"></span><span><span data-bind-text="task.label">Testkennung sichtbar geprüft</span> <span class="imr-status-label" data-bind-text="task.status">OFFEN</span></span></li>
       <li class="imr-checklist-item"><span class="imr-check" aria-hidden="true"></span><span>Quellenstand nachvollzogen <span class="imr-status-label">IN_BEARBEITUNG</span></span></li>
       <li class="imr-checklist-item"><span class="imr-check" aria-hidden="true"></span><span>Umbruchregel dokumentiert <span class="imr-status-label">ERLEDIGT</span></span></li>
       <li class="imr-checklist-item"><span class="imr-check" aria-hidden="true"></span><span>Testmerkmal nicht benötigt <span class="imr-status-label">NICHT_RELEVANT</span></span></li>

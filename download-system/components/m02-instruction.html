@@ -1,10 +1,10 @@
-<section class="imr-component imr-component--instruction" data-component-id="M02_INSTRUCTION" data-component-version="1.0.0" aria-labelledby="m02-title">
-  <h2 id="m02-title">Arbeitsanweisung</h2>
-  <p><strong>Voraussetzungen:</strong> Testmaterial, Quellenstand und Dokumentversion müssen sichtbar feststehen.</p>
-  <ol>
-    <li>Prüfen Sie die Testkennung und den vorgesehenen Abschnitt.</li>
-    <li>Lesen Sie Eingabestatus, Hinweis und Quellenstand vollständig.</li>
-    <li>Dokumentieren Sie offene Punkte ohne eine fachliche Entscheidung vorwegzunehmen.</li>
+<section class="imr-component imr-component--instruction" data-component-id="M02_INSTRUCTION" data-component-version="1.1.0" aria-labelledby="m02-title">
+  <h2 id="m02-title" data-bind-text="title">Arbeitsanweisung</h2>
+  <p><strong>Voraussetzungen:</strong> <span data-bind-text="preparation">Testmaterial, Quellenstand und Dokumentversion müssen sichtbar feststehen.</span></p>
+  <ol data-repeat="steps" data-repeat-item="step">
+    <li data-bind-text="step">Prüfen Sie die Testkennung und den vorgesehenen Abschnitt.</li>
+    <li data-bind-text="step">Lesen Sie Eingabestatus, Hinweis und Quellenstand vollständig.</li>
+    <li data-bind-text="step">Dokumentieren Sie offene Punkte ohne eine fachliche Entscheidung vorwegzunehmen.</li>
   </ol>
-  <p><strong>Abschluss:</strong> Die Reihenfolge ist nachvollziehbar, sobald jeder Schritt geprüft wurde.</p>
+  <p><strong>Abschluss:</strong> <span data-bind-text="completion">Die Reihenfolge ist nachvollziehbar, sobald jeder Schritt geprüft wurde.</span></p>
 </section>

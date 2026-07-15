@@ -1,12 +1,12 @@
-<section class="imr-component imr-component--result" data-component-id="M09_RESULT" data-component-version="1.0.0" aria-labelledby="m09-title">
-  <h2 id="m09-title">Teststatus und Ergebnisbereich</h2>
+<section class="imr-component imr-component--result" data-component-id="M09_RESULT" data-component-version="1.1.0" aria-labelledby="m09-title">
+  <h2 id="m09-title" data-bind-text="title">Teststatus und Ergebnisbereich</h2>
   <dl>
-    <dt>Zusammengefasste Eingaben</dt><dd>T00-Testwerte, keine Produktdaten</dd>
-    <dt>Status</dt><dd>IN_BEARBEITUNG</dd>
-    <dt>Begründung</dt><dd>Der Katalog prüft Darstellung und Semantik.</dd>
-    <dt>Offene Bedingungen</dt><dd>Komponentenabnahme und spätere Produktbindung</dd>
-    <dt>Warnsignale</dt><dd>Quellenstand bei Einbau erneut prüfen</dd>
-    <dt>Nächster Schritt</dt><dd>Komponenten-QA dokumentieren</dd>
-    <dt>Stand</dt><dd>T00 / neutraler Proof</dd>
+    <dt data-bind-text="labels.inputs">Zusammengefasste Eingaben</dt><dd data-bind-text="inputs">T00-Testwerte, keine Produktdaten</dd>
+    <dt data-bind-text="labels.status">Status</dt><dd data-bind-text="status">IN_BEARBEITUNG</dd>
+    <dt data-bind-text="labels.reason">Begründung</dt><dd data-bind-text="reason">Der Katalog prüft Darstellung und Semantik.</dd>
+    <dt data-bind-text="labels.open_points">Offene Bedingungen</dt><dd data-bind-text="open_points">Komponentenabnahme und spätere Produktbindung</dd>
+    <dt data-bind-text="labels.warnings">Warnsignale</dt><dd data-bind-text="warnings">Quellenstand bei Einbau erneut prüfen</dd>
+    <dt data-bind-text="labels.next_step">Nächster Schritt</dt><dd data-bind-text="next_step">Komponenten-QA dokumentieren</dd>
+    <dt data-bind-text="labels.stand">Stand</dt><dd data-bind-text="stand">T00 / neutraler Proof</dd>
   </dl>
 </section>

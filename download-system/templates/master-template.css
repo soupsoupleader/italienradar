@@ -1,0 +1,33 @@
+@page cover {
+  size: var(--imr-page-width) var(--imr-page-height);
+  margin: var(--imr-margin-top) var(--imr-margin-right) var(--imr-margin-bottom) var(--imr-margin-left);
+  @top-left { content: none; }
+  @top-right { content: none; }
+  @bottom-center { content: none; }
+}
+
+@page {
+  size: var(--imr-page-width) var(--imr-page-height);
+  margin: var(--imr-margin-top) var(--imr-margin-right) var(--imr-margin-bottom) var(--imr-margin-left);
+  @top-left { content: "ItalienRadar"; color: var(--imr-color-text-secondary); font-family: var(--imr-font-family); font-size: var(--imr-type-footer-size); }
+  @top-right { content: "T00"; color: var(--imr-color-text-secondary); font-family: var(--imr-font-family); font-size: var(--imr-type-footer-size); }
+  @bottom-center { content: "Seite " counter(page) " von " counter(pages); color: var(--imr-color-text-secondary); font-family: var(--imr-font-family); font-size: var(--imr-type-footer-size); }
+}
+
+html { font-family: var(--imr-font-family); color: var(--imr-color-text-primary); background: var(--imr-color-background); }
+body { margin: 0; font-family: var(--imr-font-family); color: var(--imr-color-text-primary); }
+.master-cover { page: cover; min-height: var(--imr-content-height); display: grid; align-content: center; break-after: page; }
+.master-kicker { color: var(--imr-color-brand-secondary); font-size: var(--imr-type-v4-size); font-weight: var(--imr-type-v4-weight); line-height: var(--imr-type-v4-line); }
+.master-cover h1 { color: var(--imr-color-brand-primary); font-size: var(--imr-type-v0-size); font-weight: var(--imr-type-v0-weight); line-height: var(--imr-type-v0-line); }
+.master-subtitle { max-width: 135mm; font-size: var(--imr-type-cover-subtitle-size); line-height: var(--imr-type-cover-subtitle-line); }
+.master-cover-meta { display: grid; grid-template-columns: 1fr 2fr; gap: var(--imr-space-xs) var(--imr-space-m); border-block-start: var(--imr-border-standard) solid var(--imr-color-brand-primary); padding-block-start: var(--imr-space-m); max-width: 135mm; }
+.master-cover-meta dt { color: var(--imr-color-text-secondary); font-size: var(--imr-type-v7-size); line-height: var(--imr-type-v7-line); }
+.master-cover-meta dd { margin: 0; font-size: var(--imr-type-v7-size); line-height: var(--imr-type-v7-line); }
+.master-toc, .master-boundary, .master-components, .master-end { margin-block: var(--imr-space-l); }
+.master-toc { break-after: page; }
+.master-toc ol { padding-inline-start: var(--imr-space-l); }
+.master-toc li { break-inside: avoid; margin-block-end: var(--imr-space-s); }
+.master-toc a { color: var(--imr-color-brand-primary); text-decoration: underline; }
+.master-boundary { break-after: page; }
+.master-components > h2 { break-after: avoid; }
+.master-end { break-before: page; }

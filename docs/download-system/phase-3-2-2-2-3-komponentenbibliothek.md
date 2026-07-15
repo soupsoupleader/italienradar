@@ -1,10 +1,12 @@
 # IMR Komponentenbibliothek M01–M12
 
-Phase 3.2.2.2.3 baut auf Baseline `64c5f07c0b531c9d23266b2a9a061c678842d5c8` und dem abgeschlossenen Designsystem 1.0.0 auf. Die Bibliothek ist für `P2_HTML_PRINT`, `C01`–`C07` und lokale Source Sans 3 Assets vorgesehen; `C08` bleibt ausgeschlossen.
+Phase 3.2.2.2.3 baut auf Baseline `64c5f07c0b531c9d23266b2a9a061c678842d5c8` und dem abgeschlossenen Designsystem 1.0.0 auf. Die Bibliothek ist in Integrationshärtung 1.1.0 für `P2_HTML_PRINT`, `C01`–`C07` und lokale Source Sans 3 Assets vorgesehen; `C08` bleibt ausgeschlossen.
+
+Die Härtung entfernt das missbrauchte `SPACE_XS` als Zeichenabstand, führt sichere `data-bind-text`-, `data-bind-href`-, `data-repeat`- und `data-repeat-item`-Marker ein und legt deterministisches ID-Namespacing für jede Komponenteninstanz fest. Im Produktionskontext verwendet M01 H2; die einzige H1 gehört zum Cover des Mastertemplates.
 
 ## Umfang und Grenzen
 
-Die Bibliothek enthält genau die normativen Komponenten `M01_INTRODUCTION` bis `M12_METADATA`. Jede Quelle besitzt eine eindeutige `data-component-id`, Version `1.0.0`, neutrale T00-Testwerte und funktioniert ohne JavaScript. Das Manifest erlaubt feste Test-IDs im neutralen Proof; ein Produkt-Build muss IDs namespacen.
+Die Bibliothek enthält genau die normativen Komponenten `M01_INTRODUCTION` bis `M12_METADATA`. Jede Quelle besitzt eine eindeutige `data-component-id`, Version `1.1.0`, neutrale Fallbacktexte und funktioniert ohne JavaScript. Das Manifest dokumentiert alle Binding-Slots, Wiederholungsgruppen, Link-Slots und Heading-Grenzen. Ein Produkt-Build muss IDs deterministisch namespacen.
 
 Nicht enthalten sind C01-Inhalt, Produktprofile, Mastertemplate, öffentliche PDFs, Websiteänderungen, Formulare, AcroForm/XFA, Lead-Erfassung und Deployment. Es werden keine neue Schriftfamilie, Farbrolle, Typografierolle, Abstandsklasse, Modulnummer, Produktklasse, Risikoklasse oder Aktualitätsklasse eingeführt.
 
@@ -52,6 +54,6 @@ Zeitstempelbedingte PDF-Bytes dürfen abweichen; Seitenzahl, Geometrie, extrahie
 
 Status: `COMPONENT_LIBRARY_QA_PASSED`
 
-Die Komponentenbibliothek M01–M12 und ihre kanonischen Quelldateien haben die lokale technische, semantische und visuelle Abnahme bestanden. Der neutrale Katalog, PDFs, Renderbilder und QA-Berichte bleiben unversionierte Prüfnachweise. Es wurde kein Mastertemplate, kein Produkt, kein öffentliches PDF und kein Deployment erzeugt.
+Die Komponentenbibliothek M01–M12 und ihre kanonischen Quelldateien haben die lokale technische, semantische und visuelle Abnahme bestanden. Die Integrationshärtung 1.1.0 ist für die sichere Datenbindung vorbereitet. Der neutrale Katalog, PDFs, Renderbilder und QA-Berichte bleiben unversionierte Prüfnachweise. Es wurde kein Mastertemplate, kein Produkt, kein öffentliches PDF und kein Deployment erzeugt.
 
 Offene Punkte für 3.2.2.2.4 sind das neutrale Mastertemplate, Produktdatenbindung, kontrollierte Rendererauflösung und ein reproduzierbares Buildskript. Erst danach darf Produktinhalt entstehen.

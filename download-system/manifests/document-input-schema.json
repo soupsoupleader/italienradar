@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0.0",
+  "schema_name": "IMR document input contract",
+  "allowed_build_modes": ["PROOF", "PRODUCTION"],
+  "top_level_fields": ["schema_version","build_mode","fixture_id","release_eligible","document","sections","sources","build"],
+  "proof_contract": {"build_mode":"PROOF","fixture_id":"T00","release_eligible":false,"product_id":null,"publication_status":"QA_REQUIRED"},
+  "production_contract": {"build_mode":"PRODUCTION","fixture_id":null,"product_id":["C01","C02","C03","C04","C05","C06","C07"],"release_eligible":"release_gate_required"},
+  "excluded_products":["C08"],
+  "document_required_fields":["canonical_title","short_title","functional_description","document_version","document_class","risk_class","update_class","language","source_version","publication_status","update_status","subject","keywords"],
+  "document_optional_fields":["product_id"],
+  "document_rules":{"language":"de-DE","document_classes":["B","C","E"],"risk_classes":["R0_NONE","R1_LOW","R2_MEDIUM","R3_HIGH"],"update_classes":["U1_STABLE","U2_PERIODIC","U3_FREQUENT"],"publication_statuses":["QA_REQUIRED","INTERNAL_REVIEW","APPROVED"],"max_string_length":2000,"max_keywords":20},
+  "section_required_fields":["instance_id","component_id","heading_level","data"],
+  "section_rules":{"component_ids":["M01_INTRODUCTION","M02_INSTRUCTION","M03_INPUT_AREA","M04_TABLE","M05_CHECKLIST","M06_INFO","M07_WARNING","M08_BLOCKER","M09_RESULT","M10_NEXT_STEP","M11_SOURCE","M12_METADATA"],"heading_levels":[2,3],"instance_id_pattern":"^[A-Za-z0-9_-]+$","no_raw_html":true,"no_unknown_slots":true,"deterministic_namespace":"<document-namespace>-<component-id>-<ordinal>-<local-id>"},
+  "source_rules":{"required_fields":["publisher","title","status","checked","section","href"],"allowed_href_schemes":["https","#"],"tracking_parameters_forbidden":true},
+  "build_required_fields":["locale","timezone"],"build_optional_fields":["character_probe"],
+  "build_rules":{"locale":"de-DE","timezone":"UTC","offline":true,"max_sections":40,"max_rows":100,"max_tasks":100,"max_sources":30},
+  "forbidden_values":["file:","javascript:","data:","<script","<form","<style","<iframe","<object","<embed","C:\\","OneDrive",".tmp/","api_key","password"],
+  "failure_codes":["P0_UNKNOWN_FIELD","P0_MISSING_REQUIRED_FIELD","P0_UNKNOWN_COMPONENT","P0_UNKNOWN_SLOT","P0_UNRESOLVED_SLOT","P0_DUPLICATE_INSTANCE_ID","P0_INVALID_REFERENCE","P0_RAW_HTML","P0_UNSAFE_URL","P0_PATH_TRAVERSAL","P0_MISSING_FONT","P0_FONT_HASH_MISMATCH","P0_VERSION_MISMATCH","P0_INVALID_MODE","P0_C08_EXCLUDED","P0_INVALID_CLASS","P0_PROOF_RELEASE_INELIGIBLE"]
+}

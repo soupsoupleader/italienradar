@@ -1,0 +1,18 @@
+{
+  "build_system_version":"1.0.0",
+  "pipeline":"P2_HTML_PRINT",
+  "component_library_version":"1.1.0",
+  "design_token_version":"1.0.0",
+  "input_schema_version":"1.0.0",
+  "locale":"de-DE",
+  "timezone":"UTC",
+  "renderer_resolution_policy":{"source":"build_pdf.ps1","order":["ITALIENRADAR_CHROME_PATH","HKCU/HKLM App Paths","Program Files standard paths"],"failure":"controlled_error"},
+  "offline_policy":{"network":"disabled","allowed_content_links":["#fragment","https"],"build_resources":"relative_bundle_only","forbidden":["script src","remote stylesheet","remote image","remote font","@import","iframe","object","embed"]},
+  "metadata_policy":{"mode":"POSTPROCESSING_MODE = CONDITIONAL_METADATA_ONLY","author":"ItalienRadar","language":"de-DE","controlled_values_in_m12":true},
+  "output_policy":{"public_pdf":false,"production_started":false,"deployment":false,"temporary_outputs_only":true},
+  "chrome_flags":["--headless","--no-pdf-header-footer","--disable-background-networking","--disable-component-update","--disable-default-apps","--disable-extensions","--disable-features=OptimizationHints,MediaRouter,AutofillServerCommunication","--no-first-run","--no-sandbox","--run-all-compositor-stages-before-draw","--virtual-time-budget=1000"],
+  "build_id":{"algorithm":"SHA-256","inputs":["normalized functional input","source hashes","python version","chrome version","build system version","locale","timezone"],"randomness":false,"current_timestamp":false},
+  "postprocessing":{"allowed":"conditional metadata only","rebuild_pdf_forbidden":true,"preserve":["pages","boxes","text","headings","lists","tables","links","StructTreeRoot","MarkInfo","Lang","fonts","security","renders"]},
+  "font_source":"download-system/assets/fonts/source-sans-3/",
+  "source_manifest_paths":"relative only"
+}

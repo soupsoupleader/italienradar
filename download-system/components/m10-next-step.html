@@ -1,8 +1,8 @@
-<section class="imr-component imr-component--next-step" data-component-id="M10_NEXT_STEP" data-component-version="1.0.0" aria-labelledby="m10-title">
-  <h2 id="m10-title">Nächste Schritte</h2>
-  <ol>
-    <li><strong>Priorität 1:</strong> Komponentenvertrag und neutrale QA-Nachweise prüfen.</li>
+<section class="imr-component imr-component--next-step" data-component-id="M10_NEXT_STEP" data-component-version="1.1.0" aria-labelledby="m10-title">
+  <h2 id="m10-title" data-bind-text="title">Nächste Schritte</h2>
+  <ol data-repeat="steps" data-repeat-item="step">
+    <li><strong data-bind-text="step.priority">Priorität 1</strong>: <span data-bind-text="step.action">Komponentenvertrag und neutrale QA-Nachweise prüfen.</span></li>
     <li>Offene Quellenstände dokumentieren.</li>
-    <li><a href="#m11-title">Zum Quellenstand im Katalog</a> wechseln und die Referenz abgleichen.</li>
+    <li><a href="#m11-title" data-bind-href="step.href" data-bind-text="step.link_text">Zum Quellenstand im Katalog</a> wechseln und die Referenz abgleichen.</li>
   </ol>
 </section>

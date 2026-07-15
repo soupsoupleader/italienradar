@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de-DE">
+<head>
+  <meta charset="UTF-8">
+  <title data-bind-text="document.canonical_title">Neutraler IMR-Mastertemplate-Proof</title>
+  <meta name="description" content="Interner neutraler IMR-Buildnachweis">
+  <meta name="author" content="ItalienRadar">
+  <meta name="language" content="de-DE">
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/master-template.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+  <header class="master-cover" data-page="cover" aria-labelledby="document-title">
+    <p class="master-kicker">ITALIENRADAR / IMR · <span data-bind-text="document.short_title">T00</span></p>
+    <h1 id="document-title" data-bind-text="document.canonical_title">Neutraler IMR-Mastertemplate-Proof</h1>
+    <p class="master-subtitle" data-bind-text="document.functional_description">Interner technischer Nachweis für strukturierte Eingabe, sichere Datenbindung und kontrollierten PDF-Print.</p>
+    <dl class="master-cover-meta">
+      <dt>Dokumentversion</dt><dd data-bind-text="document.document_version">0.0</dd>
+      <dt>Dokumentklasse</dt><dd data-bind-text="document.document_class">B</dd>
+      <dt>Risiko-/Aktualitätsklasse</dt><dd><span data-bind-text="document.risk_class">R1_LOW</span> / <span data-bind-text="document.update_class">U1_STABLE</span></dd>
+      <dt>Buildmodus</dt><dd data-bind-text="build_mode">PROOF</dd>
+    </dl>
+  </header>
+
+  <main>
+    <nav class="master-toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Inhaltsübersicht</h2>
+      <ol data-bind-toc>
+        <li><a href="#document-boundary">Dokumentgrenze und Benutzung</a></li>
+        <li><a href="#component-region">Komponentenbereich</a></li>
+        <li><a href="#component-region">Quellen im Komponentenbereich</a></li>
+        <li><a href="#document-end">Metadaten und Proofabschluss</a></li>
+      </ol>
+    </nav>
+
+    <section id="document-boundary" class="master-boundary" aria-labelledby="boundary-title">
+      <h2 id="boundary-title">Dokumentgrenze und Benutzung</h2>
+      <p data-bind-text="document.functional_description">Dieser interne Proof zeigt die deterministische Befüllung semantischer PDF-Komponenten.</p>
+      <p><strong>Grenze:</strong> Keine echte Produktfreigabe, keine Rechts-, Steuer- oder Förderentscheidung und kein öffentlicher Download.</p>
+      <p><strong>Hinweis:</strong> Die sichtbaren T00-Werte dienen ausschließlich technischer QA.</p>
+      <p><strong>Sonderzeichenprobe:</strong> <span data-bind-text="build.character_probe">Ä Ö Ü ä ö ü ß à è é ì ò ó ù</span></p>
+    </section>
+
+    <section id="component-region" class="master-components" aria-labelledby="components-title" data-bind-sections>
+      <h2 id="components-title">Komponentenbereich</h2>
+      <!-- BIND_COMPONENTS -->
+    </section>
+
+    <section id="document-end" class="master-end" aria-labelledby="end-title">
+      <h2 id="end-title">Proofabschluss</h2>
+      <p>Die Komponenten wurden aus strukturierter Eingabe normalisiert und lokal geprüft.</p>
+    </section>
+  </main>
+</body>
+</html>

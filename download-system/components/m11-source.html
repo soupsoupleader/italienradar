@@ -1,7 +1,7 @@
-<section class="imr-component imr-component--source" data-component-id="M11_SOURCE" data-component-version="1.0.0" aria-labelledby="m11-title">
-  <h2 id="m11-title">Quellenstand</h2>
-  <ul>
-    <li><strong>Herausgeber:</strong> IMR-Testredaktion; <strong>Funktion:</strong> Komponentenvertrag; <strong>Stand:</strong> T00 / 2026-07-15; <strong>Prüfdatum:</strong> 2026-07-15; <strong>Abschnitt:</strong> M01–M12; <a href="https://github.com/adobe-fonts/source-sans">Beschreibung der Fontquelle</a>.</li>
+<section class="imr-component imr-component--source" data-component-id="M11_SOURCE" data-component-version="1.1.0" aria-labelledby="m11-title">
+  <h2 id="m11-title" data-bind-text="title">Quellenstand</h2>
+  <ul data-repeat="sources" data-repeat-item="source">
+    <li><strong data-bind-text="source.publisher_label">Herausgeber:</strong> <span data-bind-text="source.publisher">IMR-Testredaktion</span>; <strong data-bind-text="source.function_label">Funktion:</strong> <span data-bind-text="source.function">Komponentenvertrag</span>; <strong data-bind-text="source.status_label">Stand:</strong> <span data-bind-text="source.status">T00 / 2026-07-15</span>; <strong data-bind-text="source.checked_label">Prüfdatum:</strong> <span data-bind-text="source.checked">2026-07-15</span>; <strong data-bind-text="source.section_label">Abschnitt:</strong> <span data-bind-text="source.section">M01–M12</span>; <a href="https://github.com/adobe-fonts/source-sans" data-bind-href="source.href" data-bind-text="source.link_text">Beschreibung der Fontquelle</a>.</li>
     <li><strong>Herausgeber:</strong> IMR-Testredaktion; <strong>Titel:</strong> Neutraler Katalog; <strong>Stand:</strong> Buildtest; <strong>Prüfdatum:</strong> 2026-07-15; <strong>Abschnitt:</strong> Proofaufbau.</li>
   </ul>
 </section>

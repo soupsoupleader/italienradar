@@ -1,9 +1,9 @@
-<section class="imr-component imr-component--table" data-component-id="M04_TABLE" data-component-version="1.0.0" aria-labelledby="m04-title">
+<section class="imr-component imr-component--table" data-component-id="M04_TABLE" data-component-version="1.1.0" aria-labelledby="m04-title">
   <table>
-    <caption id="m04-title">Neutrale Vergleichstabelle — T00-Testwerte</caption>
-    <thead><tr><th scope="col">Position</th><th scope="col">Menge (Einheiten)</th><th scope="col">Status</th></tr></thead>
-    <tbody>
-      <tr><th scope="row">Testzeile 01</th><td>1</td><td>OFFEN</td></tr>
+    <caption id="m04-title" data-bind-text="caption">Neutrale Vergleichstabelle — T00-Testwerte</caption>
+    <thead><tr><th scope="col" data-bind-text="columns.position">Position</th><th scope="col" data-bind-text="columns.quantity">Menge (Einheiten)</th><th scope="col" data-bind-text="columns.status">Status</th></tr></thead>
+    <tbody data-repeat="rows" data-repeat-item="row">
+      <tr><th scope="row" data-bind-text="row.position">Testzeile 01</th><td data-bind-text="row.quantity">1</td><td data-bind-text="row.status">OFFEN</td></tr>
       <tr><th scope="row">Testzeile 02</th><td>2</td><td>IN_BEARBEITUNG</td></tr>
       <tr><th scope="row">Testzeile 03</th><td>3</td><td>ERLEDIGT</td></tr>
       <tr><th scope="row">Testzeile 04</th><td>4</td><td>NICHT_RELEVANT</td></tr>
@@ -24,6 +24,6 @@
       <tr><th scope="row">Testzeile 19</th><td>19</td><td>ERLEDIGT</td></tr>
       <tr><th scope="row">Testzeile 20</th><td>20</td><td>NICHT_RELEVANT</td></tr>
     </tbody>
-    <tfoot><tr><th scope="row">Summe Testwerte</th><td>210</td><td>sichtbar getrennt</td></tr></tfoot>
+    <tfoot><tr><th scope="row" data-bind-text="total.label">Summe Testwerte</th><td data-bind-text="total.quantity">210</td><td data-bind-text="total.status">sichtbar getrennt</td></tr></tfoot>
   </table>
 </section>

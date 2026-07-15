@@ -14,7 +14,6 @@
 .imr-component table,
 .imr-component fieldset { margin: 0 0 var(--imr-space-s); }
 
-.imr-component h1 { font-size: var(--imr-type-v0-size); font-weight: var(--imr-type-v0-weight); line-height: var(--imr-type-v0-line); }
 .imr-component h2 { font-size: var(--imr-type-v2-size); font-weight: var(--imr-type-v2-weight); line-height: var(--imr-type-v2-line); }
 .imr-component h3 { font-size: var(--imr-type-v3-size); font-weight: var(--imr-type-v3-weight); line-height: var(--imr-type-v3-line); }
 .imr-component p,
@@ -61,7 +60,7 @@
 .imr-component--info { color: var(--imr-color-info-text); background: var(--imr-color-info-background); }
 .imr-component--warning { color: var(--imr-color-warning-text); background: var(--imr-color-warning-background); }
 .imr-component--blocker { color: var(--imr-color-critical-text); background: var(--imr-color-critical-background); }
-.imr-status-label-heading { display: inline-block; font-size: var(--imr-type-v6-size); font-weight: var(--imr-type-v6-weight); letter-spacing: var(--imr-space-xs); }
+.imr-status-label-heading { display: inline-block; font-size: var(--imr-type-v6-size); font-weight: var(--imr-type-v6-weight); }
 
 .imr-component--result { border: var(--imr-border-standard) solid var(--imr-color-brand-primary); padding: var(--imr-space-m); break-inside: avoid; }
 .imr-component--result dl,
