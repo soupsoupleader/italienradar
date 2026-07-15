@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any
 
 DATA_ROLES = {"NUTZEREINGABE", "ORIENTIERUNGSWERT", "BERECHNETES_ERGEBNIS", "REDAKTIONELLE_EINORDNUNG", "OFFEN_ZU_PRÜFEN"}
-EVIDENCE = {"GEKLÄRT", "TEILWEISE_GEKLÄRT", "OFFEN", "OFFIZIELL_ZU_PRÜFEN", "FACHLICH_ZU_PRÜFEN", "AKTUELL_NICHT_TRAGFÄHIG", "NICHT_RELEVANT"}
+EVIDENCE = {"GEKLÄRT", "TEILWEISE_GEKLÄRT", "OFFEN", "OFFIZIELL_ZU_PRÜFEN", "FACHLICH_ZU_PRÜFEN", "AKTUELL_NICHT_TRAGFÄHIG"}
 RELIABILITY = {"VERIFIED_REGULAR", "PARTIALLY_VERIFIED", "ESTIMATED", "IRREGULAR", "UNKNOWN"}
 PERIODS = {"MONTHLY", "ANNUAL", "WEEKLY", "ONE_TIME", "AS_OF_DATE", "SCENARIO"}
 INCOME_CATEGORIES = {"INCOME_EMPLOYMENT", "INCOME_SELF_EMPLOYMENT", "INCOME_PENSION", "INCOME_REGULAR_CONTRACT", "INCOME_OTHER_REGULAR", "INCOME_IRREGULAR"}
@@ -30,6 +30,12 @@ REQUIRED_GROUPS = {
     "Kommunikation": {"COST_INTERNET", "COST_MOBILE"},
     "vertragliche Verpflichtungen": {"COST_CONTRACTUAL_OBLIGATIONS"},
 }
+STATUS_CLEAR = "GEKL\u00c4RT"
+STATUS_PARTIAL = "TEILWEISE_GEKL\u00c4RT"
+STATUS_OPEN = "OFFEN"
+STATUS_OFFICIAL = "OFFIZIELL_ZU_PR\u00dcFEN"
+STATUS_TECHNICAL = "FACHLICH_ZU_PR\u00dcFEN"
+STATUS_NOT_VIABLE = "AKTUELL_NICHT_TRAGF\u00c4HIG"
 ZERO = Decimal("0")
 
 
@@ -87,8 +93,8 @@ def _validate_item(item: dict[str, Any], known: set[str], ids: set[str]) -> None
         raise C01ValidationError(f"invalid reliability: {item['id']}")
     if not isinstance(item["required_for_result"], bool) or not isinstance(item["not_relevant"], bool):
         raise C01ValidationError(f"boolean field invalid: {item['id']}")
-    if item["not_relevant"] and (not item["not_relevant_reason"] or item["evidence_status"] != "NICHT_RELEVANT"):
-        raise C01ValidationError(f"not relevant item needs reason/status: {item['id']}")
+    if item["not_relevant"] and (not item["not_relevant_reason"] or item["evidence_status"] not in EVIDENCE):
+        raise C01ValidationError(f"not relevant item needs reason and valid evidence status: {item['id']}")
     if not item["not_relevant"] and item["amount"] is not None:
         money(item["amount"], item["id"])
     if not item["not_relevant"] and item["amount"] is None and item["required_for_result"]:
@@ -204,7 +210,7 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
     scenario_results: dict[str, dict[str, Any]] = {}
     for name, scenario in scenarios.items():
         if not scenario["complete"]:
-            scenario_results[name] = {"status":"OFFEN_ZU_PRÜFEN","income":None,"costs":None,"balance":None,"income_items":[],"cost_items":[],"assumptions":scenario["assumptions"],"open_conditions":scenario["open_conditions"],"evidence_status":scenario["evidence_status"]}
+            scenario_results[name] = {"status":"OFFEN","income":None,"costs":None,"balance":None,"income_items":[],"cost_items":[],"assumptions":scenario["assumptions"],"open_conditions":scenario["open_conditions"],"evidence_status":scenario["evidence_status"]}
             if name in {"STRESS", "MINIMUM"}:
                 warnings.append({"condition":"SCENARIO_NOT_COMPLETED","risk":f"{name} scenario is incomplete.","meaning":"No scenario result is calculated.","next_check":"Enter scenario items and evidence status.","affected_items":[]})
             continue
@@ -218,17 +224,17 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
     if not all_items or missing_categories:
         warnings.append({"condition":"INSUFFICIENT_DATA","risk":"Required calculation data is incomplete.","meaning":"Aggregates cannot be interpreted as a complete budget.","next_check":"Complete required values or mark them NICHT_RELEVANT.","affected_items":missing_categories})
     results = [
-        result_item("REPORTED_MONTHLY_INCOME", reported, "EUR/month", "GEKLÄRT" if reported_used else "OFFEN_ZU_PRÜFEN", reported_used, [], "All reported income normalized to a monthly value."),
-        result_item("UNCERTAIN_MONTHLY_INCOME", uncertain, "EUR/month", "GEKLÄRT" if reported_used else "OFFEN_ZU_PRÜFEN", reported_used, reliable_used, "Reported income not marked VERIFIED_REGULAR remains separate."),
-        result_item("MONTHLY_INCOME_TOTAL", reliable, "EUR/month", "GEKLÄRT" if reliable_used else "OFFEN_ZU_PRÜFEN", reliable_used, [i["id"] for i in income if i["id"] not in reliable_used], "Only VERIFIED_REGULAR income is included."),
-        result_item("ESSENTIAL_MONTHLY_COSTS", essential, "EUR/month", "INCOMPLETE" if missing_categories else "GEKLÄRT", essential_used, essential_excluded, "Necessary monthly costs; one-time items are excluded."),
+        result_item("REPORTED_MONTHLY_INCOME", reported, "EUR/month", "GEKLÄRT" if reported_used else "OFFEN", reported_used, [], "All reported income normalized to a monthly value."),
+        result_item("UNCERTAIN_MONTHLY_INCOME", uncertain, "EUR/month", "GEKLÄRT" if reported_used else "OFFEN", reported_used, reliable_used, "Reported income not marked VERIFIED_REGULAR remains separate."),
+        result_item("MONTHLY_INCOME_TOTAL", reliable, "EUR/month", "GEKLÄRT" if reliable_used else "OFFEN", reliable_used, [i["id"] for i in income if i["id"] not in reliable_used], "Only VERIFIED_REGULAR income is included."),
+        result_item("ESSENTIAL_MONTHLY_COSTS", essential, "EUR/month", "OFFEN" if missing_categories else "GEKLÄRT", essential_used, essential_excluded, "Necessary monthly costs; one-time items are excluded."),
         result_item("OPTIONAL_MONTHLY_COSTS", optional, "EUR/month", "GEKLÄRT", optional_used, optional_excluded, "Optional monthly costs; one-time items are excluded."),
-        result_item("MONTHLY_COSTS_TOTAL", monthly_total, "EUR/month", "INCOMPLETE" if missing_categories else "GEKLÄRT", essential_used + optional_used, essential_excluded + optional_excluded, "Essential plus optional monthly costs."),
-        result_item("MONTHLY_BALANCE", balance, "EUR/month", "INCOMPLETE" if missing_categories else "GEKLÄRT", reliable_used + essential_used + optional_used, [], "Reliable monthly income minus monthly costs."),
-        result_item("ONE_TIME_START_COSTS", start, "EUR", "GEKLÄRT" if start_used else "OFFEN_ZU_PRÜFEN", start_used, [], "One-time start costs are kept separate from monthly costs."),
-        result_item("LIQUID_RESERVE", reserve, "EUR", "GEKLÄRT" if reserve is not None else "OFFEN_ZU_PRÜFEN", [], [], "Reserve at the user-stated as-of date."),
-        result_item("RESERVE_COVERAGE_MONTHS", coverage, "months", coverage_status, [], [], "Liquid reserve divided by essential monthly costs; zero denominator is open."),
-        result_item("FIRST_MONTH_COSTS", first_month_d, "EUR", "GEKLÄRT" if first_month_d is not None else "OFFEN_ZU_PRÜFEN", [], [], "User-defined first-month cost input."),
+        result_item("MONTHLY_COSTS_TOTAL", monthly_total, "EUR/month", "OFFEN" if missing_categories else "GEKLÄRT", essential_used + optional_used, essential_excluded + optional_excluded, "Essential plus optional monthly costs."),
+        result_item("MONTHLY_BALANCE", balance, "EUR/month", "OFFEN" if missing_categories else "GEKLÄRT", reliable_used + essential_used + optional_used, [], "Reliable monthly income minus monthly costs."),
+        result_item("ONE_TIME_START_COSTS", start, "EUR", "GEKLÄRT" if start_used else "OFFEN", start_used, [], "One-time start costs are kept separate from monthly costs."),
+        result_item("LIQUID_RESERVE", reserve, "EUR", "GEKLÄRT" if reserve is not None else "OFFEN", [], [], "Reserve at the user-stated as-of date."),
+        result_item("RESERVE_COVERAGE_MONTHS", coverage, "months", "GEKLÄRT" if coverage is not None else "OFFEN", [], [], "Liquid reserve divided by essential monthly costs; zero denominator is open."),
+        result_item("FIRST_MONTH_COSTS", first_month_d, "EUR", "GEKLÄRT" if first_month_d is not None else "OFFEN", [], [], "User-defined first-month cost input."),
         result_item("STRESS_MONTH_INCOME", scenario_results["STRESS"]["income"], "EUR/month", scenario_results["STRESS"]["status"], scenario_results["STRESS"]["income_items"], [], "Stress scenario income."),
         result_item("STRESS_MONTH_COSTS", scenario_results["STRESS"]["costs"], "EUR/month", scenario_results["STRESS"]["status"], scenario_results["STRESS"]["cost_items"], [], "Stress scenario costs."),
         result_item("STRESS_MONTH_BALANCE", scenario_results["STRESS"]["balance"], "EUR/month", scenario_results["STRESS"]["status"], scenario_results["STRESS"]["income_items"] + scenario_results["STRESS"]["cost_items"], [], "Stress scenario income minus stress scenario costs."),
@@ -239,7 +245,17 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
     ]
     start_need = None if start_used == [] or first_month_d is None or target_d is None or not first_month["overlap_with_start_costs_checked"] else start + first_month_d + target_d
     results.append(result_item("START_CAPITAL_NEED", start_need, "EUR", "GEKLÄRT" if start_need is not None else "OFFEN_ZU_PRÜFEN", start_used, [], "One-time start costs plus first-month costs plus user-defined reserve target."))
-    return {"result_version":"1.2.0","calculation_status":"INCOMPLETE" if blockers or missing_categories else "COMPLETE","results":results,"scenarios":{k:{**v, **({"income":str(v["income"]),"costs":str(v["costs"]),"balance":str(v["balance"])} if v["income"] is not None else {})} for k,v in scenario_results.items()},"warnings":warnings,"blockers":blockers,"release_controls":{"release_eligible":False,"pdf_build_allowed":False,"public_pdf_allowed":False,"website_integration_allowed":False,"deployment":False}}
+    for item in results:
+        if item["status"].startswith("GEKL"):
+            item["status"] = STATUS_CLEAR
+        elif item["status"].startswith("OFFEN_ZU"):
+            item["status"] = STATUS_OPEN
+    for scenario in scenario_results.values():
+        if scenario["status"].startswith("GEKL"):
+            scenario["status"] = STATUS_CLEAR
+        elif scenario["status"].startswith("OFFEN_ZU"):
+            scenario["status"] = STATUS_OPEN
+    return {"result_version":"1.3.0","calculation_status":"INCOMPLETE" if blockers or missing_categories else "COMPLETE","results":results,"scenarios":{k:{**v, **({"income":str(v["income"]),"costs":str(v["costs"]),"balance":str(v["balance"])} if v["income"] is not None else {})} for k,v in scenario_results.items()},"warnings":warnings,"blockers":blockers,"release_controls":{"release_eligible":False,"pdf_build_allowed":False,"public_pdf_allowed":False,"website_integration_allowed":False,"deployment":False}}
 
 
 def main() -> int:

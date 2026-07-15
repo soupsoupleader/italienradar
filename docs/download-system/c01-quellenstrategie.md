@@ -2,6 +2,8 @@
 
 Status: `C01_G2_CANDIDATE`; G2 ist noch nicht erteilt.
 
+Kanonischer Versionsstand: Content-Contract 1.3.0; Berechnungsregeln 1.3.0; Daten-Schema 1.2.0; Kategorie-Taxonomie 1.0.1. Quellen führen außerdem `affected_sections` und `verification_status`.
+
 ## Grundsatz
 
 C01 ist primär ein Nutzereingabe-Arbeitsblatt. Persönliche Beträge kommen aus individuellen Nachweisen oder direkten Nutzereingaben. Externe Quellen ersetzen diese Angaben nicht.

@@ -43,19 +43,19 @@ Jahresbeträge werden für die Monatsansicht durch zwölf geteilt. Wochenbeträg
 
 | Position | Kategorie | Betrag | Zeitraum | Zuverlässigkeit | Nachweis |
 | --- | --- | --- | --- | --- | --- |
-| Nutzerzeile | kontrollierte Kategorie | offen | offen | UNKNOWN | OFFEN |
+| Nutzerzeile | deutsche Einnahmebezeichnung | offen | monatlich/jährlich/wöchentlich | Zuverlässigkeit | Nachweisstatus |
 
 ### Monatskosten
 
 | Position | Kostenklasse | Betrag | Zeitraum | notwendig/optional | Status |
 | --- | --- | --- | --- | --- | --- |
-| Nutzerzeile | ESSENTIAL oder OPTIONAL | offen | offen | sichtbar | OFFEN |
+| Nutzerzeile | deutsche Kostenbezeichnung | offen | Zeitraum | notwendige oder optionale Kosten | Nachweisstatus |
 
 ### Startkosten
 
-| Position | Kategorie | Betrag | ONE_TIME | Quelle/Nachweis | Status |
+| Position | deutsche Startkostenbezeichnung | Betrag | einmalig | Quelle/Nachweis | Status |
 | --- | --- | --- | --- | --- | --- |
-| Nutzerzeile | kontrollierte Startkategorie | offen | ONE_TIME | offen | OFFEN |
+| Nutzerzeile | deutsche Startkostenbezeichnung | offen | einmalig | offen | OFFEN |
 
 ### Szenarien und Ergebnisse
 
@@ -145,6 +145,23 @@ Für jede Quelle werden Quellenart, Herausgeber, Titel oder Funktion, Aussage, W
 - Kategorien: `1.0.0`
 - Status: `CONTENT_IN_PROGRESS`
 - Release: nicht zulässig; PDF-Build, Veröffentlichung, Websiteintegration und Deployment bleiben gesperrt.
+
+## Zehnteilige Mindestanatomie
+
+1. Deckblatt: Titel, Produkt-ID und Einordnung als Budget- und Sicherheitsarbeitsblatt.
+2. Dokumentstatus und Transparenz: Entwurfsstand, Quellenstand, offene Angaben und keine erteilte Freigabe.
+3. Nutzen und Zielgruppe: Für Menschen mit persönlichem Kosten- und Rücklagenplan; nicht für Steuer-, Rechts-, Förder- oder Standortentscheidungen.
+4. Vorbereitung: Einkommensnachweise, Wohn- und Nebenkostenunterlagen, Tarife, Versicherungs-, Mobilitäts- und Startkostenbelege.
+5. Kurzanleitung: Unterlagen sammeln, Einzelwerte erfassen, Rücklage stichtagsbezogen eintragen und Szenarien prüfen.
+6. Hauptarbeitsbereich: Deutsche Eingabefelder für Einnahmen, notwendige und optionale Kosten, einmalige Kosten und Erstmonatskosten.
+7. Ergebnis- und Statusbereich: Einnahmen, Kosten, Salden, Rücklagenreichweite und Startkapitalbedarf mit Erklärung.
+8. Warnsignale und Grenzen: Risiko, Bedeutung und nächster Prüfschritt; keine Behörden-, Finanz- oder Umzugsentscheidung.
+9. Nächste Schritte: Fehlende Nachweise und Pflichtpositionen zuerst klären; Annahmen prüfen.
+10. Quellen, Disclaimer und Versionsinformation: Quellenstand, Nutzernachweise, Ausschlüsse und Regelversion.
+
+Bearbeitungszeit: Die Grundausfüllung dauert als unverbindliche Orientierung etwa 45–90 Minuten, wenn die wichtigsten Unterlagen vorliegen. Fehlende Nachweise werden anschließend separat geklärt. Das Arbeitsergebnis ist eine persönliche Eingabedokumentation, keine Freigabeentscheidung.
+
+Kanonischer Versionsstand: Content-Contract 1.3.0; Berechnungsregeln 1.3.0; Daten-Schema 1.2.0; Kategorie-Taxonomie 1.0.1.
 
 ## Verständliche Statusauswahl
 

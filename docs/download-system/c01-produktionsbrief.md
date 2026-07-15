@@ -1,6 +1,6 @@
 # C01 Produktionsbrief
 
-Status: `C01_G2_CANDIDATE`; Content-Contract `1.2.1`; Berechnungsregeln `1.2.1`; Daten-Schema `1.1.0`; Kategorie-Taxonomie `1.0.1`. G2 ist noch nicht erteilt.
+Status: `C01_G2_CANDIDATE`; Content-Contract `1.3.0`; Berechnungsregeln `1.3.0`; Daten-Schema `1.2.0`; Kategorie-Taxonomie `1.0.1`. G2 ist noch nicht erteilt.
 
 ## Produktvertrag
 

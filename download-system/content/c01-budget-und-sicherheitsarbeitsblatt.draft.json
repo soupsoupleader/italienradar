@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "content_contract_version": "1.2.1",
-  "calculation_ruleset_version": "1.2.1",
-  "data_schema_version": "1.1.0",
+  "content_contract_version": "1.3.0",
+  "calculation_ruleset_version": "1.3.0",
+  "data_schema_version": "1.2.0",
   "category_taxonomy_version": "1.0.1",
   "phase": "C01_G2_CANDIDATE",
   "portfolio_id": "C01",
@@ -78,12 +78,12 @@
     "USER_DEFINED_RESERVE_TARGET": null,
     "START_CAPITAL_NEED": null
   },
-  "calculation_reference": "C01_CALCULATION_RULESET_1.2.0",
+  "calculation_reference": "C01_CALCULATION_RULESET_1.3.0",
   "warnings": ["UNCERTAIN_INCOME", "UNKNOWN_COST", "INSUFFICIENT_DATA", "HIGH_IRREGULAR_INCOME_SHARE", "SCENARIO_NOT_COMPLETED"],
   "blockers": ["SYSTEM_ACCEPTANCE_BLOCKED", "CONTENT_IN_PROGRESS"],
   "sources": [],
   "sections": ["M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11", "M12"],
   "source_references": ["EXT-HICP-METHOD-001", "EXT-YE-EU-RESIDENCE-001", "EXT-YE-EU-WORK-001"],
-  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_G2_CANDIDATE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.2.1"},
+  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_G2_CANDIDATE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.3.0"},
   "release_controls": {"release_eligible":false,"pdf_build_allowed":false,"public_pdf_allowed":false,"website_integration_allowed":false,"deployment":false}
 }

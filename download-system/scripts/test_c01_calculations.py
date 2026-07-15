@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Thirty-six executable regression tests for calculate_c01.py."""
+"""Forty-five executable regression tests for calculate_c01.py."""
 from __future__ import annotations
 
 import copy
@@ -19,7 +19,7 @@ ESSENTIAL = [
 
 
 def item(identifier: str, category: str, amount=None, *, period="MONTHLY", reliability="UNKNOWN", not_relevant=False, evidence="GEKLÄRT") -> dict:
-    return {"id":identifier,"category_id":category,"label":category,"amount":amount,"currency":"EUR","period":period,"data_type":"NUTZEREINGABE","evidence_status":"NICHT_RELEVANT" if not_relevant else evidence,"reliability_status":reliability,"required_for_result":True,"not_relevant":not_relevant,"not_relevant_reason":"Für diesen Test nicht relevant." if not_relevant else None,"source_ref":None,"note":None}
+    return {"id":identifier,"category_id":category,"label":category,"amount":amount,"currency":"EUR","period":period,"data_type":"NUTZEREINGABE","evidence_status":"GEKLÄRT" if not_relevant else evidence,"reliability_status":reliability,"required_for_result":True,"not_relevant":not_relevant,"not_relevant_reason":"Für diesen Test nicht relevant." if not_relevant else None,"source_ref":None,"note":None}
 
 
 def base() -> dict:
@@ -58,7 +58,7 @@ class C01CalculationTests(unittest.TestCase):
 
     def test_07_zero_essential_cost_denominator(self):
         data=base(); data["reserve"]={"amount":"10","as_of_date":"test","currency":"EUR"}
-        self.assertEqual(result(calculate(data),"RESERVE_COVERAGE_MONTHS")["status"],"OFFEN_ZU_PRÜFEN")
+        self.assertEqual(result(calculate(data),"RESERVE_COVERAGE_MONTHS")["status"],"OFFEN")
 
     def test_08_missing_required_cost_category(self):
         data=base(); data["essential_cost_items"]=data["essential_cost_items"][1:]
@@ -80,7 +80,7 @@ class C01CalculationTests(unittest.TestCase):
         self.assertIn("MINIMUM_CASE_NEGATIVE",[x["condition"] for x in calculate(data)["blockers"]])
 
     def test_13_incomplete_stress_scenario(self):
-        output=calculate(base()); self.assertEqual(output["scenarios"]["STRESS"]["status"],"OFFEN_ZU_PRÜFEN")
+        output=calculate(base()); self.assertEqual(output["scenarios"]["STRESS"]["status"],"OFFEN")
 
     def test_14_duplicate_item_id_rejected(self):
         data=base(); data["income_items"].append(copy.deepcopy(data["income_items"][0]));
@@ -129,11 +129,11 @@ class C01CalculationTests(unittest.TestCase):
 
     def test_25_incomplete_scenario_missing_cost_remains_open(self):
         data=base(); data["stress_scenario"]={"income_items":[item("si","INCOME_EMPLOYMENT","10",period="SCENARIO")],"cost_items":[],"assumptions":[],"open_conditions":[],"evidence_status":"GEKLÄRT"}
-        output=calculate(data); self.assertEqual(output["scenarios"]["STRESS"]["status"],"OFFEN_ZU_PRÜFEN"); self.assertIn("SCENARIO_NOT_COMPLETED",[x["condition"] for x in output["warnings"]])
+        output=calculate(data); self.assertEqual(output["scenarios"]["STRESS"]["status"],"OFFEN"); self.assertIn("SCENARIO_NOT_COMPLETED",[x["condition"] for x in output["warnings"]])
 
     def test_26_scenario_open_evidence_remains_open(self):
         data=base(); data["stress_scenario"]={"income_items":[item("si","INCOME_EMPLOYMENT","10",period="SCENARIO")],"cost_items":[item("sc","COST_FOOD_BASIC","5",period="SCENARIO")],"assumptions":[],"open_conditions":[],"evidence_status":"OFFEN"}
-        self.assertEqual(calculate(data)["scenarios"]["STRESS"]["status"],"OFFEN_ZU_PRÜFEN")
+        self.assertEqual(calculate(data)["scenarios"]["STRESS"]["status"],"OFFEN")
 
     def test_27_duplicate_id_across_base_and_scenario_rejected(self):
         data=base(); data["stress_scenario"]={"income_items":[item("income-1","INCOME_EMPLOYMENT","10",period="SCENARIO")],"cost_items":[item("sc","COST_FOOD_BASIC","5",period="SCENARIO")],"assumptions":[],"open_conditions":[],"evidence_status":"GEKLÄRT"}
@@ -169,6 +169,36 @@ class C01CalculationTests(unittest.TestCase):
     def test_36_no_universal_minimum_or_relocation_approval_output(self):
         root=Path(__file__).resolve().parents[1]; draft=(root/"content/c01-budget-und-sicherheitsarbeitsblatt.draft.json").read_text(encoding="utf-8"); forbidden=("SAFE_TO_MOVE","READY_TO_PUBLISH","FINANCIALLY_SECURE","UNIVERSAL_MINIMUM"); self.assertTrue(all(x not in draft for x in forbidden))
 
+    def test_37_versions_are_parity_across_all_c01_files(self):
+        root=Path(__file__).resolve().parents[1]; c=json.loads((root/"manifests/c01-content-contract.json").read_text(encoding="utf-8")); d=json.loads((root/"content/c01-budget-und-sicherheitsarbeitsblatt.draft.json").read_text(encoding="utf-8")); s=json.loads((root/"manifests/c01-data-schema.json").read_text(encoding="utf-8")); self.assertEqual(c["content_contract_version"],"1.3.0"); self.assertEqual(c["calculation_ruleset_version"],"1.3.0"); self.assertEqual(d["calculation_ruleset_version"],"1.3.0"); self.assertEqual(c["data_schema_version"],s["schema_version"])
+
+    def test_38_ten_part_anatomy_is_present(self):
+        text=Path(__file__).resolve().parents[2].joinpath("docs/download-system/c01-redaktionsentwurf.md").read_text(encoding="utf-8"); labels=["Deckblatt","Dokumentstatus und Transparenz","Nutzen und Zielgruppe","Vorbereitung","Kurzanleitung","Hauptarbeitsbereich","Ergebnis- und Statusbereich","Warnsignale und Grenzen","Nächste Schritte","Quellen, Disclaimer und Versionsinformation"]; self.assertTrue(all(x in text for x in labels))
+
+    def test_39_visible_status_values_match_standard(self):
+        allowed={"GEKLÄRT","TEILWEISE_GEKLÄRT","OFFEN","OFFIZIELL_ZU_PRÜFEN","FACHLICH_ZU_PRÜFEN","AKTUELL_NICHT_TRAGFÄHIG"}; root=Path(__file__).resolve().parents[1]; c=json.loads((root/"manifests/c01-content-contract.json").read_text(encoding="utf-8")); self.assertEqual(set(c["result_status_values"]),allowed)
+
+    def test_40_not_relevant_is_not_evidence_status(self):
+        root=Path(__file__).resolve().parents[1]; schema=json.loads((root/"manifests/c01-data-schema.json").read_text(encoding="utf-8")); self.assertNotIn("NICHT_RELEVANT",schema["item_required_fields"]["evidence_status"]); data=base(); self.assertTrue(data["essential_cost_items"][0]["not_relevant"]); self.assertEqual(data["essential_cost_items"][0]["evidence_status"],"GEKLÄRT")
+
+    def test_41_visible_results_never_use_incomplete(self):
+        output=calculate(base()); allowed={"GEKLÄRT","TEILWEISE_GEKLÄRT","OFFEN","OFFIZIELL_ZU_PRÜFEN","FACHLICH_ZU_PRÜFEN","AKTUELL_NICHT_TRAGFÄHIG"}; self.assertTrue(all(x["status"] in allowed for x in output["results"])); self.assertNotIn("INCOMPLETE",[x["status"] for x in output["results"]])
+
+    def test_42_calculation_reference_matches_ruleset(self):
+        root=Path(__file__).resolve().parents[1]; d=json.loads((root/"content/c01-budget-und-sicherheitsarbeitsblatt.draft.json").read_text(encoding="utf-8")); self.assertEqual(d["calculation_reference"],"C01_CALCULATION_RULESET_1.3.0")
+
+    def test_43_external_sources_have_affected_sections(self):
+        root=Path(__file__).resolve().parents[1]; matrix=json.loads((root/"content/c01-source-matrix.json").read_text(encoding="utf-8")); self.assertTrue(all(x.get("affected_sections") for x in matrix["external_references"]))
+
+    def test_44_eurostat_publication_date_is_not_invented(self):
+        root=Path(__file__).resolve().parents[1]; matrix=json.loads((root/"content/c01-source-matrix.json").read_text(encoding="utf-8")); euro=next(x for x in matrix["external_references"] if x["source_id"]=="EXT-HICP-METHOD-001"); self.assertEqual(euro["publication_date"],"NOT_STATED_BY_PUBLISHER")
+
+    def test_45_visible_tables_use_german_primary_labels(self):
+        text=Path(__file__).resolve().parents[2].joinpath("docs/download-system/c01-redaktionsentwurf.md").read_text(encoding="utf-8"); self.assertIn("Zeitraum",text); self.assertIn("notwendige oder optionale Kosten",text); self.assertIn("einmalig",text); self.assertNotIn("| UNKNOWN |",text); self.assertNotIn("| ESSENTIAL oder OPTIONAL |",text)
+
+
+    def test_41_visible_results_never_use_incomplete(self):
+        output=calculate(base()); allowed={"GEKL\u00c4RT","TEILWEISE_GEKL\u00c4RT","OFFEN","OFFIZIELL_ZU_PR\u00dcFEN","FACHLICH_ZU_PR\u00dcFEN","AKTUELL_NICHT_TRAGF\u00c4HIG"}; self.assertTrue(all(x["status"] in allowed for x in output["results"])); self.assertNotIn("INCOMPLETE",[x["status"] for x in output["results"]])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
