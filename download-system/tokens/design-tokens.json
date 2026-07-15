@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "3.2.2.2.2",
+  "baseline_commit": "121429fb58ae2675de4661711df84659994e3deb",
+  "selected_pipeline": "P2_HTML_PRINT",
+  "page": {
+    "width": { "value": "210mm", "css_variable": "--imr-page-width" },
+    "height": { "value": "297mm", "css_variable": "--imr-page-height" },
+    "orientation": { "value": "portrait", "css_variable": "--imr-page-orientation" },
+    "margin_left": { "value": "20mm", "css_variable": "--imr-margin-left" },
+    "margin_right": { "value": "20mm", "css_variable": "--imr-margin-right" },
+    "margin_top": { "value": "19mm", "css_variable": "--imr-margin-top" },
+    "margin_bottom": { "value": "19mm", "css_variable": "--imr-margin-bottom" },
+    "content_width": { "value": "170mm", "css_variable": "--imr-content-width" },
+    "content_height": { "value": "259mm", "css_variable": "--imr-content-height" }
+  },
+  "safety_zone": { "physical": { "value": "12mm", "css_variable": "--imr-safety-zone" }, "edge_safety_required": true },
+  "grid": { "columns": { "value": 1, "css_variable": "--imr-grid-columns" }, "max_short_columns": { "value": 2, "css_variable": "--imr-grid-max-short-columns" }, "long_text_multicolumn": false },
+  "spacing": {
+    "SPACE_XS": { "value": "2.5mm", "css_variable": "--imr-space-xs" },
+    "SPACE_S": { "value": "4.5mm", "css_variable": "--imr-space-s" },
+    "SPACE_M": { "value": "8mm", "css_variable": "--imr-space-m" },
+    "SPACE_L": { "value": "13.5mm", "css_variable": "--imr-space-l" },
+    "SPACE_XL": { "value": "21mm", "css_variable": "--imr-space-xl" }
+  },
+  "borders": {
+    "BORDER_THIN": { "value": "0.25mm", "css_variable": "--imr-border-thin" },
+    "BORDER_STANDARD": { "value": "0.5mm", "css_variable": "--imr-border-standard" },
+    "BORDER_STRONG": { "value": "0.8mm", "css_variable": "--imr-border-strong" }
+  },
+  "radii": {
+    "RADIUS_SMALL": { "value": "1.5mm", "css_variable": "--imr-radius-small" },
+    "RADIUS_MEDIUM": { "value": "2.5mm", "css_variable": "--imr-radius-medium" }
+  },
+  "font": { "family": { "value": "Source Sans 3", "css_variable": "--imr-font-family" }, "fallback": { "value": "none_allowed", "css_variable": "--imr-font-fallback-policy" }, "regular": 400, "semibold": 600, "bold": 700, "source": "local_relative_only" },
+  "typography": {
+    "V0_COVER_TITLE": { "size": "30pt", "weight": 700, "line_height": 1.1, "css_variable": "--imr-type-v0-size" },
+    "COVER_SUBTITLE": { "size": "14pt", "weight": 400, "line_height": 1.35, "css_variable": "--imr-type-cover-subtitle-size" },
+    "V1_CHAPTER": { "size": "21pt", "weight": 700, "line_height": 1.2, "css_variable": "--imr-type-v1-size" },
+    "V2_SECTION": { "size": "16.5pt", "weight": 700, "line_height": 1.25, "css_variable": "--imr-type-v2-size" },
+    "V3_SUBSECTION": { "size": "13.5pt", "weight": 600, "line_height": 1.3, "css_variable": "--imr-type-v3-size" },
+    "V4_INSTRUCTION": { "size": "11.5pt", "weight": 600, "line_height": 1.4, "css_variable": "--imr-type-v4-size" },
+    "V5_BODY": { "size": "11pt", "weight": 400, "line_height": 1.42, "css_variable": "--imr-type-v5-size" },
+    "V6_FIELD_LABEL": { "size": "9.5pt", "weight": 600, "line_height": 1.3, "css_variable": "--imr-type-v6-size" },
+    "V7_NOTE_SOURCE": { "size": "9pt", "weight": 400, "line_height": 1.4, "css_variable": "--imr-type-v7-size" },
+    "V8_METADATA": { "size": "8.5pt", "weight": 400, "line_height": 1.35, "css_variable": "--imr-type-v8-size" },
+    "TABLE_BODY": { "size": "9.25pt", "weight": 400, "line_height": 1.3, "css_variable": "--imr-type-table-body-size" },
+    "TABLE_HEADER": { "size": "9.25pt", "weight": 600, "line_height": 1.25, "css_variable": "--imr-type-table-header-size" },
+    "FOOTER": { "size": "8.25pt", "weight": 400, "line_height": 1.25, "css_variable": "--imr-type-footer-size" }
+  },
+  "colors": {
+    "BRAND_PRIMARY": { "value": "#163A2B", "css_variable": "--imr-color-brand-primary" },
+    "BRAND_SECONDARY": { "value": "#8A6A1F", "css_variable": "--imr-color-brand-secondary" },
+    "TEXT_PRIMARY": { "value": "#1B1F1D", "css_variable": "--imr-color-text-primary" },
+    "TEXT_SECONDARY": { "value": "#4A5650", "css_variable": "--imr-color-text-secondary" },
+    "BACKGROUND": { "value": "#FFFFFF", "css_variable": "--imr-color-background" },
+    "SURFACE": { "value": "#F3F6F4", "css_variable": "--imr-color-surface" },
+    "BORDER": { "value": "#8F9B94", "css_variable": "--imr-color-border" },
+    "INFO_TEXT": { "value": "#1F5A70", "css_variable": "--imr-color-info-text" },
+    "INFO_BACKGROUND": { "value": "#EDF6FA", "css_variable": "--imr-color-info-background" },
+    "WARNING_TEXT": { "value": "#6E4800", "css_variable": "--imr-color-warning-text" },
+    "WARNING_BACKGROUND": { "value": "#FFF4D6", "css_variable": "--imr-color-warning-background" },
+    "CRITICAL_TEXT": { "value": "#7A1E1E", "css_variable": "--imr-color-critical-text" },
+    "CRITICAL_BACKGROUND": { "value": "#FCEDED", "css_variable": "--imr-color-critical-background" },
+    "SUCCESS_TEXT": { "value": "#245C40", "css_variable": "--imr-color-success-text" },
+    "SUCCESS_BACKGROUND": { "value": "#EDF7F1", "css_variable": "--imr-color-success-background" },
+    "INPUT_AREA": { "value": "#FBFCFA", "css_variable": "--imr-color-input-area" }
+  },
+  "contrast_requirements": { "normal_text_min": 4.5, "large_text_min": 3.0, "graphic_boundary_min": 3.0, "round_before_decision": false },
+  "cover": { "running_header": false, "brand": "ItalienRadar", "dark_full_bleed": false, "photo": false, "marketing_promise": false },
+  "header": { "height_target": "7mm", "allowed": ["short_title", "chapter_name", "ItalienRadar"] },
+  "footer": { "height_target": "7mm", "required": ["product_id", "version", "page_number"], "page_number_format": "Seite X von Y", "sensitive_extra": "update_status" },
+  "page_break_rules": { "orphans": 3, "widows": 3, "heading_first_paragraph": "avoid", "field_label_control": "avoid", "status_blocks": "avoid", "table_header_repeat": true, "table_row": "avoid", "long_module_global_avoid": false, "large_chapter_prefer_new_page": true },
+  "print_rules": { "background": "light", "dark_full_page": false, "border_minimum": "0.25mm", "color_only_information": false, "transparency": false, "borderless_print_dependency": false, "duplex_safe": true },
+  "grayscale_rules": { "color_and_grayscale_must_be_understandable": true, "black_white_must_be_understandable": true, "status_uses_labels_and_borders": true, "very_light_text_forbidden": true },
+  "supported_products": ["C01", "C02", "C03", "C04", "C05", "C06", "C07"],
+  "excluded_products": ["C08"],
+  "production_started": false,
+  "public_pdf_created": false,
+  "deployment": false
+}

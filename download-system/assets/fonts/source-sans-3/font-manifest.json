@@ -1,0 +1,19 @@
+{
+  "family": "Source Sans 3",
+  "source": "official_adobe_repository",
+  "repository": "adobe-fonts/source-sans",
+  "release": "3.052",
+  "release_tag": "3.052R",
+  "release_commit": "ed18089",
+  "license": "OFL-1.1",
+  "files": [
+    { "path": "source-sans-3-regular.woff2", "weight": 400, "style": "normal", "source_filename": "SourceSans3-Regular.ttf.woff2", "sha256": "53492FB3A0DEF77354F166A55D09B63A10855E91C206C7620A81CF56E97F8EC3" },
+    { "path": "source-sans-3-semibold.woff2", "weight": 600, "style": "normal", "source_filename": "SourceSans3-Semibold.ttf.woff2", "sha256": "47B9B661B9F395FE7F0D0E119637FBA5C8DAD97BDE3DF60066FD24229C0792F4" },
+    { "path": "source-sans-3-bold.woff2", "weight": 700, "style": "normal", "source_filename": "SourceSans3-Bold.ttf.woff2", "sha256": "8D35C6D40E750A4EE23BBBBA2BD604AD098D172907369B43281507E16B8E2E7A" }
+  ],
+  "license_file": { "path": "LICENSE.md", "sha256": "56AF9B9C6715597E458284A474DC118A50A4150E9D547C70F7B4A33C3E6A9328" },
+  "glyph_probe": "Ä Ö Ü ä ö ü ß € à è é ì ò ó ù I l 1 O 0",
+  "glyph_probe_passed": true,
+  "remote_loading": false,
+  "system_installation_required": false
+}

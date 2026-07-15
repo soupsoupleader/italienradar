@@ -1,0 +1,36 @@
+@page {
+  size: var(--imr-page-width) var(--imr-page-height);
+  margin: var(--imr-margin-top) var(--imr-margin-right) var(--imr-margin-bottom) var(--imr-margin-left);
+}
+
+@font-face { font-family: "Source Sans 3"; src: url("../assets/fonts/source-sans-3/source-sans-3-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: "Source Sans 3"; src: url("../assets/fonts/source-sans-3/source-sans-3-semibold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: block; }
+@font-face { font-family: "Source Sans 3"; src: url("../assets/fonts/source-sans-3/source-sans-3-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: block; }
+
+:root {
+  --imr-page-width: 210mm; --imr-page-height: 297mm; --imr-page-orientation: portrait;
+  --imr-margin-left: 20mm; --imr-margin-right: 20mm; --imr-margin-top: 19mm; --imr-margin-bottom: 19mm;
+  --imr-content-width: 170mm; --imr-content-height: 259mm; --imr-safety-zone: 12mm;
+  --imr-grid-columns: 1; --imr-grid-max-short-columns: 2;
+  --imr-space-xs: 2.5mm; --imr-space-s: 4.5mm; --imr-space-m: 8mm; --imr-space-l: 13.5mm; --imr-space-xl: 21mm;
+  --imr-border-thin: 0.25mm; --imr-border-standard: 0.5mm; --imr-border-strong: 0.8mm;
+  --imr-radius-small: 1.5mm; --imr-radius-medium: 2.5mm;
+  --imr-font-family: "Source Sans 3"; --imr-font-fallback-policy: none_allowed;
+  --imr-type-v0-size: 30pt; --imr-type-v0-weight: 700; --imr-type-v0-line: 1.1;
+  --imr-type-cover-subtitle-size: 14pt; --imr-type-cover-subtitle-weight: 400; --imr-type-cover-subtitle-line: 1.35;
+  --imr-type-v1-size: 21pt; --imr-type-v1-weight: 700; --imr-type-v1-line: 1.2;
+  --imr-type-v2-size: 16.5pt; --imr-type-v2-weight: 700; --imr-type-v2-line: 1.25;
+  --imr-type-v3-size: 13.5pt; --imr-type-v3-weight: 600; --imr-type-v3-line: 1.3;
+  --imr-type-v4-size: 11.5pt; --imr-type-v4-weight: 600; --imr-type-v4-line: 1.4;
+  --imr-type-v5-size: 11pt; --imr-type-v5-weight: 400; --imr-type-v5-line: 1.42;
+  --imr-type-v6-size: 9.5pt; --imr-type-v6-weight: 600; --imr-type-v6-line: 1.3;
+  --imr-type-v7-size: 9pt; --imr-type-v7-weight: 400; --imr-type-v7-line: 1.4;
+  --imr-type-v8-size: 8.5pt; --imr-type-v8-weight: 400; --imr-type-v8-line: 1.35;
+  --imr-type-table-body-size: 9.25pt; --imr-type-table-body-weight: 400; --imr-type-table-body-line: 1.3;
+  --imr-type-table-header-size: 9.25pt; --imr-type-table-header-weight: 600; --imr-type-table-header-line: 1.25;
+  --imr-type-footer-size: 8.25pt; --imr-type-footer-weight: 400; --imr-type-footer-line: 1.25;
+  --imr-color-brand-primary: #163A2B; --imr-color-brand-secondary: #8A6A1F; --imr-color-text-primary: #1B1F1D; --imr-color-text-secondary: #4A5650;
+  --imr-color-background: #FFFFFF; --imr-color-surface: #F3F6F4; --imr-color-border: #8F9B94;
+  --imr-color-info-text: #1F5A70; --imr-color-info-background: #EDF6FA; --imr-color-warning-text: #6E4800; --imr-color-warning-background: #FFF4D6;
+  --imr-color-critical-text: #7A1E1E; --imr-color-critical-background: #FCEDED; --imr-color-success-text: #245C40; --imr-color-success-background: #EDF7F1; --imr-color-input-area: #FBFCFA;
+}
