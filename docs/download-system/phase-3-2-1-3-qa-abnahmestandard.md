@@ -101,7 +101,6 @@ Es gilt verbindlich: `test_cases_total = mandatory_test_cases + optional_test_ca
 
 | Test-ID | Gate | Art | Schwere | Anforderung und erwartetes Ergebnis | Nachweis | Waiver |
 |---|---|---|---|---|---|---|
-| `QA-ARCH-001` | G1 | `CROSS_SOURCE` | `P1_CRITICAL` | Produktvertrag enthält Klasse, Zielgruppe, Hauptaufgabe, Grenzen, Risiko, Aktualität und Auslieferung. | `CROSS_SOURCE_COMPARISON` | nein |
 | `QA-CONTENT-001` | G2 | `MANUAL` | `P1_CRITICAL` | Genau eine kanonische Hauptaufgabe; keine zweite gleichwertige Arbeitsstrecke und keine bloße Artikelkopie. | `SOURCE_REVIEW` | nein |
 | `QA-CONTENT-002` | G2 | `MANUAL` | `P1_CRITICAL` | Zehnteilige Anatomie, Bearbeitungsreihenfolge, Ergebnis und nächster Schritt sind vorhanden. | `SOURCE_REVIEW` | nein |
 | `QA-BOUNDARY-001` | G2 | `CROSS_SOURCE` | `P1_CRITICAL` | Erlaubte Inhalte und Inhaltsgrenzen entsprechen dem Produktvertrag. | `CROSS_SOURCE_COMPARISON` | nein |
@@ -126,6 +125,12 @@ Es gilt verbindlich: `test_cases_total = mandatory_test_cases + optional_test_ca
 | `QA-VERSION-001` | G3/G4 | `CROSS_SOURCE` | `P1_CRITICAL` | Dateiname, sichtbare Version, Metadaten, Quellversion, Build-ID und SHA-256 stimmen überein. | `HASH_RECORD` | nein |
 | `QA-RELEASE-001` | G4 | `AUTOMATED` | `P0_BLOCKER` | Richtige Datei an richtiger URL, korrekter MIME-Type, Download und Prüfsumme; keine aktive Altversion. | `RELEASE_RECORD` | nein |
 | `QA-REGRESSION-001` | G3 | `CROSS_SOURCE` | `P2_MAJOR` | Ab `v1.1` dokumentiert der Vergleich `INTENDED_CHANGE`, `UNINTENDED_CHANGE` oder `UNCHANGED`; unerklärte großflächige Änderung blockiert. | `CROSS_SOURCE_COMPARISON` | ja |
+
+## Nicht-produktive Architekturprüfung
+
+| Check-ID | Zweck | Produkt | Gate | Produktiver Test |
+|---|---|---|---|---|
+| `ARCH-C08-001` | Bestätigt den Ausschluss von C08 aus den statischen Produkt- und Release-Gates. | C08 | G1 | nein |
 
 ## Produktprofile C01-C08
 
@@ -177,7 +182,7 @@ Eine Requirement-Zeile kann sowohl eine MUSS- als auch eine DARF-NICHT-Teilregel
 | `REQ-PORTFOLIO-C05-001` | Portfolio JSON | C05 Vertrag und Inhaltsgrenze | DARF NICHT | Keine individuelle ATECO-/INPS-Beratung, Steuerberatung oder Eröffnungsempfehlung. | `QA-BOUNDARY-001`, `QA-CONTENT-003` | C05 | G2 | COVERED |
 | `REQ-PORTFOLIO-C06-001` | Portfolio JSON | C06 Vertrag und Inhaltsgrenze | DARF NICHT | Keine individuelle Steuerberechnung oder endgültige Regime-Zuordnung. | `QA-BOUNDARY-001`, `QA-CONTENT-003` | C06 | G2 | COVERED |
 | `REQ-PORTFOLIO-C07-001` | Portfolio JSON | C07 Vertrag und Inhaltsgrenze | MUSS/DARF NICHT | Aktuelle Invitalia-Primärquelle und keine Förderzusage. | `QA-SOURCE-001`, `QA-SOURCE-002`, `QA-BOUNDARY-001` | C07 | G2/G3 | COVERED |
-| `REQ-PORTFOLIO-C08-001` | Portfolio JSON | C08 Architekturgrenze | DARF NICHT | Keine statische Freigabe, Speicherung oder Generierung ohne gesondertes Konzept. | `QA-ARCH-001` | C08 | G1 | COVERED |
+| `REQ-PORTFOLIO-C08-001` | Portfolio JSON | C08 Architekturgrenze | DARF NICHT | Keine statische Freigabe, Speicherung oder Generierung ohne gesondertes Konzept. | `ARCH-C08-001` | C08 | G1 | COVERED |
 | `REQ-SOURCE-001` | Inhaltsstandard | Quellenregeln | MUSS | Sensible Aussagen sind klassifiziert, mit Quellenstand, Bezug und Datum versehen. | `QA-SOURCE-001` | C01-C07 | G2/G3 | COVERED |
 | `REQ-SOURCE-002` | Inhaltsstandard | Aktualitätsregeln | MUSS/DARF NICHT | U2/U3/U4-Prüffristen, Änderungsprotokoll und `UPDATE_REQUIRED` bei Überfälligkeit. | `QA-SOURCE-002`, `QA-RELEASE-001` | C01-C07 | G2/G3/G4 | COVERED |
 | `REQ-DESIGN-001` | Designstandard | Markenwirkung und Raster | MUSS/DARF NICHT | Funktionale, nicht werbliche Gestaltung, A4-Hochformat, Sicherheitszone und einspaltiges Grundraster. | `QA-DESIGN-001` | C01-C07 | G3 | COVERED |
@@ -196,7 +201,7 @@ Eine Requirement-Zeile kann sowohl eine MUSS- als auch eine DARF-NICHT-Teilregel
 | `REQ-TECH-006` | PDF-Technikstandard | Aktionssicherheit und versteckte Daten | DARF NICHT | Kein JavaScript, Launch/Open-Action, Anhang, Netzwerkaufruf, unsichtbarer Link, Testwert, Kommentar oder interne Daten. | `QA-SECURITY-001`, `QA-SECURITY-002` | C01-C07 | G3 | COVERED |
 | `REQ-TECH-007` | PDF-Technikstandard | Accessibility und Tabellen | MUSS/DARF NICHT | Sprache, Titel, Tags, Lesereihenfolge, Linktext, Alternativtext sowie logische Tabellenstruktur. | `QA-A11Y-001`, `QA-TABLE-001` | C01-C07 | G3 | COVERED |
 | `REQ-TECH-008` | PDF-Technikstandard | Formulare und Datenschutz | MUSS/DARF NICHT | AcroForm-orientierte Felder, keine JavaScript-Abhängigkeit, keine Übertragung, Telemetrie, Tracking oder ungenehmigte Speicherung. | `QA-FORM-001`, `QA-PRIVACY-001` | C01-C07 | G3 | COVERED |
-| `REQ-TECH-009` | PDF-Technikstandard | C08 Daten- und Sicherheitsgrenze | DARF NICHT | Keine C08-Speicherung, Drittübertragung, Personen-URL oder externe PDF-Dienste ohne gesonderte Freigabe. | `QA-ARCH-001` | C08 | G1 | COVERED |
+| `REQ-TECH-009` | PDF-Technikstandard | C08 Daten- und Sicherheitsgrenze | DARF NICHT | Keine C08-Speicherung, Drittübertragung, Personen-URL oder externe PDF-Dienste ohne gesonderte Freigabe. | `ARCH-C08-001` | C08 | G1 | COVERED |
 | `REQ-TECH-010` | PDF-Technikstandard | Integrität und Dateitrennung | MUSS/DARF NICHT | Source/build/release/archive getrennt, Release-Hash, keine Builddatei als Veröffentlichung. | `QA-VERSION-001`, `QA-RELEASE-001` | C01-C07 | G3/G4 | COVERED |
 | `REQ-TECH-011` | PDF-Technikstandard | Rendering, Regression und Reader | MUSS/DARF NICHT | Vollständiges Rendering, Fehlererkennung, begründete Regression und Reader-/Mobilprüfung. | `QA-RENDER-001`, `QA-REGRESSION-001`, `QA-MOBILE-001` | C01-C07 | G3 | COVERED |
 | `REQ-TECH-012` | PDF-Technikstandard | Fehler und Release-Gate | MUSS | P0/P1 blockieren; technische, Render-, Metadaten-, Link-, Sicherheits-, Dateiname- und Versionsprüfung bestehen. | `QA-RELEASE-001`, `QA-SECURITY-001`, `QA-VERSION-001` | C01-C07 | G3/G4 | COVERED |
