@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "3.2.2.2.5",
+  "result_fields": {
+    "baseline_commit": "string",
+    "source_hashes": "object",
+    "environment": "object",
+    "test_plan_version": "string",
+    "tests_total": "integer >= 0",
+    "tests_passed": "integer >= 0",
+    "tests_failed": "integer >= 0",
+    "tests_blocked": "integer >= 0",
+    "tests_not_tested": "integer >= 0",
+    "p0_count": "integer >= 0",
+    "p1_count": "integer >= 0",
+    "p2_count": "integer >= 0",
+    "p3_count": "integer >= 0",
+    "execution_contexts": "array",
+    "build_ids": "object",
+    "artifacts": "object",
+    "evidence_index": "array",
+    "accessibility_result": "PASS | FAIL | BLOCKED",
+    "system_gate_result": "SYSTEM_READY_FOR_PRODUCT_PILOT | SYSTEM_REWORK_REQUIRED | SYSTEM_ACCEPTANCE_BLOCKED",
+    "decision": "SYSTEM_READY_FOR_PRODUCT_PILOT | SYSTEM_REWORK_REQUIRED | SYSTEM_ACCEPTANCE_BLOCKED"
+  },
+  "invariants": [
+    "tests_total = tests_passed + tests_failed + tests_blocked + tests_not_tested",
+    "NOT_TESTED is never PASS",
+    "all system test IDs start with SYSQA-",
+    "unmapped_count = 0",
+    "product_gates_granted is empty",
+    "public_pdf_created = false",
+    "deployment = false",
+    "technical_system_qa = PASS when all technical tests pass",
+    "assistive_tech_gate = BLOCKED until an independent practical review is returned",
+    "product_pilot_allowed = false while system_gate_result is SYSTEM_ACCEPTANCE_BLOCKED"
+  ],
+  "allowed_decisions": ["SYSTEM_READY_FOR_PRODUCT_PILOT","SYSTEM_REWORK_REQUIRED","SYSTEM_ACCEPTANCE_BLOCKED"]
+}
