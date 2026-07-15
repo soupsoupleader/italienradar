@@ -1,27 +1,23 @@
 {
-  "phase":"C01_G2_CANDIDATE",
-  "status":"CONTENT_IN_PROGRESS",
-  "versions":{"content_contract":"1.3.0","calculation_ruleset":"1.3.0","data_schema":"1.2.0","category_taxonomy":"1.0.1"},
-  "review_type":"INDEPENDENT_REPOSITORY_REVIEW",
-  "reviewer":"CHATGPT",
-  "review_date":"2026-07-15",
-  "reviewed_baseline":"e10e65ae3cd90f196f150ea29209edc5cb29f47d",
-  "decision":"C01_G2_RECHECK_READY",
-  "cases":[
-    {"test_id":"QA-CONTENT-001","result":"REVIEW_PENDING_AFTER_FIX","evidence":["c01-redaktionsentwurf.md"],"findings":"Zehnteilige Anatomie und Nutzerziel sind dokumentiert.","open_points":["Unabhängige Nachprüfung nach Commit"],"reviewer_role":"content-reviewer"},
-    {"test_id":"QA-CONTENT-002","result":"REVIEW_PENDING_AFTER_FIX","evidence":["c01-budget-und-sicherheitsarbeitsblatt.draft.json","c01-budget-categories.json"],"findings":"Strukturierte Eingaben, sichtbare Statuswerte und Szenarien sind dokumentiert.","open_points":["Unabhängige Vollständigkeitsprüfung"],"reviewer_role":"content-reviewer"},
-    {"test_id":"QA-BOUNDARY-001","result":"REVIEW_PENDING_AFTER_FIX","evidence":["c01-content-contract.json"],"findings":"Verbotene Bereiche und Releasegrenzen bleiben ausgeschlossen.","open_points":["Unabhängige Grenzfallprüfung"],"reviewer_role":"boundary-reviewer"},
-    {"test_id":"QA-CONTENT-003","result":"REVIEW_PENDING_AFTER_FIX","evidence":["c01-redaktionsentwurf.md"],"findings":"Unterlagen, deutsche Periodenbezeichnungen, Szenarien und Warnungen sind beschrieben.","open_points":["Unabhängiger Verständlichkeitscheck"],"reviewer_role":"content-reviewer"},
-    {"test_id":"QA-SOURCE-001","result":"REVIEW_PENDING_AFTER_FIX","evidence":["c01-quellenstrategie.md","c01-source-matrix.json"],"findings":"Externe Referenzen und persönliche Nachweisarten sind getrennt.","open_points":["Unabhängige Quellenabdeckungsprüfung"],"reviewer_role":"source-reviewer"},
-    {"test_id":"QA-SOURCE-002","result":"PASS","evidence":["c01-source-matrix.json"],"findings":"Drei externe Referenzen haben Prüfdatum, Aktualitätsklasse, betroffene Abschnitte und URL-/Inhaltsprüfung; es werden keine externen Zahlenwerte verwendet.","open_points":["Bei jeder neuen Quelle erneut prüfen"],"reviewer_role":"source-reviewer"}
+  "phase": "C01_G2_CANDIDATE",
+  "status": "C01_G2_FINAL_RECHECK_READY",
+  "review_type": "INDEPENDENT_REPOSITORY_REVIEW",
+  "reviewer": "CHATGPT",
+  "review_date": "2026-07-15",
+  "reviewed_commit": "514c2824bc47c3a16cfbe209aa02758419967935",
+  "decision": "C01_G2_FINAL_RECHECK_READY",
+  "cases": [
+    {"test_id":"QA-CONTENT-001","result":"PASS"},
+    {"test_id":"QA-CONTENT-002","result":"REVIEW_PENDING_AFTER_FINAL_FIX"},
+    {"test_id":"QA-BOUNDARY-001","result":"PASS"},
+    {"test_id":"QA-CONTENT-003","result":"REVIEW_PENDING_AFTER_FINAL_FIX"},
+    {"test_id":"QA-SOURCE-001","result":"PASS"},
+    {"test_id":"QA-SOURCE-002","result":"PASS"}
   ],
-  "external_references_count":3,
-  "external_numeric_values_used":0,
-  "user_document_requirement_types":10,
-  "g2_passed":false,
-  "g3_passed":false,
-  "ready_to_publish":false,
-  "pdf_created":false,
-  "website_changed":false,
-  "deployment":false
+  "g2_passed": false,
+  "g3_passed": false,
+  "ready_to_publish": false,
+  "pdf_created": false,
+  "website_changed": false,
+  "deployment": false
 }

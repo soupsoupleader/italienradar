@@ -1,170 +1,125 @@
-# C01 – Redaktioneller Entwurf
+# C01 – Budget- und Sicherheitsarbeitsblatt
 
-Produkt: **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**
-Produkt-ID: `IMR-DL-C01` · Klasse `B` · Aktualität `U2_MOVING` · Risiko `R2_MODERATE`
-Content-Contract `1.2.1` · Berechnungsregeln `1.2.1` · Daten-Schema `1.1.0` · Kategorie-Taxonomie `1.0.1`
-Status: `CONTENT_IN_PROGRESS`; der Text ist kein PDF und keine Freigabe.
+## Dokumentstatus
+
+Entwurf für C01, Phase `C01_G2_CANDIDATE`. G2 ist noch nicht erteilt. Das Arbeitsblatt liefert eine strukturierte Orientierung aus eigenen Angaben und Nachweisen; es ist keine Umzugs-, Finanz-, Rechts- oder Behördenfreigabe.
+
+Kanonischer Versionsstand:
+
+- Content-Contract: `1.3.0`
+- Berechnungsregeln: `1.3.0`
+- Daten-Schema: `1.2.0`
+- Kategorie-Taxonomie: `1.0.1`
 
 ## M01 – Einführung
 
-Dieses Arbeitsblatt ordnet persönliche Angaben zu regelmäßigen Einnahmen, notwendigen und optionalen Monatskosten, einmaligen Startkosten und Rücklagen. Es berechnet daraus nachvollziehbare Zwischenstände und stellt Normal-, Stress- und Mindestfall getrennt dar.
+### Zweck und Hauptaufgabe
 
-Es leistet eine strukturierte Rechenhilfe. Es prüft nicht, ob ein Umzug möglich, sinnvoll oder behördlich zulässig ist. Es ersetzt keine Steuer-, Rechts-, Versicherungs-, Förder- oder Finanzberatung und enthält keine Erfolgsgarantie oder allgemeine Mindestreserve.
+C01 ordnet persönliche Einnahmen, notwendige und optionale Kosten, einmalige Startkosten sowie Rücklagen in drei nachvollziehbaren Szenarien. Das konkrete Arbeitsergebnis ist eine dokumentierte, vorläufige Budgetübersicht mit offenen Nachweisen und nächsten Prüfschritten.
 
-Arbeite mit einer eindeutigen Test- oder Produktkennung, einem Stichtag und einem sichtbaren Nachweisstatus. Unbekannte Werte bleiben offen.
+### Zielgruppe und Grenze
+
+C01 ist für Personen gedacht, die ihre eigenen Unterlagen für eine sachliche Budgetorientierung zusammentragen. Nicht gedacht ist C01 für eine verbindliche Entscheidung über Umzug, Aufenthaltsrecht, Steuer, Finanzierung, Förderung oder behördliche Zulässigkeit. Es gibt keine Erfolgsgarantie.
 
 ## M02 – Anleitung
 
-1. Sammle die Unterlagen, die Einnahmen und Kosten tatsächlich belegen können, und notiere den Prüfstand.
-2. Erfasse jede Einnahme einzeln. Kennzeichne, ob sie regelmäßig bestätigt, teilweise bestätigt, geschätzt, unregelmäßig oder unbekannt ist.
-3. Erfasse notwendige Monatskosten einzeln und ordne jede Position einer kontrollierten Kategorie, Einheit und Periode zu.
-4. Erfasse optionale Monatskosten getrennt von notwendigen Kosten.
-5. Erfasse einmalige Startkosten separat. Sie werden nicht in Monatskosten eingerechnet.
-6. Trage die Liquiditätsreserve mit sichtbarem Stichtag und das selbst gesetzte Rücklagenziel ein.
-7. Fülle Normal-, Stress- und Mindestfall mit ausdrücklich eingegebenen Szenariowerten und Annahmen aus.
-8. Prüfe offene Werte, Nachweise, Warnungen und Blocker. Korrigiere zuerst fehlende Pflichtpositionen.
+1. Bereite die benötigten Unterlagen vor: Einkommensnachweise, Verträge, Reserve mit Stichtag, Miet- und Nebenkostenunterlagen, Energie-, Versicherungs-, Mobilitäts- und Kommunikationsunterlagen sowie einmalige Start- und Gebührennachweise.
+2. Trage jede Position mit Betrag, Währung, Zeitraum, Zuverlässigkeit, Nachweisstatus und einer kurzen Notiz ein.
+3. Verwende die verständlichen Zeiträume monatlich (MONTHLY), jährlich (ANNUAL), wöchentlich (WEEKLY), einmalig oder Szenario (SCENARIO).
+4. Prüfe die drei Fälle: Normalfall (NORMAL), Stressfall (STRESS) und Mindestfall (MINIMUM).
+5. Lies Ergebnis, Warnungen und offene Bedingungen und kläre fehlende Nachweise separat.
+
+Die Grundausfüllung dauert etwa 45–90 Minuten, wenn die wichtigsten Unterlagen vorliegen. Fehlende Nachweise werden anschließend separat geklärt. Dies ist nur eine Bearbeitungsorientierung.
 
 ## M03 – Eingaben
 
-Verwende je Feld eine Zeile mit Bezeichnung, Betrag, Währung `EUR`, Zeitraum, Datenrolle, Nachweisstatus, Zuverlässigkeitsstatus und Notiz.
+| Einnahme | Betrag | Zeitraum | Zuverlässigkeit | Nachweisstatus |
+| --- | ---: | --- | --- | --- |
+| regelmäßige Arbeitseinnahme | EUR | monatlich (MONTHLY) | regelmäßig bestätigt (VERIFIED_REGULAR) | GEKLÄRT |
+| weitere Einnahme | EUR | jährlich (ANNUAL) | geschätzt (ESTIMATED) | OFFEN |
 
-- Einnahme: Bezeichnung, Betrag, `MONTHLY`, `ANNUAL`, `WEEKLY` oder `SCENARIO`, Zuverlässigkeit und Nachweis.
-- Notwendige Monatskosten: Miete, Versorgung, Grundnahrung, Gesundheit/Absicherung, notwendige Mobilität, Kommunikation und Verpflichtungen.
-- Optionale Monatskosten: Freizeit, Auswärtsessen, Abonnements, optionale Reisen und Anschaffungen.
-- Einmalkosten: Anreise, Umzug, Unterkunft zum Start, Kaution, erste Miete, Grundausstattung, Aktivierung, Dokumente und sonstige Startkosten.
-- Rücklage: Betrag, Stichtag und Nachweisstatus; sie ist ein Bestandswert und keine Monatskostenposition.
-- Szenarien: Einnahmen, Kosten, Annahmen, offene Bedingungen und Evidenzstatus für `NORMAL`, `STRESS` und `MINIMUM`.
+Für jede Position sind Betrag, Währung, Zeitraum, Datenart, Nachweisstatus, Zuverlässigkeit, Pflichtstatus und Quellenhinweis zu dokumentieren. Sichtbare Statuswerte sind ausschließlich: `GEKLÄRT`, `TEILWEISE_GEKLÄRT`, `OFFEN`, `OFFIZIELL_ZU_PRÜFEN`, `FACHLICH_ZU_PRÜFEN`, `AKTUELL_NICHT_TRAGFÄHIG`.
 
-Jahresbeträge werden für die Monatsansicht durch zwölf geteilt. Wochenbeträge werden mit 52 Wochen multipliziert und durch zwölf geteilt. Die Umrechnung wird bei jedem Ergebnis sichtbar erklärt. Einmalige Beträge bleiben Einmalkosten und werden nicht zu Monatskosten umgerechnet.
+Nichtanwendbarkeit ist kein Status. Die Darstellung lautet: Status: `GEKLÄRT`; Nicht anwendbar: ja; Begründung: konkrete Begründung.
 
-## M04 – Tabellenentwürfe
+## M04 – Hauptarbeitsbereich
 
-### Einnahmen
+| Kostenart | Betrag | Zeitraum | Einordnung |
+| --- | ---: | --- | --- |
+| notwendige Kosten | EUR | monatlich (MONTHLY) | Pflichtposition |
+| optionale Kosten | EUR | monatlich (MONTHLY) | freiwillige Position |
+| Erstmonatskosten (FIRST_MONTH_COSTS) | EUR | einmalig | Überschneidung geprüft |
 
-| Position | Kategorie | Betrag | Zeitraum | Zuverlässigkeit | Nachweis |
-| --- | --- | --- | --- | --- | --- |
-| Nutzerzeile | deutsche Einnahmebezeichnung | offen | monatlich/jährlich/wöchentlich | Zuverlässigkeit | Nachweisstatus |
-
-### Monatskosten
-
-| Position | Kostenklasse | Betrag | Zeitraum | notwendig/optional | Status |
-| --- | --- | --- | --- | --- | --- |
-| Nutzerzeile | deutsche Kostenbezeichnung | offen | Zeitraum | notwendige oder optionale Kosten | Nachweisstatus |
-
-### Startkosten
-
-| Position | deutsche Startkostenbezeichnung | Betrag | einmalig | Quelle/Nachweis | Status |
-| --- | --- | --- | --- | --- | --- |
-| Nutzerzeile | deutsche Startkostenbezeichnung | offen | einmalig | offen | OFFEN |
-
-### Szenarien und Ergebnisse
-
-| Szenario | Einnahmen | Kosten | Saldo | Annahmen | offene Bedingungen |
-| --- | --- | --- | --- | --- | --- |
-| NORMAL | offen | offen | offen | offen | offen |
-| STRESS | offen | offen | offen | offen | offen |
-| MINIMUM | offen | offen | offen | offen | offen |
-
-Die Ergebnisübersicht zeigt zusätzlich gemeldete Einnahmen, verlässliche Einnahmen, unsichere Einnahmen, Rücklagenreichweite, Startkapitalbedarf und offene Pflichtwerte. Keine Zeile gibt eine Freigabeentscheidung aus.
+Technische Kennungen erscheinen nur ergänzend nach einer verständlichen deutschen Bezeichnung. `verlässliche Monatseinnahmen (MONTHLY_INCOME_TOTAL)` werden getrennt von gemeldeten, aber noch nicht regelmäßig bestätigten Einnahmen ausgewiesen.
 
 ## M05 – Checkliste
 
-- [ ] Für jede verwendete Position ist ein Betrag vorhanden oder `NICHT_RELEVANT` begründet.
-- [ ] `FIRST_MONTH_COSTS` enthält nur laufende Erstmonatskosten; die Überschneidung mit Einmalkosten ist geprüft.
-- [ ] Für jeden Wert ist der Zeitraum vorhanden.
-- [ ] Datenrolle und Nachweisstatus sind sichtbar.
-- [ ] Ein Nachweis oder die offene Prüfanforderung ist vermerkt.
-- [ ] Jede Pflichtkategorie ist geklärt oder begründet nicht relevant.
-- [ ] Normal-, Stress- und Mindestfall sind ausgefüllt oder ausdrücklich offen.
-- [ ] Offene Kostenpositionen sind markiert und nicht durch Schätzwerte ersetzt.
+- [ ] Unterlagen für Einnahmen zusammengestellt – Status: OFFEN
+- [ ] Wohn- und Versorgungskosten geprüft – Status: OFFEN
+- [ ] notwendige und optionale Kosten getrennt – Status: OFFEN
+- [ ] Normalfall, Stressfall und Mindestfall nachvollziehbar beschrieben – Status: OFFEN
+- [ ] fehlende Nachweise mit konkreter Folgehandlung versehen – Status: OFFEN
 
-Für jeden Punkt wird zusätzlich einer dieser Status gewählt: `GEKLÄRT`, `TEILWEISE_GEKLÄRT`, `OFFEN` oder `NICHT_RELEVANT`. Die technische Schreibweise wird im Formular erklärt und ersetzt keine Begründung.
-
-Verbindliche Prüfpunkte:
-
-- [ ] Einnahmennachweise vorhanden
-- [ ] Mietkosten geklärt
-- [ ] Nebenkosten geklärt
-- [ ] Energie und Wasser geklärt
-- [ ] Grundnahrung selbst eingeschätzt
-- [ ] Gesundheit und Absicherung geklärt
-- [ ] Notwendige Mobilität geklärt
-- [ ] Kommunikation geklärt
-- [ ] Vertragliche Verpflichtungen geklärt
-- [ ] Einmalkosten erfasst
-- [ ] Rücklage mit Stichtag erfasst
-- [ ] Stressfall ausgefüllt
-- [ ] Mindestfall ausgefüllt
-- [ ] Überschneidung der Erstmonatskosten geprüft
+Für ein nicht anwendbares Element wird der kontrollierte Status `GEKLÄRT`, das Merkmal „Nicht anwendbar: ja“ und eine konkrete Begründung geführt.
 
 ## M06 – Hinweis
 
-Eine Schätzung ist kein bestätigter Wert. Markiere bestätigte Werte mit ihrem Nachweis und Schätzungen mit `ESTIMATED`. Beide bleiben in der Darstellung unterscheidbar. Ein Orientierungswert braucht Aussage, Wert, Einheit, Zeitraum, Region, Quellentyp, Quellenstand, Prüfdatum, Aktualitätsklasse und Status.
+### HINWEIS
+
+Eigene Nachweise und eigene Angaben bleiben die Grundlage. Externe Quellen liefern nur methodischen oder rechtlichen Kontext und ersetzen keine persönliche Prüfung.
 
 ## M07 – Warnung
 
-Eine Warnung wird sichtbar beschriftet. Beispiel: **Risiko:** Eine Einnahme ist nicht als regelmäßig bestätigt. **Bedeutung:** Der ausgewiesene verlässliche Monatswert kann niedriger als der gemeldete Gesamtwert sein. **Nächster Prüfschritt:** Nachweis und Regelmäßigkeit dieser Einnahme prüfen und den Status aktualisieren.
+### WARNUNG
 
-Weitere Warnungen betreffen unbekannte Kostenpositionen, eine zu geringe Datenbasis, einen hohen Anteil unregelmäßiger Einnahmen und ein nicht abgeschlossenes Szenario. Eine Warnung ist keine Entscheidung.
+Risiko: Eine Einnahme ist nur geschätzt (ESTIMATED) oder nicht regelmäßig bestätigt. Bedeutung: Der Monatssaldo kann sich ändern. Nächster Prüfschritt: den passenden Nachweis beschaffen und den Status aktualisieren.
 
 ## M08 – Blocker
 
-Ein Blocker wird nur bei einem klaren Zustand ausgelöst. Fehlt eine notwendige Kostenposition, lautet die Folgehandlung: Wert ermitteln oder `NICHT_RELEVANT` mit Begründung dokumentieren. Ist die Haupteinnahme nicht belastbar belegt, lautet die Folgehandlung: Nachweis beschaffen oder die Einnahme als nicht verlässlich behandeln. Ist der Mindestfallsaldo kleiner als null, sind die Annahmen zu prüfen.
+### BLOCKER
 
-Ein Blocker beschreibt eine unvollständige Rechenbasis. Er ist keine Behördenentscheidung und sagt nicht allgemein, dass ein Umzug unmöglich ist.
+Blockierende Bedingung: Eine notwendige Kostenposition oder ein Pflichtnachweis fehlt. Zwingende Folgehandlung: Wert oder Nachweis ergänzen, oder die Nichtanwendbarkeit mit Begründung und Status `GEKLÄRT` dokumentieren.
 
-## M09 – Ergebnis
+## M09 – Ergebnis- und Statusbereich
 
-Zeige `MONTHLY_INCOME_TOTAL` nur aus `VERIFIED_REGULAR` markierten Einnahmen. Zeige gemeldete und unsichere Einnahmen zusätzlich getrennt. Zeige notwendige Monatskosten, optionale Monatskosten, Gesamtkosten, Monatssaldo, einmalige Startkosten, Rücklagenreichweite, Startkapitalbedarf sowie die drei Szenarien.
+Ergebnisse enthalten zusammengefasste Eingaben, Wert, Einheit, kontrollierten Status, Begründung, offene Bedingungen, Warnsignale und Prüfstand. `OFFEN` bleibt sichtbar, wenn Angaben fehlen oder nicht belastbar sind. Ein interner Maschinenstatus `INCOMPLETE` wird nicht als sichtbarer Ergebnisstatus ausgegeben.
 
-Jedes Ergebnis trägt Wert, Einheit, Status, verwendete und ausgeschlossene Eingaben sowie eine Erklärung. Bei Division durch null oder fehlenden Szenariowerten bleibt der Status `OFFEN_ZU_PRÜFEN`. Es gibt keine zusammenfassende Freigabeentscheidung.
+Die verlässlichen Monatseinnahmen (MONTHLY_INCOME_TOTAL), notwendige und optionale Monatskosten, der Monatssaldo, einmalige Startkosten, Rücklagenreichweite, Startkapitalbedarf und die drei Szenarien werden getrennt ausgewiesen. Es gibt keine zusammenfassende Freigabeentscheidung.
 
 ## M10 – Nächster Schritt
 
-1. Fehlende notwendige Kostenpositionen und Zeiträume ergänzen.
-2. Haupteinnahmen und deren Regelmäßigkeit belegen.
-3. Einmalige Startkosten mit getrennten Nachweisen prüfen.
-4. Stress- und Mindestfall mit ausdrücklich gewählten Nutzerannahmen vervollständigen.
-5. Offene Quellenwerte mit Quelle und Prüfdatum nachführen.
+1. Fehlende Pflichtunterlagen beschaffen.
+2. Geschätzte Angaben gegen Nachweise prüfen.
+3. Offene Bedingungen fachlich oder offiziell prüfen lassen.
 
-## M11 – Quellen
+## M11 – Quellen und Disclaimer
 
-Für jede Quelle werden Quellenart, Herausgeber, Titel oder Funktion, Aussage, Wert, Einheit, Zeitraum, Region, Quellenstand, Prüfdatum, Aktualitätsklasse, Evidenzstatus und Verwendungszweck geführt. Das Inhaltsinventar vorhandener Projektrouten ist keine Primärquelle. Ohne aktuelle, konkrete und prüfbare Quelle bleibt ein Orientierungswert offen.
+Externe Referenzen werden als Methodik- oder Kontextquelle geführt. Jede Quelle besitzt Herausgeber, Funktion, Quellenstand, Prüfdatum, betroffene Abschnitte und Prüfstatus. Es werden keine externen Zahlenwerte in die persönliche Berechnung übernommen.
+
+C01 ist eine neutrale Orientierungshilfe. Es werden keine Steuer-, Rechts-, Förder-, Finanzierungs- oder Behördenentscheidungen getroffen und keine Sicherheit oder Eignung zugesagt.
 
 ## M12 – Metadaten
 
-- Produkt-ID: `IMR-DL-C01`
-- Dokumentversion: Draft, vor Veröffentlichung
-- Dokumentklasse: `B`
-- Portfolioebene: `H1`
+- Produkt-/Test-ID: `IMR-DL-C01`
+- Dokumentversion: `1.3.0`
+- Dokumentklasse: `ORIENTATION_WORKSHEET`
+- Risikoklasse: `R2_DECISION_SUPPORT`
 - Aktualitätsklasse: `U2_MOVING`
-- Risikoklasse: `R2_MODERATE`
-- Quellenstand: offen bzw. je Quelle dokumentiert
-- Berechnungsregelversion: `1.2.1`
-- Daten-Schema: `1.0.0`
-- Kategorien: `1.0.0`
-- Status: `CONTENT_IN_PROGRESS`
-- Release: nicht zulässig; PDF-Build, Veröffentlichung, Websiteintegration und Deployment bleiben gesperrt.
+- Quellenstand: `2026-07-15`
+- Berechnungsregeln: `1.3.0`
+- Daten-Schema: `1.2.0`
+- Kategorie-Taxonomie: `1.0.1`
+- Content-Contract: `1.3.0`
 
 ## Zehnteilige Mindestanatomie
 
-1. Deckblatt: Titel, Produkt-ID und Einordnung als Budget- und Sicherheitsarbeitsblatt.
-2. Dokumentstatus und Transparenz: Entwurfsstand, Quellenstand, offene Angaben und keine erteilte Freigabe.
-3. Nutzen und Zielgruppe: Für Menschen mit persönlichem Kosten- und Rücklagenplan; nicht für Steuer-, Rechts-, Förder- oder Standortentscheidungen.
-4. Vorbereitung: Einkommensnachweise, Wohn- und Nebenkostenunterlagen, Tarife, Versicherungs-, Mobilitäts- und Startkostenbelege.
-5. Kurzanleitung: Unterlagen sammeln, Einzelwerte erfassen, Rücklage stichtagsbezogen eintragen und Szenarien prüfen.
-6. Hauptarbeitsbereich: Deutsche Eingabefelder für Einnahmen, notwendige und optionale Kosten, einmalige Kosten und Erstmonatskosten.
-7. Ergebnis- und Statusbereich: Einnahmen, Kosten, Salden, Rücklagenreichweite und Startkapitalbedarf mit Erklärung.
-8. Warnsignale und Grenzen: Risiko, Bedeutung und nächster Prüfschritt; keine Behörden-, Finanz- oder Umzugsentscheidung.
-9. Nächste Schritte: Fehlende Nachweise und Pflichtpositionen zuerst klären; Annahmen prüfen.
-10. Quellen, Disclaimer und Versionsinformation: Quellenstand, Nutzernachweise, Ausschlüsse und Regelversion.
-
-Bearbeitungszeit: Die Grundausfüllung dauert als unverbindliche Orientierung etwa 45–90 Minuten, wenn die wichtigsten Unterlagen vorliegen. Fehlende Nachweise werden anschließend separat geklärt. Das Arbeitsergebnis ist eine persönliche Eingabedokumentation, keine Freigabeentscheidung.
-
-Kanonischer Versionsstand: Content-Contract 1.3.0; Berechnungsregeln 1.3.0; Daten-Schema 1.2.0; Kategorie-Taxonomie 1.0.1.
-
-## Verständliche Statusauswahl
-
-`GEKLÄRT` bedeutet, dass Betrag, Zeitraum und Nachweis geprüft wurden. `TEILWEISE_GEKLÄRT` bedeutet, dass noch ein Teilnachweis fehlt. `OFFEN` bedeutet, dass die Angabe noch nicht belastbar vorliegt. `NICHT_RELEVANT` darf nur mit einer kurzen Begründung verwendet werden.
-
-Eine Warnung erklärt immer Risiko, Bedeutung und nächsten Prüfschritt. Ein Blocker zeigt eine fehlende Grundlage und die zwingende Folgehandlung. Keiner dieser Hinweise ist eine Umzugs-, Behörden- oder Finanzfreigabe.
+1. **Deckblatt:** C01-Titel, Produktkennung und Dokumentzweck.
+2. **Dokumentstatus und Transparenz:** Entwurfsstatus, G2-Grenze und keine Freigabeaussage.
+3. **Nutzen und Zielgruppe:** konkrete Budgetorientierung für Personen mit eigenen Unterlagen.
+4. **Vorbereitung:** erforderliche Nachweisarten und unverbindliche Bearbeitungsorientierung.
+5. **Kurzanleitung:** nummerierte Schritte mit nachvollziehbarem Abschluss.
+6. **Hauptarbeitsbereich:** Einnahmen, notwendige und optionale Kosten, Startkosten und Szenarien.
+7. **Ergebnis- und Statusbereich:** Werte, Einheiten, Status, Begründung und offene Bedingungen.
+8. **Warnsignale und Grenzen:** Warnungen, Blocker und fachliche Grenzen.
+9. **Nächste Schritte:** priorisierte Folgehandlungen.
+10. **Quellen, Disclaimer und Versionsinformation:** Quellenstand, Disclaimer und kanonische Versionen.
