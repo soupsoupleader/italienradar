@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "content_contract_version": "1.2.0",
-  "calculation_ruleset_version": "1.2.0",
+  "content_contract_version": "1.2.1",
+  "calculation_ruleset_version": "1.2.1",
   "data_schema_version": "1.1.0",
   "category_taxonomy_version": "1.0.1",
-  "phase": "C01_CONTENT_CORE",
+  "phase": "C01_G2_CANDIDATE",
   "portfolio_id": "C01",
   "canonical_product_id": "IMR-DL-C01",
   "canonical_title": "Italien-Neustart: Budget- und Sicherheitsarbeitsblatt",
@@ -24,12 +24,12 @@
   "document": {
     "canonical_title": "Italien-Neustart: Budget- und Sicherheitsarbeitsblatt",
     "document_version": "0.2.0-draft",
-    "source_version": "C01_CONTENT_CORE",
+    "source_version": "C01_G2_CANDIDATE",
     "language": "de-DE",
     "currency": "EUR"
   },
   "product_contract": {"portfolio_id":"C01","canonical_product_id":"IMR-DL-C01","document_class":"B","portfolio_level":"H1","delivery_model":"FREE_DIRECT","update_class":"U2_MOVING","risk_class":"R2_MODERATE","scope_pages":{"minimum":8,"maximum":12}},
-  "budget_categories": {"taxonomy_version":"1.0.0","manifest":"C01_BUDGET_CATEGORIES"},
+  "budget_categories": {"taxonomy_version":"1.0.1","manifest":"C01_BUDGET_CATEGORIES"},
   "language": "de-DE",
   "currency": "EUR",
   "scope_pages": {"minimum": 8, "maximum": 12},
@@ -81,9 +81,9 @@
   "calculation_reference": "C01_CALCULATION_RULESET_1.2.0",
   "warnings": ["UNCERTAIN_INCOME", "UNKNOWN_COST", "INSUFFICIENT_DATA", "HIGH_IRREGULAR_INCOME_SHARE", "SCENARIO_NOT_COMPLETED"],
   "blockers": ["SYSTEM_ACCEPTANCE_BLOCKED", "CONTENT_IN_PROGRESS"],
-  "source_references": [],
   "sources": [],
   "sections": ["M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11", "M12"],
-  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_CONTENT_CORE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.2.0"},
+  "source_references": ["EXT-HICP-METHOD-001", "EXT-YE-EU-RESIDENCE-001", "EXT-YE-EU-WORK-001"],
+  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_G2_CANDIDATE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.2.1"},
   "release_controls": {"release_eligible":false,"pdf_build_allowed":false,"public_pdf_allowed":false,"website_integration_allowed":false,"deployment":false}
 }

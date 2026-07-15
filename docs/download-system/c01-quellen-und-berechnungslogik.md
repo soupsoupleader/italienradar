@@ -2,7 +2,7 @@
 
 Status: `C01_CONTENT_CORE`; kein PDF-Build und keine Veröffentlichung zulässig.
 
-Vertrag: Portfolio-ID `C01`; Produkt-ID `IMR-DL-C01`; Titel **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**; Dokumentklasse `B`; Portfolioebene `H1`; Auslieferung `FREE_DIRECT`; Aktualitätsklasse `U2_MOVING`; Risikoklasse `R2_MODERATE`; Zielumfang 8–12 Seiten. Content-Contract `1.2.0`; Berechnungsregeln `1.2.0`; Daten-Schema `1.1.0`; Kategorie-Taxonomie `1.0.1`.
+Vertrag: Portfolio-ID `C01`; Produkt-ID `IMR-DL-C01`; Titel **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**; Dokumentklasse `B`; Portfolioebene `H1`; Auslieferung `FREE_DIRECT`; Aktualitätsklasse `U2_MOVING`; Risikoklasse `R2_MODERATE`; Zielumfang 8–12 Seiten. Content-Contract `1.2.1`; Berechnungsregeln `1.2.1`; Daten-Schema `1.1.0`; Kategorie-Taxonomie `1.0.1`.
 
 ## Datenklassen
 

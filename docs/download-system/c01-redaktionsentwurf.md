@@ -2,7 +2,7 @@
 
 Produkt: **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**
 Produkt-ID: `IMR-DL-C01` · Klasse `B` · Aktualität `U2_MOVING` · Risiko `R2_MODERATE`
-Content-Contract `1.2.0` · Berechnungsregeln `1.2.0` · Daten-Schema `1.1.0` · Kategorie-Taxonomie `1.0.1`
+Content-Contract `1.2.1` · Berechnungsregeln `1.2.1` · Daten-Schema `1.1.0` · Kategorie-Taxonomie `1.0.1`
 Status: `CONTENT_IN_PROGRESS`; der Text ist kein PDF und keine Freigabe.
 
 ## M01 – Einführung
@@ -34,6 +34,8 @@ Verwende je Feld eine Zeile mit Bezeichnung, Betrag, Währung `EUR`, Zeitraum, D
 - Einmalkosten: Anreise, Umzug, Unterkunft zum Start, Kaution, erste Miete, Grundausstattung, Aktivierung, Dokumente und sonstige Startkosten.
 - Rücklage: Betrag, Stichtag und Nachweisstatus; sie ist ein Bestandswert und keine Monatskostenposition.
 - Szenarien: Einnahmen, Kosten, Annahmen, offene Bedingungen und Evidenzstatus für `NORMAL`, `STRESS` und `MINIMUM`.
+
+Jahresbeträge werden für die Monatsansicht durch zwölf geteilt. Wochenbeträge werden mit 52 Wochen multipliziert und durch zwölf geteilt. Die Umrechnung wird bei jedem Ergebnis sichtbar erklärt. Einmalige Beträge bleiben Einmalkosten und werden nicht zu Monatskosten umgerechnet.
 
 ## M04 – Tabellenentwürfe
 
@@ -75,6 +77,25 @@ Die Ergebnisübersicht zeigt zusätzlich gemeldete Einnahmen, verlässliche Einn
 - [ ] Jede Pflichtkategorie ist geklärt oder begründet nicht relevant.
 - [ ] Normal-, Stress- und Mindestfall sind ausgefüllt oder ausdrücklich offen.
 - [ ] Offene Kostenpositionen sind markiert und nicht durch Schätzwerte ersetzt.
+
+Für jeden Punkt wird zusätzlich einer dieser Status gewählt: `GEKLÄRT`, `TEILWEISE_GEKLÄRT`, `OFFEN` oder `NICHT_RELEVANT`. Die technische Schreibweise wird im Formular erklärt und ersetzt keine Begründung.
+
+Verbindliche Prüfpunkte:
+
+- [ ] Einnahmennachweise vorhanden
+- [ ] Mietkosten geklärt
+- [ ] Nebenkosten geklärt
+- [ ] Energie und Wasser geklärt
+- [ ] Grundnahrung selbst eingeschätzt
+- [ ] Gesundheit und Absicherung geklärt
+- [ ] Notwendige Mobilität geklärt
+- [ ] Kommunikation geklärt
+- [ ] Vertragliche Verpflichtungen geklärt
+- [ ] Einmalkosten erfasst
+- [ ] Rücklage mit Stichtag erfasst
+- [ ] Stressfall ausgefüllt
+- [ ] Mindestfall ausgefüllt
+- [ ] Überschneidung der Erstmonatskosten geprüft
 
 ## M06 – Hinweis
 
@@ -119,8 +140,14 @@ Für jede Quelle werden Quellenart, Herausgeber, Titel oder Funktion, Aussage, W
 - Aktualitätsklasse: `U2_MOVING`
 - Risikoklasse: `R2_MODERATE`
 - Quellenstand: offen bzw. je Quelle dokumentiert
-- Berechnungsregelversion: `1.1.0`
+- Berechnungsregelversion: `1.2.1`
 - Daten-Schema: `1.0.0`
 - Kategorien: `1.0.0`
 - Status: `CONTENT_IN_PROGRESS`
 - Release: nicht zulässig; PDF-Build, Veröffentlichung, Websiteintegration und Deployment bleiben gesperrt.
+
+## Verständliche Statusauswahl
+
+`GEKLÄRT` bedeutet, dass Betrag, Zeitraum und Nachweis geprüft wurden. `TEILWEISE_GEKLÄRT` bedeutet, dass noch ein Teilnachweis fehlt. `OFFEN` bedeutet, dass die Angabe noch nicht belastbar vorliegt. `NICHT_RELEVANT` darf nur mit einer kurzen Begründung verwendet werden.
+
+Eine Warnung erklärt immer Risiko, Bedeutung und nächsten Prüfschritt. Ein Blocker zeigt eine fehlende Grundlage und die zwingende Folgehandlung. Keiner dieser Hinweise ist eine Umzugs-, Behörden- oder Finanzfreigabe.

@@ -1,0 +1,22 @@
+{
+  "phase": "C01_G2_CANDIDATE",
+  "status": "CONTENT_IN_PROGRESS",
+  "decision": "G2_NOT_YET_GRANTED",
+  "cases": [
+    {"test_id":"QA-CONTENT-001","result":"OPEN","evidence":["c01-redaktionsentwurf.md"],"findings":"M01–M12 sind formuliert.","open_points":["fachlicher Nutzerreview"],"reviewer_role":"content-reviewer"},
+    {"test_id":"QA-CONTENT-002","result":"OPEN","evidence":["c01-budget-und-sicherheitsarbeitsblatt.draft.json","c01-budget-categories.json"],"findings":"Strukturierte Eingaben und kontrollierte Kategorien vorhanden.","open_points":["Vollständigkeitsreview"],"reviewer_role":"content-reviewer"},
+    {"test_id":"QA-BOUNDARY-001","result":"OPEN","evidence":["c01-content-contract.json"],"findings":"Verbotene Produktbereiche und Freigabegrenzen sind dokumentiert.","open_points":["Grenzfallreview"],"reviewer_role":"boundary-reviewer"},
+    {"test_id":"QA-CONTENT-003","result":"OPEN","evidence":["c01-redaktionsentwurf.md"],"findings":"Unterlagen, Perioden, Szenarien und Hinweise werden erklärt.","open_points":["Unabhängiger Verständlichkeitscheck"],"reviewer_role":"content-reviewer"},
+    {"test_id":"QA-SOURCE-001","result":"OPEN","evidence":["c01-quellenstrategie.md","c01-source-matrix.json"],"findings":"Externe Referenzen und Nutzernachweise sind getrennt.","open_points":["Spätere Wert-zu-Quelle-Zuordnung"],"reviewer_role":"source-reviewer"},
+    {"test_id":"QA-SOURCE-002","result":"PASS","evidence":["c01-source-matrix.json"],"findings":"Alle drei verwendeten externen Referenzen haben check_date und U2_MOVING; verwendbare Zahlenwerte fehlen bewusst.","open_points":["Bei jeder neuen Quelle erneut prüfen"],"reviewer_role":"source-reviewer"}
+  ],
+  "external_references_count": 3,
+  "external_numeric_values_used": 0,
+  "user_document_requirement_types": 10,
+  "g2_passed": false,
+  "g3_passed": false,
+  "ready_to_publish": false,
+  "pdf_created": false,
+  "website_changed": false,
+  "deployment": false
+}

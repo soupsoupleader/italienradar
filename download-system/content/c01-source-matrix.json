@@ -1,13 +1,71 @@
 {
-  "matrix_version": "1.0.0",
-  "phase": "C01_CONTENT_CORE",
-  "entries": [
-    {"source_id":"INV-ROUTE-001","statement":"Vorhandenes Inhaltsinventar: Kosten eines Italien-Neustarts.","value":null,"unit":null,"period":null,"region":null,"source_type":"EDITORIAL_INVENTORY","publisher":"ItalienRadar","title":"Vorhandene Inhaltsroute","source_reference":"/was-kostet-ein-neustart-in-italien","publication_date":null,"check_date":null,"update_class":"U2_MOVING","evidence_status":"OFFEN","allowed_use":"inventory_only","affected_categories":[],"notes":"Nicht als Primärquelle und nicht zur automatischen Zahlenübernahme verwenden."},
-    {"source_id":"INV-ROUTE-002","statement":"Vorhandenes Inhaltsinventar: Leben mit einem selbst gesetzten Budget.","value":null,"unit":null,"period":null,"region":null,"source_type":"EDITORIAL_INVENTORY","publisher":"ItalienRadar","title":"Vorhandene Inhaltsroute","source_reference":"/mit-1000-euro-in-italien-leben","publication_date":null,"check_date":null,"update_class":"U2_MOVING","evidence_status":"OFFEN","allowed_use":"inventory_only","affected_categories":[],"notes":"Keine allgemeingültige Budgetaussage ableiten."},
-    {"source_id":"INV-ROUTE-003","statement":"Vorhandenes Inhaltsinventar: Neustart ohne Job.","value":null,"unit":null,"period":null,"region":null,"source_type":"EDITORIAL_INVENTORY","publisher":"ItalienRadar","title":"Vorhandene Inhaltsroute","source_reference":"/italien-neustart-ohne-job","publication_date":null,"check_date":null,"update_class":"U2_MOVING","evidence_status":"OFFEN","allowed_use":"inventory_only","affected_categories":[],"notes":"Keine Einkommens- oder Sicherheitszusage ableiten."},
-    {"source_id":"INV-ROUTE-004","statement":"Vorhandenes Inhaltsinventar: Kostenrechner-Routine.","value":null,"unit":null,"period":null,"region":null,"source_type":"EDITORIAL_INVENTORY","publisher":"ItalienRadar","title":"Vorhandene Inhaltsroute","source_reference":"/italien-kostenrechner","publication_date":null,"check_date":null,"update_class":"U2_MOVING","evidence_status":"OFFEN","allowed_use":"inventory_only","affected_categories":[],"notes":"Rechenlogik dieses Kerns bleibt unabhängig von Artikeltexten."},
-    {"source_id":"REQ-OFFICIAL-001","statement":"Für jeden späteren Orientierungswert ist eine aktuelle offizielle oder fachlich geeignete Primärquelle zu prüfen.","value":null,"unit":null,"period":null,"region":null,"source_type":"OPEN_SOURCE_REQUIREMENT","publisher":null,"title":null,"source_reference":null,"publication_date":null,"check_date":null,"update_class":"U2_MOVING","evidence_status":"OFFEN","allowed_use":"source_required_before_editorial_value","affected_categories":["COST_HOUSING_RENT","COST_FOOD_BASIC"],"notes":"Keine Zahl raten oder ohne Prüfdatum übernehmen."}
+  "matrix_version": "1.1.0",
+  "phase": "C01_G2_CANDIDATE",
+  "external_references": [
+    {
+      "source_id": "EXT-HICP-METHOD-001",
+      "statement": "Eurostat beschreibt die harmonisierte Methodik der Verbraucherpreisindizes; sie dient nur zur Einordnung von Quellenstand und Preiszeitraum.",
+      "source_type": "OFFICIAL_PRIMARY",
+      "publisher": "Eurostat",
+      "title": "Methodology - Harmonised Indices of Consumer Prices (HICP)",
+      "source_reference": "https://ec.europa.eu/eurostat/web/hicp/methodology",
+      "publication_date": "2025-09-01",
+      "check_date": "2026-07-15",
+      "region": "EU",
+      "period": "methodology_reference",
+      "update_class": "U2_MOVING",
+      "evidence_status": "GEKLÄRT",
+      "allowed_use": "METHOD_REFERENCE",
+      "affected_categories": ["COST_HOUSING_RENT", "COST_ELECTRICITY", "COST_FOOD_BASIC"],
+      "notes": "Kein individueller Betrag und kein Italien-Durchschnitt wird aus dieser Quelle übernommen."
+    },
+    {
+      "source_id": "EXT-YE-EU-RESIDENCE-001",
+      "statement": "Your Europe bündelt offizielle Hinweise zu Dokumenten und Formalitäten beim Aufenthalt in einem anderen EU-Land.",
+      "source_type": "OFFICIAL_PRIMARY",
+      "publisher": "Europäische Kommission, Your Europe",
+      "title": "Leben in einem anderen EU-Land: Dokumente und Formalitäten",
+      "source_reference": "https://europa.eu/youreurope/citizens/residence/documents-formalities/index_de.htm",
+      "publication_date": "NOT_STATED_BY_PUBLISHER",
+      "check_date": "2026-07-01",
+      "region": "EU / Italien-Kontext",
+      "period": "current_page_status",
+      "update_class": "U2_MOVING",
+      "evidence_status": "GEKLÄRT",
+      "allowed_use": "CONTEXT_ONLY",
+      "affected_categories": ["START_DOCUMENTS_AND_FEES"],
+      "notes": "Nicht als persönliche Rechts- oder Aufenthaltsberatung und nicht als Kostenwert verwenden."
+    },
+    {
+      "source_id": "EXT-YE-EU-WORK-001",
+      "statement": "Your Europe beschreibt den allgemeinen EU-Kontext für Arbeiten in einem anderen EU-Land und verweist auf weitere Bedingungen.",
+      "source_type": "OFFICIAL_PRIMARY",
+      "publisher": "Europäische Kommission, Your Europe",
+      "title": "Working abroad",
+      "source_reference": "https://europa.eu/youreurope/citizens/work/work-abroad/index_en.htm",
+      "publication_date": "NOT_STATED_BY_PUBLISHER",
+      "check_date": "2026-06-16",
+      "region": "EU",
+      "period": "current_page_status",
+      "update_class": "U2_MOVING",
+      "evidence_status": "GEKLÄRT",
+      "allowed_use": "CONTEXT_ONLY",
+      "affected_categories": ["INCOME_EMPLOYMENT", "INCOME_SELF_EMPLOYMENT", "COST_HEALTH_AND_INSURANCE"],
+      "notes": "Ersetzt weder einen individuellen Arbeitsvertrag noch Steuer-, Versicherungs- oder Sozialberatung."
+    }
+  ],
+  "user_document_requirements": [
+    {"requirement_id":"USER-DOC-INCOME-001","document_type":"Gehaltsabrechnung oder Einkommensnachweis","purpose":"Regelmäßigkeit und Betrag einer Einnahme prüfen","affected_categories":["INCOME_EMPLOYMENT","INCOME_REGULAR_CONTRACT"],"required_fields":["Betrag","Zeitraum","Aussteller/Funktion","Gültigkeits- oder Abrechnungsstand"],"personal_data_handling":"Nur vom Nutzer selbst auswerten; keine Kopie und keine personenbezogenen Inhalte im Repository speichern.","fallback_when_missing":"Einnahme als UNKNOWN oder ESTIMATED markieren und nicht als VERIFIED_REGULAR einrechnen.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-INCOME-002","document_type":"Arbeits- oder Auftragsvertrag","purpose":"Vertragliche Grundlage und erwartete Regelmäßigkeit prüfen","affected_categories":["INCOME_EMPLOYMENT","INCOME_SELF_EMPLOYMENT","INCOME_REGULAR_CONTRACT"],"required_fields":["Vertragsart","Zeitraum","regelmäßige Zahlung","Prüfstand"],"personal_data_handling":"Keine Namen, Adressen, Kontonummern oder Vertragskopien übernehmen.","fallback_when_missing":"Einnahme getrennt als unsicher dokumentieren.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-RESERVE-001","document_type":"Kontoauszug für Liquiditätsreserve","purpose":"Bestand der Rücklage am Stichtag prüfen","affected_categories":["LIQUID_RESERVE"],"required_fields":["Betrag","Stichtag","Währung","Prüfstand"],"personal_data_handling":"Nur Betrag und Stichtag manuell übertragen; Konto- und Personendaten nicht speichern.","fallback_when_missing":"Rücklage offen lassen.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-HOUSING-001","document_type":"Konkretes Mietangebot oder Mietvertrag","purpose":"Individuelle Wohnkosten statt allgemeiner Durchschnittswerte erfassen","affected_categories":["COST_HOUSING_RENT","START_RENT_DEPOSIT","START_FIRST_RENT"],"required_fields":["Mietbetrag","Zeitraum","Nebenkostenbezug","Kautions- oder Erstzahlungsangabe","Region/Objektbezug"],"personal_data_handling":"Keine Adresse, Namen oder Vertragsdatei im Repository speichern.","fallback_when_missing":"Wohnkosten offen oder als eigene Schätzung mit Evidenzstatus markieren.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-UTILITIES-001","document_type":"Nebenkostenaufstellung und individueller Energie-/Wassertarif","purpose":"Versorgungskosten getrennt und zeitbezogen erfassen","affected_categories":["COST_HOUSING_SERVICE_CHARGES","COST_ELECTRICITY","COST_GAS_OR_HEATING","COST_WATER"],"required_fields":["Betrag","Zeitraum","Tarif-/Abrechnungsstand","Verbrauchsbezug"],"personal_data_handling":"Keine Vertrags- oder Adressdaten speichern.","fallback_when_missing":"Kostenposition offen lassen; keinen allgemeinen Betrag einsetzen.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-HEALTH-001","document_type":"Versicherungsunterlagen","purpose":"Individuelle notwendige Gesundheits- und Absicherungskosten prüfen","affected_categories":["COST_HEALTH_AND_INSURANCE"],"required_fields":["Betrag","Zeitraum","Leistungs-/Vertragsstand"],"personal_data_handling":"Keine Gesundheitsdaten oder Policen speichern.","fallback_when_missing":"Position offen oder nicht relevant mit Begründung markieren.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-MOBILITY-001","document_type":"ÖPNV- oder Mobilitätstarif","purpose":"Notwendige Mobilitätskosten individuell belegen","affected_categories":["COST_TRANSPORT_REQUIRED"],"required_fields":["Tarifbetrag","Zeitraum","Geltungsbereich","Prüfdatum"],"personal_data_handling":"Keine Nutzer- oder Kontodaten speichern.","fallback_when_missing":"Mobilität offen lassen oder eigene dokumentierte Eingabe verwenden.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-COMM-001","document_type":"Internet-/Mobilfunkvertrag","purpose":"Kommunikationskosten mit Zeitraum prüfen","affected_categories":["COST_INTERNET","COST_MOBILE"],"required_fields":["Betrag","Zeitraum","Tarifstand"],"personal_data_handling":"Keine Vertragsnummern oder Kontaktdaten speichern.","fallback_when_missing":"Position offen lassen.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-OBLIG-001","document_type":"Nachweis vertraglicher Verpflichtungen","purpose":"Notwendige laufende Verpflichtungen vollständig erfassen","affected_categories":["COST_CONTRACTUAL_OBLIGATIONS"],"required_fields":["Betrag","Zeitraum","Verpflichtungsart","Prüfstand"],"personal_data_handling":"Keine Gläubiger-, Konto- oder Personendaten speichern.","fallback_when_missing":"Position offen markieren.","evidence_status":"OFFEN"},
+    {"requirement_id":"USER-DOC-START-001","document_type":"Konkretes Umzugsangebot sowie Kautions-/Gebührennachweis","purpose":"Einmalige Startkosten einzeln und ohne Doppelzählung erfassen","affected_categories":["START_TRAVEL","START_MOVING","START_RENT_DEPOSIT","START_DOCUMENTS_AND_FEES"],"required_fields":["Betrag","Einmaligkeitsstatus","Zeitraum/Termin","Prüfstand"],"personal_data_handling":"Keine Angebote, Adressen oder Rechnungsdaten speichern.","fallback_when_missing":"Einmalkosten offen lassen und nicht schätzen.","evidence_status":"OFFEN"}
   ],
   "source_type_values":["OFFICIAL_PRIMARY","OFFICIAL_STATISTICAL","REGULATED_PROVIDER","MARKET_OBSERVATION","EDITORIAL_INVENTORY","USER_DOCUMENT","OPEN_SOURCE_REQUIREMENT"],
-  "rule":"No numeric value is usable without concrete source and check_date; regional values require region."
+  "matrix_rules":["External references only use METHOD_REFERENCE or CONTEXT_ONLY.","No external numeric value is used without source and check date.","Personal documents are requirements only and are never stored or populated with real data."]
 }

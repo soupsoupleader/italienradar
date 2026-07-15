@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Twenty executable regression tests for calculate_c01.py."""
+"""Thirty-six executable regression tests for calculate_c01.py."""
 from __future__ import annotations
 
 import copy
@@ -150,6 +150,24 @@ class C01CalculationTests(unittest.TestCase):
     def test_30_checked_non_overlapping_first_month_costs_calculate(self):
         data=base(); data["start_cost_items"]=[item("start","START_TRAVEL","100",period="ONE_TIME")]; data["first_month_costs"].update({"amount":"20","overlap_with_start_costs_checked":True}); data["user_defined_reserve_target"]="30"
         self.assertEqual(result(calculate(data),"START_CAPITAL_NEED")["value"],"150.00")
+
+    def test_31_calculated_results_and_rules_have_parity(self):
+        root=Path(__file__).resolve().parents[1]; contract=json.loads((root/"manifests/c01-content-contract.json").read_text(encoding="utf-8")); self.assertEqual([x["id"] for x in contract["calculation_rules"]],contract["calculated_results"])
+
+    def test_32_required_input_contract_is_structured(self):
+        root=Path(__file__).resolve().parents[1]; contract=json.loads((root/"manifests/c01-content-contract.json").read_text(encoding="utf-8")); inputs={x["id"]:x for x in contract["required_inputs"]}; self.assertEqual(inputs["first_month_costs"]["type"],"NUTZEREINGABE_OBJECT"); self.assertEqual(inputs["stress_scenario"]["type"],"SCENARIO_OBJECT"); self.assertIn("income_items",inputs["stress_scenario"]["fields"])
+
+    def test_33_every_external_source_has_check_date_and_update_class(self):
+        root=Path(__file__).resolve().parents[1]; matrix=json.loads((root/"content/c01-source-matrix.json").read_text(encoding="utf-8")); self.assertTrue(matrix["external_references"]); self.assertTrue(all(x["check_date"] and x["update_class"] for x in matrix["external_references"]))
+
+    def test_34_no_external_numeric_value_without_source(self):
+        root=Path(__file__).resolve().parents[1]; matrix=json.loads((root/"content/c01-source-matrix.json").read_text(encoding="utf-8")); self.assertTrue(all(x.get("value") in (None, "") or x.get("source_reference") for x in matrix["external_references"]))
+
+    def test_35_no_personal_data_in_user_document_requirements(self):
+        root=Path(__file__).resolve().parents[1]; text=json.dumps(json.loads((root/"content/c01-source-matrix.json").read_text(encoding="utf-8")),ensure_ascii=False); self.assertNotIn("Kontonummer:",text); self.assertNotIn("Max Mustermann",text); self.assertNotIn(chr(64),text)
+
+    def test_36_no_universal_minimum_or_relocation_approval_output(self):
+        root=Path(__file__).resolve().parents[1]; draft=(root/"content/c01-budget-und-sicherheitsarbeitsblatt.draft.json").read_text(encoding="utf-8"); forbidden=("SAFE_TO_MOVE","READY_TO_PUBLISH","FINANCIALLY_SECURE","UNIVERSAL_MINIMUM"); self.assertTrue(all(x not in draft for x in forbidden))
 
 
 if __name__ == "__main__":
