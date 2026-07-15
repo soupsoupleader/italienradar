@@ -1,10 +1,10 @@
 {
   "schema_version": "1.0.0",
-  "content_contract_version": "1.1.0",
-  "calculation_ruleset_version": "1.1.0",
-  "data_schema_version": "1.0.0",
-  "category_taxonomy_version": "1.0.0",
-  "phase": "C01_PREPRODUCTION",
+  "content_contract_version": "1.2.0",
+  "calculation_ruleset_version": "1.2.0",
+  "data_schema_version": "1.1.0",
+  "category_taxonomy_version": "1.0.1",
+  "phase": "C01_CONTENT_CORE",
   "portfolio_id": "C01",
   "canonical_product_id": "IMR-DL-C01",
   "canonical_title": "Italien-Neustart: Budget- und Sicherheitsarbeitsblatt",
@@ -32,7 +32,7 @@
     {"id":"minimum_case_costs", "type":"NUTZEREINGABE", "unit":"EUR/month", "period":"scenario", "reliability":"required"},
     {"id":"user_defined_reserve_target", "type":"NUTZEREINGABE", "unit":"EUR", "period":"target", "reliability":"required"}
   ],
-  "calculated_results": ["MONTHLY_INCOME_TOTAL", "ESSENTIAL_MONTHLY_COSTS", "OPTIONAL_MONTHLY_COSTS", "MONTHLY_COSTS_TOTAL", "MONTHLY_BALANCE", "ONE_TIME_START_COSTS", "LIQUID_RESERVE", "RESERVE_COVERAGE_MONTHS", "FIRST_MONTH_COSTS", "STRESS_MONTH_INCOME", "STRESS_MONTH_COSTS", "STRESS_MONTH_BALANCE", "MINIMUM_CASE_INCOME", "MINIMUM_CASE_COSTS", "MINIMUM_CASE_BALANCE", "USER_DEFINED_RESERVE_TARGET", "START_CAPITAL_NEED"],
+  "calculated_results": ["REPORTED_MONTHLY_INCOME", "UNCERTAIN_MONTHLY_INCOME", "MONTHLY_INCOME_TOTAL", "ESSENTIAL_MONTHLY_COSTS", "OPTIONAL_MONTHLY_COSTS", "MONTHLY_COSTS_TOTAL", "MONTHLY_BALANCE", "ONE_TIME_START_COSTS", "LIQUID_RESERVE", "RESERVE_COVERAGE_MONTHS", "FIRST_MONTH_COSTS", "STRESS_MONTH_INCOME", "STRESS_MONTH_COSTS", "STRESS_MONTH_BALANCE", "MINIMUM_CASE_INCOME", "MINIMUM_CASE_COSTS", "MINIMUM_CASE_BALANCE", "USER_DEFINED_RESERVE_TARGET", "START_CAPITAL_NEED"],
   "calculation_rules": [
     {"id":"MONTHLY_INCOME_TOTAL", "formula":"sum(monthly reliable income)", "unit":"EUR/month"},
     {"id":"ESSENTIAL_MONTHLY_COSTS", "formula":"sum(necessary monthly costs)", "unit":"EUR/month"},
@@ -65,9 +65,10 @@
     {"condition":"calculation basis incomplete", "meaning":"a required input, unit or period is missing", "consequence":"complete the data basis before using the result"},
     {"condition":"necessary period missing", "meaning":"a value cannot be compared reliably without its period", "consequence":"record the period or leave the value open"}
   ],
-  "source_requirements": ["statement", "value", "unit", "period", "region", "source_type", "source_status", "check_date", "update_class", "evidence_status"],
+  "source_requirements": ["statement", "value", "unit", "period", "region", "source_type", "publisher", "title", "source_reference", "publication_date", "check_date", "update_class", "evidence_status", "allowed_use", "affected_categories", "notes"],
   "release_dependencies": {"system_acceptance":"BLOCKED", "assistive_tech_gate":"BLOCKED", "pdf_build_allowed":false, "public_pdf_allowed":false, "website_integration_allowed":false, "deployment":false},
   "status": "CONTENT_IN_PROGRESS",
+  "result_status_values": ["GEKLÄRT", "OFFEN_ZU_PRÜFEN", "INCOMPLETE"],
   "data_model_reference": "C01_DATA_SCHEMA",
   "category_taxonomy_reference": "C01_BUDGET_CATEGORIES",
   "source_matrix_reference": "C01_SOURCE_MATRIX",

@@ -19,7 +19,7 @@ PERIODS = {"MONTHLY", "ANNUAL", "WEEKLY", "ONE_TIME", "AS_OF_DATE", "SCENARIO"}
 INCOME_CATEGORIES = {"INCOME_EMPLOYMENT", "INCOME_SELF_EMPLOYMENT", "INCOME_PENSION", "INCOME_REGULAR_CONTRACT", "INCOME_OTHER_REGULAR", "INCOME_IRREGULAR"}
 ESSENTIAL_CATEGORIES = {"COST_HOUSING_RENT", "COST_HOUSING_SERVICE_CHARGES", "COST_ELECTRICITY", "COST_GAS_OR_HEATING", "COST_WATER", "COST_FOOD_BASIC", "COST_HEALTH_AND_INSURANCE", "COST_TRANSPORT_REQUIRED", "COST_INTERNET", "COST_MOBILE", "COST_CONTRACTUAL_OBLIGATIONS", "COST_OTHER_ESSENTIAL"}
 OPTIONAL_CATEGORIES = {"COST_LEISURE", "COST_EATING_OUT", "COST_SUBSCRIPTIONS", "COST_TRAVEL_OPTIONAL", "COST_SHOPPING_OPTIONAL", "COST_OTHER_OPTIONAL"}
-START_CATEGORIES = {"START_TRAVEL", "START_MOVING", "START_TEMPORARY_ACCOMMODATION", "START_RENT_DEPOSIT", "START_FIRST_RENT", "START_BASIC_FURNITURE", "START_HOUSEHOLD_SETUP", "START_UTILITY_ACTIVATION", "START_DOCUMENTS_AND_FEES", "START_TRANSPORT_SETUP", "START_EMERGENCY_BUFFER", "START_OTHER"}
+START_CATEGORIES = {"START_TRAVEL", "START_MOVING", "START_TEMPORARY_ACCOMMODATION", "START_RENT_DEPOSIT", "START_FIRST_RENT", "START_BASIC_FURNITURE", "START_HOUSEHOLD_SETUP", "START_UTILITY_ACTIVATION", "START_DOCUMENTS_AND_FEES", "START_TRANSPORT_SETUP", "START_OTHER"}
 ALL_CATEGORIES = INCOME_CATEGORIES | ESSENTIAL_CATEGORIES | OPTIONAL_CATEGORIES | START_CATEGORIES
 REQUIRED_GROUPS = {
     "Wohnen": {"COST_HOUSING_RENT", "COST_HOUSING_SERVICE_CHARGES"},
@@ -106,11 +106,35 @@ def result_item(identifier: str, value: Decimal | None, unit: str, status: str, 
     return {"id": identifier, "value": None if value is None else str(value.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)), "unit": unit, "status": status, "inputs_used": sorted(used), "excluded_inputs": sorted(excluded), "explanation": explanation}
 
 
-def _scenario(data: dict[str, Any], name: str) -> dict[str, Any]:
-    value = data.get(f"{name.lower()}_scenario") or {}
+def _validate_scenario(value: Any, name: str, ids: set[str]) -> dict[str, Any]:
+    if not isinstance(value, dict):
+        raise C01ValidationError(f"{name}: scenario must be an object")
     income = value.get("income_items", [])
     costs = value.get("cost_items", [])
-    return {"name": name, "income_items": income, "cost_items": costs, "assumptions": value.get("assumptions", []), "open_conditions": value.get("open_conditions", []), "evidence_status": value.get("evidence_status", "OFFEN"), "complete": bool(income or costs) and bool(value.get("evidence_status"))}
+    assumptions = value.get("assumptions", [])
+    open_conditions = value.get("open_conditions", [])
+    evidence_status = value.get("evidence_status", "OFFEN")
+    if not isinstance(income, list) or not isinstance(costs, list) or not isinstance(assumptions, list) or not isinstance(open_conditions, list):
+        raise C01ValidationError(f"{name}: arrays required")
+    if evidence_status not in EVIDENCE:
+        raise C01ValidationError(f"{name}: invalid evidence status")
+    for item in income:
+        _validate_item(item, INCOME_CATEGORIES, ids)
+        if item["period"] != "SCENARIO":
+            raise C01ValidationError(f"{name}: income period must be SCENARIO")
+    for item in costs:
+        _validate_item(item, ESSENTIAL_CATEGORIES | OPTIONAL_CATEGORIES, ids)
+        if item["period"] != "SCENARIO":
+            raise C01ValidationError(f"{name}: cost period must be SCENARIO")
+    return value
+
+
+def _scenario(value: dict[str, Any], name: str) -> dict[str, Any]:
+    income = value.get("income_items", [])
+    costs = value.get("cost_items", [])
+    evidence_status = value.get("evidence_status", "OFFEN")
+    complete = bool(income) and bool(costs) and evidence_status in {"GEKLÄRT", "TEILWEISE_GEKLÄRT"}
+    return {"name": name, "income_items": income, "cost_items": costs, "assumptions": value.get("assumptions", []), "open_conditions": value.get("open_conditions", []), "evidence_status": evidence_status, "complete": complete}
 
 
 def calculate(data: dict[str, Any]) -> dict[str, Any]:
@@ -125,6 +149,10 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
             all_items.append(item)
     if not isinstance(data.get("reserve", {}), dict):
         raise C01ValidationError("reserve must be an object")
+    scenario_inputs = {}
+    for scenario_name in ("NORMAL", "STRESS", "MINIMUM"):
+        key = f"{scenario_name.lower()}_scenario"
+        scenario_inputs[scenario_name] = _validate_scenario(data.get(key, {}), scenario_name, ids)
     missing_categories = sorted({c for values in REQUIRED_GROUPS.values() for c in values if not any(i["category_id"] == c and (i["amount"] is not None or i["not_relevant"]) for i in data.get("essential_cost_items", []))})
     blockers: list[dict[str, Any]] = []
     warnings: list[dict[str, Any]] = []
@@ -161,10 +189,18 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
         coverage = reserve / essential
         coverage_status = "GEKLÄRT"
     first_month = data.get("first_month_costs")
+    if not isinstance(first_month, dict):
+        raise C01ValidationError("first_month_costs must be a structured object")
+    if first_month.get("currency") != "EUR" or first_month.get("scope") != "RECURRING_FIRST_MONTH_ONLY" or first_month.get("evidence_status") not in EVIDENCE:
+        raise C01ValidationError("first_month_costs contract invalid")
+    if not isinstance(first_month.get("overlap_with_start_costs_checked"), bool):
+        raise C01ValidationError("first_month_costs overlap check required")
     target = data.get("user_defined_reserve_target")
-    first_month_d = None if first_month is None else money(first_month, "first_month_costs")
+    first_month_d = None if first_month.get("amount") is None else money(first_month["amount"], "first_month_costs")
     target_d = None if target is None else money(target, "user_defined_reserve_target")
-    scenarios = {name: _scenario(data, name) for name in ("NORMAL", "STRESS", "MINIMUM")}
+    if first_month_d is not None and not first_month["overlap_with_start_costs_checked"]:
+        warnings.append({"condition":"POTENTIAL_DOUBLE_COUNT","risk":"First-month recurring costs may overlap with one-time start costs.","meaning":"START_CAPITAL_NEED cannot safely combine the values yet.","next_check":"Confirm that first-month recurring costs are not already listed as ONE_TIME.","affected_items":["first_month_costs"]})
+    scenarios = {name: _scenario(scenario_inputs[name], name) for name in ("NORMAL", "STRESS", "MINIMUM")}
     scenario_results: dict[str, dict[str, Any]] = {}
     for name, scenario in scenarios.items():
         if not scenario["complete"]:
@@ -193,13 +229,17 @@ def calculate(data: dict[str, Any]) -> dict[str, Any]:
         result_item("LIQUID_RESERVE", reserve, "EUR", "GEKLÄRT" if reserve is not None else "OFFEN_ZU_PRÜFEN", [], [], "Reserve at the user-stated as-of date."),
         result_item("RESERVE_COVERAGE_MONTHS", coverage, "months", coverage_status, [], [], "Liquid reserve divided by essential monthly costs; zero denominator is open."),
         result_item("FIRST_MONTH_COSTS", first_month_d, "EUR", "GEKLÄRT" if first_month_d is not None else "OFFEN_ZU_PRÜFEN", [], [], "User-defined first-month cost input."),
+        result_item("STRESS_MONTH_INCOME", scenario_results["STRESS"]["income"], "EUR/month", scenario_results["STRESS"]["status"], scenario_results["STRESS"]["income_items"], [], "Stress scenario income."),
+        result_item("STRESS_MONTH_COSTS", scenario_results["STRESS"]["costs"], "EUR/month", scenario_results["STRESS"]["status"], scenario_results["STRESS"]["cost_items"], [], "Stress scenario costs."),
         result_item("STRESS_MONTH_BALANCE", scenario_results["STRESS"]["balance"], "EUR/month", scenario_results["STRESS"]["status"], scenario_results["STRESS"]["income_items"] + scenario_results["STRESS"]["cost_items"], [], "Stress scenario income minus stress scenario costs."),
+        result_item("MINIMUM_CASE_INCOME", scenario_results["MINIMUM"]["income"], "EUR/month", scenario_results["MINIMUM"]["status"], scenario_results["MINIMUM"]["income_items"], [], "Minimum scenario income."),
+        result_item("MINIMUM_CASE_COSTS", scenario_results["MINIMUM"]["costs"], "EUR/month", scenario_results["MINIMUM"]["status"], scenario_results["MINIMUM"]["cost_items"], [], "Minimum scenario costs."),
         result_item("MINIMUM_CASE_BALANCE", scenario_results["MINIMUM"]["balance"], "EUR/month", scenario_results["MINIMUM"]["status"], scenario_results["MINIMUM"]["income_items"] + scenario_results["MINIMUM"]["cost_items"], [], "Minimum scenario income minus minimum scenario costs."),
         result_item("USER_DEFINED_RESERVE_TARGET", target_d, "EUR", "GEKLÄRT" if target_d is not None else "OFFEN_ZU_PRÜFEN", [], [], "No automatic reserve threshold is introduced."),
     ]
-    start_need = None if start_used == [] or first_month_d is None or target_d is None else start + first_month_d + target_d
+    start_need = None if start_used == [] or first_month_d is None or target_d is None or not first_month["overlap_with_start_costs_checked"] else start + first_month_d + target_d
     results.append(result_item("START_CAPITAL_NEED", start_need, "EUR", "GEKLÄRT" if start_need is not None else "OFFEN_ZU_PRÜFEN", start_used, [], "One-time start costs plus first-month costs plus user-defined reserve target."))
-    return {"result_version":"1.1.0","calculation_status":"INCOMPLETE" if blockers or missing_categories else "COMPLETE","results":results,"scenarios":{k:{**v, **({"income":str(v["income"]),"costs":str(v["costs"]),"balance":str(v["balance"])} if v["income"] is not None else {})} for k,v in scenario_results.items()},"warnings":warnings,"blockers":blockers,"release_controls":{"release_eligible":False,"pdf_build_allowed":False,"public_pdf_allowed":False,"website_integration_allowed":False,"deployment":False}}
+    return {"result_version":"1.2.0","calculation_status":"INCOMPLETE" if blockers or missing_categories else "COMPLETE","results":results,"scenarios":{k:{**v, **({"income":str(v["income"]),"costs":str(v["costs"]),"balance":str(v["balance"])} if v["income"] is not None else {})} for k,v in scenario_results.items()},"warnings":warnings,"blockers":blockers,"release_controls":{"release_eligible":False,"pdf_build_allowed":False,"public_pdf_allowed":False,"website_integration_allowed":False,"deployment":False}}
 
 
 def main() -> int:

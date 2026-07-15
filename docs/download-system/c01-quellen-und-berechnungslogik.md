@@ -2,7 +2,7 @@
 
 Status: `C01_CONTENT_CORE`; kein PDF-Build und keine Veröffentlichung zulässig.
 
-Vertrag: Portfolio-ID `C01`; Produkt-ID `IMR-DL-C01`; Titel **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**; Dokumentklasse `B`; Portfolioebene `H1`; Auslieferung `FREE_DIRECT`; Aktualitätsklasse `U2_MOVING`; Risikoklasse `R2_MODERATE`; Zielumfang 8–12 Seiten. Content-Contract `1.1.0`; Berechnungsregeln `1.1.0`; Daten-Schema `1.0.0`; Kategorie-Taxonomie `1.0.0`.
+Vertrag: Portfolio-ID `C01`; Produkt-ID `IMR-DL-C01`; Titel **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**; Dokumentklasse `B`; Portfolioebene `H1`; Auslieferung `FREE_DIRECT`; Aktualitätsklasse `U2_MOVING`; Risikoklasse `R2_MODERATE`; Zielumfang 8–12 Seiten. Content-Contract `1.2.0`; Berechnungsregeln `1.2.0`; Daten-Schema `1.1.0`; Kategorie-Taxonomie `1.0.1`.
 
 ## Datenklassen
 
@@ -32,7 +32,7 @@ Alle Beträge sind EUR; Monatswerte und Einmalwerte werden niemals vermischt. Je
 | `USER_DEFINED_RESERVE_TARGET` | Nutzereingabe des selbst gesetzten Rücklagenziels |
 | `START_CAPITAL_NEED` | `ONE_TIME_START_COSTS + FIRST_MONTH_COSTS + USER_DEFINED_RESERVE_TARGET` |
 
-Bei einer Division durch null beziehungsweise einem Nenner von null wird `OFFEN_ZU_PRÜFEN` ausgegeben. Es gibt keine automatisch erfundene Sicherheitsschwelle und keinen universellen Mindestbetrag. Es wird nicht versteckt gerundet; Rundung wird erst bei der Darstellung mit dokumentierter Präzision vorgenommen. Normalmonat, Stressmonat und Mindestfall sind getrennte, sichtbare Szenarien.
+Bei einer Division durch null beziehungsweise einem Nenner von null wird `OFFEN_ZU_PRÜFEN` ausgegeben. `FIRST_MONTH_COSTS` enthält ausschließlich laufende Kosten des ersten Monats, die nicht bereits als `ONE_TIME` erfasst sind. Die Überschneidung wird explizit geprüft; ohne Bestätigung bleibt `START_CAPITAL_NEED` offen und erzeugt `POTENTIAL_DOUBLE_COUNT`. Es gibt keine automatisch erfundene Sicherheitsschwelle und keinen universellen Mindestbetrag. Es wird nicht versteckt gerundet; Rundung wird erst bei der Darstellung mit dokumentierter Präzision vorgenommen. Normalmonat, Stressmonat und Mindestfall sind getrennte, sichtbare Szenarien.
 
 ## Quellenmodell
 

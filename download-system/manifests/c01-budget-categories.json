@@ -1,5 +1,5 @@
 {
-  "taxonomy_version": "1.0.0",
+  "taxonomy_version": "1.0.1",
   "currency": "EUR",
   "categories": [
     {"id":"INCOME_EMPLOYMENT","label_de":"Einkommen aus Beschäftigung","description":"Regelmäßige Einnahme aus Beschäftigung ohne steuerliche Bewertung.","cost_class":"INCOME","default_required":false,"allowed_periods":["MONTHLY","ANNUAL","WEEKLY","SCENARIO"],"user_input_required":true,"source_value_allowed":true,"product_boundary":"keine Steuer- oder Sozialversicherungsberechnung"},
@@ -36,7 +36,6 @@
     {"id":"START_UTILITY_ACTIVATION","label_de":"Versorgungsaktivierung","description":"Einmalige Aktivierungs- oder Anschlusskosten.","cost_class":"ONE_TIME","default_required":false,"allowed_periods":["ONE_TIME"],"user_input_required":true,"source_value_allowed":true,"product_boundary":"keine Tarifgarantie"},
     {"id":"START_DOCUMENTS_AND_FEES","label_de":"Dokumente und Gebühren","description":"Einmalige dokumentierte Gebühren ohne Steuerberatung.","cost_class":"ONE_TIME","default_required":false,"allowed_periods":["ONE_TIME"],"user_input_required":true,"source_value_allowed":true,"product_boundary":"keine Behördenentscheidung"},
     {"id":"START_TRANSPORT_SETUP","label_de":"Mobilitätsgrundausstattung","description":"Einmalige notwendige Einrichtung der Mobilität.","cost_class":"ONE_TIME","default_required":false,"allowed_periods":["ONE_TIME"],"user_input_required":true,"source_value_allowed":true,"product_boundary":"keine Standortbewertung"},
-    {"id":"START_EMERGENCY_BUFFER","label_de":"Startpuffer","description":"Vom Nutzer gesetzter einmaliger Puffer.","cost_class":"ONE_TIME","default_required":false,"allowed_periods":["ONE_TIME"],"user_input_required":true,"source_value_allowed":true,"product_boundary":"keine allgemeine Mindestreserve"},
     {"id":"START_OTHER","label_de":"Andere Startkosten","description":"Sonstige belegte einmalige Startkosten.","cost_class":"ONE_TIME","default_required":false,"allowed_periods":["ONE_TIME"],"user_input_required":true,"source_value_allowed":true,"product_boundary":"Begründung erforderlich"}
   ],
   "required_groups": ["Wohnen", "Energie/Versorgung", "Grundnahrung", "Gesundheit/Absicherung", "notwendige Mobilität", "Kommunikation", "vertragliche Verpflichtungen"]

@@ -1,6 +1,6 @@
 # C01 Produktionsbrief
 
-Status: `C01_CONTENT_CORE`; Content-Contract `1.1.0`; Berechnungsregeln `1.1.0`.
+Status: `C01_CONTENT_CORE`; Content-Contract `1.2.0`; Berechnungsregeln `1.2.0`; Daten-Schema `1.1.0`; Kategorie-Taxonomie `1.0.1`.
 
 ## Produktvertrag
 

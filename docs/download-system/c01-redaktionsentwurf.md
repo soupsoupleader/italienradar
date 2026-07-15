@@ -2,6 +2,7 @@
 
 Produkt: **Italien-Neustart: Budget- und Sicherheitsarbeitsblatt**
 Produkt-ID: `IMR-DL-C01` · Klasse `B` · Aktualität `U2_MOVING` · Risiko `R2_MODERATE`
+Content-Contract `1.2.0` · Berechnungsregeln `1.2.0` · Daten-Schema `1.1.0` · Kategorie-Taxonomie `1.0.1`
 Status: `CONTENT_IN_PROGRESS`; der Text ist kein PDF und keine Freigabe.
 
 ## M01 – Einführung
@@ -67,6 +68,7 @@ Die Ergebnisübersicht zeigt zusätzlich gemeldete Einnahmen, verlässliche Einn
 ## M05 – Checkliste
 
 - [ ] Für jede verwendete Position ist ein Betrag vorhanden oder `NICHT_RELEVANT` begründet.
+- [ ] `FIRST_MONTH_COSTS` enthält nur laufende Erstmonatskosten; die Überschneidung mit Einmalkosten ist geprüft.
 - [ ] Für jeden Wert ist der Zeitraum vorhanden.
 - [ ] Datenrolle und Nachweisstatus sind sichtbar.
 - [ ] Ein Nachweis oder die offene Prüfanforderung ist vermerkt.

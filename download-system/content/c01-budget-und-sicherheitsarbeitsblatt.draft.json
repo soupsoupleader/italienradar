@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
-  "content_contract_version": "1.1.0",
-  "calculation_ruleset_version": "1.1.0",
-  "data_schema_version": "1.0.0",
-  "category_taxonomy_version": "1.0.0",
+  "content_contract_version": "1.2.0",
+  "calculation_ruleset_version": "1.2.0",
+  "data_schema_version": "1.1.0",
+  "category_taxonomy_version": "1.0.1",
   "phase": "C01_CONTENT_CORE",
   "portfolio_id": "C01",
   "canonical_product_id": "IMR-DL-C01",
@@ -40,7 +40,6 @@
     "optional_monthly_costs": null,
     "one_time_start_costs": null,
     "liquid_reserve": null,
-    "first_month_costs": null,
     "stress_month_income": null,
     "stress_month_costs": null,
     "minimum_case_income": null,
@@ -48,6 +47,7 @@
     "user_defined_reserve_target": null
   },
   "input_status": "NUTZEREINGABE_ERFORDERLICH",
+  "first_month_costs": {"amount":null,"currency":"EUR","scope":"RECURRING_FIRST_MONTH_ONLY","overlap_with_start_costs_checked":false,"evidence_status":"OFFEN","note":null},
   "budget_item_template": {"id":"","category_id":"","label":"","amount":null,"currency":"EUR","period":"MONTHLY","data_type":"NUTZEREINGABE","evidence_status":"OFFEN","reliability_status":"UNKNOWN","required_for_result":true,"not_relevant":false,"not_relevant_reason":null,"source_ref":null,"note":null},
   "income_items": [],
   "essential_cost_items": [],
@@ -58,6 +58,8 @@
   "stress_scenario": {"income_items":[],"cost_items":[],"assumptions":[],"open_conditions":[],"evidence_status":"OFFEN"},
   "minimum_scenario": {"income_items":[],"cost_items":[],"assumptions":[],"open_conditions":[],"evidence_status":"OFFEN"},
   "calculated_results": {
+    "REPORTED_MONTHLY_INCOME": null,
+    "UNCERTAIN_MONTHLY_INCOME": null,
     "MONTHLY_INCOME_TOTAL": null,
     "ESSENTIAL_MONTHLY_COSTS": null,
     "OPTIONAL_MONTHLY_COSTS": null,
@@ -76,12 +78,12 @@
     "USER_DEFINED_RESERVE_TARGET": null,
     "START_CAPITAL_NEED": null
   },
-  "calculation_reference": "C01_CALCULATION_RULESET_1.1.0",
+  "calculation_reference": "C01_CALCULATION_RULESET_1.2.0",
   "warnings": ["UNCERTAIN_INCOME", "UNKNOWN_COST", "INSUFFICIENT_DATA", "HIGH_IRREGULAR_INCOME_SHARE", "SCENARIO_NOT_COMPLETED"],
   "blockers": ["SYSTEM_ACCEPTANCE_BLOCKED", "CONTENT_IN_PROGRESS"],
   "source_references": [],
   "sources": [],
   "sections": ["M01", "M02", "M03", "M04", "M05", "M06", "M07", "M08", "M09", "M10", "M11", "M12"],
-  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_CONTENT_CORE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.1.0"},
+  "metadata": {"document_version":"0.2.0-draft", "source_version":"C01_CONTENT_CORE", "build_version":null, "publication_status":"CONTENT_IN_PROGRESS", "calculation_ruleset_version":"1.2.0"},
   "release_controls": {"release_eligible":false,"pdf_build_allowed":false,"public_pdf_allowed":false,"website_integration_allowed":false,"deployment":false}
 }
