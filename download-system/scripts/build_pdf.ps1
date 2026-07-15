@@ -69,7 +69,7 @@ $completed = $process.WaitForExit(60000)
 if (-not $completed) { Stop-Process -Id $process.Id -Force; throw "RENDERER_TIMEOUT" }
 if (-not (Test-Path -LiteralPath $raw)) { throw "PDF_OUTPUT_MISSING" }
 Copy-Item -LiteralPath $raw -Destination $final -Force
-$renderer = [ordered]@{path_rule="ITALIENRADAR_CHROME_PATH > HKCU/HKLM App Paths > Program Files";resolved_path=$chrome.Path;version=$chrome.Version;version_source=$chrome.VersionSource;version_stdout=$chrome.VersionStdout;version_stderr=$chrome.VersionStderr;version_exit_code=$chrome.VersionExitCode;flags=$flags;offline=true;locale="de-DE";timezone="UTC";capability_gate="DECLARED_AND_VERIFIED_BY_VERIFY_BUILD"}
+$renderer = [ordered]@{path_rule="ITALIENRADAR_CHROME_PATH > HKCU/HKLM App Paths > Program Files";resolved_path=$chrome.Path;version=$chrome.Version;version_source=$chrome.VersionSource;version_stdout=$chrome.VersionStdout;version_stderr=$chrome.VersionStderr;version_exit_code=$chrome.VersionExitCode;flags=$flags;offline=$true;locale="de-DE";timezone="UTC";capability_gate="DECLARED_AND_VERIFIED_BY_VERIFY_BUILD"}
 $renderer | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $out "renderer-report.json") -Encoding UTF8
 $report = Get-Content -Raw -LiteralPath (Join-Path $out "build-report.json") | ConvertFrom-Json
 $report | Add-Member -NotePropertyName renderer_path -NotePropertyValue $chrome.Path -Force
