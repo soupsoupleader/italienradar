@@ -170,4 +170,4 @@ Nicht-Ziele dieser Teilphase sind C01-Inhalt, öffentliches PDF, Websiteänderun
 
 ## Freigabestatus
 
-Architektur dokumentiert, Buildvertrag in der zugehörigen JSON-Datei maschinenlesbar festgelegt, keine Produktionsdatei geändert, keine PDF erzeugt, kein Template implementiert und kein Deployment durchgeführt. Die beiden Architekturdateien bleiben bis zu einer separaten Freigabe uncommitted und unpushed.
+Architektur dokumentiert, Buildvertrag in der zugehörigen JSON-Datei maschinenlesbar festgelegt, keine Produktionsdatei geändert, keine PDF erzeugt, kein Template implementiert und kein Deployment durchgeführt. Die Systemarchitektur und der Buildvertrag wurden nach separater Abnahme repositoryseitig abgeschlossen. Es wurden keine Produktionsdateien, PDFs, Templates oder Websiteänderungen erzeugt und kein Deployment durchgeführt.
