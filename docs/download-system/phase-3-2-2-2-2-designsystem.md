@@ -106,4 +106,4 @@ Offen für 3.2.2.2.3 sind ausschließlich die Implementierung der M01–M12-Komp
 
 ## Status
 
-Designsystem, lokale Fonts, Token-JSON/CSS und neutraler Designnachweis sind lokal erstellt und geprüft. Die Designsystemdateien bleiben bis zur separaten Repositoryabnahme uncommitted und unpushed. Kein Produkt, kein öffentliches PDF und kein Deployment wurde begonnen.
+Designsystem, lokale Fonts und Token-JSON/CSS wurden nach separater Abnahme repositoryseitig abgeschlossen. Der neutrale Designnachweis bleibt unversioniert. Es wurde kein Produkt, kein öffentliches PDF und kein Deployment begonnen.
