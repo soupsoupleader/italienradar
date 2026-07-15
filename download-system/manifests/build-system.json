@@ -1,5 +1,5 @@
 {
-  "build_system_version":"1.0.0",
+  "build_system_version":"1.0.1",
   "pipeline":"P2_HTML_PRINT",
   "component_library_version":"1.1.0",
   "design_token_version":"1.0.0",
@@ -11,8 +11,12 @@
   "metadata_policy":{"mode":"POSTPROCESSING_MODE = CONDITIONAL_METADATA_ONLY","author":"ItalienRadar","language":"de-DE","controlled_values_in_m12":true},
   "output_policy":{"public_pdf":false,"production_started":false,"deployment":false,"temporary_outputs_only":true},
   "chrome_flags":["--headless","--no-pdf-header-footer","--disable-background-networking","--disable-component-update","--disable-default-apps","--disable-extensions","--disable-features=OptimizationHints,MediaRouter,AutofillServerCommunication","--no-first-run","--no-sandbox","--run-all-compositor-stages-before-draw","--virtual-time-budget=1000"],
-  "build_id":{"algorithm":"SHA-256","inputs":["normalized functional input","source hashes","python version","chrome version","build system version","locale","timezone"],"randomness":false,"current_timestamp":false},
+  "build_id":{"algorithm":"SHA-256","inputs":["input_hash","source_hashes","python_version","chrome_version","build_system_version","component_library_version","design_token_version","input_schema_version","locale","timezone"],"randomness":false,"current_timestamp":false},
   "postprocessing":{"allowed":"conditional metadata only","rebuild_pdf_forbidden":true,"preserve":["pages","boxes","text","headings","lists","tables","links","StructTreeRoot","MarkInfo","Lang","fonts","security","renders"]},
   "font_source":"download-system/assets/fonts/source-sans-3/",
   "source_manifest_paths":"relative only"
+  ,"text_source_canonicalization":"UTF8_NO_BOM_LF",
+  "binary_source_hashing":"RAW_BYTES",
+  "git_commit_policy":"DYNAMIC_MANIFEST_FIELD",
+  "chrome_version_policy":"NORMALIZED_NUMERIC_VERSION"
 }

@@ -10,6 +10,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
@@ -23,6 +24,7 @@ SCHEMA_PATH = ROOT / "download-system" / "manifests" / "document-input-schema.js
 TOKENS_PATH = ROOT / "download-system" / "tokens" / "design-tokens.json"
 BUILD_SYSTEM_PATH = ROOT / "download-system" / "manifests" / "build-system.json"
 TEMPLATE_PATH = ROOT / "download-system" / "templates" / "master-template.html"
+TEXT_SUFFIXES = {".html", ".css", ".json", ".py", ".ps1", ".md", ".txt"}
 
 class BuildFailure(Exception):
     def __init__(self, code: str, message: str):
@@ -72,11 +74,44 @@ def clone(node): return copy.deepcopy(node)
 def text_content(node):
     return node.text if node.tag is None else "".join(text_content(c) for c in node.children)
 
-def sha256(path: Path) -> str:
+def canonical_source_bytes(path: Path) -> bytes:
+    raw = path.read_bytes()
+    if path.suffix.lower() not in TEXT_SUFFIXES:
+        return raw
+    text = raw.decode("utf-8-sig")
+    return text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8")
+
+def canonical_source_hash(path: Path) -> str:
+    h = hashlib.sha256()
+    h.update(canonical_source_bytes(path))
+    return h.hexdigest().upper()
+
+def raw_sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
         for chunk in iter(lambda: f.read(1024 * 1024), b""): h.update(chunk)
     return h.hexdigest().upper()
+
+def copy_canonical_source(source: Path, destination: Path) -> None:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    if source.suffix.lower() in TEXT_SUFFIXES:
+        destination.write_bytes(canonical_source_bytes(source))
+    else:
+        shutil.copyfile(source, destination)
+
+def write_utf8_lf(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(text.replace("\r\n", "\n").replace("\r", "\n").encode("utf-8"))
+
+def resolve_source_commit() -> str:
+    try:
+        proc = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True, timeout=10)
+    except Exception as exc:
+        raise BuildFailure("P0_SOURCE_COMMIT_UNAVAILABLE", str(exc))
+    commit = (proc.stdout or "").strip()
+    if proc.returncode != 0 or not re.fullmatch(r"[0-9a-f]{40}", commit):
+        raise BuildFailure("P0_SOURCE_COMMIT_UNAVAILABLE", "git rev-parse HEAD did not return one commit")
+    return commit
 
 def canonical(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
@@ -93,7 +128,7 @@ def walk(node):
     for child in node.children: yield from walk(child)
 
 def parse_json(path):
-    try: return json.loads(path.read_text(encoding="utf-8"))
+    try: return json.loads(canonical_source_bytes(path).decode("utf-8"))
     except Exception as exc: raise BuildFailure("P0_INVALID_JSON", f"{path}: {exc}")
 
 def forbidden_value(value):
@@ -232,14 +267,14 @@ def validate_input(data, manifest, schema):
 def copy_bundle(bundle, data, manifest, build_system):
     if bundle.exists(): shutil.rmtree(bundle)
     (bundle / "styles").mkdir(parents=True); (bundle / "components").mkdir(); (bundle / "assets" / "fonts" / "source-sans-3").mkdir(parents=True)
-    shutil.copy2(TOKENS_PATH.parent / "design-tokens.css", bundle / "styles" / "tokens.css")
-    shutil.copy2(ROOT / "download-system" / "templates" / "master-template.css", bundle / "styles" / "master-template.css")
-    shutil.copy2(COMPONENT_DIR / "components.css", bundle / "styles" / "components.css")
+    copy_canonical_source(TOKENS_PATH.parent / "design-tokens.css", bundle / "styles" / "tokens.css")
+    copy_canonical_source(ROOT / "download-system" / "templates" / "master-template.css", bundle / "styles" / "master-template.css")
+    copy_canonical_source(COMPONENT_DIR / "components.css", bundle / "styles" / "components.css")
     used = []
     for component in manifest["components"]:
-        src = ROOT / component["source_file"]; dest = bundle / "components" / src.name; shutil.copy2(src, dest); used.append((src, Path("components") / src.name))
+        src = ROOT / component["source_file"]; dest = bundle / "components" / src.name; copy_canonical_source(src, dest); used.append((src, Path("components") / src.name))
     for font in ["source-sans-3-regular.woff2","source-sans-3-semibold.woff2","source-sans-3-bold.woff2"]:
-        src=FONT_DIR/font; shutil.copy2(src,bundle/"assets"/"fonts"/"source-sans-3"/font); used.append((src,Path("assets")/"fonts"/"source-sans-3"/font))
+        src=FONT_DIR/font; copy_canonical_source(src,bundle/"assets"/"fonts"/"source-sans-3"/font); used.append((src,Path("assets")/"fonts"/"source-sans-3"/font))
     used += [(TOKENS_PATH.parent/"design-tokens.css",Path("styles")/"tokens.css"),(ROOT/"download-system"/"templates"/"master-template.css",Path("styles")/"master-template.css"),(COMPONENT_DIR/"components.css",Path("styles")/"components.css"),(TEMPLATE_PATH,Path("master-template.html"))]
     return used
 
@@ -247,7 +282,7 @@ def render_components(data, manifest):
     output=[]; global_ids={}; namespace = re.sub(r"[^A-Za-z0-9_-]", "-", str(data.get("fixture_id") or data["document"].get("canonical_title","document")))
     for ordinal, sec in enumerate(data["sections"], 1):
         contract = next(c for c in manifest["components"] if c["id"] == sec["component_id"])
-        source = (ROOT / contract["source_file"]).read_text(encoding="utf-8"); markers, repeats, links = component_marker_set(source)
+        source = canonical_source_bytes(ROOT / contract["source_file"]).decode("utf-8"); markers, repeats, links = component_marker_set(source)
         if not markers.issubset(manifest_marker_set(contract)): raise BuildFailure("P0_UNKNOWN_SLOT", sec["component_id"])
         tree=parse_fragment(source)
         for n in walk(tree):
@@ -264,12 +299,16 @@ def render_components(data, manifest):
 
 def build(args):
     data=parse_json(Path(args.input)); manifest=parse_json(MANIFEST_PATH); schema=parse_json(SCHEMA_PATH); tokens=parse_json(TOKENS_PATH); build_system=parse_json(BUILD_SYSTEM_PATH)
+    source_commit = args.source_commit or resolve_source_commit()
+    chrome_version = args.chrome_version or ""
+    if not re.fullmatch(r"\d+\.\d+\.\d+\.\d+", chrome_version): raise BuildFailure("P0_CHROME_VERSION_UNAVAILABLE", "normalized Chrome version required")
+    if build_system["build_system_version"] != "1.0.1": raise BuildFailure("P0_VERSION_MISMATCH", "build system")
     validate_input(data,manifest,schema)
     if manifest["library_version"] != "1.1.0": raise BuildFailure("P0_VERSION_MISMATCH", "component library")
     for font in ["source-sans-3-regular.woff2","source-sans-3-semibold.woff2","source-sans-3-bold.woff2"]:
         if not (FONT_DIR/font).is_file(): raise BuildFailure("P0_MISSING_FONT", font)
     bundle=Path(args.bundle); output=Path(args.output); used=copy_bundle(bundle,data,manifest,build_system)
-    template=parse_fragment(TEMPLATE_PATH.read_text(encoding="utf-8")); context={"document":data["document"],"build_mode":data["build_mode"],"build":data["build"]}; process_node(template,data,context)
+    template=parse_fragment(canonical_source_bytes(TEMPLATE_PATH).decode("utf-8")); context={"document":data["document"],"build_mode":data["build_mode"],"build":data["build"]}; process_node(template,data,context)
     rendered=render_components(data,manifest)
     document="".join(serialize(c) for c in template.children).replace("<!-- BIND_COMPONENTS -->",rendered)
     if re.search(r"<script\b|<form\b|https?://[^\"]*\.(?:css|woff2|png|jpg)|url\(https?://",document,re.I): raise BuildFailure("P0_OFFLINE_RESOURCE", "remote build resource")
@@ -277,19 +316,20 @@ def build(args):
         if href.startswith(("file:","javascript:","data:")): raise BuildFailure("P0_UNSAFE_URL",href)
     if len(re.findall(r"<h1\b",document,re.I)) != 1: raise BuildFailure("P0_INVALID_STRUCTURE", "master template must have one H1")
     if output.exists(): shutil.rmtree(output)
-    output.mkdir(parents=True); (bundle/"document.html").write_text(document,encoding="utf-8")
-    normalized=canonical(data); input_hash=hashlib.sha256(normalized.encode("utf-8")).hexdigest().upper(); source_hashes={str(rel).replace("\\","/"):sha256(src) for src,rel in used}
-    (bundle/"build-input.normalized.json").write_text(json.dumps(data,ensure_ascii=False,sort_keys=True,indent=2)+"\n",encoding="utf-8")
-    (bundle/"source-manifest.json").write_text(json.dumps({"sources":source_hashes},sort_keys=True,indent=2)+"\n",encoding="utf-8")
-    build_id=hashlib.sha256((input_hash+canonical(source_hashes)+sys.version.split()[0]+build_system["build_system_version"]+data["build"]["locale"]+data["build"]["timezone"]).encode()).hexdigest().upper()
-    manifest_out={"build_id":build_id,"input_hash":input_hash,"source_hashes":source_hashes,"git_commit":"301a8ccf3d0404f8e4d181acad6878a6fe32852c","python_version":sys.version.split()[0],"chrome_version":"recorded by build_pdf.ps1","locale":"de-DE","timezone":"UTC","build_system_version":build_system["build_system_version"],"component_library_version":manifest["library_version"],"token_version":tokens["schema_version"],"flags":build_system["chrome_flags"]}
-    (bundle/"build-manifest.json").write_text(json.dumps(manifest_out,sort_keys=True,indent=2)+"\n",encoding="utf-8")
-    for name in ["document.html","build-input.normalized.json","source-manifest.json","build-manifest.json"]: shutil.copy2(bundle/name,output/name)
-    (output/"build-report.json").write_text(json.dumps({"result":"BUNDLE_READY","build_id":build_id,"renderer":"pending","offline":True},indent=2)+"\n",encoding="utf-8")
+    output.mkdir(parents=True); write_utf8_lf(bundle/"document.html", document)
+    normalized=canonical(data); input_hash=hashlib.sha256(normalized.encode("utf-8")).hexdigest().upper(); source_hashes={str(rel).replace("\\","/"):(canonical_source_hash(src) if src.suffix.lower() in TEXT_SUFFIXES else raw_sha256(src)) for src,rel in used}
+    write_utf8_lf(bundle/"build-input.normalized.json", json.dumps(data,ensure_ascii=False,sort_keys=True,indent=2)+"\n")
+    write_utf8_lf(bundle/"source-manifest.json", json.dumps({"sources":source_hashes,"canonicalization":"UTF8_NO_BOM_LF","binary_hashing":"RAW_BYTES"},sort_keys=True,indent=2)+"\n")
+    build_identity={"input_hash":input_hash,"source_hashes":source_hashes,"python_version":sys.version.split()[0],"chrome_version":chrome_version,"build_system_version":build_system["build_system_version"],"component_library_version":manifest["library_version"],"design_token_version":build_system["design_token_version"],"input_schema_version":build_system["input_schema_version"],"locale":data["build"]["locale"],"timezone":data["build"]["timezone"]}
+    build_id=hashlib.sha256(canonical(build_identity).encode("utf-8")).hexdigest().upper()
+    manifest_out={"build_id":build_id,"input_hash":input_hash,"source_hashes":source_hashes,"git_commit":source_commit,"python_version":sys.version.split()[0],"chrome_version":chrome_version,"locale":"de-DE","timezone":"UTC","build_system_version":build_system["build_system_version"],"component_library_version":manifest["library_version"],"token_version":tokens["schema_version"],"flags":build_system["chrome_flags"],"build_id_inputs":build_identity}
+    write_utf8_lf(bundle/"build-manifest.json", json.dumps(manifest_out,sort_keys=True,indent=2)+"\n")
+    for name in ["document.html","build-input.normalized.json","source-manifest.json","build-manifest.json"]: copy_canonical_source(bundle/name,output/name)
+    write_utf8_lf(output/"build-report.json", json.dumps({"result":"BUNDLE_READY","build_id":build_id,"renderer":"pending","chrome_version":chrome_version,"git_commit":source_commit,"offline":True},indent=2)+"\n")
     print(json.dumps({"result":"PASS","build_id":build_id,"bundle":str(bundle),"document":str(bundle/"document.html")},ensure_ascii=False))
 
 def main():
-    parser=argparse.ArgumentParser(); parser.add_argument("--input",required=True); parser.add_argument("--bundle",required=True); parser.add_argument("--output",required=True); args=parser.parse_args()
+    parser=argparse.ArgumentParser(); parser.add_argument("--input",required=True); parser.add_argument("--bundle",required=True); parser.add_argument("--output",required=True); parser.add_argument("--chrome-version"); parser.add_argument("--source-commit"); args=parser.parse_args()
     try: build(args)
     except BuildFailure as exc: print(str(exc),file=sys.stderr); return 2
     except Exception as exc: print(f"P0_BUILD_ERROR: {exc}",file=sys.stderr); return 3

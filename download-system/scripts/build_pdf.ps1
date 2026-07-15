@@ -25,15 +25,33 @@ function Resolve-Chrome {
   if (${env:ProgramFiles(x86)}) { $candidates += (Join-Path ${env:ProgramFiles(x86)} "Google\Chrome\Application\chrome.exe") }
   foreach ($candidate in $candidates | Select-Object -Unique) {
     if (Test-Path -LiteralPath $candidate) {
-      $version = (& $candidate --version 2>$null | Select-Object -First 1)
-      if (-not $version) { $version = (Get-Item -LiteralPath $candidate).VersionInfo.ProductVersion; $version = "Chrome/$version (file-version fallback; --version produced no stdout)" }
-      if ($version) { return [PSCustomObject]@{Path=(Resolve-Path -LiteralPath $candidate).Path;Version=$version} }
+      $stdout = ""; $stderr = ""; $exitCode = $null; $source = ""
+      try {
+        $psi = [System.Diagnostics.ProcessStartInfo]::new()
+        $psi.FileName = (Resolve-Path -LiteralPath $candidate).Path
+        $psi.Arguments = "--version"
+        $psi.UseShellExecute = $false
+        $psi.RedirectStandardOutput = $true
+        $psi.RedirectStandardError = $true
+        $psi.CreateNoWindow = $true
+        $proc = [System.Diagnostics.Process]::new(); $proc.StartInfo = $psi
+        [void]$proc.Start()
+        if (-not $proc.WaitForExit(10000)) { $proc.Kill(); throw "CHROME_VERSION_TIMEOUT" }
+        $stdout = $proc.StandardOutput.ReadToEnd(); $stderr = $proc.StandardError.ReadToEnd(); $exitCode = $proc.ExitCode
+      } catch { $stderr = $_.Exception.Message; $exitCode = -1 }
+      $version = [regex]::Match($stdout, '\d+\.\d+\.\d+\.\d+').Value
+      if ($version) { $source = "stdout" }
+      if (-not $version) { $version = [regex]::Match($stderr, '\d+\.\d+\.\d+\.\d+').Value; if ($version) { $source = "stderr" } }
+      if (-not $version) { $version = [regex]::Match((Get-Item -LiteralPath $candidate).VersionInfo.ProductVersion, '\d+\.\d+\.\d+\.\d+').Value; if ($version) { $source = "file-version" } }
+      if ($version) { return [PSCustomObject]@{Path=(Resolve-Path -LiteralPath $candidate).Path;Version=$version;VersionSource=$source;VersionStdout=$stdout.Trim();VersionStderr=$stderr.Trim();VersionExitCode=$exitCode} }
     }
   }
   throw "RENDERER_NOT_FOUND: Chrome could not be resolved"
 }
 
 $chrome = Resolve-Chrome
+$sourceCommit = (& git rev-parse HEAD 2>$null | Select-Object -First 1).Trim()
+if ($sourceCommit -notmatch '^[0-9a-f]{40}$') { throw "P0_SOURCE_COMMIT_UNAVAILABLE" }
 $python = if ($env:ITALIENRADAR_PYTHON_PATH) { $env:ITALIENRADAR_PYTHON_PATH } else { "python" }
 $builder = Join-Path $repo "download-system\scripts\build_document.py"
 $documentUrl = "file:///" + $document.Replace("\", "/")
@@ -41,7 +59,7 @@ if (Test-Path -LiteralPath $out) { Remove-Item -LiteralPath $out -Recurse -Force
 if (Test-Path -LiteralPath $raw) { Remove-Item -LiteralPath $raw -Force }
 if (Test-Path -LiteralPath $final) { Remove-Item -LiteralPath $final -Force }
 if (Test-Path -LiteralPath $chromeProfile) { Remove-Item -LiteralPath $chromeProfile -Recurse -Force }
-& $python $builder --input (Join-Path $repo $InputFile) --bundle $bundle --output $out
+& $python $builder --input (Join-Path $repo $InputFile) --bundle $bundle --output $out --chrome-version $chrome.Version --source-commit $sourceCommit
 if ($LASTEXITCODE -ne 0) { throw "DOCUMENT_BUILD_FAILED: $LASTEXITCODE" }
 if (-not (Test-Path -LiteralPath $document)) { throw "BUNDLE_DOCUMENT_MISSING" }
 
@@ -51,11 +69,20 @@ $completed = $process.WaitForExit(60000)
 if (-not $completed) { Stop-Process -Id $process.Id -Force; throw "RENDERER_TIMEOUT" }
 if (-not (Test-Path -LiteralPath $raw)) { throw "PDF_OUTPUT_MISSING" }
 Copy-Item -LiteralPath $raw -Destination $final -Force
-$renderer = [ordered]@{path_rule="ITALIENRADAR_CHROME_PATH > HKCU/HKLM App Paths > Program Files";resolved_path=$chrome.Path;version=$chrome.Version;flags=$flags;offline=true;locale="de-DE";timezone="UTC";capability_gate="DECLARED_AND_VERIFIED_BY_VERIFY_BUILD"}
+$renderer = [ordered]@{path_rule="ITALIENRADAR_CHROME_PATH > HKCU/HKLM App Paths > Program Files";resolved_path=$chrome.Path;version=$chrome.Version;version_source=$chrome.VersionSource;version_stdout=$chrome.VersionStdout;version_stderr=$chrome.VersionStderr;version_exit_code=$chrome.VersionExitCode;flags=$flags;offline=true;locale="de-DE";timezone="UTC";capability_gate="DECLARED_AND_VERIFIED_BY_VERIFY_BUILD"}
 $renderer | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $out "renderer-report.json") -Encoding UTF8
 $report = Get-Content -Raw -LiteralPath (Join-Path $out "build-report.json") | ConvertFrom-Json
-$report.renderer_path = $chrome.Path; $report.renderer_version = $chrome.Version; $report.pdf = Split-Path -Leaf $final; $report.capability_gate = "PENDING_VERIFY_BUILD"; $report.flags = $flags
+$report | Add-Member -NotePropertyName renderer_path -NotePropertyValue $chrome.Path -Force
+$report | Add-Member -NotePropertyName renderer_version -NotePropertyValue $chrome.Version -Force
+$report | Add-Member -NotePropertyName renderer_version_source -NotePropertyValue $chrome.VersionSource -Force
+$report | Add-Member -NotePropertyName renderer_version_stdout -NotePropertyValue $chrome.VersionStdout -Force
+$report | Add-Member -NotePropertyName renderer_version_stderr -NotePropertyValue $chrome.VersionStderr -Force
+$report | Add-Member -NotePropertyName renderer_version_exit_code -NotePropertyValue $chrome.VersionExitCode -Force
+$report | Add-Member -NotePropertyName pdf -NotePropertyValue (Split-Path -Leaf $final) -Force
+$report | Add-Member -NotePropertyName capability_gate -NotePropertyValue "PENDING_VERIFY_BUILD" -Force
+$report | Add-Member -NotePropertyName flags -NotePropertyValue $flags -Force
 $report | ConvertTo-Json -Depth 6 | Set-Content -LiteralPath (Join-Path $out "build-report.json") -Encoding UTF8
+if (Test-Path -LiteralPath $chromeProfile) { Remove-Item -LiteralPath $chromeProfile -Recurse -Force }
 Write-Output "BUILD_NAME=$BuildName"
 Write-Output "CHROME_VERSION=$($chrome.Version)"
 Write-Output "RAW_PDF=$raw"

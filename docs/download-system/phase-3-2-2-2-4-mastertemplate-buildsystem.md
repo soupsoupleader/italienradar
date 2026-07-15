@@ -11,7 +11,7 @@ Das neutrale Mastertemplate, das Eingabeschema und das lokale Buildsystem haben 
 - Komponentenbibliothek: `1.1.0`, M01–M12
 - Design-Tokens: `1.0.0`, lokale Source Sans 3
 - Input-Schema: `1.0.0`
-- Buildsystem: `1.0.0`
+- Buildsystem: `1.0.1` nach Systemhärtung
 
 Die Dateien unter `download-system/templates/`, `content/`, `manifests/` und `scripts/` bilden den neutralen lokalen Proofpfad. Es wurde kein Produktprofil, kein öffentliches PDF und kein Deployment begonnen.
 
@@ -34,6 +34,10 @@ Der Renderer wird kontrolliert aus `ITALIENRADAR_CHROME_PATH`, bekannten Windows
 Zwei Builds aus derselben unveränderten Eingabe erzeugten denselben Build-Identifier:
 `F0211D3C081804D75CBBEB35069FB0597D2119F262D5DD9691842366B2DA24EE`.
 Beide PDFs haben 10 A4-Seiten, identischen extrahierten Text, identische Geometrie, Tabelleninhalte, Links, Font-Einbettung und Sicherheitsmerkmale. Kontrollierte PDF-Metadaten wurden nachgelagert normalisiert; der Seiteninhalt wurde dabei nicht neu gerendert.
+
+## Systemhärtung 1.0.1
+
+Die erste Systemabnahme zeigte, dass LF- und CRLF-Worktrees unterschiedliche Quellbytes in das Bundle übernahmen. Textquellen werden deshalb vor Hashbildung und Kopie als UTF-8 ohne BOM mit LF-Zeilenenden kanonisiert; Binärquellen wie WOFF2 bleiben bytegenau. Der Quellcommit wird dynamisch über `git rev-parse HEAD` im Buildmanifest protokolliert. Die normalisierte Chrome-Version wird vor dem Bundle-Build ermittelt und ist Bestandteil des kanonischen Build-ID-Objekts. Die Build-ID-Vertragsänderung gegenüber 1.0.0 ist eine `INTENDED_CHANGE`; inhaltlich unveränderte PDFs müssen ab der neuen Baseline funktional identisch bleiben.
 
 ## QA-Ergebnis
 
