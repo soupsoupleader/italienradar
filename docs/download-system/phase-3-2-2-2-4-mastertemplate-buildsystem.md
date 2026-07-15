@@ -50,6 +50,8 @@ Es wird keine PDF/A- oder PDF/UA-Konformität behauptet. Das PDF-Skill-Referenzf
 
 ## Nicht-Ziele und Übergang
 
-Nicht Bestandteil dieser Phase sind Produktprofile, C01-Inhalt, öffentliche PDFs, Websiteänderungen, Formularfunktionen, Lead-Erfassung und Deployment. Für 3.2.2.2.5 offen bleiben die Repositoryabnahme dieser lokalen Änderungen, die konkrete Produktdatenbindung sowie ein getrennt freigegebenes Produktions- und Veröffentlichungs-Gate.
+Nicht Bestandteil dieser Phase sind Produktprofile, C01-Inhalt, öffentliche PDFs, Websiteänderungen, Formularfunktionen, Lead-Erfassung und Deployment.
+
+Phase 3.2.2.2.4 wurde nach separater Repositoryabnahme abgeschlossen. Phase 3.2.2.2.5 prüft ausschließlich das neutrale Produktionssystem technisch, visuell, sicherheitsbezogen und hinsichtlich Accessibility. Konkrete C01–C07-Produktdaten, Produkt-Gates und Veröffentlichungen bleiben bis zur Gesamtfreigabe in Phase 3.2.2.2.6 ausgeschlossen.
 
 Proof-PDFs, Bundles, Renderings und Reports bleiben ausschließlich unter `.tmp/phase-3-2-2-2-4/` unversioniert.
